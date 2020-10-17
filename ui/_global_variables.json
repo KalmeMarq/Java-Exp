@@ -1,0 +1,71 @@
+{
+  /**********************************
+    UI Customization
+  ***********************************/
+  "$show_item_stack_number_on_creative_mode": true, // Default: true
+
+  "$hide_hud_vignette": false, // Default: false
+
+  "$player_position_anchor": "top_right", // Default: "top_right"
+  "$player_position_offset": [-1, 1], // Default: [-1, 1]
+
+  "$chat_size": [326, 180], // Default: [326, 180]
+  "$chat_offset": [0, -40], // Default: [0, -40] | Recommend for touch: [0, 40]
+  "$chat_anchor": "bottom_left", // Default: "bottom_left" | Recommend for touch: "top_left"
+  "$chat_lines_spacing": 0, // Default: 0
+
+  "$scoreboard_ignore_numbers": false, // Default: false
+
+  "$show_enchantments_below_hud_item_name": false, // Default: false
+  "$show_dark_bg_below_hud_texts": false, // Default: false
+
+  /**********************************
+    Colors, Alpha, ...
+  ***********************************/
+  "$player_position_text_color": [1, 1, 1], // Default: [1, 1, 1]
+  "$player_position_text_alpha": 1.0, // Default: 1.0
+  "$player_position_bg_color": [0.3, 0.3, 0.3], // Default: [0.3, 0.3, 0.3]
+  "$player_position_bg_alpha": 0.4, // Default: 0.4
+
+  "$chat_bg_color": "black", // Default: "black"
+  "$chat_bg_alpha": 0.5, // Default: 0.5
+  "$chat_text_alpha": 1.0, // Default: 1.0
+
+  "$default_bossbar_name_text_color": "white", // Default: "white"
+  "$default_bar_color": "pink", // Default: "pink"
+  "$default_bar_style": "progress", // Default: "progress"
+
+  "$scoreboard_header_text_color": "white", // Default: "white"
+  "$scoreboard_players_text_color": "white", // Default: "white"
+  "$scoreboard_score_text_color": [1, 0.333, 0.333], // Default: [1, 0.333, 0.333]
+  "$scoreboard_header_bg_color": "black", // Default: "black"
+  "$scoreboard_list_bg_color": "black", // Default: "black"
+  "$scoreboard_header_bg_alpha": 0.4, // Default: 0.4
+  "$scoreboard_list_bg_alpha": 0.3, // Default: 0.3
+  "$scoreboard_header_text_alpha": 1.0, // Default: 1.0
+  "$scoreboard_list_text_alpha": 1.0, // Default: 1.0
+
+  "$title_hud_text_color": "white", // Default: "white"
+  "$subtitle_hud_text_color":"white", // Default: "white"
+  "$actionbar_text_color": "white", // Default: "white"
+  "$item_name_text_color": "white", // Default: "white"
+  "$hud_texts_dark_bg_color": "black", // Default: "black"
+
+  "$xp_number_text_color": [0.5, 1, 0.5], //Default: [0.5, 1, 0.5]
+  "$xp_number_border_color": "black", // Default: "black"
+
+  "$jukebox_text_color_1": [0.333, 1, 0.333], // (Green) | Default: [0.333, 1, 0.333]
+  "$jukebox_text_color_2": [1, 0.333, 0.333], // (Red) | Default: [1, 0.333, 0.333]
+  "$jukebox_text_color_3": [0.666, 0, 0.666], // (Dark Purple) | Default: [0.666, 0, 0.666]
+  "$jukebox_text_color_4": [0.333, 0.333, 1], // (Blue) | Default: [0.333, 0.333, 1]
+  "$jukebox_text_color_5": [0, 0.666, 0.666], // (Dark Aqua) | Default: [0, 0.666, 0.666]
+  "$jukebox_text_color_6": [0, 0.666, 0], // (Dark Green) | Default: [0, 0.666, 0]
+  "$jukebox_text_color_7": [1, 0.666, 0], // (Gold) | Default: [1, 0.666, 0]
+
+  /**********************************
+    Resolutions | Default: "256x"
+  ***********************************/
+  "$bars_res": "256x", // "assets/minecraft/textures/gui/bars.png"
+  "$icons_res": "256x", // "assets/minecraft/textures/gui/icons.png"
+  "$widgets_res": "256x" // "assets/minecraft/textures/gui/widgets.png"
+}

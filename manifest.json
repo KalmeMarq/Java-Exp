@@ -1,0 +1,18 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Java UI",
+    "description": "Credits: @FMarquesPTO",
+    "uuid": "267205cb-782d-4111-82d6-94a0e98c86bb",
+    "version": [3, 0, 0],
+    "min_engine_version": [1, 14, 0]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "description": "Credits: @FMarquesPTO",
+      "uuid": "a5c43a4e-2a78-43d1-9d6a-5e62b49f33f8",
+      "version": [3, 0, 0]
+    }
+  ]
+}

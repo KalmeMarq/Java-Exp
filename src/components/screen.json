@@ -1,0 +1,11 @@
+{
+  "namespace": "screen",
+
+  "res_txr": {
+    "type": "image",
+    "uv": "$uv",
+    "uv_size": "$uv_sz",
+    "$uv|default": [0, 0],
+    "$uv_sz|default": [0, 0]
+  }
+}

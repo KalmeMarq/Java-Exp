@@ -1,0 +1,7 @@
+{
+  "ui_defs": [
+    "src/components/screen.json",
+    "src/screens/ingame_hud.json",
+    "src/screens/scoreboard.json"
+  ]
+}
