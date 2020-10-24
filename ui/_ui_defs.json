@@ -1,7 +1,37 @@
 {
   "ui_defs": [
+    /* Components */
+    "src/components/button.json",
+    "src/components/container.json",
+    "src/components/scrollpane.json",
     "src/components/screen.json",
+    "src/components/tooltip.json",
+    /* Screens */
+    "src/screens/death_screen.json",
+    "src/screens/edit_sign.json",
     "src/screens/ingame_hud.json",
-    "src/screens/scoreboard.json"
+    "src/screens/main_menu.json",
+    "src/screens/scoreboard.json",
+    "src/screens/sleep_in_bed.json",
+    /* Screens - Containers */
+    "src/screens/containers/anvil.json",
+    "src/screens/containers/beacon.json",
+    "src/screens/containers/brewing_stand.json",
+    "src/screens/containers/cartography_table.json",
+    "src/screens/containers/chest.json",
+    "src/screens/containers/compound_creator.json",
+    "src/screens/containers/dispenser.json",
+    "src/screens/containers/enchanting_table.json",
+    "src/screens/containers/furnace.json",
+    "src/screens/containers/hopper.json",
+    "src/screens/containers/horse.json",
+    "src/screens/containers/grindstone.json",
+    "src/screens/containers/lab_table.json",
+    "src/screens/containers/loom.json",
+    "src/screens/containers/material_reducer.json",
+    "src/screens/containers/merchant2.json",
+    "src/screens/containers/shulker_box.json",
+    "src/screens/containers/smithing_table.json",
+    "src/screens/containers/stonecutter.json"
   ]
 }

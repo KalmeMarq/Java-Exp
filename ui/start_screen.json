@@ -1,0 +1,23 @@
+{
+  "start_screen@screen_jexp.screen": {
+    "button_mappings": [
+      { "ignored": "(not $can_quit)",
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      { "ignored": "(not $nx_os)",
+        "from_button_id": "button.controller_select",
+        "to_button_id": "button.menu_offline",
+        "mapping_type": "global"
+      }/* ,
+      { "ignored": "(not $can_swap_vr_mode)",
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.menu_swap_vr_mode",
+        "mapping_type": "global"
+      } */
+    ],
+    "$scrn_cont": "main_menu_jexp.screen_content",
+    "$scrn_bg": "main_menu_jexp.panorama_overlay"
+  }
+}

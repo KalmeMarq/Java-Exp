@@ -1,0 +1,18 @@
+{
+  "ui.button.click": {
+    "category": "ui",
+    "sounds": [ "sounds/random/click_stereo" ]
+  },
+  "ui.stonecutter.select_recipe" : {
+    "category": "ui",
+    "sounds": [ "sounds/random/click" ]
+  },
+  "block.enchantment_table.use": {
+    "category": "ui",
+    "sounds": [
+      "sounds/block/enchantment_table/enchant1",
+      "sounds/block/enchantment_table/enchant2",
+      "sounds/block/enchantment_table/enchant3"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "namespace": "labtable",
+
+  "lab_table@screen_jexp.inventory_screen": {
+    "$scrn_cont": "lab_table_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.screen_background"
+  }
+}

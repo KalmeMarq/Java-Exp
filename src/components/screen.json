@@ -1,11 +1,314 @@
+/*******************************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+********************************************/
 {
-  "namespace": "screen",
+  "namespace": "screen_jexp",
 
+  "empty_panel": { "type": "panel" },
+
+  "stack_item": {
+    "type": "stack_panel",
+    "size": [310, 20],
+    "orientation": "horizontal",
+    "$lt|default": "screen_jexp.hfill",
+    "$rt|default": "screen_jexp.hfill",
+    "controls": [
+      { "left@$lt": {} },
+      { "fill@screen_jexp.hfill": {} },
+      { "right@$rt": {} }
+    ]
+  },
+
+  "focus_border_img": {
+    "type": "image",
+    "texture": "src/assets/border",
+    "size": ["100%", "100%"],
+    "layer": 20,
+    "bindings": [
+      { "binding_name": "#is_using_gamepad",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  /***********************************
+  * Common spaces
+  ***********************************/
+
+  /* Vertical */
+  "v2px@screen_jexp.empty_panel": { "size": [0, 2] },
+  "v4px@screen_jexp.empty_panel": { "size": [0, 4] },
+  "v10px@screen_jexp.empty_panel": { "size": [0, 10] },
+  "vfill@screen_jexp.empty_panel": { "size": [0, "fill"] },
+
+  /* Horizontal */
+  "h2px@screen_jexp.empty_panel": { "size": [2, 0] },
+  "h4px@screen_jexp.empty_panel": { "size": [4, 0] },
+  "h10px@screen_jexp.empty_panel": { "size": [10, 0] },
+  "hfill@screen_jexp.empty_panel": { "size": ["fill", 0] },
+
+  /***********************************
+  * Common title
+  ***********************************/
+  "title": {
+    "type": "label",
+    "shadow": true,
+    "color": "$title_color",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [0, 12],
+    "layer": 12
+  },
+
+  /***********************************
+  * Common Texture using resolution vars
+  ***********************************/
   "res_txr": {
     "type": "image",
     "uv": "$uv",
     "uv_size": "$uv_sz",
     "$uv|default": [0, 0],
-    "$uv_sz|default": [0, 0]
+    "$uv_sz|default": [0, 0],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+
+  /***********************************
+  * Resizable texture (Horizontally only)
+  ***********************************/
+  "reszg_txr": {
+    "type": "panel",
+    "size": ["100% + 2px", 20],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$txr|default": "",
+    "controls": [
+      { "left_panel": {
+          "type": "panel",
+          "size": ["50% + 0.25px", 21],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "clips_children": true,
+          "controls": [
+            { "left@screen_jexp.res_txr": {
+                "texture": "$txr",
+                "offset": [1, 0],
+                "size": "$side_sz",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle"
+              }
+            }
+          ]
+        }
+      },
+      { "right_panel": {
+          "type": "panel",
+          "size": ["50%", 21],
+          "clips_children": true,
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "controls": [
+            { "right@screen_jexp.res_txr": {
+                "texture": "$txr",
+                "offset": [-1, 0],
+                "size": "$side_sz",
+                "anchor_from": "right_middle",
+                "anchor_to": "right_middle"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  /***********************************
+  * Common get single item from a grid
+  ***********************************/
+  "single_grid_item": {
+    "$item_tplt|default": "screen_jexp.empty_panel",
+    "$item_idx|default": 0,
+    "type": "stack_panel",
+    "size": ["100%", "0px"],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      { "item@$item_tplt": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "collection_index": "$item_idx"
+        }
+      }
+    ]
+  },
+
+  /***********************************
+  * Screen Backgrounds
+  ***********************************/
+  "screen_background": {
+    "ignored": "$is_holographic",
+    "type": "image",
+    "texture": "src/assets/white",
+    "color": "$screen_bg_color",
+    "size": ["100%", "100%"],
+    "alpha": "$screen_bg_alpha",
+    "layer": 0
+  },
+
+  "dirt_background": {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "layer": -1,
+    "ignored": "$is_holographic",
+    "controls": [
+      { "overlay@screen_jexp.screen_background": {
+          "color": "black",
+          "alpha": 0.75,
+          "layer": 1
+        }
+      },
+      { "dirt@screen_jexp.dirt": {} }
+    ]
+  },
+
+  "dirt": {
+    "type": "image",
+    "texture": "assets/minecraft/textures/gui/options_background",
+    "tiled_scale": "$tiled",
+    "tiled": true,
+    "size": ["100%", "100%"],
+    "layer": 0,
+    "$tiled": [2, 2],
+    "variables": [
+      { "requires": "($options_background_res = 512)", "$tiled": [1, 1] },
+      { "requires": "($options_background_res = 1024)", "$tiled": [0.5, 0.5] },
+      { "requires": "($options_background_res = 2048)", "$tiled": [0.25, 0.25] },
+      { "requires": "($options_background_res = 4096)", "$tiled": [0.125, 0.125] }
+    ]
+  },
+
+  /***********************************
+  * Sreen base and Inventory screen base
+  ***********************************/
+  "screen": {
+    "type": "screen",
+    "vr_mode": "$is_holographic",
+    "$scrn_cont|default": "screen_jexp.empty_panel",
+    "$scrn_bg|default": "screen_jexp.empty_panel",
+    "$popup_factory|default": "screen_jexp.popup_dialog_factory",
+    "controls": [
+      { "variables_button_mappings_and_controls": {
+          "type": "input_panel",
+          "hover_enabled": false,
+          "prevent_touch_input": false,
+          "ttsSectionContainer": true,
+          "button_mappings": [
+            { "from_button_id": "button.menu_up",
+              "to_button_id": "button.menu_up",
+              "mapping_type": "global",
+              "scope": "view"
+            },
+            { "from_button_id": "button.menu_down",
+              "to_button_id": "button.menu_down",
+              "mapping_type": "global",
+              "scope": "view"
+            },
+            { "from_button_id": "button.menu_left",
+              "to_button_id": "button.menu_left",
+              "mapping_type": "global",
+              "scope": "view"
+            },
+            { "from_button_id": "button.menu_right",
+              "to_button_id": "button.menu_right",
+              "mapping_type": "global",
+              "scope": "view"
+            }
+          ],
+          "controls": [
+            { "scrn_bg@$scrn_bg": { "layer": 0 } },
+            { "scrn_cont@$scrn_cont": { "layer": 10 } },
+            { "popup_dialog_factory@$popup_factory": { "layer": 5 } }
+          ]
+        }
+      }
+    ]
+  },
+
+  "inventory_screen@screen_jexp.screen": {
+    "cache_screen": true,
+    "$gamepad_cursor|default": true,
+    "gamepad_cursor": "$gamepad_cursor",
+    "button_mappings": [
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_inventory_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_up",
+        "to_button_id": "button.menu_up",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      { "from_button_id": "button.menu_down",
+        "to_button_id": "button.menu_down", 
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      { "from_button_id": "button.menu_left",
+        "to_button_id": "button.menu_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      { "from_button_id": "button.menu_right",
+        "to_button_id": "button.menu_right",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.cursor_drop_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.cursor_drop_one",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.cursor_drop_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.controller_select",
+        "to_button_id": "button.cursor_drop_one",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.cursor_drop_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.controller_secondary_select_left",
+        "to_button_id": "button.focus_left",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.controller_secondary_select_right",
+        "to_button_id": "button.focus_right",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.chat",
+        "to_button_id": "button.chat",
+        "mapping_type": "global"
+      }
+    ]
+  },
+
+  "popup_dialog_factory": {
+    "type": "factory",
+    "control_ids": {
+      "modal_dialog_popup": "@popup_dialog.modal_dialog_popup",
+      "storage_dependency_popup": "@storage_management_popup.storage_dependency_modal",
+      "storage_sharing_popup": "@storage_management_popup.sharing_popup_content"
+    }
   }
 }

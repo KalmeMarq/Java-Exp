@@ -1,0 +1,111 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "compound_creator_jexp",
+
+  "screen_content@container_jexp.container_panel": {
+    "$container_size": [176, 184],
+    "$container_bg": "compound_creator_jexp.compound_creator_bg",
+    "$container_cont": "compound_creator_jexp.content_panel"
+  },
+
+  "compound_creator_bg@screen_jexp.res_txr": {
+    "texture": "src/assets/container/compound_creator",
+    "size": [176, 184],
+    "$uv_sz": [176, 184],
+    "variables": [
+      { "requires": "($compound_creator_res = 512x)", "$uv_sz": [352, 368] },
+      { "requires": "($compound_creator_res = 1024x)", "$uv_sz": [704, 736] },
+      { "requires": "($compound_creator_res = 2048x)", "$uv_sz": [1408, 1472] },
+      { "requires": "($compound_creator_res = 4096x)", "$uv_sz": [2816, 2944] }
+    ]
+  },
+
+  "content_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "title@container_jexp.title": {
+          "text": "compoundcreator.title",
+          "offset": [0, 5],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle"
+        }
+      },
+      { "input@compound_creator_jexp.input_grid": {} },
+      { "output@compound_creator_jexp.output_slot": {} },
+      { "inventory@container_jexp.player_inventory": {} },
+      { "hotbar@container_jexp.player_hotbar": {} }
+    ]
+  },
+
+  "input_grid": {
+    "type": "grid",
+    "size": [54, 54],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [49, 25],
+    "grid_dimensions": [3, 3],
+    "grid_item_template": "container_jexp.slot",
+    "$item_collt_nm": "compcreate_input",
+    "collection_name": "compcreate_input"
+  },
+
+  "output_slot@container_jexp.slot": {
+    "$item_collt_nm": "compcreate_output",
+    "$btn_ref": "compound_creator_jexp.output_slot_btn",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [132, 43]
+  },
+
+  "output_slot_btn@container_jexp.slot_prototype_btn": {
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.output_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.output_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.output_take_one_place_one",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.controller_select",
+        "to_button_id": "button.output_take_one_place_one",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_auto_place",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_inventory_drop",
+        "to_button_id": "button.drop_one",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_inventory_drop_all",
+        "to_button_id": "button.drop_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.output_coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.output_coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      { "to_button_id": "button.container_slot_hovered",
+        "mapping_type": "pressed"
+      }
+    ]
+  }
+}

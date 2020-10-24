@@ -1,0 +1,66 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "edit_sign_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "offset": ["50% - 50%x", 40], "text": "sign.edit" } },
+      { "input_eating_panel": {
+          "type": "input_panel",
+          "layer": 2,
+          "size": ["100%c", "100%c"],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [0, 102],
+          "focus_enabled": false,
+          "$virtual_keyboard_buffer_control": "text_edit",
+          "controls": [ { "text_edit@edit_sign_jexp.sign_text_multiline": {} } ]
+        }
+      },
+      { "sign_bg@edit_sign_jexp.sign_background": {} },
+      { "exit@button_jexp.button": {
+          "offset": ["50% - 100px", "25% + 120px"],
+          "$prsd_btn_nm": "button.menu_exit",
+          "$btn_text": "gui.done"
+        }
+      }
+    ]
+  },
+
+  "sign_text_multiline@common.multiline_text_edit_box": {
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "size": [93.75, 42],
+    "$text_alignment": "center",
+    "constrain_to_rect": false,
+    "selected": true,
+    "can_be_deselected": false,
+    "focus_enabled": true,
+    "$text_box_name": "#sign_text_multi",
+    "max_length": 32500,
+    "$text_color_binding_type": "global",
+    "$text_background_default": "",
+    "$text_background_hover": ""
+  },
+
+  "sign_background": {
+    "type": "image",
+    "texture": "$sign_texture",
+    "size": [93.75, 47],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [0, 100]
+    /* "$sign_texture_location|default": "assets/fmarquespto/textures/sign/sign_oak",
+    "variables": [
+      { "requires": "($sign_texture = 'textures/ui/sign_acacia')", "$sign_texture_location": "assets/fmarquespto/textures/sign/sign_acacia" },
+      { "requires": "($sign_texture = 'textures/ui/sign_spruce')", "$sign_texture_location": "assets/fmarquespto/textures/sign/sign_spruce" },
+      { "requires": "($sign_texture = 'textures/ui/sign_birch')", "$sign_texture_location": "assets/fmarquespto/textures/sign/sign_birch" },
+      { "requires": "($sign_texture = 'textures/ui/sign_jungle')", "$sign_texture_location": "assets/fmarquespto/textures/sign/sign_jungle" },
+      { "requires": "($sign_texture = 'textures/ui/sign_darkoak')", "$sign_texture_location": "assets/fmarquespto/textures/sign/sign_darkoak" }
+    ] */
+  }
+}

@@ -1,0 +1,320 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "stonecutter_jexp",
+
+  "screen_content@container_jexp.container_panel": {
+    "$container_bg": "stonecutter_jexp.stonecutter_bg",
+    "$container_cont": "stonecutter_jexp.content_panel"
+  },
+
+  "stonecutter_bg@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/stonecutter",
+    "size": [176, 166],
+    "$uv_sz": [176, 166],
+    "variables": [
+      { "requires": "($stonecutter_res = 512x)", "$uv_sz": [352, 332] },
+      { "requires": "($stonecutter_res = 1024x)", "$uv_sz": [704, 664] },
+      { "requires": "($stonecutter_res = 2048x)", "$uv_sz": [1408, 1328] },
+      { "requires": "($stonecutter_res = 4096x)", "$uv_sz": [2816, 2656] }
+    ]
+  },
+
+  "content_panel": {
+    "type": "panel",
+    "$container_title": "container.stonecutter",
+    "controls": [
+      { "title@container_jexp.title": { "offset": [7, 4] } },
+      { "input@stonecutter_jexp.input_slot": {} },
+      { "scroll@stonecutter_jexp.stonecutter_scroll": {} },
+      { "lkd_scrollbox@stonecutter_jexp.lkd_scrollbox": { "layer": 1 } },
+      { "result@stonecutter_jexp.result_slot": {} },
+      { "inventory@container_jexp.player_inventory": {} },
+      { "hotbar@container_jexp.player_hotbar": {} }
+    ]
+  },
+
+  "stonecutter_scroll@container_jexp.container_scrollpane": {
+    "size": [79, 54],
+    "offset": [52, 15],
+    "$scrollbar_size": [12, "100%"],
+    "$scrollbar_offset": ["50% + 34px", 0],
+    "$scroll_box_image": "stonecutter_jexp.scroll_box",
+    "$scroll_track_image": "stonecutter_jexp.scroll_track",
+    "$scroll_cont": "scroll@stonecutter_jexp.scroll_grid_panel",
+    "$collt_nm": "stones"
+  }, 
+  
+  "lkd_scrollbox@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/stonecutter",
+    "size": [12, 15],
+    "offset": [119, 15],
+    "$uv": [188, 0],
+    "$uv_sz": [12, 15],
+    "variables": [
+      { "requires": "($stonecutter_res = 512x)", "$uv": [376, 0], "$uv_sz": [24, 30] },
+      { "requires": "($stonecutter_res = 1024x)", "$uv": [752, 0], "$uv_sz": [48, 60] },
+      { "requires": "($stonecutter_res = 2048x)", "$uv": [1504, 0], "$uv_sz": [96, 120] },
+      { "requires": "($stonecutter_res = 4096x)", "$uv": [3008, 0], "$uv_sz": [192, 240] }
+    ]
+  },
+
+  "stonecutter_slot@container_jexp.slot": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+
+  "input_slot@stonecutter_jexp.stonecutter_slot": {
+    "offset": [19, 32],
+    "$item_collt_nm": "stonecutter_input_items"
+  },
+
+  "result_slot@stonecutter_jexp.stonecutter_slot": {
+    "offset": [142, 32],
+    "$item_collt_nm": "stonecutter_result_items",
+    "$btn_ref": "stonecutter_jexp.result_slot_btn"
+  },
+
+  "result_slot_btn@container_jexp.no_coalesce_slot_btn": {
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.stonecutter_result_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.stonecutter_result_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.stonecutter_result_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.controller_select",
+        "to_button_id": "button.stonecutter_result_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_auto_place",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_inventory_drop",
+        "to_button_id": "button.drop_one",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_inventory_drop_all",
+        "to_button_id": "button.drop_all",
+        "mapping_type": "pressed"
+      },
+      { "to_button_id": "button.container_slot_hovered",
+        "mapping_type": "pressed"
+      }
+    ]
+  },
+
+  /* Scroll */
+  "slot_bg@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/stonecutter",
+    "size": [16, 18],
+    "layer": 1,
+    "$uv": [0, 166],
+    "$uv_sz": [16, 18],
+    "variables":[
+      { "requires": "($stonecutter_res = 512x)", "$uv": [0, 332], "$uv_sz": [32, 36] },
+      { "requires": "($stonecutter_res = 1024x)", "$uv": [0, 664], "$uv_sz": [64, 72] },
+      { "requires": "($stonecutter_res = 2048x)", "$uv": [0, 1328], "$uv_sz": [128, 144] },
+      { "requires": "($stonecutter_res = 4096x)", "$uv": [0, 2656], "$uv_sz": [256, 288] }
+    ]
+  },
+
+  "hover_slot_bg@stonecutter_jexp.slot_bg": {
+    "$uv": [0, 202],
+    "variables": [
+      { "requires": "($stonecutter_res = 512x)", "$uv": [0, 404], "$uv_sz": [32, 36] },
+      { "requires": "($stonecutter_res = 1024x)", "$uv": [0, 808], "$uv_sz": [64, 72] },
+      { "requires": "($stonecutter_res = 2048x)", "$uv": [0, 1616], "$uv_sz": [128, 144] },
+      { "requires": "($stonecutter_res = 4096x)", "$uv": [0, 3232], "$uv_sz": [256, 288] }
+    ]
+  },
+
+  "selected_slot_bg@stonecutter_jexp.slot_bg": {
+    "$uv": [0, 184],
+    "variables": [
+      { "requires": "($stonecutter_res = 512x)", "$uv": [0, 368], "$uv_sz": [32, 36] },
+      { "requires": "($stonecutter_res = 1024x)", "$uv": [0, 736], "$uv_sz": [64, 72] },
+      { "requires": "($stonecutter_res = 2048x)", "$uv": [0, 1472], "$uv_sz": [128, 144] },
+      { "requires": "($stonecutter_res = 4096x)", "$uv": [0, 2944], "$uv_sz": [256, 288] }
+    ]
+  },
+
+  "scroll_grid_panel@common.root_panel": {
+    "type": "input_panel",
+    "size": ["100%", "100%c"],
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "controls": [
+      { "grid": {
+          "type": "grid",
+          "size": ["100% - 15px", "default"],
+          "anchor_to": "top_left",
+          "anchor_from": "top_left",
+          "collection_name": "$collt_nm",
+          "$bdg_cond|default": "visible",
+          "grid_rescaling_type": "horizontal",
+          "grid_item_template": "stonecutter_jexp.stone_btn",
+          "bindings": [
+            { "binding_name": "#stone_selector_total_items",
+              "binding_name_override": "#maximum_grid_items",
+              "binding_condition": "$bdg_cond",
+              "binding_type": "collection",
+              "binding_collection_name": "$collt_nm"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "stone_btn": {
+    "type": "input_panel",
+    "size": [16, 18],
+    "layer": 2,
+    "controls": [
+      { "bg@stonecutter_jexp.slot_bgs": { "layer": 1 } },
+      { "banner_pattern@stonecutter_jexp.item_panel": { "layer": 9 } },
+      { "item_btn@stonecutter_jexp.stone_slot_btn": { "layer": 2 } }
+    ]
+  },
+
+  "slot_bgs": {
+    "type": "panel",
+    "controls": [
+      { "default@stonecutter_jexp.slot_default": {} },
+      { "selected@stonecutter_jexp.slot_selected": { "layer": 4 } }
+    ]
+  },
+
+  "slot_default@stonecutter_jexp.slot_bg": {
+    "bindings": [
+      { "binding_type": "collection",
+        "binding_name": "(#stone_cell_background_texture = 'textures/ui/cell_image_normal')",
+        "binding_collection_name": "$collt_nm",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "slot_selected@stonecutter_jexp.selected_slot_bg": {
+    "bindings": [
+      { "binding_type": "collection",
+        "binding_name": "(#stone_cell_background_texture = 'textures/ui/cell_image_invert')",
+        "binding_collection_name": "$collt_nm",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "item_panel": {
+    "type": "panel",
+    "size": [26, 26],
+    "$stack_count_required|default": true,
+    "$item_collt_nm": "$collt_nm",
+    "controls": [
+      { "item_renderer@container_jexp.item_renderer": {
+          "size": [16, 16],
+          "layer": 1,
+          "bindings": [
+            { "binding_name": "#item_id_aux",
+              "binding_condition": "visible",
+              "binding_type": "collection",
+              "binding_collection_name": "$collt_nm"
+            }
+          ],
+          "controls": [
+            { "stack_count@container_jexp.stack_count_label": {
+                "layer": 2,
+                "bindings": [
+                  { "binding_name": "#item_stack_count",
+                    "binding_name_override": "#inventory_stack_count",
+                    "binding_condition": "visible",
+                    "binding_type": "collection",
+                    "binding_collection_name": "$collt_nm"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "stone_slot_btn@stonecutter.stone_slot_button": {
+    "sound_name": "ui.stonecutter.select_recipe",
+    "$collection_name": "$collt_nm",
+    "controls": [ { "hover@slot_highlight": {} } ]
+  },
+
+  "slot_highlight": {
+    "type": "panel",
+    "layer": 2,
+    "controls": [
+      { "bg@stonecutter_jexp.hover_slot_bg": {
+          "bindings": [
+            { "binding_type": "collection",
+              "binding_name": "(not (#stone_cell_background_texture = 'textures/ui/cell_image_invert'))",
+              "binding_collection_name": "$collt_nm",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "focus@screen_jexp.focus_border_img": {} }
+    ]
+  },
+
+  "stonecutter_scroll_box@screen_jexp.res_txr": { "texture": "assets/minecraft/textures/gui/container/stonecutter" },
+
+  "scroll_box@container_jexp.scroll_box": {
+    "$scrollbox_base": "stonecutter_jexp.stonecutter_scroll_box",
+    "$top_vars": [
+      { "requires": "($stonecutter_res = 256x)", "$uv": [176, 0], "$uv_sz": [12, 2] },
+      { "requires": "($stonecutter_res = 512x)", "$uv": [352, 0], "$uv_sz": [24, 4] },
+      { "requires": "($stonecutter_res = 1024x)", "$uv": [704, 0], "$uv_sz": [48, 8] },
+      { "requires": "($stonecutter_res = 2048x)", "$uv": [1408, 0], "$uv_sz": [96, 16] },
+      { "requires": "($stonecutter_res = 4096x)", "$uv": [2816, 0], "$uv_sz": [192, 32] }
+    ],
+    "$middle_vars": [
+      { "requires": "($stonecutter_res = 256x)", "$uv": [176, 2], "$uv_sz": [12, 2] },
+      { "requires": "($stonecutter_res = 512x)", "$uv": [352, 4], "$uv_sz": [24, 4] },
+      { "requires": "($stonecutter_res = 1024x)", "$uv": [704, 8], "$uv_sz": [48, 8] },
+      { "requires": "($stonecutter_res = 2048x)", "$uv": [1408, 16], "$uv_sz": [96, 16] },
+      { "requires": "($stonecutter_res = 4096x)", "$uv": [2816, 32], "$uv_sz": [192, 32] }
+    ],
+    "$bottom_vars": [
+      { "requires": "($stonecutter_res = 256x)", "$uv": [176, 13], "$uv_sz": [12, 2] },
+      { "requires": "($stonecutter_res = 512x)", "$uv": [352, 26], "$uv_sz": [24, 4] },
+      { "requires": "($stonecutter_res = 1024x)", "$uv": [704, 52], "$uv_sz": [48, 8] },
+      { "requires": "($stonecutter_res = 2048x)", "$uv": [1408, 144], "$uv_sz": [96, 16] },
+      { "requires": "($stonecutter_res = 4096x)", "$uv": [2816, 288], "$uv_sz": [192, 32] }
+    ]
+  },
+
+  "scroll_track@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/stonecutter",
+    "size": [12, 54],
+    "$uv": [119, 15],
+    "$uv_sz": [12, 54],
+    "variables": [
+      { "requires": "($stonecutter_res = 512x)", "$uv": [238, 30], "$uv_sz": [24, 108] },
+      { "requires": "($stonecutter_res = 1024x)", "$uv": [476, 60], "$uv_sz": [48, 216] },
+      { "requires": "($stonecutter_res = 2048x)", "$uv": [952, 120], "$uv_sz": [96, 432] },
+      { "requires": "($stonecutter_res = 4096x)", "$uv": [1104, 240], "$uv_sz": [192, 864] }
+    ]
+  }
+}

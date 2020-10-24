@@ -1,0 +1,92 @@
+/**************************
+* (c) Copyright 2020 @FMarquesPTO.
+* All rights reserved.
+***************************/
+{
+  "namespace": "option_toggle",
+
+  "option_toggle": {
+    "type": "panel",
+    "size": [150, 20],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$tgl_text|default": "",
+    "$enabled|default": true,
+    "controls": [ { "ctrl@option_toggle.tgl_ctrl": {} } ],
+    "enabled": "$enabled",
+    "$opt_enabled_bdg_type|default": "global",
+    "variables": [
+      { "requires": "(not $opt_enabled_bdg_nm or not $enabled)",
+        "$opt_enabled_bdg_nm": "#not_data_bound",
+        "$opt_enabled_bdg_type": "none"
+      }
+    ],
+    "bindings": [
+      { "binding_type": "$opt_enabled_bdg_type",
+        "binding_name": "$opt_enabled_bdg_nm",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "tgl_ctrl@toggle.toggle": {
+    "$opt_bdg_nm|default": "('#' + $tgl_nm)",
+    "$tgl_state_bdg_nm|default": "($opt_bdg_nm)",
+    "$tgl_enabled_bdg_nm|default": "$opt_enabled_bdg_nm",
+    "$tgl_enabled_bdg_type|default": "global",
+    "$binding_type": "global",
+    "$binding_condition": "once",
+    "enabled": "$enabled",
+    "$enable_directional_toggling": false,
+    "$tgl_cont|default": "option_toggle.tgl_text",
+    "$tgl_unchecked_text|default": "options.off",
+    "$tgl_checked_text|default": "options.on",
+    "variables": [
+      {
+        "requires": "(not $opt_enabled_bdg_nm or not $enabled)",
+        "$tgl_enabled_bdg_nm": "#not_data_bound",
+        "$tgl_enabled_bdg_type": "none"
+      }
+    ]
+  },
+
+  "tgl_text": {
+    "$show_comma|default": true,
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", 10],
+    "offset": [1, 0],
+    "controls": [
+      { "tgl_label@button.button_label": {
+          "$tgl_text_bdgs|default": [],
+          "text": "$tgl_text",
+          "bindings": "$tgl_text_bdgs",
+          "visible": "$show_comma"
+        }
+      },
+      { "space": {
+          "type": "label",
+          "text": ": ",
+          "color": "$text_color",
+          "visible": "$show_comma",
+          "shadow": true,
+          "layer": 10
+        }
+      },
+      { "tgl_state@button.button_label": {
+         "$tgl_state_text_bdgs|default": [],
+          "text": "$tgl_state_text",
+          "bindings": "$tgl_state_text_bdgs",
+          "variables": [
+            { "requires": "($tgl_state = unchecked or $tgl_state = uncheckedhov or $tgl_state = uncheckedlkd)",
+              "$tgl_state_text|default": "$tgl_unchecked_text"
+            },
+            { "requires": "($tgl_state = checked or $tgl_state = checkedhov or $tgl_state = checkedlkd)",
+              "$tgl_state_text|default": "$tgl_checked_text"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

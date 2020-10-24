@@ -1,0 +1,228 @@
+/**************************
+* (c) Copyright 2020 @FMarquesPTO.
+* All rights reserved.
+* &comp
+***************************/
+{
+  "namespace": "button_jexp",
+  
+  "button_base": {
+    "type": "button",
+    /* Focus */
+    "$focus_id|default": "",
+    "$focus_ovrd_down|default": "",
+    "$focus_ovrd_up|default": "",
+    "$focus_ovrd_left|default": "",
+    "$focus_ovrd_right|default": "",
+    "focus_identifier": "$focus_id",
+    "focus_change_down": "$focus_ovrd_down",
+    "focus_change_up": "$focus_ovrd_up",
+    "focus_change_left": "$focus_ovrd_left",
+    "focus_change_right": "$focus_ovrd_right",
+    "focus_enabled": true,
+    "focus_magnet_enabled": true,
+    "$btn_focus_prcdc|default": 0,
+    "default_focus_precedence": "$btn_focus_prcdc",
+    /* TTS */
+    "$btn_tts_nm|default": "accessibility.button_jexp.tts.title",
+    "$btn_tts_hdr|default": "",
+    "$tts_sect_hdr|default": "",
+    "$btn_tts_ctrl_type_order_pri|default": 100,
+    "$btn_tts_idx_pri|default": 150,
+    "tts_name": "$btn_tts_nm",
+    "tts_control_header": "$btn_tts_hdr",
+    "tts_section_header": "$tts_sect_hdr",
+    "tts_control_type_order_priority": "$btn_tts_ctrl_type_order_pri",
+    "tts_index_priority": "$btn_tts_idx_pri",
+    /* Click Sound */
+    "sound_name": "random.click",
+    "sound_volume": 1.0,
+    "sound_pitch": 1.0,
+    /* States Control */
+    "locked_control": "",
+    "default_control": "default",
+    "hover_control": "hover",
+    "pressed_control": "pressed",
+    /* Mappings */
+    "$prsd_btn_nm|default": "",
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "$prsd_btn_nm",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "$prsd_btn_nm",
+        "mapping_type": "focused"
+      }
+    ],
+    /* Bindings */
+    "$btn_bdgs|default": [],
+    "bindings": "$btn_bdgs",
+    "layer": 1   
+  },
+
+  "button@button_jexp.button_base": {
+    "$btn_state_panel|default": "button_jexp.button_state",
+    "$btn_cont|default": "button_label",
+    "$btn_text|default": "",
+    /* Background */
+    "$dflt_btn_bg|default": "button_jexp.button_default",
+    "$hov_btn_bg|default": "button_jexp.button_hover",
+    "$lkd_btn_bg|default": "button_jexp.button_locked",
+    /* Text Color */
+    "$dflt_btn_color|default": "$btn_dflt_color",
+    "$hov_btn_color|default": "$btn_hov_color",
+    "$lkd_btn_color|default": "$btn_lkd_color",
+    "size": [200, 20],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "locked_control": "locked",
+    "controls": [
+      { "default@$btn_state_panel": {
+          "$btn_state": "dflt",
+          "$btn_bg|default": "$dflt_btn_bg",
+          "$text_color|default": "$dflt_btn_color",
+          "layer": 2
+        }
+      },
+      { "hover@$btn_state_panel": {
+          "$btn_state": "hov",
+          "$btn_bg|default": "$hov_btn_bg",
+          "$text_color|default": "$hov_btn_color",
+          "layer": 3
+        }
+      },
+      { "pressed@$btn_state_panel": {
+          "$btn_state": "hov",
+          "$btn_bg|default": "$hov_btn_bg",
+          "$text_color|default": "$hov_btn_color",
+          "layer": 4
+        }
+      },
+      { "locked@$btn_state_panel": {
+          "$btn_state": "lkd",
+          "$btn_bg|default": "$lkd_btn_bg",
+          "$text_color|default": "$lkd_btn_color",
+          "layer": 1
+        }
+      }
+    ],
+    "$btn_text_bdg_type|default": "none",
+    "$btn_bdg_cond|default": "none",
+    "$btn_text_grid_cllctn_nm|default": "",
+    "$btn_text_bdgs|default": [
+      { "binding_type": "$btn_text_bdg_type",
+        "binding_condition": "$btn_bdg_cond",
+        "binding_collection_name": "$btn_text_grid_cllctn_nm",
+        "binding_name": "$btn_text",
+        "binding_name_override": "$btn_text"
+      }
+    ]
+  },
+
+  "button_link@button": {
+    "$prsd_btn_nm": "button_jexp.menu_open_uri",
+    "$link|default": "",
+    "property_bag": { "#hyperlink": "$link" }
+  },
+
+  "button_action@button_jexp.button": {
+    "$prsd_btn_nm|default": "unset_button_name",
+    "$btn_text|default": "unset $btn_text"
+  },
+
+  "button_action_link@button_action": {
+    "$prsd_btn_nm": "button_jexp.menu_open_uri",
+    "$link|default": "unset #hyperlink in property_bag",
+    "property_bag": { "#hyperlink": "$link" }
+  },
+
+  "button_state": {
+    "type": "panel",
+    "$btn_state|default": "",
+    "controls": [
+      { "$btn_bg@$btn_bg": {} },
+      { "inner_content": {
+          "type": "panel",
+          "size": ["100%", "100%"],
+          "layer": 2,
+          "controls": [ { "$btn_cont@$btn_cont": {} } ]
+        }
+      }
+    ]
+  },
+
+  "width_fitting_button_state": {
+    "type": "panel",
+    "$btn_state|default": "",
+    "size": ["100%cm - 2px", "100%"],
+    "controls": [
+      { "$btn_bg@$btn_bg": { "size": ["100%sm + 12px + 2px", 20] } },
+      { "inner_content": {
+          "type": "panel",
+          "size": ["100%c", "100%"],
+          "layer": 2,
+          "controls": [ { "$btn_cont@$btn_cont": {} } ]
+        }
+      }
+    ]
+  },
+
+  "button_default@screen_jexp.reszg_txr": {
+    "$side_sz": [201, "20px"],
+    "$txr": "assets/minecraft/textures/gui/widgets",
+    "$uv": [0, 66],
+    "$uv_sz": [200, 20],
+    "variables": [
+      { "requires": "($widgets_res = 512)", "$uv": [0, 132], "$uv_sz": [400, 40] },
+      { "requires": "($widgets_res = 1024)", "$uv": [0, 264], "$uv_sz": [800, 80] },
+      { "requires": "($widgets_res = 2048)", "$uv": [0, 528], "$uv_sz": [1600, 160] },
+      { "requires": "($widgets_res = 4096)", "$uv": [0, 1056], "$uv_sz": [3200, 320] }
+    ]
+  },
+
+  "button_hover@button_jexp.button_default": {
+    "$uv": [0, 86],
+    "variables": [
+      { "requires": "($widgets_res = 512)", "$uv": [0, 172], "$uv_sz": [400, 40] },
+      { "requires": "($widgets_res = 1024)", "$uv": [0, 344], "$uv_sz": [800, 80] },
+      { "requires": "($widgets_res = 2048)", "$uv": [0, 688], "$uv_sz": [1600, 160] },
+      { "requires": "($widgets_res = 4096)", "$uv": [0, 1376], "$uv_sz": [3200, 320] }
+    ]
+  },
+
+  "button_locked@button_jexp.button_default": {
+    "$uv": [0, 46],
+    "variables": [
+      { "requires": "($widgets_res = 512)", "$uv": [0, 92], "$uv_sz": [400, 40] },
+      { "requires": "($widgets_res = 1024)", "$uv": [0, 184], "$uv_sz": [800, 80] },
+      { "requires": "($widgets_res = 2048)", "$uv": [0, 368], "$uv_sz": [1600, 160] },
+      { "requires": "($widgets_res = 4096)", "$uv": [0, 736], "$uv_sz": [3200, 320] }
+    ]
+  },
+
+  "button_label": {
+    "type": "label",
+    "text": "$btn_text",
+    "shadow": "$text_shadow",
+    "font_type": "$font_type",
+    "font_scale_factor": "$text_font_scale_factor",
+    "offset": "$text_offset",
+    "anchor_from": "$text_anchor",
+    "color": "$text_color",
+    "anchor_to": "$text_anchor",
+    "size": "$text_sz",
+    "max_size": "$text_max_sz",
+    "text_alignment": "$text_alignment",
+    "bindings": "$btn_text_bdgs",
+    "$text_shadow|default": true,
+    "$font_type|default": "default",
+    "$text_font_scale_factor|default": 1.0,
+    "$text_offset|default": [1, 0],
+    "$text_anchor|default": "center",
+    "$text_sz|default": ["default", "default"],
+    "$text_max_sz|default": ["default", 10],
+    "$text_alignment|default": "center",
+    "layer": 4
+  }  
+}

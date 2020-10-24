@@ -14,5 +14,9 @@
       "uuid": "a5c43a4e-2a78-43d1-9d6a-5e62b49f33f8",
       "version": [3, 0, 0]
     }
-  ]
+  ],
+  "metadata": {
+    "authors": ["FMarquesPTO"],
+    "url": "https://www.twitter.com/FMarquesPTO"
+  }
 }

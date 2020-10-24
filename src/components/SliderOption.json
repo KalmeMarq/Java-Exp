@@ -1,0 +1,32 @@
+/**************************
+* (c) Copyright 2020 @FMarquesPTO.
+* All rights reserved.
+***************************/
+{
+  "namespace": "option_slider",
+
+  "option_slider@slider.slider": { "controls": [ { "ctrl@option_slider.sldr_ctrl": {} } ]  },
+
+  "sldr_ctrl@slider.sldr_ctrl": {
+    "enabled": "$enabled",
+    "$enabled": true,
+    "$sldr_tts_hdr": "$sldr_text",
+    "$sldr_tts_hdr_bdg_type": "global",
+    "$opt_enabled_bdg_nm|default": "",
+    "$opt_enabled_bdg_type": "global",
+    "$sldr_enabled_bdg_nm": "$opt_enabled_bdg_nm",
+    "$sldr_enabled_bdg_type": "global",
+    "variables": [
+      { "requires": "(not $opt_enabled_bdg_nm or not $enabled)",
+        "$sldr_enabled_bdg_nm": "#not_data_bound",
+        "$sldr_enabled_bdg_type": "none"
+      }
+    ],
+    "bindings": [
+      { "binding_type": "$opt_enabled_bdg_type",
+        "binding_name": "$opt_enabled_bdg_nm",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  }
+}

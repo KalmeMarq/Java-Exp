@@ -1,0 +1,147 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "brewing_stand_jexp",
+
+  "screen_content@container_jexp.container_panel": {
+    "$container_bg": "brewing_stand_jexp.brewing_stand_bg",
+    "$container_cont": "brewing_stand_jexp.content_panel"
+  },
+
+  "brewing_stand_bg@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/brewing_stand",
+    "size": [176, 166],
+    "$uv_sz": [176, 166],
+    "variables": [
+      { "requires": "($brewing_stand_res = 512x)", "$uv_sz": [352, 332] },
+      { "requires": "($brewing_stand_res = 1024x)", "$uv_sz": [704, 664] },
+      { "requires": "($brewing_stand_res = 2048x)", "$uv_sz": [1408, 1328] },
+      { "requires": "($brewing_stand_res = 4096x)", "$uv_sz": [2816, 2656] }
+    ]
+  },
+
+  "content_panel": {
+    "type": "panel",
+    "$tanchor": "top_middle",
+    "controls": [
+      { "title@container_jexp.title": { "offset": [0, 5] } },
+      { "arrow@brewing_stand_jexp.full_arrow": {
+          "offset": [97, 16],
+          "clip_direction": "up",
+          "bindings": [
+            { "binding_name": "#brewing_arrow_ratio",
+              "binding_name_override": "#clip_ratio",
+              "binding_condition": "always"
+            }
+          ]
+        }
+      },
+      { "bubbles@brewing_stand_jexp.full_bubbles": {
+          "offset": [63, 14],
+          "clip_direction": "down",
+          "bindings": [
+            { "binding_name": "#brewing_bubbles_ratio",
+              "binding_name_override": "#clip_ratio",
+              "binding_condition": "always"
+            }
+          ]
+        }
+      },
+      { "fuel@brewing_stand_jexp.full_fuel": {
+          "clip_direction": "left",
+          "offset": [60, 44],
+          "bindings": [
+            { "binding_name": "#brewing_fuel_ratio",
+              "binding_name_override": "#clip_ratio",
+              "binding_condition": "always"
+            }
+          ]
+        }
+      },
+      { "input_item@brewing_stand_jexp.input_item": {} },
+      { "fuel@brewing_stand_jexp.fuel_item": {} },
+      { "output0@brewing_stand_jexp.output_item": { "offset": [55, 50], "$idx": 0 } },
+      { "output1@brewing_stand_jexp.output_item": { "offset": [78, 57], "$idx": 1 } },
+      { "output2@brewing_stand_jexp.output_item": { "offset": [101, 50], "$idx": 2 } },
+      { "inventory@container_jexp.player_inventory": {} },
+      { "hotbar@container_jexp.player_hotbar": {} }
+    ]
+  },
+
+  "full_arrow@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/brewing_stand",
+    "size": [9, 28],
+    "$uv": [176, 0],
+    "$uv_sz": [9, 28],
+    "variables": [
+      { "requires": "($brewing_stand_res = 512x)", "$uv": [352, 0], "$uv_sz": [18, 56] },
+      { "requires": "($brewing_stand_res = 1024x)", "$uv": [704, 0], "$uv_sz": [36, 112] },
+      { "requires": "($brewing_stand_res = 2048x)", "$uv": [1408, 0], "$uv_sz": [72, 224] },
+      { "requires": "($brewing_stand_res = 4096x)", "$uv": [2816, 0], "$uv_sz": [144, 448] }
+    ]
+  },
+
+  "full_bubbles@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/brewing_stand",
+    "size": [12, 29],
+    "$uv": [185, 0],
+    "$uv_sz": [12, 29],
+    "variables": [
+      { "requires": "($brewing_stand_res = 512x)", "$uv": [370, 0], "$uv_sz": [24, 58] },
+      { "requires": "($brewing_stand_res = 1024x)", "$uv": [740, 0], "$uv_sz": [48, 116] },
+      { "requires": "($brewing_stand_res = 2048x)", "$uv": [1480, 0], "$uv_sz": [72, 224] },
+      { "requires": "($brewing_stand_res = 4096x)", "$uv": [2960, 0], "$uv_sz": [192, 464] }
+    ]
+  },
+
+  "full_fuel@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/brewing_stand",
+    "size": [18, 4],
+    "$uv": [176,29],
+    "$uv_sz": [18, 4],
+    "variables": [
+      { "requires":"($brewing_stand_res = 512x)", "$uv": [352,58], "$uv_sz": [36, 8] },
+      { "requires":"($brewing_stand_res = 1024x)", "$uv": [704,116], "$uv_sz": [72, 16] },
+      { "requires":"($brewing_stand_res = 2048x)", "$uv": [1408,232], "$uv_sz": [144, 32] },
+      { "requires":"($brewing_stand_res = 4096x)", "$uv": [2816,464], "$uv_sz": [288, 64] }
+    ]
+  },
+  
+  "input_item@container_jexp.slot": {
+    "offset": [78, 16],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$item_collt_nm": "brewing_input_item",
+    "$focus_ovrd_left_bdg_type": "none",
+    "$focus_ovrd_left": "brewing_fuel"
+  },
+
+  "fuel_item@container_jexp.slot": {
+    "offset": [16, 16],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$item_collt_nm": "brewing_fuel_item",
+    "$focus_ovrd_id_bdg_type": "none",
+    "$focus_id": "brewing_fuel",
+    "$focus_ovrd_right_bdg_type": "none",
+    "$focus_ovrd_right": "brewing_input_item0"
+  },
+
+  "output_item": {
+    "type": "stack_panel",
+    "size": [18, 18],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "collection_name": "brewing_result_items",
+    "$item_collt_nm": "brewing_result_items",
+    "controls": [
+      { "output_item@container_jexp.slot": {
+          "collection_index": "$idx",
+          "$idx|default": 0
+        }
+      }
+    ]
+  }
+}

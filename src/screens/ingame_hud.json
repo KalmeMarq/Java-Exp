@@ -1,5 +1,5 @@
 /**********************************
-  Copyright 2020 @FMarquesPTO.
+  (c) Copyright 2020 @FMarquesPTO.
   All rights reserved.
 ***********************************/
 {
@@ -373,7 +373,7 @@
     ]
   },
 
-  "empty_boss_bar@screen.res_txr": {
+  "empty_boss_bar@screen_jexp.res_txr": {
     "texture": "assets/minecraft/textures/gui/bars",
     "size": [182, 5],
     "$uv_sz|default": [182, 5]
@@ -732,7 +732,6 @@
           "layer": 31,
           "color": "$item_name_text_color",
           "text": "#text",
-          "shadow": true,
           "alpha": "@hud.anim_item_name_text_alpha",
           "bindings": [
             { "binding_name": "#tip_text",
@@ -1123,7 +1122,7 @@
     ]
   },
 
-  "empty_xp_bar@screen.res_txr": {
+  "empty_xp_bar@screen_jexp.res_txr": {
     "texture": "assets/minecraft/textures/gui/icons",
     "size": [182, 5],
     "$uv": [0, 64],
@@ -1212,7 +1211,7 @@
     ]
   },
 
-  "hotbar_bg@screen.res_txr": {
+  "hotbar_bg@screen_jexp.res_txr": {
     "texture": "assets/minecraft/textures/gui/widgets",
     "size": [182, 22],
     "$uv_sz": [182, 22],
@@ -1243,7 +1242,7 @@
     "$item_collection_name": "$hotbar_collt_nm"
   },
 
-  "hotbar_slot_selector@screen.res_txr": {
+  "hotbar_slot_selector@screen_jexp.res_txr": {
     "texture": "assets/minecraft/textures/gui/widgets",
     "size": [24, 23],
     "$uv": [0, 22],

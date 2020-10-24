@@ -1,0 +1,115 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "lab_table_jexp",
+
+  "screen_content@container_jexp.container_panel": {
+    "$container_size": [176, 194],
+    "$container_bg": "lab_table_jexp.lab_table_bg",
+    "$container_cont": "lab_table_jexp.content_panel"
+  },
+
+  "lab_table_bg@screen_jexp.res_txr": {
+    "texture": "src/assets/container/lab_table",
+    "size": [176, 194],
+    "$uv_sz": [176, 194],
+    "variables": [
+      { "requires": "($lab_table_res = 512x)", "$uv_sz": [352, 388] },
+      { "requires": "($lab_table_res = 1024x)", "$uv_sz": [704, 776] },
+      { "requires": "($lab_table_res = 2048x)", "$uv_sz": [1408, 1552] },
+      { "requires": "($lab_table_res = 4096x)", "$uv_sz": [2816, 3104] }
+    ]
+  },
+
+  "content_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "title@container_jexp.title": {
+          "text": "labtable.title",
+          "offset": [0, 5],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle"
+        }
+      },
+      { "input@lab_table_jexp.input_grid": {} },
+      { "combine@lab_table_jexp.combine_button": {} },
+      { "inventory@container_jexp.player_inventory": {} },
+      { "hotbar@container_jexp.player_hotbar": {} }
+    ]
+  },
+
+  "input_grid": {
+    "type": "grid",
+    "size": [162, 18],
+    "grid_dimensions": [9, 1],
+    "offset": [7, 65],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$item_collt_nm": "labtable_input",
+    "grid_item_template": "container_jexp.slot",
+    "collection_name": "labtable_input"
+  },
+
+  "combine_button": {
+    "type": "panel",
+    "offset": [-8, 85],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": [86, 16],
+    "controls": [
+      {
+        "button@button_jexp.button": {
+          "size": [86, 16],
+          "$dflt_btn_bg": "lab_table_jexp.lab_btn_dflt",
+          "$hov_btn_bg": "lab_table_jexp.lab_btn_hov",
+          "$lkd_btn_bg": "lab_table_jexp.lab_btn_lkd",
+          "$btn_text": "labtable.combine",
+          "$text_color": [0.25, 0.25, 0.25],
+          "$text_shadow": false,
+          "$prsd_btn_nm": "button.combine"
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#combine_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "lab_btn_dflt@screen_jexp.res_txr": {
+    "texture": "src/assets/container/lab_table",
+    "size": [86, 16],
+    "$uv": [0, 196],
+    "$uv_sz": [86, 16],
+    "variables": [
+      { "requires": "($lab_table_res = 512x)", "$uv": [0, 392], "$uv_sz": [172, 32] },
+      { "requires": "($lab_table_res = 1024x)", "$uv": [0, 784], "$uv_sz": [344, 64] },
+      { "requires": "($lab_table_res = 2048x)", "$uv": [0, 1568], "$uv_sz": [688, 128] },
+      { "requires": "($lab_table_res = 4096x)", "$uv": [0, 3136], "$uv_sz": [1376, 256] }
+    ]
+  },
+
+  "lab_btn_hov@lab_table_jexp.lab_btn_dflt": {
+    "$uv": [0, 215],
+    "variables": [
+      { "requires": "($lab_table_res = 512x)", "$uv": [0, 430], "$uv_sz": [172, 32] },
+      { "requires": "($lab_table_res = 1024x)", "$uv": [0, 860], "$uv_sz": [344, 64] },
+      { "requires": "($lab_table_res = 2048x)", "$uv": [0, 1720], "$uv_sz": [688, 128] },
+      { "requires": "($lab_table_res = 4096x)", "$uv": [0, 3440], "$uv_sz": [1376, 256] }
+    ]
+  },
+
+  "lab_btn_lkd@lab_table_jexp.lab_btn_dflt": {
+    "$uv": [0, 234],
+    "variables": [
+      { "requires": "($lab_table_res = 512x)", "$uv": [0, 468], "$uv_sz": [172, 32] },
+      { "requires": "($lab_table_res = 1024x)", "$uv": [0, 936], "$uv_sz": [344, 64] },
+      { "requires": "($lab_table_res = 2048x)", "$uv": [0, 1872], "$uv_sz": [688, 128] },
+      { "requires": "($lab_table_res = 4096x)", "$uv": [0, 3744], "$uv_sz": [1376, 256] }
+    ]
+  }
+}

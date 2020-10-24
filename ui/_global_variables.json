@@ -2,6 +2,17 @@
   /**********************************
     UI Customization
   ***********************************/
+  "$development_version_visible": "(not $is_publish)",
+
+  "$remove_beta_info_text": true, // Default: true | Removes the debug beta text on the top middle screen. 
+
+  "$show_wrongly_spelled_mc_title": false, // Default: false | Show "Mineceraft" instead of "Minecraft". 
+  "$show_edition_below_title": true, // Default: true | Show edition texture below the "Minecraft" title.
+    "$edition_name": "cpp", // Default: cpp | Which edition texture show below the "Minecraft". Values: "java", "cpp"/"c++", "bedrock",  or leave blank for none.
+  "$show_playername_on_bottom_panel": true, // Default: false, | Shows gamertag after the version.
+  "$show_player_skin_on_main_menu": false, // Default: false | Show the Paper Doll on the "$player_skin_position".
+    "$player_skin_position": "right", // Default: right (Values: right and left)
+
   "$show_item_stack_number_on_creative_mode": true, // Default: true
 
   "$hide_hud_vignette": false, // Default: false
@@ -19,9 +30,23 @@
   "$show_enchantments_below_hud_item_name": false, // Default: false
   "$show_dark_bg_below_hud_texts": false, // Default: false
 
+  // "$show_furnace_recipe_book": false, // Default: false | Not working on 1.16.100 betas
+
   /**********************************
     Colors, Alpha, ...
   ***********************************/
+  "$title_color": "white", // Default: "white"
+  "$subtitle_color": [0.333, 0.333, 0.333], // Default: [0.333, 0.333, 0.333]
+  "$primary_color": "white", // Default: "white"
+  "$secondary_color": [0.5, 0.5, 0.5], // Default: [0.5, 0.5, 0.5]
+
+  "$btn_dflt_color": "white", // Default: "white"
+  "$btn_hov_color": "white", // Default: "white"
+  "$btn_lkd_color": [0.625, 0.625, 0.625], // Default: [0.625, 0.625, 0.625]
+
+  "$screen_bg_color": "black", // Default: "black"
+  "$screen_bg_alpha": 0.75, // Default: 0.75
+
   "$player_position_text_color": [1, 1, 1], // Default: [1, 1, 1]
   "$player_position_text_alpha": 1.0, // Default: 1.0
   "$player_position_bg_color": [0.3, 0.3, 0.3], // Default: [0.3, 0.3, 0.3]
@@ -62,10 +87,48 @@
   "$jukebox_text_color_6": [0, 0.666, 0], // (Dark Green) | Default: [0, 0.666, 0]
   "$jukebox_text_color_7": [1, 0.666, 0], // (Gold) | Default: [1, 0.666, 0]
 
+  "$container_text_color": [0.25, 0.25, 0.25], // Default: [0.25, 0.25, 0.25] | Container title and "Inventory" text.
+  "$item_stack_text_color": "white", // Default: "white"
+  "$selected_item_stack_text_color": "white", // Default: "white"
+  "$slot_highlight_color": "white", // Default: "white"
+  "$slot_highlight_alpha": 0.5, // Default: 0.5
+
+  "$tootlip_bg_alpha": 0.95, // Default: 0.95
+  "$custom_tooltip_bg": false, // Default: false
+    "$custom_tooltip_border_color": [0.1441, 0, 0.3559], // Default: [0.1441, 0, 0.3559]
+    "$custom_tooltip_bg_color": [0.0862, 0.0039, 0.0862], // Default: [0.0862, 0.0039, 0.0862]
+
+  "$anvil_cost_success_text_color": [0.49, 0.99, 0.125], // Default: [0.49, 0.99, 0.125]
+  "$anvil_cost_fail_text_color": [0.99, 0.35, 0.37], // Default: [0.99, 0.35, 0.37]
+
+  "$enchanting_cost_success_text_color": [0.4941, 0.9882, 0.1254], // Default: [0.4941, 0.9882, 0.1254]
+  "$enchanting_cost_fail_text_color": [0.2470, 0.4901, 0.0627], // Default: [0.2470, 0.4901, 0.0627]
+
   /**********************************
     Resolutions | Default: "256x"
   ***********************************/
+  "$title_res": "256x", // "assets/minecraft/textures/gui/title.png",
+  "$edition_res": "256x", // "assets/minecraft/textures/gui/title.png",
   "$bars_res": "256x", // "assets/minecraft/textures/gui/bars.png"
   "$icons_res": "256x", // "assets/minecraft/textures/gui/icons.png"
-  "$widgets_res": "256x" // "assets/minecraft/textures/gui/widgets.png"
+  "$widgets_res": "256x", // "assets/minecraft/textures/gui/widgets.png"
+  "$anvil_res": "256x", // "assets/minecraft/textures/gui/container/anvil.png"
+  "$beacon_res": "256x", // "assets/minecraft/textures/gui/container/beacon.png"
+  "$brewing_stand_res": "256x", // "assets/minecraft/textures/gui/container/brewing_stand.png"
+  "$cartography_res": "256x", // "assets/minecraft/textures/gui/container/cartography_table.png"
+  "$compound_creator_res": "256x", // "src/assets/container/compound_creator.png"
+  "$dispenser_res": "256x", // "assets/minecraft/textures/gui/container/dispenser.png"
+  "$enchanting_table_res": "256x", // "assets/minecraft/textures/gui/container/enchanting_table.png"
+  "$furnace_res": "256x", // "assets/minecraft/textures/gui/container/furnace.png"
+  "$hopper_res": "256x", // "assets/minecraft/textures/gui/container/hopper.png"
+  "$horse_res": "256x", // "assets/minecraft/textures/gui/container/horse.png"
+  "$generic_54_res": "256x", // "assets/minecraft/textures/gui/container/generic_54.png"
+  "$grindstone_res": "256x", // "assets/minecraft/textures/gui/container/grindstone.png"
+  "$lab_table_res": "256x", // "assets/src/container/lab_table.png"
+  "$loom_res": "256x", // "assets/minecraft/textures/gui/container/loom.png"
+  "$material_reducer_res": "256x", // "assets/src/container/material_reducer.png"
+  "$shulker_box_res": "256x", // "assets/minecraft/textures/gui/container/shulker_box.png"
+  "$smithing_table_res": "256x", // "assets/minecraft/textures/gui/container/smithing_table.png"
+  "$stonecutter_res": "256x", // "assets/minecraft/textures/gui/container/stonecutter.png"
+  "$villager2_res": "256x" // "assets/minecraft/textures/gui/container/villager2.png"
 }

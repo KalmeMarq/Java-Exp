@@ -1,6 +1,6 @@
 {
-  "hud_screen": {
-/*  "is_showing_menu": false,
+  "hud_screen@screen_jexp.screen": {
+    "is_showing_menu": false,
     "should_steal_mouse": true,
     "low_frequency_rendering": true,
     "absorbs_input": false,
@@ -70,7 +70,8 @@
         "to_button_id": "button.slot_0",
         "mapping_type": "global"
       }
-    ], */
-    "$screen_content": "ingame_hud.screen_content"
+    ],
+    "render_only_when_topmost": false,
+    "$scrn_cont": "ingame_hud.screen_content"
   }
 }

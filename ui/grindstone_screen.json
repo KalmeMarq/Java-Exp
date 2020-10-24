@@ -1,0 +1,6 @@
+{
+  "grindstone_screen@screen_jexp.inventory_screen": {
+    "$scrn_cont": "grindstone_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.screen_background"
+  }
+}

@@ -1,0 +1,214 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "horse_jexp",
+
+  "screen_content@container_jexp.container_panel": {
+    "$container_bg": "horse_jexp.horse_bg",
+    "$container_cont": "horse_jexp.content_panel"
+  },
+
+  "content_panel": {
+    "type": "panel",
+    "controls": [
+      { "title@container_jexp.title": { "offset": [8, 5] } },
+      { "living_entity_renderer@horse_jexp.horse_renderer": {} },
+      { "equipment@horse_jexp.equipment_panel": {} },
+      { "chest_panel@horse_jexp.chest_panel": {} },
+      { "inventory@container_jexp.player_inventory": {} },
+      { "hotbar@container_jexp.player_hotbar": {} }
+    ]
+  },
+
+  "horse_bg@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/horse",
+    "size": [176, 166],
+    "$uv_sz": [176, 166],
+    "variables": [
+      { "requires": "($horse_res = 512x)", "$uv_sz": [352, 332] },
+      { "requires": "($horse_res = 1024x)", "$uv_sz": [704, 664] },
+      { "requires": "($horse_res = 2048x)", "$uv_sz": [1408, 1328] },
+      { "requires": "($horse_res = 4096x)", "$uv_sz": [2816, 2656] }
+    ]
+  },
+
+  "horse_inv_bg@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/horse",
+    "size": [90, 54],
+    "$uv": [0, 166],
+    "$uv_sz": [90, 54],
+    "variables": [
+      { "requires": "($horse_res = 512x)", "$uv": [0, 332], "$uv_sz": [36, 108] },
+      { "requires": "($horse_res = 1024x)", "$uv": [0, 664], "$uv_sz": [72, 216] },
+      { "requires": "($horse_res = 2048x)", "$uv": [0, 1328], "$uv_sz": [144, 432] },
+      { "requires": "($horse_res = 4096x)", "$uv": [0, 2656], "$uv_sz": [288, 864] }
+    ]
+  },
+
+  "saddle_slot_bg@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/horse",
+    "size": [18, 18],
+    "$uv": [18, 220],
+    "$uv_sz|default": [18, 18],
+    "variables": [
+      { "requires": "($horse_res = 512x)", "$uv": [36, 440] },
+      { "requires": "($horse_res = 1024x)", "$uv": [72, 880] },
+      { "requires": "($horse_res = 2048x)", "$uv": [144, 1760] },
+      { "requires": "($horse_res = 4096x)", "$uv": [288, 3520] }
+    ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "layer": 4,
+    "bindings": [
+      { "binding_name": "$slot_bg_cond",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "armor_slot_bg@horse_jexp.saddle_slot_bg": {
+    "$uv": [0, 220],
+    "variables": [ 
+      { "requires": "($horse_res = 512x)", "$uv": [0, 440] },
+      { "requires": "($horse_res = 1024x)", "$uv": [0, 880] },
+      { "requires": "($horse_res = 2048x)", "$uv": [0, 1760] },
+      { "requires": "($horse_res = 4096x)", "$uv": [0, 3520] }
+    ]
+  },
+
+  "carpet_slot_bg@horse_jexp.saddle_slot_bg": {
+    "$uv": [36, 220],
+    "variables": [
+      { "requires": "($horse_res = 512x)", "$uv": [72, 440] },
+      { "requires": "($horse_res = 1024x)", "$uv": [144, 880] },
+      { "requires": "($horse_res = 2048x)", "$uv": [288, 1760] },
+      { "requires": "($horse_res = 4096x)", "$uv": [576, 3520] }
+    ]
+  },
+
+  "equipment_panel": {
+    "type": "panel",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "size": [18, 54],
+    "offset": [7, 17],
+    "controls": [
+      { "equip_grid@horse_jexp.equipment_grid": {
+          "offset": [0, 18],
+          "bindings": [
+            { "binding_name": "#equip_grid_dimensions" },
+            { "binding_name": "#has_only_carpet_slot",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "equip_grid@horse_jexp.equipment_grid": {
+          "bindings": [
+            { "binding_name": "#equip_grid_dimensions" },
+            { "binding_name": "(not #has_only_carpet_slot)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "saddle@horse_jexp.saddle_slot_bg": { "$slot_bg_cond": "#has_saddle_slot" } },
+      { "armor0@horse_jexp.armor_slot_bg": { "$slot_bg_cond": "#has_only_armor_slot" } },
+      { "carpet0@horse_jexp.carpet_slot_bg": {
+          "offset": [0, 18],
+          "$slot_bg_cond": "#has_only_carpet_slot"
+        }
+      },
+      { "armor1@horse_jexp.armor_slot_bg": {
+          "offset": [0, 18],
+          "$slot_bg_cond": "#has_armor_and_saddle_slot"
+        }
+      },
+      { "carpet1@horse_jexp.carpet_slot_bg": {
+          "offset": [0, 18],
+          "$slot_bg_cond": "#has_carpet_and_saddle_slot"
+        }
+      }
+    ],
+    "variables": [
+      { "requires": "($horse_res = 512x)" },
+      { "requires": "($horse_res = 1024x)" },
+      { "requires": "($horse_res = 2048x)" },
+      { "requires": "($horse_res = 4096x)" }
+    ]
+  },
+
+  "horse_renderer": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [26, 18],
+    "size": [52, 52],
+    "controls": [
+      { "horse_custom_panel": {
+          "type": "panel",
+          "size": ["30% + 1px", "30% + 1px"],
+          "offset": [1, "30%"],
+          "controls": [
+            { "horse_custom": {
+                "type": "custom",
+                "renderer": "live_horse_renderer",
+                "layer": 4,
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "bindings": [ { "binding_name": "#entity_id" } ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "equipment_grid": {
+    "type": "grid",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "collection_name": "horse_equip_items",
+    "grid_item_template": "@container_jexp.slot",
+    "grid_dimension_binding": "#equip_grid_dimensions",
+    "$item_collt_nm": "horse_equip_items",
+    "bindings": [ { "binding_name": "#equip_grid_dimensions" } ]
+  },
+
+  "chest_panel": {
+    "type": "panel",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "size": ["100%c", "100%c"],
+    "offset": [79, 17],
+    "clips_children": true,
+    "controls": [
+      { "bg@horse_jexp.inventory_bg_panel": {} },
+      { "grid@horse_jexp.chest_grid": {} }
+    ]
+  },
+
+  "inventory_bg_panel": {
+    "type": "panel",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "size": [0, 0],
+    "controls": [ { "bg@horse_jexp.horse_inv_bg": {} } ]
+  },
+
+  "chest_grid": {
+    "type": "grid",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "size": ["default", "default"],
+    "collection_name": "container_items",
+    "grid_item_template": "@container_jexp.slot",
+    "grid_dimension_binding": "#inv_grid_dimensions",
+    "$item_collt_nm": "container_items",
+    "allow_clipping": false,
+    "bindings": [ { "binding_name": "#inv_grid_dimensions" } ]
+  }
+}
