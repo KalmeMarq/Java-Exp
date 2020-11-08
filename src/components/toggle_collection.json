@@ -1,0 +1,57 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "toggle_collection_jexp",
+
+  "toggle_collection": {
+    "type": "panel",
+    "size": [150, 20],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$tgl_ctrl_nm|default": "this_toggle",
+    "$tgl_cont|default": "toggle_button_jexp.tgl_btn_label",
+    "$tgl_focus_wrap_enabled|default": true,
+    "$tgl_focus_magnet_enabled|default": true,
+    "$tgl_bdg_type|default": "none",
+    "$tgl_enabled_bdg_type|default": "none",
+    "$tgl_tab_focus_bdg_type|default": "none",
+    "$tgl_on_hov_bdg_type|default": "none",
+    "$tgl_tab_focus_bdg_nm|default": "",
+    "$tgl_on_hov_bdg_nm|default": "",
+    "$tplt_tgl|default": "toggle_jexp.toggle",
+    "controls": [
+      { "$tgl_ctrl_nm@$tplt_tgl": {
+          "focus_wrap_enabled": "$tgl_focus_wrap_enabled",
+          "focus_magnet_enabled": "$tgl_focus_magnet_enabled",
+          "bindings": [
+            { "binding_type": "$tgl_bdg_type",
+              "binding_condition": "$tgl_bdg_cond",
+              "binding_collection_name": "$tgl_grid_collt_nm",
+              "binding_name": "$tgl_state_bdg_nm",
+              "binding_name_override": "#toggle_state"
+            },
+            { "binding_type": "$tgl_enabled_bdg_type",
+              "binding_condition": "$tgl_enabled_bdg_cond",
+              "binding_collection_name": "$tgl_grid_collt_nm",
+              "binding_name": "$tgl_enabled_bdg_nm",
+              "binding_name_override": "#enabled"
+            },
+            { "binding_type": "collection_details",
+              "binding_collection_name": "$tgl_grid_collt_nm"
+            },
+            { "binding_type": "$tgl_tab_focus_bdg_type",
+              "binding_name": "$tgl_tab_focus_bdg_nm",
+              "binding_name_override": "#default_focus_precedence"
+            },
+            { "binding_type": "$tgl_on_hov_bdg_type",
+              "binding_name": "$tgl_on_hov_bdg_nm",
+              "binding_name_override": "#toggle_on_hover"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -18,7 +18,7 @@
     "type": "stack_panel",
     "size": [325, 166],
     "orientation": "horizontal",
-    "$root_controls": [
+    "$root_ctrls": [
       { "fill@screen_jexp.res_txr": {} },
       {
         "recipe_book@furnace_recipe_book_ui.furnace_recipe_book": {

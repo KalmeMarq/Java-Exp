@@ -1,0 +1,139 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "controller_settings_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "text": "controls.title", "offset": ["50% - 50%x", 7.5] } },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "size": ["100%", "100% - 64px"],
+          "$scroll_cont": "dirt@controller_settings_jexp.scroll_cont"
+        }
+      },
+      { "back@options_jexp.back_tgl_btn": {
+          "offset": ["50% - 100px", "100% - 29px"],
+          "$tgl_nm": "controller_settings",
+          "$tgl_idx": 0
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "controller_settings_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "panel",
+    "size": ["100%", "100%cm"],
+    "controls": [
+      { "sensitivity@sensitivity_sldr": { "offset": ["50% - 155px", 4] } },
+      { "vr@vr_sensitivity_sldr": { "offset": ["50% - 155px", 4] } },
+      { "invert_y_axis@invert_y_axis_tgl": { "offset": ["50% + 5px", 4] } },
+      { "gamepad_cursor_sensitivity@gamepad_cursor_sensitivity_sldr": { "offset": ["50% - 155px", 28] } },
+      { "vibration@vibration_tgl": { "offset": ["50% + 5px", 28] } },
+      { "gamepad_swap_ab@gamepad_swap_ab_tgl": { "offset": ["50% - 155px", 52] } },
+      { "gamepad_swap_xy@gamepad_swap_xy_tgl": { "offset": ["50% + 5px", 52] } },
+      { "hide_tooltips@hide_tooltips_tgl": { "offset": ["50% - 155px", 76] } },
+      { "hide_gamepad_cursor@hide_gamepad_cursor_tgl": { "offset": ["50% + 5px", 76] } },
+      { "vr_roll_turn_sensitivity@vr_roll_turn_sensitivity_sldr": { "offset": ["50% - 155px", 100] } }
+    ]
+  },
+  
+  "sensitivity_sldr@option_slider_jexp.option_slider": {
+    "ignored": "($is_holographic and not $is_living_room_mode)",
+    "$sldr_text": "#controller_sensitivity_slider_label",
+    "$sldr_nm": "controller_sensitivity",
+    "$sldr_value_bdg_nm": "#controller_sensitivity",
+    "$sldr_tts_text_value": "#controller_sensitivity_text_value",
+    "$sldr_enabled_bdg_nm": "#controller_sensitivity_enabled",
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ]
+  },
+
+  "vr_sensitivity_sldr@option_slider_jexp.option_slider": {
+    "ignored": "($is_living_room_mode or not $is_holographic)",
+    "$sldr_text": "#vr_sensitivity_slider_label",
+    "$sldr_nm": "vr_sensitivity",
+    "$sldr_value_bdg_nm": "#vr_sensitivity",
+    "$sldr_tts_text_value": "#vr_sensitivity_text_value",
+    "$sldr_enabled_bdg_nm": "#vr_sensitivity_enabled",
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ]
+  },
+
+  "invert_y_axis_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.invertYAxis",
+    "$opt_enabled_bdg_nm": "#controller_invert_y_axis_enabled",
+    "$tgl_nm": "controller_invert_y_axis"
+  },
+
+  "gamepad_cursor_sensitivity_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#gamepad_cursor_sensitivity_slider_label",
+    "$sldr_nm": "gamepad_cursor_sensitivity",
+    "$sldr_value_bdg_nm": "#gamepad_cursor_sensitivity",
+    "$sldr_tts_text_value": "#gamepad_cursor_sensitivity_text_value",
+    "$sldr_enabled_bdg_nm": "#gamepad_cursor_sensitivity_enabled",
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ]
+  },
+
+  "vibration_tgl@option_toggle_jexp.option_toggle": {
+    "enabled": false,
+    "$tgl_text": "options.destroyvibration",
+    "$opt_enabled_bdg_nm": "#controller_vibration_enabled",
+    "$tgl_nm": "controller_vibration"
+  },
+
+  "gamepad_swap_ab_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "#swap_gamepad_ab",
+    "$opt_enabled_bdg_nm": "#swap_gamepad_ab_buttons_enabled",
+    "$tgl_nm": "swap_gamepad_ab_buttons",
+    "$tgl_text_bdgs": [ { "binding_name": "$tgl_text" } ]
+  },
+
+  "gamepad_swap_xy_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "#swap_gamepad_xy",
+    "$opt_enabled_bdg_nm": "#swap_gamepad_xy_buttons_enabled",
+    "$tgl_nm": "swap_gamepad_xy_buttons",
+    "$tgl_text_bdgs": [ { "binding_name": "$tgl_text" } ]
+  },
+
+  "hide_tooltips_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.hidetooltips",
+    "$opt_enabled_bdg_nm": "#hide_tooltips_enabled",
+    "$tgl_nm": "hide_tooltips"
+  },
+
+  "hide_gamepad_cursor_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.hidegamepadcursor",
+    "$opt_enabled_bdg_nm": "#hide_gamepad_cursor_enabled",
+    "$tgl_nm": "hide_gamepad_cursor"
+  },
+
+  "vr_roll_turn_sensitivity_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#vr_roll_turn_sensitivity_slider_label",
+    "$sldr_nm": "vr_roll_turn_sensitivity",
+    "$sldr_value_bdg_nm": "#vr_roll_turn_sensitivity",
+    "$sldr_tts_text_value": "#vr_roll_turn_sensitivity_text_value",
+    "$sldr_enabled_bdg_nm": "#vr_roll_turn_sensitivity_enabled",
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ],
+    "bindings": [
+      { "binding_name": "#vr_roll_turn_sensitivity_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "toggle_crouch_tgl@option_toggle_jexp.option_toggle": {
+    "ignored": true,
+    "$tgl_text": "options.toggleCrouch",
+    "$opt_enabled_bdg_nm": "#controller_toggle_crouch_enabled",
+    "$tgl_nm": "controller_toggle_crouch"
+  }
+}

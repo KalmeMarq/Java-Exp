@@ -1,9 +1,9 @@
-/**************************
-* (c) Copyright 2020 @FMarquesPTO.
-* All rights reserved.
-***************************/
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
 {
-  "namespace": "slider",
+  "namespace": "slider_jexp",
 
   "slider_base": {
     "type": "slider",
@@ -70,10 +70,10 @@
     "layer": 1,
     /* Slider Steps */
     "$slider_step_factory_control_ids": {
-      "slider_step": "@screen.empty_panel",
-      "slider_step_hover": "@screen.empty_panel",
-      "slider_step_progress": "@screen.empty_panel",
-      "slider_step_progress_hover": "@screen.empty_panel"
+      "slider_step": "@screen_jexp.empty_panel",
+      "slider_step_hover": "@screen_jexp.empty_panel",
+      "slider_step_progress": "@screen_jexp.empty_panel",
+      "slider_step_progress_hover": "@screen_jexp.empty_panel"
     },
     "factory": {
       "name": "slider_step_factory",
@@ -167,38 +167,30 @@
     ]
   },
 
-  "slider": {
-    "type": "panel",
-    "size": [150, 20],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "controls": [ { "ctrl@slider.sldr_ctrl": {} } ] 
-  },
-
-  "sldr_ctrl@slider.slider_base": {
-    "$sldr_cont|default": "slider.sldr_text",
+  "sldr_ctrl@slider_jexp.slider_base": {
+    "$sldr_cont|default": "slider_jexp.sldr_text",
     /* Background */
-    "$dflt_sldr_bg|default": "button.button_default",
-    "$hov_sldr_bg|default": "button.button_hover",
-    "$lkd_sldr_bg|default": "button.button_locked",
-    "$dflt_sldrbar_bg|default": "button.button_locked",
-    "$hov_sldrbar_bg|default": "button.button_locked",
-    "$lkd_sldrbar_bg|default": "button.button_locked",
+    "$dflt_sldr_bg|default": "button_jexp.button_default",
+    "$hov_sldr_bg|default": "button_jexp.button_hover",
+    "$lkd_sldr_bg|default": "button_jexp.button_locked",
+    "$dflt_sldrbar_bg|default": "button_jexp.button_locked",
+    "$hov_sldrbar_bg|default": "button_jexp.button_locked",
+    "$lkd_sldrbar_bg|default": "button_jexp.button_locked",
     /* Text Color */
     "$dflt_sldr_color|default": "$btn_dflt_color",
     "$hov_sldr_color|default": "$btn_hov_color",
     "$lks_sldr_color|default": "$btn_lkd_color",
     "size": ["100% - 8px", "100%"],
     "controls": [
-      { "slider_box@slider.slider_box": { "$slider_track_button": "$sldr_nm" } },
-      { "slider_bar_default@slider.sldr_bar": {
+      { "slider_box@slider_jexp.slider_box": { "$slider_track_button": "$sldr_nm" } },
+      { "slider_bar_default@slider_jexp.sldr_bar": {
           "$sldr_state": "default",
           "$sldr_bg|default": "$dflt_sldrbar_bg",
           "$text_color|default": "$dflt_sldr_color",
           "layer": 2
         }
       },
-      { "slider_bar_hover@slider.sldr_bar": {
+      { "slider_bar_hover@slider_jexp.sldr_bar": {
           "$sldr_state": "hover",
           "$sldr_bg|default": "$hov_sldrbar_bg",
           "$text_color|default": "$hov_sldr_color",
@@ -221,6 +213,7 @@
     "hover_control": "hover",
     "locked_control": "locked",
     "indent_control": "indent",
+    "$tooltip_text": "",
     "controls": [
       { "default@sldr_state": {
           "$sldr_state": "default",
@@ -254,7 +247,7 @@
     "type": "panel",
     "size": ["100% + 8px", "100%"],
     "controls": [
-      { "sldr_state@slider.sldr_state": {} },
+      { "sldr_state@slider_jexp.sldr_state": {} },
       { "$lkd_bg@$lkd_bg": {
           "bindings": [
             { "binding_type": "$sldr_enabled_bdg_type",
@@ -273,7 +266,13 @@
     "type": "panel",
     "size": ["100%", "100%"],
     "$sldr_state|default": "",
+    "$tooltip_text|default": "",
     "controls": [
+      { "tooltip@tooltip_jexp.tooltip": {
+          "ignored": "(not ($sldr_state = hover))",
+          "visible": "(not $tooltip_text = '')"
+        }
+      },
       { "$sldr_bg@$sldr_bg": {} },
       { "inner_content": {
           "type": "panel",
@@ -294,14 +293,14 @@
     "anchor_from": "center",
     "anchor_to": "center",
     "controls": [
-      { "slider_label0@slider.sldr_label": { "visible": "$float_dec_visible" } },
+      { "slider_label0@slider_jexp.sldr_label": { "visible": "$float_dec_visible" } },
       { "slider_label1": {
           "type": "panel",
           "size": ["100%c - 13px", "100%c"],
           "clips_children": true,
           "visible": "(not $float_dec_visible)",
           "controls": [
-            { "slider_label@slider.sldr_label": {
+            { "slider_label@slider_jexp.sldr_label": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left"
               }
@@ -321,7 +320,7 @@
     ]
   },
 
-  "sldr_label@button.button_label": {
+  "sldr_label@button_jexp.button_label": {
     "$sldr_text_bdgs|default": [],
     "size": ["default", 10],
     "text": "$sldr_text",

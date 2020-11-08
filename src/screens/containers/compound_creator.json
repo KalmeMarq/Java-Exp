@@ -26,12 +26,9 @@
   "content_panel": {
     "type": "panel",
     "controls": [
-      {
-        "title@container_jexp.title": {
+      { "title@container_jexp.title": {
           "text": "compoundcreator.title",
-          "offset": [0, 5],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle"
+          "offset": ["50% - 50%x", 5]
         }
       },
       { "input@compound_creator_jexp.input_grid": {} },

@@ -90,6 +90,7 @@
     "$tooltip_desc_color|default": [1, 1, 1],
     "$tooltip_extra_color|default": [1, 1, 1],
     "$tooltip_label_bdgs|default": [],
+    "$tooltip_label_vars|default": [],
     "controls": [
       {
         "label": {
@@ -128,6 +129,7 @@
     "color": "$tooltip_label_color",
     "text": "$tooltip_text",
     "visible": "(not $tooltip_text = '')",
+    "variables": "$tooltip_label_vars",
     "bindings": "$tooltip_label_bdgs"
   },
 

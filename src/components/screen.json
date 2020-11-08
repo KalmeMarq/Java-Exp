@@ -178,13 +178,48 @@
     "tiled_scale": "$tiled",
     "tiled": true,
     "size": ["100%", "100%"],
-    "layer": 0,
     "$tiled": [2, 2],
+    "layer": 0,
     "variables": [
-      { "requires": "($options_background_res = 512)", "$tiled": [1, 1] },
-      { "requires": "($options_background_res = 1024)", "$tiled": [0.5, 0.5] },
-      { "requires": "($options_background_res = 2048)", "$tiled": [0.25, 0.25] },
-      { "requires": "($options_background_res = 4096)", "$tiled": [0.125, 0.125] }
+      { "requires": "($options_bg_res = 512)", "$tiled": [1, 1] },
+      { "requires": "($options_bg_res = 1024)", "$tiled": [0.5, 0.5] },
+      { "requires": "($options_bg_res = 2048)", "$tiled": [0.25, 0.25] },
+      { "requires": "($options_bg_res = 4096)", "$tiled": [0.125, 0.125] }
+    ]
+  },
+
+  /***********************************
+  * Abstract Option
+  ***********************************/
+  "abstract_option": {
+    "type": "panel",
+    "size": [150, 20],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$enabled|default": true,
+    "$opt_enabled_bdg_nm|default": "",
+    "controls": [
+      { "option_core": {
+          "$allow_data_binding|default": true,
+          "$opt_enabled_bdg_type|default": "global",
+          "type": "stack_panel",
+          "size": ["100%", "100%"],
+          "enabled": "$enabled",
+          "variables": [
+            { "requires": "(not $enabled or not $opt_enabled_bdg_nm)",
+              "$opt_enabled_bdg_type": "none",
+              "$opt_enabled_bdg_nm": "#not_data_bound"
+            }
+          ],
+          "bindings": [
+            { "binding_type": "$opt_enabled_bdg_type",
+              "binding_name": "$opt_enabled_bdg_nm",
+              "binding_name_override": "#enabled"
+            }
+          ],
+          "controls": [ { "$ctrl_ref@$ctrl_ref": {} } ]
+        }
+      }
     ]
   },
 

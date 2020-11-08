@@ -1,0 +1,55 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "ingame_world_options_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "content": {
+          "type": "panel",
+          "controls": [
+            { "title@screen_jexp.title": { "text": "options.ingame_world_options.title", "offset": ["50% - 50%x", 20.5] } },
+            { "experimental_gameplay@more_options_jexp.experimental_gameplay_toggle": { "offset": ["50% - 155px", "25% + 5px"] } },
+            { "gamerules@world_create_jexp.gamerules_button": { "offset": ["50% - 155px", "25% + 24px + 5px"] } },
+            { "multiplayer@world_create_jexp.multiplayer_button": { "offset": ["50% + 5px", "25% + 24px + 5px"] } },
+            { "resource_packs@world_create_jexp.resource_packs_button": { "offset": ["50% - 155px", "25% + 48px + 5px"] } },
+            { "behavior_packs@world_create_jexp.behavior_packs_button": { "offset": ["50% + 5px", "25% + 48px + 5px"] } },
+            { "back@options_jexp.back_tgl_btn": { "offset": ["50% - 100px", "100% - 29px"] } }
+          ],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "behavior_packs_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            },
+            { "binding_type": "view",
+              "source_control_name": "gamerules_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            },
+            { "binding_type": "view",
+              "source_control_name": "multiplayer_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            },
+            { "binding_type": "view",
+              "source_control_name": "resource_packs_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "ingame_world_options_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  }
+}

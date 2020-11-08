@@ -1,0 +1,35 @@
+1.16.4 JE / 1.16.200 BE
+Screen Bg (color)
+
+Music and Sounds (new sldrs)
+Language
+Death Screen (bg gradient)
+Edit Sign (sign txr and offset)
+Hud (lkd slots)
+Scoreboard (still wrong offset. I'm lazy)
+Main Menu (gamertag)
+
+Anvil (Item input)
+Beacon (lkd btn/tgl tooltips)
+Brewing Stand
+Cartography Table (map name input text/plus tgl)
+Chests (generic types)
+Compound Creator (title offset)
+Dispenser (title offset)
+Element Constructor (.../title offset/compact code)
+Enchantment table (compact code)
+Furnaces
+Grindstone
+Hopper
+Horse
+Lab table (title offset)
+Loom
+Material reducer (title offset)
+Merchant2 (compact code)
+Smithing table
+Stonecutter
+
+toggle_collection (added)
+Text Box (added)
+Option components (hov tooltip)
+Container (lkd slots)

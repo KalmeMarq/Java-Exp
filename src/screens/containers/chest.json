@@ -25,9 +25,25 @@
       { "hotbar@container_jexp.player_hotbar": {} }
     ],
     "variables": [
+      { "requires": "($container_bg_type = generic_9x1)",
+        "$grid_dimensions": [9, 1],
+        "$grid_size": [162, 18]
+      },
+      { "requires": "($container_bg_type = generic_9x2)",
+        "$grid_dimensions": [9, 2],
+        "$grid_size": [162, 36]
+      },
       { "requires": "($container_bg_type = generic_9x3)",
         "$grid_dimensions": [9, 3],
         "$grid_size": [162, 54]
+      },
+      { "requires": "($container_bg_type = generic_9x4)",
+        "$grid_dimensions": [9, 4],
+        "$grid_size": [162, 72]
+      },
+      { "requires": "($container_bg_type = generic_9x5)",
+        "$grid_dimensions": [9, 5],
+        "$grid_size": [162, 90]
       },
       { "requires": "($container_bg_type = generic_9x6)",
         "$grid_dimensions": [9, 6],
@@ -76,8 +92,7 @@
     "type": "panel",
     "clips_children": true,
     "controls": [
-      {
-        "top_bg@screen_jexp.res_txr": {
+      { "top_bg@screen_jexp.res_txr": {
           "texture": "assets/minecraft/textures/gui/container/generic_54",
           "size": [176, 125],
           "$uv_sz": [176, 125],

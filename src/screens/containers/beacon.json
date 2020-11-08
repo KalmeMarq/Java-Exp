@@ -41,8 +41,9 @@
       { "powers_content_panel@beacon_jexp.powers_content_panel": {} },
       { "usable_items_panel@beacon_jexp.usable_items_panel": {} },
       { "ingredient_item@beacon_jexp.ingredient_item": {} },
-      { "confirm_panel@beacon_jexp.confirm_panel": {} },
-      { "cancel_panel@beacon_jexp.cancel_panel": {} },
+      { "confirm_p@beacon_jexp.confirm_panel": {} },
+      { "confirm_lkd@beacon_jexp.confirm_panel_lkd": {} },
+      { "cancel@beacon_jexp.cancel_panel": {} },
       { "inventory@container_jexp.player_inventory": {
           "$show_invlabel": false,
           "offset": ["50% - 80px", "100% - 83px"],
@@ -173,12 +174,14 @@
       { "regen_panel@beacon_jexp.panel_template": {
           "offset": [27, 40],
           "$btn_nm": "regen",
-          "$icon_location": "assets/minecraft/textures/mob_effect/regeneration"
+          "$icon_location": "assets/minecraft/textures/mob_effect/regeneration",
+          "$tooltip_text": "potion.regeneration"
         }
       },
       { "extra_panel@beacon_jexp.panel_template": {
           "offset": [51, 40],
           "$btn_nm": "extra",
+          "$ignore_lkd_btn": true,
           "$img_ctrl": "beacon_jexp.secondary_effect_images"
         }
       }
@@ -208,31 +211,37 @@
       { "speed_panel@beacon_jexp.panel_template": {
           "offset": [0, 0],
           "$btn_nm": "speed",
-          "controls": [ { "toggle@beacon_jexp.toggle_template": { "$icon_location": "assets/minecraft/textures/mob_effect/speed" } } ]
+          "$btn_ctrl": "beacon_jexp.toggle_template",
+          "$icon_location": "assets/minecraft/textures/mob_effect/speed",
+          "$tooltip_text": "potion.moveSpeed"
         }
       },
       { "haste_panel@beacon_jexp.panel_template": {
           "offset": [24, 0],
           "$btn_nm": "haste",
-          "$icon_location": "assets/minecraft/textures/mob_effect/haste"
+          "$icon_location": "assets/minecraft/textures/mob_effect/haste",
+          "$tooltip_text": "potion.digSpeed"
         }
       },
       { "resist_panel@beacon_jexp.panel_template": {
           "offset": [0, 25],
           "$btn_nm": "resist",
-          "$icon_location": "assets/minecraft/textures/mob_effect/resistance"
+          "$icon_location": "assets/minecraft/textures/mob_effect/resistance",
+          "$tooltip_text": "potion.resistance"
         }
       },
       { "jump_panel@beacon_jexp.panel_template": {
           "offset": [24, 25],
           "$btn_nm": "jump",
-          "$icon_location": "assets/minecraft/textures/mob_effect/jump_boost"
+          "$icon_location": "assets/minecraft/textures/mob_effect/jump_boost",
+          "$tooltip_text": "potion.jump"
         }
       },
       { "strength_panel@beacon_jexp.panel_template": {
           "offset": [12, 50],
           "$btn_nm": "strength",
-          "$icon_location": "assets/minecraft/textures/mob_effect/strength"
+          "$icon_location": "assets/minecraft/textures/mob_effect/strength",
+          "$tooltip_text": "potion.damageBoost"
         }
       }
     ]
@@ -250,6 +259,25 @@
       { "diamond@beacon.item_renderer": { "offset": [21, 0], "property_bag": { "#item_id_aux": 17301504 } } },
       { "gold@beacon.item_renderer": { "offset": [44, 0], "property_bag": { "#item_id_aux": 17432576 } } },
       { "iron@beacon.item_renderer": { "offset": [66, 0], "property_bag": { "#item_id_aux": 17367040 } } }
+    ]
+  },
+
+  "ldk_btn_with_tooltip": {
+    "type": "button",
+    "size": [22, 22],
+    "focus_enabled": true,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "hover_control": "hover",
+    "pressed_control": "hover",
+    "layer": 5,
+    "controls": [ { "hover@tooltip_jexp.tooltip": {} } ],
+    "bindings": [
+      { "binding_type": "collection",
+        "binding_name": "(not #active)",
+        "binding_collection_name": "$btn_nm",
+        "binding_name_override": "#visible"
+      }
     ]
   },
 
@@ -275,6 +303,7 @@
     "$btn_nm": "cancel",
     "$tooltip_text": "gui.cancel",
     "$btn_ctrl": "beacon_jexp.button_template",
+    "$ignore_lkd_btn": true,
     "$icon_origin": "beacon_jexp.beacon_cancel_icon",
     "anchor_from": "top_left",
     "anchor_to": "top_left"
@@ -287,23 +316,31 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "$btn_ctrl|default": "beacon_jexp.toggle_template",
-    "bindings": [
-      { "binding_type": "collection",
-        "binding_name": "#active",
-        "binding_collection_name": "$btn_nm",
-        "binding_name_override": "#enabled"
-      }
-    ],
-    "controls": [ { "$btn_ctrl@$btn_ctrl": {} } ]
+    "$img_ctrl|default": "beacon_jexp.img_tplt",
+    "$ignore_lkd_btn|default": false,
+    "controls": [
+      { "inner": {
+          "type": "panel",
+          "controls": [ { "$btn_ctrl@$btn_ctrl": {} } ],
+          "bindings": [
+            { "binding_type": "collection",
+              "binding_name": "#active",
+              "binding_collection_name": "$btn_nm",
+              "binding_name_override": "#enabled"
+            }
+          ]
+        }
+      },
+      { "$img_ctrl@$img_ctrl": {} },
+      { "ldk_btn_with_tooltip@ldk_btn_with_tooltip": { "ignored": "$ignore_lkd_btn" } }
+    ]
   },
 
   "toggle_template": {
     "type": "panel",
     "size": ["100%", "100%"],
-    "$img_ctrl|default": "beacon_jexp.img_tplt",
     "controls": [
-      { "toggle_button@beacon_jexp.toggle_button": {} },
-      { "$img_ctrl@$img_ctrl": {} }
+      { "toggle_button@beacon_jexp.toggle_button": {} }
     ]
   },
 
@@ -424,6 +461,7 @@
   },
 
   "secondary_effect_base@beacon_jexp.effect_icon": {
+    "controls": [ { "ldk_btn_with_tooltip@beacon_jexp.ldk_btn_with_tooltip": { "offset": [-2, 2] } } ],
     "bindings": [
       { "binding_name": "#extra_image_selection",
         "binding_name_override": "#visible",
@@ -435,26 +473,31 @@
 
   "speed_secondary@beacon_jexp.secondary_effect_base": {
     "$eff_nm": "speed",
-    "$icon_location": "assets/minecraft/textures/mob_effect/speed"
+    "$icon_location": "assets/minecraft/textures/mob_effect/speed",
+    "$tooltip_text": "potion.moveSpeed"
   },
 
   "haste_secondary@beacon_jexp.secondary_effect_base": {
     "$eff_nm": "haste",
-    "$icon_location": "assets/minecraft/textures/mob_effect/haste"
+    "$icon_location": "assets/minecraft/textures/mob_effect/haste",
+    "$tooltip_text": "potion.digSpeed"
   },
 
   "resist_secondary@beacon_jexp.secondary_effect_base": {
     "$eff_nm": "resist",
-    "$icon_location": "assets/minecraft/textures/mob_effect/resistance"
+    "$icon_location": "assets/minecraft/textures/mob_effect/resistance",
+    "$tooltip_text": "potion.resistance"
   },
 
   "jump_secondary@beacon_jexp.secondary_effect_base": {
     "$eff_nm": "jump",
-    "$icon_location": "assets/minecraft/textures/mob_effect/jump_boost"
+    "$icon_location": "assets/minecraft/textures/mob_effect/jump_boost",
+    "$tooltip_text": "potion.jump"
   },
 
   "strength_secondary@beacon_jexp.secondary_effect_base": {
     "$eff_nm": "strength",
-    "$icon_location": "assets/minecraft/textures/mob_effect/strength"
+    "$icon_location": "assets/minecraft/textures/mob_effect/strength",
+    "$tooltip_text": "potion.damageBoost"
   }
 }

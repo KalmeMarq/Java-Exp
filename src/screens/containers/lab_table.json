@@ -26,12 +26,9 @@
   "content_panel": {
     "type": "panel",
     "controls": [
-      {
-        "title@container_jexp.title": {
+      { "title@container_jexp.title": {
           "text": "labtable.title",
-          "offset": [0, 5],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle"
+          "offset": ["50% - 50%x", 5]
         }
       },
       { "input@lab_table_jexp.input_grid": {} },
@@ -60,8 +57,7 @@
     "anchor_to": "top_right",
     "size": [86, 16],
     "controls": [
-      {
-        "button@button_jexp.button": {
+      { "button@button_jexp.button": {
           "size": [86, 16],
           "$dflt_btn_bg": "lab_table_jexp.lab_btn_dflt",
           "$hov_btn_bg": "lab_table_jexp.lab_btn_hov",

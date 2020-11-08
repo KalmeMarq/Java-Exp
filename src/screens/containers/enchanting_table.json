@@ -36,7 +36,7 @@
     ]
   },
   
-  "enchantments_selectable_bg@screen_jexp.res_txr": {
+  "btn_selectable_bg@screen_jexp.res_txr": {
     "texture": "assets/minecraft/textures/gui/container/enchanting_table",
     "$uv": [0, 166],
     "$uv_sz": [108, 19],
@@ -49,7 +49,7 @@
     ]
   },
 
-  "enchantments_selectable_hover_bg@enchanting_table_jexp.enchantments_selectable_bg": {
+  "btn_selectable_hov_bg@enchanting_table_jexp.btn_selectable_bg": {
     "$uv": [0, 204],
     "$uv_sz": [108, 19],
     "variables": [
@@ -60,7 +60,7 @@
     ]
   },
 
-  "enchantments_unselectable_bg@enchanting_table_jexp.enchantments_selectable_bg": {
+  "btn_unselectable_bg@enchanting_table_jexp.btn_selectable_bg": {
     "$uv": [0, 185],
     "$uv_sz": [108, 19],
     "variables": [
@@ -178,33 +178,26 @@
     "grid_dimensions": [1, 1],
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "size": [18, 18]
+    "size": [18, 18],
+    "collection_name": "$item_collt_nm",
+    "controls": [
+      { "item_slot@container_jexp.slot": {
+          "grid_position": [0, 0]
+        }
+      }
+    ]
   },
 
   "item_slot@enchanting_table_jexp.slot": {
     "offset": [14, 46],
-    "collection_name": "enchanting_input_items",
-    "controls": [
-      { "item_slot@container_jexp.slot": {
-          "grid_position": [0, 0],
-          "$item_collt_nm": "enchanting_input_items"
-        }
-      }
-    ]
+    "$item_collt_nm": "enchanting_input_items"
   },
 
   "lapis_slot@enchanting_table_jexp.slot": {
     "offset": [34, 46],
-    "collection_name": "enchanting_lapis_items",
-    "controls": [
-      { "lapis@container_jexp.slot": {
-          "grid_position": [0, 0],
-          "$item_collt_nm": "enchanting_lapis_items",
-          "$focus_id_bdg_type": "none",
-          "$focus_id": "enchanting_lapis"
-        }
-      }
-    ]
+    "$item_collt_nm": "enchanting_lapis_items",
+    "$focus_id_bdg_type": "none",
+    "$focus_id": "enchanting_lapis"
   },
 
   "enchantments_grid_panel": {
@@ -232,6 +225,8 @@
   "dust_template": {
     "type": "panel",
     "size": [18, 19],
+    "$dust_selected": "('enchanting_table_jexp.dust_level_' + $dust_level)",
+    "$dust_unselected": "('enchanting_table_jexp.dust_level_' + $dust_level + '_locked')",
     "controls": [
       { "dust_image_selectable@$dust_selected": {} },
       { "dust_image_unselectable$dust_unselected": {} }
@@ -247,24 +242,9 @@
     "offset": [1, 0],
     "collection_name": "#enchant_buttons",
     "controls": [
-      { "a@enchanting_table_jexp.dust_template": {
-          "grid_position": [0, 0],
-          "$dust_selected": "enchanting_table_jexp.dust_level_1",
-          "$dust_unselected": "enchanting_table_jexp.dust_level_1_locked"
-        }
-      },
-      { "b@enchanting_table_jexp.dust_template": {
-          "grid_position": [0, 1],
-          "$dust_selected": "enchanting_table_jexp.dust_level_2",
-          "$dust_unselected": "enchanting_table_jexp.dust_level_2_locked"
-        }
-      },
-      { "c@enchanting_table_jexp.dust_template": {
-          "grid_position": [0, 2],
-          "$dust_selected": "enchanting_table_jexp.dust_level_3",
-          "$dust_unselected": "enchanting_table_jexp.dust_level_3_locked"
-        }
-      }
+      { "a@enchanting_table_jexp.dust_template": { "grid_position": [0, 0], "$dust_level": "1" } },
+      { "b@enchanting_table_jexp.dust_template": { "grid_position": [0, 1], "$dust_level": "2" } },
+      { "c@enchanting_table_jexp.dust_template": { "grid_position": [0, 2], "$dust_level": "3" } }
     ]
   },
 
@@ -273,7 +253,7 @@
     "size": [108, 19],
     "layer": 7,
     "controls": [
-      { "enchantments_unselectable_bg@enchanting_table_jexp.enchantments_unselectable_bg": {} },
+      { "enchantments_unselectable_bg@enchanting_table_jexp.btn_unselectable_bg": {} },
       { "unselectable_button@enchanting_table_jexp.unselectable_button": {} },
       { "selectable_button@enchanting_table_jexp.selectable_button": {} }
     ]
@@ -289,17 +269,10 @@
       { "binding_type": "collection_details",
         "binding_collection_name": "#enchant_buttons"
       }
-    ]
-  },
-
-  "unselectable_button@base_button": {
-    "$vis_bdg_nm": "#unselectable_button_visibility",
-    "sound_volume": 0,
-    "layer": 1,
-    "button_mappings": [],
+    ],
     "controls": [
-      { "default@enchanting_table_jexp.enchantments_unselectable_bg": {} },
-      { "hover@enchanting_table_jexp.enchantments_unselectable_bg": {
+      { "default@$dlft_bg": {} },
+      { "hover@$hov_bg": {
           "controls": [
             { "tooltip@container_jexp.item_tooltip": {
                 "$item_collt_nm": "#enchant_buttons",
@@ -314,10 +287,20 @@
           ]
         }
       },
-      { "pressed@enchanting_table_jexp.enchantments_unselectable_bg": {} },
+      { "pressed@$hov_bg": {} },
       { "runes_panel@enchanting_table_jexp.runes_panel": { "$runes_color": "$enchanting_runes_fail_color" } },
-      { "enchant_cost@enchanting_table_jexp.fail_cost": {} }
+      { "enchant_cost@$cost_ctrl": {} }
     ]
+  },
+
+  "unselectable_button@base_button": {
+    "$vis_bdg_nm": "#unselectable_button_visibility",
+    "sound_volume": 0,
+    "layer": 1,
+    "button_mappings": [],
+    "$dlft_bg": "btn_unselectable_bg",
+    "$hov_bg": "btn_unselectable_bg",
+    "$cost_ctrl": "fail_cost"
   },
 
   "selectable_button@base_button": {
@@ -335,27 +318,9 @@
         "mapping_type": "focused"
       }
     ],
-    "controls": [
-      { "default@enchanting_table_jexp.enchantments_selectable_bg": {} },
-      { "hover@enchanting_table_jexp.enchantments_selectable_hover_bg": {
-          "controls": [
-            { "tooltip@container_jexp.item_tooltip": {
-                "$item_collt_nm": "#enchant_buttons",
-                "bindings": [
-                  { "binding_name": "#hover_text",
-                    "binding_collection_name": "#enchant_buttons",
-                    "binding_type": "collection"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      { "pressed@enchanting_table_jexp.enchantments_selectable_hover_bg": {} },
-      { "runes_panel@enchanting_table_jexp.runes_panel": { "$runes_color": "$enchanting_runes_fail_color" } },
-      { "enchant_cost@enchanting_table_jexp.success_cost": {} }
-    ]
+    "$dlft_bg": "btn_selectable_bg",
+    "$hov_bg": "btn_selectable_hov_bg",
+    "$cost_ctrl": "success_cost"
   },
 
   "runes_panel": {
@@ -367,39 +332,34 @@
     "controls": [ { "runes@enchant_runes": {} } ]
   },
 
-  "enchant_runes": {
+  "base_label": {
     "type": "label",
-    "color": "$runes_color",
-    "$runes_color|default": "$enchanting_runes_color",
-    "shadow": false,
-    "layer": 1,
+    "text": "$label_bdg_nm",
     "anchor_to": "top_left",
     "anchor_from": "top_left",
-    "text": "#runes",
-    "size": [78, 16],
-    "font_type": "rune",
+    "layer": 1,
     "bindings": [
-      { "binding_collection_name": "#enchant_buttons",
-        "binding_name": "#runes",
+      { "binding_name": "$label_bdg_nm",
+        "binding_collection_name": "#enchant_buttons",
         "binding_type": "collection"
       }
     ]
   },
 
-  "enchant_cost": {
-    "type": "label",
+  "enchant_runes@base_label": {
+    "color": "$runes_color",
+    "$runes_color|default": "$enchanting_runes_color",
+    "$label_bdg_nm": "#runes",
+    "size": [78, 16],
+    "font_type": "rune"
+  },
+
+  "enchant_cost@base_label": {
     "shadow": true,
     "offset": [-2, -1],
-    "layer": 1,
     "anchor_from": "bottom_right",
     "anchor_to": "bottom_right",
-    "text": "#cost",
-    "bindings": [
-      { "binding_name": "#cost",
-        "binding_collection_name": "#enchant_buttons",
-        "binding_type": "collection"
-      }
-    ]
+    "$label_bdg_nm": "#cost"
   },
 
   "success_cost@enchanting_table_jexp.enchant_cost": { "color": "$enchanting_cost_success_text_color" },

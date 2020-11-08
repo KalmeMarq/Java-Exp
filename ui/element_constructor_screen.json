@@ -1,0 +1,9 @@
+{
+  "namespace": "elemconstruct",
+  
+  "element_constructor@screen_jexp.inventory_screen": {     
+    "close_on_player_hurt": "$force_container_close_on_player_hurt",
+    "$scrn_cont": "element_constructor_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.screen_background"
+  }
+}

@@ -104,9 +104,9 @@
     "variables": [
       { "requires": "($is_holographic and not $is_living_room_mode)",
         "$hud_player_rend_desktop_offset": [ 100, 50 ]
-      /* },
-      { "requires": "$compressed_hud_width",
-        "$hud_size": ["90%", "100%"] */
+      },
+      { "requires": "($compress_hud_width)",
+        "$hud_size": ["90%", "100%"]
       }
     ],
     "bindings": [
@@ -628,6 +628,15 @@
           "type": "panel",
           "size": ["100%", "100%cm"],
           "controls": [
+            { "title_background": {
+                "type": "image",
+                "offset": [0, -8],
+                "size": ["100%sm + 30px", "100%sm + 6px"],
+                "texture": "textures/ui/hud_tip_text_background",
+                "alpha": "@hud.anim_title_background_alpha_in",
+                "ignored": "(not $show_dark_bg_below_hud_texts)"
+              }
+            },
             { "title": {
                 "type": "label",
                 "anchor_from": "top_middle",
@@ -644,7 +653,6 @@
                 },
                 "shadow": "$show_shadow",
                 "text_alignment": "center",
-                "offset": [0, 1],
                 "bindings": [
                   { "binding_name": "#hud_title_text_string",
                     "binding_name_override": "#text",
@@ -660,6 +668,20 @@
           "type": "panel",
           "size": ["100%", "100%cm"],
           "controls": [
+            { "subtitle_background": {
+                "type": "image",
+                "size": ["100%sm + 20px", "100%sm + 5px"],
+                "offset": [0, 15],
+                "texture": "textures/ui/hud_tip_text_background",
+                "$subtitle_bg|default": "@hud.anim_subtitle_background_alpha_in",
+                "variables": {
+                  "requires": "$subtitle_initially_visible",
+                  "$subtitle_bg": "@hud.anim_title_background_alpha_in"
+                },
+                "alpha": "$subtitle_bg",
+                "ignored": "(not $show_dark_bg_below_hud_texts)"
+              }
+            },
             { "subtitle": {
                 "type": "label",
                 "anchor_from": "top_middle",
@@ -682,6 +704,7 @@
                 "shadow": "$show_shadow",
                 "alpha": "$anim_type",
                 "text_alignment": "center",
+                "offset": [0, 19],
                 "bindings": [
                   { "binding_name": "#hud_subtitle_text_string",
                     "binding_name_override": "#text",
@@ -698,11 +721,19 @@
 
   "hud_actionbar_text": {
     "type": "panel",
-    "size": ["100%c + 12px", "100%c + 5px"],
+    "size": ["100%", "100%cm"],
     "offset": [0, "50%-68px"],
     "alpha": "@hud.anim_actionbar_text_alpha_out",
     "propagate_alpha": true,
     "controls": [
+      { "background": {
+          "type": "image",
+          "size": ["100%sm + 12px", "100%sm + 5px"],
+          "texture": "textures/ui/hud_tip_text_background",
+          "alpha": "@hud.anim_actionbar_text_background_alpha_out",
+          "ignored": "(not $show_dark_bg_below_hud_texts)"
+        }
+      },
       { "actionbar_message": {
           "type": "label",
           "anchor_from": "center",
@@ -1069,6 +1100,12 @@
             { "left_shadow@ingame_hud.xp_text": { "offset": [-1, 0] } },
             { "right_shadow@ingame_hud.xp_text": { "offset": [1, 0] } },
             { "bottom_shadow@ingame_hud.xp_text": { "offset": [0, 1] } }
+          ],
+          "bindings": [
+            { "binding_name": "#level_number_visible",
+              "binding_type": "global",
+              "binding_name_override": "#visible"
+            }
           ]
         }
       },
@@ -1090,10 +1127,6 @@
     "bindings": [
       { "binding_name": "#level_number",
         "binding_type": "global"
-      },
-      { "binding_name": "#level_number_visible",
-        "binding_type": "global",
-        "binding_name_override": "#visible"
       }
     ]
   },
@@ -1225,6 +1258,9 @@
 
   "hotbar_grid": {
     "type": "grid",
+    "size": [180, 22],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
     "$hotbar_collt_nm|default": "hotbar_items",
     "grid_item_template": "ingame_hud.hotbar_grid_item",
     "grid_dimension_binding": "#hotbar_grid_dimensions",
@@ -1258,7 +1294,7 @@
   "hotbar_grid_item": {
     "type": "panel",
     "layer": 1,
-    "size": [ 20, 22 ],
+    "size": [20, 22],
     "anchor_to": "top_left",
     "anchor_from": "top_left",
     "$stack_count_required|default": true,
@@ -1279,9 +1315,10 @@
           ]
         }
       },
+      { "slot_item_lock_overlay@slot_item_lock_overlay": { "$slot_highlight_size": [16, 16] } },
       { "hotbar_parent": {
           "type": "panel",
-          "size": [ 18, 18 ],
+          "size": [18, 18],
           "controls": [
             { "item_icon@hud.hotbar_hud_item_icon": { "size": [16, 16], "$item_collection_name": "$hotbar_collt_nm" } },
             {
@@ -1309,5 +1346,7 @@
       { "cooldown_renderer@hud.cooldown_renderer": { "layer": 10 } },
       { "hotbar_slot_button@hud.gui_hotbar_slot_button_prototype": {} }
     ]
-  }
+  },
+
+  "slot_item_lock_overlay@container_jexp.slot_item_lock_overlay": { "$item_collt_nm": "$hotbar_collt_nm" }
 }

@@ -120,7 +120,7 @@
     ]
   },
 
-  "button_link@button": {
+  "button_link@button_jexp.button": {
     "$prsd_btn_nm": "button_jexp.menu_open_uri",
     "$link|default": "",
     "property_bag": { "#hyperlink": "$link" }
@@ -131,7 +131,7 @@
     "$btn_text|default": "unset $btn_text"
   },
 
-  "button_action_link@button_action": {
+  "button_action_link@button_jexp.button_action": {
     "$prsd_btn_nm": "button_jexp.menu_open_uri",
     "$link|default": "unset #hyperlink in property_bag",
     "property_bag": { "#hyperlink": "$link" }
@@ -140,7 +140,13 @@
   "button_state": {
     "type": "panel",
     "$btn_state|default": "",
+    "$tooltip_text|default": "",
     "controls": [
+      { "tooltip@tooltip_jexp.tooltip": {
+          "ignored": "(not ($btn_state = hover))",
+          "visible": "(not $tooltip_text = '')"
+        }
+      },
       { "$btn_bg@$btn_bg": {} },
       { "inner_content": {
           "type": "panel",

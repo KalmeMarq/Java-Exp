@@ -1,7 +1,7 @@
-/**************************
-* (c) Copyright 2020 @FMarquesPTO.
-* All rights reserved.
-***************************/
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
 {
   "namespace": "scrollpane_jexp",
 
@@ -143,7 +143,7 @@
     "$scrollview_size|default": ["100%", "100%c"],
     "controls": [
       { "top_shadow@scrollpane_jexp.shadow_top": {} },
-      { "overlay@screen_jexp.screen_background": { "size": ["100% + 1px", "100%"], "alpha": 0.875, "layer": 2 } },
+      { "overlay@screen_jexp.screen_background": { "size": ["100% + 1px", "100%"], "alpha": 0.875, "color": "black", "layer": 2 } },
       { "scrolling_content@screen_jexp.dirt": {
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",

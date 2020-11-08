@@ -28,12 +28,12 @@
     "$container_title": "tile.cartography_table.name",
     "controls": [
       { "title@container_jexp.title": { "offset": [8, 3] } },
-      // { "map_name_input@cartography_table_jexp.map_name_box": {} },
+      { "map_name_input@cartography_table_jexp.map_name_box": {} },
       { "input@cartography_table_jexp.input_slot": {} },
       { "additional@cartography_table_jexp.additional_slot": {} },
       { "result@cartography_table_jexp.result_slot": {} },
       { "cartography_maps_panel@cartography_table_jexp.cartography_maps_panel": {} },
-      // { "show_map_name_input@cartography_table_jexp.show_map_name_input_button": {} },
+      { "show_map_name_input@cartography_table_jexp.show_map_name_input_button": {} },
       { "inventory@container_jexp.player_inventory": {} },
       { "hotbar@container_jexp.player_hotbar": {} }
     ]
@@ -66,14 +66,14 @@
       { "zoom@cartography_table_jexp.zoom_map": {} },
       { "lock@cartography_table_jexp.locked_map": {} },
       { "locked_icon@cartography_table_jexp.locked_map_icon": {} }
-    ]/* ,
+    ],
     "bindings": [
       { "binding_type": "view",
         "source_control_name": "map_name_input_view",
         "source_property_name": "(not #toggle_state)",
         "target_property_name": "#visible"
       }
-    ] */
+    ]
   },
 
   "map@screen_jexp.res_txr": {
@@ -189,18 +189,17 @@
       { "hover@container_jexp.slot_highlight": {} },
       { "pressed@container_jexp.slot_highlight": {} }
     ]
-  }
+  },
 
-  /* "map_name_box@text_box_ui.text_box": {
+  "map_name_box@text_box_jexp.text_box": {
     "offset": [65, 39],
     "size": [55, 16],
     "max_length": 30,
     "text_box_name": "#text_box_name",
-    "$placeholder_text": "#text_box_placeholder_name",
-    "$text_edit_box_placeholder_content_binding_name": "#text_box_placeholder_name",
+    "$phr_text": "#text_box_placeholder_name",
+    "$text_edit_box_phr_cont_bdg_nm": "#text_box_placeholder_name",
     "bindings": [
-      {
-        "binding_type": "view",
+      { "binding_type": "view",
         "source_control_name": "map_name_input_view",
         "source_property_name": "#toggle_state",
         "target_property_name": "#visible"
@@ -208,36 +207,34 @@
     ]
   },
 
-  "show_map_name_input_button@toggle_button_ui.toggle": {
-    "$toggle_name": "cartography",
-    "$toggle_index": 1,
-    "$toggle_group": false,
+  "show_map_name_input_button@toggle_button_jexp.toggle_button": {
+    "$tgl_nm": "cartography",
+    "$tgl_idx": 1,
+    "$tgl_group": false,
     "size": [17, 17],
     "offset": [14, 33],
-    "$widget_control_name": "map_name_input_view",
+    "$tgl_ctrl_nm": "map_name_input_view",
     "$focus_id": "show_text_input_button",
-    "$toggle_state_panel": "cartography_table_jexp.show_map_name_input_button_content",
+    "$tgl_state_panel": "cartography_table_jexp.show_map_name_input_btn_cont",
     "bindings": [
-      {
-        "binding_name": "(not #is_none_mode)",
+      { "binding_name": "(not #is_none_mode)",
         "binding_name_override": "#enabled"
       }
     ]
   },
 
-  "show_map_name_input_button_content": {
+  "show_map_name_input_btn_cont": {
     "type": "panel",
     "size": [17, 17],
     "layer": 2,
     "controls": [
-      {
-        "border": {
+      { "border": {
           "type": "image",
-          "texture": "assets/fmarquespto/textures/static/border",
+          "texture": "src/assets/border",
           "size": ["100%", "100%"],
-          "visible": "($state = checked_hover or $state = unchecked_hover)"
+          "visible": "($tgl_state = checkedhov or $tgl_state = uncheckedhov)"
         }
       }
     ]
-  } */
+  }
 }

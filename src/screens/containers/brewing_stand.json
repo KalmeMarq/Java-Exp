@@ -24,9 +24,8 @@
 
   "content_panel": {
     "type": "panel",
-    "$tanchor": "top_middle",
     "controls": [
-      { "title@container_jexp.title": { "offset": [0, 5] } },
+      { "title@container_jexp.title": { "offset": ["50% - 50%x", 5] } },
       { "arrow@brewing_stand_jexp.full_arrow": {
           "offset": [97, 16],
           "clip_direction": "up",

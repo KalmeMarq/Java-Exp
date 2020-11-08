@@ -1,0 +1,290 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "world_create_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "focus_container": true,
+    "focus_nagivation_mode_down": "contained",
+    "focus_nagivation_mode_up": "contained",
+    "focus_nagivation_mode_left": "contained",
+    "focus_nagivation_mode_right": "contained",
+    "controls": [
+      { "achievements@world_create_jexp.achievements_warning_popup": {} },
+      { "create@world_create_jexp.content_panel": {} },
+      { "behavior_packs_scrn@world_behavior_packs_jexp.screen_content": { "visible": false } },
+      { "gamerules_scrn@gamerules_jexp.screen_content": { "visible": false } },
+      { "more_options_scrn@more_options_jexp.screen_content": { "visible": false } },
+      { "multiplayer_scrn@multiplayer_jexp.screen_content": { "visible": false } },
+      { "resource_packs_scrn@world_resource_packs_jexp.screen_content": { "visible": false } }
+    ]
+  },
+
+  "content_panel": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "offset": ["50% - 50%x", 19], "text": "selectWorld.create" } },
+      { "world_name_label@option_text_box_jexp.box_label": { "text": "selectWorld.enterName", "offset": ["50% - 100px", 46] } },
+      { "world_name@world_create_jexp.world_name_box": { "offset": ["50% - 50%x", 59], "$header": "selectWorld.enterName" } },
+      { "world_save@world_create_jexp.world_save_panel": { "offset": ["50% - 100px", 84] } },
+      { "gamemode@world_create_jexp.gamemode_iterable_tgl": { "offset": ["50% - 155px", 100] } },
+      { "gamemode_info@world_create_jexp.gamemode_info_panel": { "offset": ["50% - 151px", 121] } },
+      { "difficulty@world_create_jexp.difficulty_iterable_tgl": { "offset": ["50% + 5px", 100] } },
+      { "resource_packs@world_create_jexp.resource_packs_button": { "offset": ["50% + 5px", 131] } },
+      { "allow_cheats_toggle@world_create_jexp.allow_cheats_toggle": { "offset": ["50% - 155px", 151] } },
+      { "allow_cheats_info@world_create_jexp.info_label": { "text": "selectWorld.allowCommands.info", "offset": ["50% - 151px", 171] } },
+      { "behavior_packs@world_create_jexp.behavior_packs_button": { "offset": ["50% + 5px", 151] } },
+      { "gamerules@world_create_jexp.gamerules_button": { "offset": ["50% - 155px", 185] } },
+      { "more_options@world_create_jexp.more_options_button": { "offset": ["50% + 5px", 185] } },
+      { "create_world@world_create_jexp.create_world_button": { "offset": ["50% - 155px", "100% - 28px"] } },
+      { "cancel@world_create_jexp.cancel_button": { "offset": ["50% + 5px", "100% - 28px"] } }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "behavior_packs_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "gamerules_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "more_options_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "resource_packs_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "world_name_box@option_text_box_jexp.option_text_box": {
+    "$opt_bdg_nm": "#world_name",
+    "$opt_enabled_bdg_nm": "#world_name_enabled",
+    "$text_box_name": "world_name_text_box",
+    "$allow_data_binding": false
+  },
+
+  "gamemode_iterable_tgl@iterable_toggle_jexp.iterable_tgl_panel": {
+    "$opt_enabled_bdg_nm": "#world_gamemode_dropdown_enabled",
+    "$tgl_type_text": "selectWorld.gameMode",
+    "controls": [
+      { "survival@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "selectWorld.gameMode.survival",
+          "$this_action": "#world_game_mode_radio_survival",
+          "$next_action": "#world_game_mode_radio_creative"
+        }
+      },
+      { "creative@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "selectWorld.gameMode.creative",
+          "$this_action": "#world_game_mode_radio_creative",
+          "$next_action": "#world_game_mode_radio_survival"
+        }
+      }
+    ]
+  },
+
+  "gamemode_info_panel": {
+    "type": "panel",
+    "size": [310, 1],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      { "survival": {
+          "type": "panel",
+          "controls": [
+            { "0@world_create_jexp.info_label": { "text": "selectWorld.gameMode.survival.line1" } },
+            { "1@world_create_jexp.info_label": { "text": "selectWorld.gameMode.survival.line2", "offset": [0, 11] } }
+          ],
+          "bindings": [
+            { "binding_name": "#world_game_mode_radio_survival",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "creative": {
+          "type": "panel",
+          "controls": [
+            { "0@world_create_jexp.info_label": { "text": "selectWorld.gameMode.creative.line1" } },
+            { "1@world_create_jexp.info_label": { "text": "selectWorld.gameMode.creative.line2", "offset": [0, 11] } }
+          ],
+          "bindings": [
+            { "binding_name": "#world_game_mode_radio_creative",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "info_label": {
+    "type": "label",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": ["default", 10],
+    "color": "$info_color",
+    "shadow": true,
+    "text_alignment": "left",
+    "layer": 2
+  },
+  
+  "difficulty_iterable_tgl@iterable_toggle_jexp.iterable_tgl_panel": {
+    "$opt_enabled_bdg_nm": "#world_difficulty_dropdown_enabled",
+    "$tgl_type_text": "options.difficulty",
+    "controls": [
+      { "peaceful@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.difficulty.peaceful",
+          "$this_action": "#world_difficulty_radio_peaceful",
+          "$next_action": "#world_difficulty_radio_easy"
+        }
+      },
+      { "easy@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.difficulty.easy",
+          "$this_action": "#world_difficulty_radio_easy",
+          "$next_action": "#world_difficulty_radio_normal"
+        }
+      },
+      { "normal@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.difficulty.normal",
+          "$this_action": "#world_difficulty_radio_normal",
+          "$next_action": "#world_difficulty_radio_hard"
+        }
+      },
+      { "hard@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.difficulty.hard",
+          "$this_action": "#world_difficulty_radio_hard",
+          "$next_action": "#world_difficulty_radio_peaceful"
+        }
+      }
+    ]
+  },
+
+  "allow_cheats_toggle@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "selectWorld.allowCommands",
+    "$opt_enabled_bdg_nm": "#allow_cheats_enabled",
+    "$tgl_nm": "allow_cheats",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "open_tgl_btn@options_jexp.open_tgl_btn": { "$tgl_nm": "world_create" },
+  "back_tgl_btn@options_jexp.back_tgl_btn": { "$tgl_nm": "world_create" },
+  
+  "gamerules_button@world_create_jexp.open_tgl_btn": {
+    "$tgl_idx": 1,
+    "$tgl_text": "selectWorld.gameRules",
+    "$tgl_ctrl_nm": "gamerules_view"
+  },
+
+  "more_options_button@world_create_jexp.open_tgl_btn": {
+    "$tgl_idx": 2,
+    "$tgl_text": "selectWorld.moreWorldOptions",
+    "$tgl_ctrl_nm": "more_options_view"
+  },
+
+  "resource_packs_button@world_create_jexp.open_tgl_btn": {
+    "$tgl_idx": 3,
+    "$tgl_text": "menu.resourcepacks",
+    "$tgl_ctrl_nm": "world_resource_packs_view"
+  },
+
+  "behavior_packs_button@world_create_jexp.open_tgl_btn": {
+    "$tgl_idx": 4,
+    "$tgl_text": "menu.behaviors",
+    "$tgl_ctrl_nm": "world_behavior_packs_view"
+  },
+
+  "multiplayer_button@world_create_jexp.open_tgl_btn": {
+    "$tgl_idx": 1,
+    "$tgl_nm": "multiplayer_settings",
+    "$tgl_text": "createWorldScreen.multiplayer.settings",
+    "$tgl_ctrl_nm": "multiplayer_view"
+  },
+
+  "create_world_button@button_jexp.button_action": {
+    "size": [150, 20],
+    "$btn_focus_prcdc": 1,
+    "$btn_text": "selectWorld.create",
+    "$prsd_btn_nm": "create_world_button"
+  },
+
+  "cancel_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.menu_exit",
+    "$btn_text": "gui.cancel",
+    "size": [150, 20]
+  },
+
+  /**********************************
+    World Save Panel
+  ***********************************/
+  "world_save_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [310, 10],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      { "result@info_label": { "text": "selectWorld.resultFolder" } },
+      {
+        "world_name@option_text_box_jexp.text_box_view": {
+          "$phr_text": "selectWorld.newWorld",
+          "$opt_bdg_nm": "#world_name",
+          "$text_box_name": "world_name_text_box",
+          "$allow_data_binding": false
+        }
+      }
+    ]
+  },
+
+  /**********************************
+    Achievements Message
+  ***********************************/
+  "achievements_warning_popup@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/toasts",
+    "size": [160, 32],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "layer": 10,
+    "controls": [
+      { "clipped_panel": {
+          "type": "panel",
+          "size": ["100% - 12px", "100% - 12px"],
+          "clips_children": true,
+          "controls": [
+            { "achievement_warning_label": {
+                "type": "label",
+                "text": "#achievement_warning_text",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "size": ["100%", "100%"],
+                "layer": 10,
+                "bindings": [ { "binding_name": "#achievement_warning_text" } ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "$uv_sz": [160, 32],
+    "variables": [
+      { "requires": "($toasts_res = 512x)", "$uv_sz": [320, 64] },
+      { "requires": "($toasts_res = 1024x)", "$uv_sz": [640, 128] },
+      { "requires": "($toasts_res = 2048x)", "$uv_sz": [1280, 256] },
+      { "requires": "($toasts_res = 4096x)", "$uv_sz": [2560, 512] }
+    ],
+    "bindings": [
+      { "binding_name": "#achievment_warning_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  }
+}

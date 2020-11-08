@@ -11,6 +11,7 @@
       { "title@title_panel": {} },
       { "splash_text@splash_text": { "offset": ["50% + 90px", 60] } },
       { "buttons@buttons_panel": {} },
+      { "online_cont@online_cont": {} },
       { "bottom_text@bottom_text_panel": {} }
     ]
   },
@@ -288,10 +289,7 @@
           ]
         }
       },
-      { "realms_pending_invite@invs_notifs_btn": { "offset": ["50% + 80px", "25% + 48px + 2px"] } },
-      { "feedback@fdbk_panel": { "offset": ["50% - 100px - 23px", "25% + 48px + 72px + 12px"] } },
-      { "xbl_signin@xbl_signin_btn": { "offset": ["50% + 100px - 50%c + 26px", "25% + 48px + 72px + 12px"] } },
-      { "platform_signin@platform_signin_btn": { "offset": ["50% + 100px - 50%c + 26px", "25% + 48px + 72px + 12px"] } }
+      { "realms_pending_invite@invs_notifs_btn": { "offset": ["50% + 80px", "25% + 48px + 2px"] } }
     ],
     "$achievements_ignored|default": false,
     "$feedback_ignored|default": false,
@@ -302,6 +300,93 @@
       { "requires": "$fire_tv", "$feedback_ignored": true },
       { "requires": "$nx_os", "$feedback_ignored": true },
       { "requires": "(not $supports_xbl_achievements)", "$achievements_ignored": false, "$feedback_ignored": true }
+    ]
+  },
+
+  "online_cont": {
+    "type": "panel",
+    "controls": [
+      { "signingin": {
+          "type": "label",
+          "size": [ "default", "100%" ],
+          "offset": [2, 11.25],
+          "max_size": [150, "100%"],
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "color": "$primary_color",
+          "text": "#signingin_text",
+          "bindings": [
+            { "binding_name": "#signingin_visible",
+              "binding_name_override": "#visible"
+            },
+            { "binding_name": "#signingin_text"
+            }
+          ]
+        }
+      },
+      { "gamertag_pic_and_label": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100%c", 16],
+          "ignored": "(not $nx_os and not $is_ps4)",
+          "controls": [
+            { "gamerpic_with_border": {
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  { "gamerpic": {
+                      "type": "image",
+                      "size": [16, 16],
+                      "layer": 1,
+                      "bindings": [
+                        { "binding_name": "#gamerpic_texture_path",
+                          "binding_name_override": "#texture"
+                        },
+                        { "binding_name": "#gamerpic_texture_location_type",
+                          "binding_name_override": "#texture_file_system"
+                        }
+                      ]
+                    }
+                  },
+                  { "border_white@common.focus_border_white": { "layer": 3, "size": [ 16, 16 ] } }
+                ]
+              }
+            },
+            { "space@screen.empty_panel": { "size": [1, 0] } },
+            { "label_panel": {
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  { "gamertag_label": {
+                      "type": "label",
+                      "color": "$primary_color",
+                      "text": "#gamertag_label",
+                      "locked_alpha": 0.5,
+                      "size": [ "default", "100%" ],
+                      "offset": [0, "25%"],
+                      "layer": 1,
+                      "bindings": [ { "binding_name": "#gamertag_label" } ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "#gamertag_pic_and_label_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "feedback@fdbk_panel": { "offset": ["50% - 100px - 23px", "25% + 48px + 72px + 12px"] } },
+      { "xbl_signin@xbl_signin_btn": { "offset": ["50% + 100px - 50%c + 26px", "25% + 48px + 72px + 12px"] } },
+      { "platform_signin@platform_signin_btn": { "offset": ["50% + 100px - 50%c + 26px", "25% + 48px + 72px + 12px"] } }
+    ],
+    "bindings": [
+      { "binding_name": "#online_buttons_visible",
+        "binding_name_override": "#visible"
+      }
     ]
   },
 
@@ -422,7 +507,7 @@
     "$lkd_btn_bg": "main_menu_jexp.fdbk_btn_dflt",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "$button_tts_header": "accessibility.start.feedback",
+    "$btn_tts_hdr": "accessibility.start.feedback",
     "controls": [
       { "edu@button_jexp.button": {
           "size": [20, 20],
@@ -478,7 +563,7 @@
     "size": ["100%c", 20],
     "ignored": "($nx_os or $is_ps4)",
     "$prsd_btn_nm": "button.signin",
-    "$btn_state_panel": "button.width_fitting_button_state",
+    "$btn_state_panel": "button_jexp.width_fitting_button_state",
     "$btn_text": "xbox.signin",
     "$focus_id": "menu_xbox_signin_button",
     "tts_index": 4,
@@ -491,7 +576,7 @@
 
   "platform_signin_btn@button_jexp.button": {
     "size": ["100%c", 20],
-    "$btn_state_panel": "button.width_fitting_button_state",
+    "$btn_state_panel": "button_jexp.width_fitting_button_state",
     "$prsd_btn_nm": "button.signin",
     "$focus_id": "menu_xbox_signin_button",
     "$btn_text": "#platform_signin_text",

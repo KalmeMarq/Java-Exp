@@ -14,12 +14,9 @@
   "content_panel": {
     "type": "panel",
     "controls": [
-      {
-        "title@container_jexp.title": {
+      { "title@container_jexp.title": {
           "text": "materialreducer.title",
-          "offset": [0, 4],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle"
+          "offset": ["50% - 50%x", 4]
         }
       },
       { "input@material_reducer_jexp.input_slot": {} },

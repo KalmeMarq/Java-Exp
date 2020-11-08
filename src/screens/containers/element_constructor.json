@@ -2,43 +2,40 @@
   (c) Copyright 2020 @FMarquesPTO.
   All rights reserved.
 ***********************************/
-/* {
-  "namespace": "element_constructor_ui",
+{
+  "namespace": "element_constructor_jexp",
 
-  "element_constructor_screen_panel@container_ui.container_panel": {
+  "screen_content@container_jexp.container_panel": {
     "$container_size": [256, 220],
-    "$container_bg": "element_constructor_ui.element_constructor_bg",
-    "$specified_content": "element_constructor_ui.element_constructor_content_panel"
+    "$container_bg": "element_constructor_jexp.element_constructor_bg",
+    "$container_cont": "element_constructor_jexp.content_panel"
   },
 
-  "element_constructor_bg@content_ui.resource_image": {
-    "texture": "assets/fmarquespto/textures/gui/container/element_constructor",
+  "element_constructor_bg@screen_jexp.res_txr": {
+    "texture": "src/assets/container/element_constructor",
     "size": [256, 220],
+    "$uv_sz": [256, 220],
     "variables": [
-      { "requires": "($element_constructor_resolution = 256x)", "$uv_size": [256, 220] },
-      { "requires": "($element_constructor_resolution = 512x)", "$uv_size": [460, 392] },
-      { "requires": "($element_constructor_resolution = 1024x)", "$uv_size": [920, 784] },
-      { "requires": "($element_constructor_resolution = 2048x)", "$uv_size": [1840, 1568] },
-      { "requires": "($element_constructor_resolution = 4096x)", "$uv_size": [2816, 3036] }
+      { "requires": "($element_constructor_res = 512x)", "$uv_sz": [460, 392] },
+      { "requires": "($element_constructor_res = 1024x)", "$uv_sz": [920, 784] },
+      { "requires": "($element_constructor_res = 2048x)", "$uv_sz": [1840, 1568] },
+      { "requires": "($element_constructor_res = 4096x)", "$uv_sz": [2816, 3036] }
     ]
   },
 
-  "element_constructor_content_panel": {
+  "content_panel": {
     "type": "panel",
     "controls": [
-      {
-        "title@container_ui.title": {
+      { "title@container_jexp.title": {
           "text": "elementconstructor.title",
-          "offset": [0, 4],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle"
+          "offset": ["50% - 50%x", 4]
         }
       },
-      { "particle_panel@element_constructor_ui.particle_panel": {} },
-      { "bohr_model@element_constructor_ui.bohr_model": {} },
-      { "output_slot@element_constructor_ui.output_slot": {} },
-      { "player_inventory@container_ui.player_inventory": { "offset": ["100% - 100%x - 7px", "100% - 83px"] } },
-      { "player_hotbar@container_ui.player_hotbar": { "offset": ["100% - 100%x - 7px", "100% - 25px"] } }
+      { "particle_panel@element_constructor_jexp.particle_panel": {} },
+      { "bohr_model@element_constructor_jexp.bohr_model": {} },
+      { "output_slot@element_constructor_jexp.output_slot": {} },
+      { "inventory@container_jexp.player_inventory": { "offset": ["100% - 100%x - 7px", "100% - 83px"] } },
+      { "hotbar@container_jexp.player_hotbar": { "offset": ["100% - 100%x - 7px", "100% - 25px"] } }
     ]
   },
 
@@ -51,52 +48,31 @@
     "anchor_to": "top_left",
     "layer": 2,
     "controls": [
-      {
-        "protons@element_constructor_ui.particle": {
+      { "protons@element_constructor_jexp.particle": {
           "$particle_label": "p",
-          "$particle_count_bind_name": "#proton_label_count",
-          "$plus_button_name": "button.proton_plus",
-          "$minus_button_name": "button.proton_minus",
-          "$slider_value_binding_name": "#proton_slider_count",
-          "$slider_name": "proton_slider",
-          "$slider_progress_color": "$proton_color",
-          "$text_box_name": "proton_text_edit",
+          "$particle_nm": "proton",
           "$plus_focus_id": "protons_plus",
-          "$plus_focus_override_right": "electrons_plus",
-          "$plus_focus_override_left": "FOCUS_OVERRIDE_STOP",
-          "$focus_override_left": "FOCUS_OVERRIDE_STOP"
+          "$plus_focus_ovrd_right": "electrons_plus",
+          "$plus_focus_ovrd_left": "FOCUS_OVERRIDE_STOP",
+          "$focus_ovrde_left": "FOCUS_OVERRIDE_STOP"
         }
       },
-      { "space_0@content_ui.h2px": {} },
-      {
-        "electrons@element_constructor_ui.particle": {
+      { "space_0@screen_jexp.h2px": {} },
+      { "electrons@element_constructor_jexp.particle": {
           "$particle_label": "e",
-          "$particle_count_bind_name": "#electron_label_count",
-          "$plus_button_name": "button.electron_plus",
-          "$minus_button_name": "button.electron_minus",
-          "$slider_value_binding_name": "#electron_slider_count",
-          "$slider_name": "electron_slider",
-          "$slider_progress_color": "$electron_color",
-          "$text_box_name": "electron_text_edit",
+          "$particle_nm": "electron",
           "$plus_focus_id": "electrons_plus",
-          "$plus_focus_override_right": "neutrons_plus",
-          "$plus_focus_override_left": "protons_plus"
+          "$plus_focus_ovrd_right": "neutrons_plus",
+          "$plus_focus_ovrd_left": "protons_plus"
         }
       },
-      { "space_1@content_ui.h2px": {} },
-      {
-        "neutrons@element_constructor_ui.particle": {
+      { "space_1@screen_jexp.h2px": {} },
+      { "neutrons@element_constructor_jexp.particle": {
           "$particle_label": "n",
-          "$particle_count_bind_name": "#neutron_label_count",
-          "$plus_button_name": "button.neutron_plus",
-          "$minus_button_name": "button.neutron_minus",
-          "$slider_value_binding_name": "#neutron_slider_count",
-          "$slider_name": "neutron_slider",
-          "$slider_progress_color": "$neutron_color",
-          "$text_box_name": "neutron_text_edit",
+          "$particle_nm": "neutron",
           "$plus_focus_id": "neutrons_plus",
-          "$plus_focus_override_right": "",
-          "$plus_focus_override_left": "electrons_plus"
+          "$plus_focus_ovrd_right": "",
+          "$plus_focus_ovrd_left": "electrons_plus"
         }
       }
     ]
@@ -106,47 +82,47 @@
     "type": "stack_panel",
     "orientation": "vertical",
     "size": [24, 183],
+    "$dflt_btn_bg": "element_constructor_jexp.button_default",
+    "$hov_btn_bg": "element_constructor_jexp.button_hover",
+    "$prsd_btn_bg": "element_constructor_jexp.button_hover",
+    "$lkd_btn_bg": "element_constructor_jexp.button_locked",
     "controls": [
-      { "count@element_constructor_ui.particle_count": {} },
-      { "space@content_ui.v2px": {} },
-      { "plus@element_constructor_ui.particle_slider_plus": {} },
-      { "slider@element_constructor_ui.particle_slider": {} },
-      { "minus@element_constructor_ui.particle_slider_minus": {} }
+      { "count@element_constructor_jexp.particle_count": {} },
+      { "space@screen_jexp.v2px": {} },
+      { "plus@element_constructor_jexp.particle_slider_plus": {} },
+      { "slider@element_constructor_jexp.particle_slider": {} },
+      { "minus@element_constructor_jexp.particle_slider_minus": {} }
     ]
   },
 
-  "particle_count@text_box_ui.text_box": {
+  "particle_count@text_box_jexp.text_box": {
     "size": [24, 20],
     "$text_indent_size": ["100% - 2px", "100% - 2px"],
     "$text_indent_offset": [1, 0],
-    "$text_edit_box_content_binding_name": "$particle_count_bind_name",
+    "$text_edit_box_cont_bdg_nm": "('#' + $particle_nm + '_label_count')",
     "$text_alignment": "center",
+    "$text_box_name": "($particle_nm + '_text_edit')",
     "max_length": 3,
     "text_type": "NumberChars",
-    "$focus_override_up": "FOCUS_OVERRIDE_STOP"
+    "$focus_ovrde_up": "FOCUS_OVERRIDE_STOP"
   },
 
   "particle_slider_plus": {
     "type": "panel",
     "size": [24, 18],
     "controls": [
-      {
-        "particle_plus@button_ui.button": {
+      { "particle_plus@button_jexp.button": {
           "size": [18, 18],
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "$pressed_button_name": "$plus_button_name",
-          "$button_text": "+",
-          "$focus_id_binding_type": "none",
+          "$prsd_btn_nm": "('button.' + $particle_nm + '_plus')",
+          "$btn_text": "+",
+          "$focus_id_bdg_type": "none",
           "$focus_id": "$plus_focus_id",
-          "$focus_override_right_binding_type": "none",
-          "$focus_override_right": "$plus_focus_override_right",
-          "$focus_override_left_binding_type": "none",
-          "$default_button_bg": "element_constructor_ui.button_default",
-          "$hover_button_bg": "element_constructor_ui.button_hover",
-          "$pressed_button_bg": "element_constructor_ui.button_hover",
-          "$locked_button_bg": "element_constructor_ui.button_locked",
-          "$focus_override_left": "$plus_focus_override_left"
+          "$focus_ovrde_right_binding_type": "none",
+          "$focus_ovrde_right": "$plus_focus_ovrd_right",
+          "$focus_ovrde_left_binding_type": "none",
+          "$focus_ovrde_left": "$plus_focus_ovrd_left"
         }
       }
     ]
@@ -156,19 +132,14 @@
     "type": "panel",
     "size": [24, 18],
     "controls": [
-      {
-        "particle_slider_minus@button_ui.button": {
+      { "particle_slider_minus@button_jexp.button": {
           "size": [18, 18],
           "anchor_from": "bottom_middle",
           "anchor_to": "bottom_middle",
-          "$pressed_button_name": "$minus_button_name",
-          "$button_text": "-",
-          "$default_button_bg": "element_constructor_ui.button_default",
-          "$hover_button_bg": "element_constructor_ui.button_hover",
-          "$pressed_button_bg": "element_constructor_ui.button_hover",
-          "$locked_button_bg": "element_constructor_ui.button_locked",
-          "$focus_override_down_binding_type": "none",
-          "$focus_override_down": "FOCUS_OVERRIDE_STOP"
+          "$prsd_btn_nm": "('button.' + $particle_nm + '_minus')",
+          "$btn_text": "-",
+          "$focus_ovrde_down_bdg_type": "none",
+          "$focus_ovrde_down": "FOCUS_OVERRIDE_STOP"
         }
       }
     ]
@@ -177,25 +148,24 @@
   "particle_slider@common.empty_panel": {
     "size": [24, 125],
     "controls": [
-      {
-        "slider@common.slider": {
+      { "slider@slider_jexp.sldr_ctrl": {
           "size": [16, 117],
           "anchor_from": "center",
           "anchor_to": "center",
-          "$slider_direction": "vertical",
+          "$sldr_dir": "vertical",
           "slider_inverted": true,
-          "$progress_clip_direction": "down",
-          "$slider_tts_header": "$particle_label",
-          "$slider_tts_text_value": "$particle_count_bind_name",
+          "$sldr_value_bdg_nm": "('#' + $particle_nm + '_slider_count')",
+          "$sldr_nm": "($particle_nm + '_slider')",
+          "$sldr_tts_hdr": "$particle_label",
+          "$sldr_tts_text_value": "('#' + $particle_nm + '_label_count')",
           "controls": [
-            {
-              "slider_box@element_constructor_ui.slider_box": {
+            { "slider_box@element_constructor_jexp.slider_box": {
                 "size": [16, 8],
-                "$slider_track_button": "$slider_name"
+                "$slider_track_button": "$sldr_nm"
               }
             },
-            { "slider_bar_default@element_constructor_ui.slider_bar_default": {} },
-            { "slider_bar_hover@element_constructor_ui.slider_bar_hover": { "visible": false } }
+            { "slider_bar_default@element_constructor_jexp.slider_bar_default": {} },
+            { "slider_bar_hover@element_constructor_jexp.slider_bar_hover": { "visible": false } }
           ]
         }
       }
@@ -212,23 +182,23 @@
     "locked_control": "locked",
     "indent_control": "indent",
     "controls": [
-      { "default@element_constructor_ui.sliderbtn_default": { "layer": 2 } },
-      { "hover@element_constructor_ui.sliderbtn_hover": { "layer": 3 } },
-      { "indent@element_constructor_ui.sliderbtn_hover": { "layer": 4 } },
-      { "locked@element_constructor_ui.sliderbtn_default": { "layer": 1 } }
+      { "default@element_constructor_jexp.sliderbtn_default": { "layer": 2 } },
+      { "hover@element_constructor_jexp.sliderbtn_hover": { "layer": 3 } },
+      { "indent@element_constructor_jexp.sliderbtn_hover": { "layer": 4 } },
+      { "locked@element_constructor_jexp.sliderbtn_default": { "layer": 1 } }
     ]
   },
 
   "slider_bar_default": {
     "type": "panel",
     "size": [ "100%", "100% + 8px" ],
-    "controls": [ { "bg@element_constructor_ui.slider_bg": {} } ]
+    "controls": [ { "bg@element_constructor_jexp.slider_bg": {} } ]
   },
 
   "slider_bar_hover": {
     "type": "panel",
     "size": [ "100%", "100% + 8px" ],
-    "controls": [ { "bg@element_constructor_ui.slider_bg": {} } ]
+    "controls": [ { "bg@element_constructor_jexp.slider_bg": {} } ]
   },
 
   "bohr_model": {
@@ -238,8 +208,7 @@
     "anchor_to": "top_left",
     "offset": [87, 16],
     "controls": [
-      {
-        "model": {
+      { "model": {
           "type": "custom",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
@@ -248,8 +217,7 @@
           "size": [ "100% - 4px", "100% - 4px" ],
           "renderer": "bohr_model_renderer",
           "bindings": [
-            {
-              "binding_type": "global",
+            { "binding_type": "global",
               "binding_name": "#bohr_model_update"
             }
           ]
@@ -258,96 +226,84 @@
     ]
   },
   
-  "output_slot@container_ui.slot": {
-    "$item_collection_name": "elemconstruct_output",
+  "output_slot@container_jexp.slot": {
+    "$item_collt_nm": "elemconstruct_output",
     "offset": [214, 89],
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "$button_ref": "compound_creator_ui.output_slot_button",
+    "$btn_ref": "compound_creator_jexp.output_slot_btn",
     "layer": 2
   },
 
-  "button_default@content_ui.resource_image": {
-    "texture": "assets/fmarquespto/textures/gui/container/element_constructor",
+  "button_default@screen_jexp.res_txr": {
+    "texture": "src/assets/container/element_constructor",
     "size": [18, 18],
+    "$uv": [257, 0],
+    "$uv_sz": [18, 18],
     "variables": [
-      { "requires": "($element_constructor_resolution = 256x)", "$uv": [257, 0], "$uv_size": [18, 18] },
-      { "requires": "($element_constructor_resolution = 512x)", "$uv": [0, 0], "$uv_size": [36, 36] },
-      { "requires": "($element_constructor_resolution = 1024x)", "$uv": [0, 0], "$uv_size": [72, 72] },
-      { "requires": "($element_constructor_resolution = 2048x)", "$uv": [0, 0], "$uv_size": [144, 144] },
-      { "requires": "($element_constructor_resolution = 4096x)", "$uv": [0, 0], "$uv_size": [288, 288] }
+      { "requires": "($element_constructor_res = 512x)", "$uv": [514, 0], "$uv_sz": [36, 36] },
+      { "requires": "($element_constructor_res = 1024x)", "$uv": [1028, 0], "$uv_sz": [72, 72] },
+      { "requires": "($element_constructor_res = 2048x)", "$uv": [2056, 0], "$uv_sz": [144, 144] },
+      { "requires": "($element_constructor_res = 4096x)", "$uv": [4112, 0], "$uv_sz": [288, 288] }
     ]
   },
 
-  "button_hover@content_ui.resource_image": {
-    "texture": "assets/fmarquespto/textures/gui/container/element_constructor",
-    "size": [18, 18],
+  "button_hover@button_default": {
+    "$uv": [257, 18],
     "variables": [
-      { "requires": "($element_constructor_resolution = 256x)", "$uv": [257, 18], "$uv_size": [18, 18] },
-      { "requires": "($element_constructor_resolution = 512x)", "$uv": [0, 0], "$uv_size": [36, 36] },
-      { "requires": "($element_constructor_resolution = 1024x)", "$uv": [0, 0], "$uv_size": [72, 72] },
-      { "requires": "($element_constructor_resolution = 2048x)", "$uv": [0, 0], "$uv_size": [144, 144] },
-      { "requires": "($element_constructor_resolution = 4096x)", "$uv": [0, 0], "$uv_size": [288, 288] }
+      { "requires": "($element_constructor_res = 512x)", "$uv": [514, 36], "$uv_sz": [36, 36] },
+      { "requires": "($element_constructor_res = 1024x)", "$uv": [1028, 72], "$uv_sz": [72, 72] },
+      { "requires": "($element_constructor_res = 2048x)", "$uv": [2056, 144], "$uv_sz": [144, 144] },
+      { "requires": "($element_constructor_res = 4096x)", "$uv": [4112, 288], "$uv_sz": [288, 288] }
     ]
   },
 
-  "button_locked@content_ui.resource_image": {
-    "texture": "assets/fmarquespto/textures/gui/container/element_constructor",
-    "size": [18, 18],
+  "button_locked@button_default": {
+    "$uv": [257, 36],
     "variables": [
-      { "requires": "($element_constructor_resolution = 256x)", "$uv": [257, 36], "$uv_size": [18, 18] },
-      { "requires": "($element_constructor_resolution = 512x)", "$uv": [0, 0], "$uv_size": [36, 36] },
-      { "requires": "($element_constructor_resolution = 1024x)", "$uv": [0, 0], "$uv_size": [72, 72] },
-      { "requires": "($element_constructor_resolution = 2048x)", "$uv": [0, 0], "$uv_size": [144, 144] },
-      { "requires": "($element_constructor_resolution = 4096x)", "$uv": [0, 0], "$uv_size": [288, 288] }
+      { "requires": "($element_constructor_res = 512x)", "$uv": [514, 72], "$uv_sz": [36, 36] },
+      { "requires": "($element_constructor_res = 1024x)", "$uv": [1028, 144], "$uv_sz": [72, 72] },
+      { "requires": "($element_constructor_res = 2048x)", "$uv": [2056, 288], "$uv_sz": [144, 144] },
+      { "requires": "($element_constructor_res = 4096x)", "$uv": [4112, 576], "$uv_sz": [288, 288] }
     ]
   },
 
-  "sliderbtn_default@content_ui.resource_image": {
-    "texture": "assets/fmarquespto/textures/gui/container/element_constructor",
+  "sliderbtn_default@screen_jexp.res_txr": {
+    "texture": "src/assets/container/element_constructor",
     "size": [16, 8],
+    "$uv": [257, 54],
+    "$uv_sz": [16, 8],
     "variables": [
-      { "requires": "($element_constructor_resolution = 256x)", "$uv": [257, 54], "$uv_size": [16, 8] },
-      { "requires": "($element_constructor_resolution = 512x)", "$uv": [0, 0], "$uv_size": [36, 36] },
-      { "requires": "($element_constructor_resolution = 1024x)", "$uv": [0, 0], "$uv_size": [72, 72] },
-      { "requires": "($element_constructor_resolution = 2048x)", "$uv": [0, 0], "$uv_size": [144, 144] },
-      { "requires": "($element_constructor_resolution = 4096x)", "$uv": [0, 0], "$uv_size": [288, 288] }
+      { "requires": "($element_constructor_res = 512x)", "$uv": [514, 108], "$uv_sz": [36, 36] },
+      { "requires": "($element_constructor_res = 1024x)", "$uv": [1028, 216], "$uv_sz": [72, 72] },
+      { "requires": "($element_constructor_res = 2048x)", "$uv": [2056, 432], "$uv_sz": [144, 144] },
+      { "requires": "($element_constructor_res = 4096x)", "$uv": [4112, 864], "$uv_sz": [288, 288] }
     ]
   },
 
-  "sliderbtn_hover@content_ui.resource_image": {
-    "texture": "assets/fmarquespto/textures/gui/container/element_constructor",
+  "sliderbtn_hover@screen_jexp.res_txr": {
+    "texture": "src/assets/container/element_constructor",
     "size": [16, 8],
+    "$uv": [257, 62],
+    "$uv_sz": [16, 8],
     "variables": [
-      { "requires": "($element_constructor_resolution = 256x)", "$uv": [257, 62], "$uv_size": [16, 8] },
-      { "requires": "($element_constructor_resolution = 512x)", "$uv": [0, 0], "$uv_size": [36, 36] },
-      { "requires": "($element_constructor_resolution = 1024x)", "$uv": [0, 0], "$uv_size": [72, 72] },
-      { "requires": "($element_constructor_resolution = 2048x)", "$uv": [0, 0], "$uv_size": [144, 144] },
-      { "requires": "($element_constructor_resolution = 4096x)", "$uv": [0, 0], "$uv_size": [288, 288] }
+      { "requires": "($element_constructor_res = 512x)", "$uv": [514, 0], "$uv_sz": [36, 36] },
+      { "requires": "($element_constructor_res = 1024x)", "$uv": [1028, 0], "$uv_sz": [72, 72] },
+      { "requires": "($element_constructor_res = 2048x)", "$uv": [2056, 0], "$uv_sz": [144, 144] },
+      { "requires": "($element_constructor_res = 4096x)", "$uv": [4112, 0], "$uv_sz": [288, 288] }
     ]
   },
 
-  "slider_bg@content_ui.resource_image": {
-    "texture": "assets/fmarquespto/textures/gui/container/element_constructor",
+  "slider_bg@screen_jexp.res_txr": {
+    "texture": "src/assets/container/element_constructor",
     "size": [16, 125],
+    "$uv": [276, 0],
+    "$uv_sz": [16, 125],
     "variables": [
-      { "requires": "($element_constructor_resolution = 256x)", "$uv": [276, 0], "$uv_size": [16, 125] },
-      { "requires": "($element_constructor_resolution = 512x)", "$uv": [0, 0], "$uv_size": [36, 36] },
-      { "requires": "($element_constructor_resolution = 1024x)", "$uv": [0, 0], "$uv_size": [72, 72] },
-      { "requires": "($element_constructor_resolution = 2048x)", "$uv": [0, 0], "$uv_size": [144, 144] },
-      { "requires": "($element_constructor_resolution = 4096x)", "$uv": [0, 0], "$uv_size": [288, 288] }
-    ]
-  },
-
-  "lab_table_bg@content_ui.resource_image": {
-    "texture": "assets/fmarquespto/textures/gui/container/lab_table",
-    "size": [176, 194],
-    "variables": [
-      { "requires": "($element_constructor_resolution = 256x)", "$uv_size": [176, 194] },
-      { "requires": "($element_constructor_resolution = 512x)", "$uv_size": [352, 388] },
-      { "requires": "($element_constructor_resolution = 1024x)", "$uv_size": [704, 776] },
-      { "requires": "($element_constructor_resolution = 2048x)", "$uv_size": [1408, 1552] },
-      { "requires": "($element_constructor_resolution = 4096x)", "$uv_size": [2816, 3104] }
+      { "requires": "($element_constructor_res = 512x)", "$uv": [0, 0], "$uv_sz": [36, 36] },
+      { "requires": "($element_constructor_res = 1024x)", "$uv": [0, 0], "$uv_sz": [72, 72] },
+      { "requires": "($element_constructor_res = 2048x)", "$uv": [0, 0], "$uv_sz": [144, 144] },
+      { "requires": "($element_constructor_res = 4096x)", "$uv": [0, 0], "$uv_sz": [288, 288] }
     ]
   }
-} */
+}

@@ -1,5 +1,6 @@
 {
-  "smoker_screen@screen_jexp.inventory_screen": {
+  "smoker_screen@screen_jexp.inventory_screen": {     
+    "close_on_player_hurt": "$force_container_close_on_player_hurt",
     "$scrn_cont": "furnace_jexp.smoker_screen_content",
     "$scrn_bg": "screen_jexp.screen_background"
   }

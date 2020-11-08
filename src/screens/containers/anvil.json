@@ -27,7 +27,7 @@
     "$container_title": "container.repair",
     "controls": [
       { "title@container_jexp.title": { "offset": [62, 5] } },
-      // { "item@anvil_jexp.item_name_input": {} },
+      { "item@anvil_jexp.item_name_input": {} },
       { "input@anvil_jexp.input_slot": {} },
       { "material@anvil_jexp.material_slot": {} },
       { "result@anvil_jexp.result_slot": {} },
