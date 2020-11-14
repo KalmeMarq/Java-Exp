@@ -1,0 +1,283 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "gamerules_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "text": "editGamerule.title", "offset": ["50% - 50%x", 19] } },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 43],
+          "size": ["100%", "100% - 75px"],
+          "$scroll_cont": "dirt@gamerules_jexp.scroll_cont"
+        }
+      },
+      { "back@world_create_jexp.back_tgl_btn": {
+          "offset": ["50% - 100px", "100% - 29px"],
+          "size": [200, 20]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "gamerules_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": [220, "100%c"],
+    "$tooltip_label_color": [1, 1, 0.333],
+    "$tooltip_desc_color": [1, 1, 1],
+    "$tooltip_extra_color": "$info_color",
+    "controls": [
+      { "player@category": { "$category_text": "gamerule.category.player" } },
+      { "immediate_respawn@immediate_respawn_toggle": { "$tooltip_text": "doImmediateRespawn", "$tooltip_extra": "editGamerule.default.off" } },
+      { "space@screen_jexp.v4px": {} },
+      { "keep_inventory@keep_inventory_toggle": { "$tooltip_text": "keepInventory", "$tooltip_extra": "editGamerule.default.off" } },
+      { "space@screen_jexp.v4px": {} },
+      { "natural_regeneration@natural_regeneration_toggle": { "$tooltip_text": "naturalRegeneration", "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "respawn_radius@respawn_radius": { "$tooltip_text": "spawnRadius", "$tooltip_extra": "editGamerule.default.spawnRadius" } },
+      { "space@screen_jexp.v4px": {} },
+      { "pvp@pvp_toggle": { "$tooltip_text": "pvp", "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "show_coordinates@show_coordinates_toggle": { "$tooltip_text": "showCoordinates", "$tooltip_extra": "editGamerule.default.on" } },
+      { "mobs@category": { "$category_text": "gamerule.category.mobs" } },
+      { "mob_griefing@mob_griefing_toggle": { "$tooltip_text": "mobGriefing", "$tooltip_extra": "editGamerule.default.on" } },
+      { "spawing@category": { "$category_text": "gamerule.category.spawning" } },
+      { "mob_spawn@mob_spawn_toggle": { "$tooltip_text": "doMobSpawning", "$tooltip_desc": "gamerule.doMobSpawning.description", "$tooltip_extra": "editGamerule.default.on" } },
+      { "drops@category": { "$category_text": "gamerule.category.drops" } },
+      { "entities_drop_loot@entities_drop_loot_toggle": { "$tooltip_text": "doEntityDrops", "$tooltip_desc": "gamerule.doEntityDrops.description", "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "mob_loot@mob_loot_toggle": { "$tooltip_text": "doMobLoot", "$tooltip_desc": "gamerule.doMobLoot.description", "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "tile_drops@tile_drops_toggle": { "$tooltip_text": "doTileDrops", "$tooltip_desc": "gamerule.doTileDrops.description", "$tooltip_extra": "editGamerule.default.on" } },
+      { "updates@category": { "$category_text": "gamerule.category.updates" } },
+      { "daylight_cycle@daylight_cycle_toggle": { "$tooltip_text": "doDayCycle",  "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "always_day@always_day_toggle": { "$tooltip_text": "alwaysDay",  "$tooltip_extra": "editGamerule.default.off" } },
+      { "space@screen_jexp.v4px": {} },
+      { "fire_spreads@fire_spreads_toggle": { "$tooltip_text": "doFireTick",  "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "weather_cycle@weather_cycle_toggle": { "$tooltip_text": "doWeatherCycle",  "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "tnt_explodes@tnt_explodes_toggle": { "$tooltip_text": "tntExplodes",  "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {
+          "controls": [
+            { "btn@option_text_box_jexp.button_action": {
+                "offset": ["222px", 4],
+                "$prsd_btn_nm": "reset_random_tick_speed",
+                "$btn_cont": "gamerules_jexp.reset_icon",
+                "$tooltip_text": "randomTickSpeed", 
+                "$tooltip_extra": "editGamerule.default.randomTickSpeed"
+              }
+            }
+          ]
+        }
+      },
+      { "random_tick_speed@random_tick_speed_box": { "$tooltip_text": "randomTickSpeed",  "$tooltip_extra": "editGamerule.default.randomTickSpeed" } },
+      { "misc@category": { "$category_text": "gamerule.category.misc" } },
+      { "command_blocks_enabled@command_blocks_enabled_toggle": { "$tooltip_text": "commandBlockEnabled",  "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v2px": {} }
+    ]
+  },
+
+  "gamerules_option": {
+    "type": "panel",
+    "size": [220, 20],
+    "$ctrl|default": "option_toggle_jexp.option_toggle",
+    "$tgl_text": "",
+    "controls": [
+      { "focus_button@common.button": {
+          "size": ["100% - 42px", 20],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "button_mappings": [],
+          "focus_enabled": false,
+          "controls": [
+            { "label@button_jexp.button_label": {
+                "text": "$opt_text",
+                "shadow": false,
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "color": "white",
+                "bindings": []
+              }
+            },
+            { "hover@tooltip_jexp.tooltip": {} },
+            { "pressed@tooltip_jexp.tooltip": {} }
+          ]
+        }
+      },
+      { "$ctrl@$ctrl": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "size": [44, 20]
+        }
+      }
+    ]
+  },
+
+  "respawn_radius@gamerules_jexp.gamerules_option": {
+    "$ctrl": "option_text_box_jexp.option_text_box",
+    "$opt_text": "gamerule.spawnRadius",
+    "$opt_bdg_nm": "#respawn_radius",
+    "$opt_enabled_bdg_nm": "#respawn_radius_enabled",
+    "$text_box_name": "respawn_radius_text_box",
+    "$max_text_length": 8,
+    "$text_edit_box_text_type": "NumberChars"
+  },
+
+  "random_tick_speed_box@gamerules_jexp.gamerules_option": {
+    "$ctrl": "option_text_box_jexp.option_text_box",
+    "$opt_text": "gamerule.randomTickSpeed",
+    "$opt_enabled_bdg_nm": "#random_tick_speed_enabled",
+    "$max_text_length": 4,
+    "$opt_bdg_nm": "#random_tick_speed",
+    "$text_edit_box_text_type": "NumberChars",
+    "$text_box_name": "random_tick_speed_text_box"
+  },
+
+  "reset_icon": {
+    "type": "image",
+    "texture": "src/assets/icon/reset",
+    "layer": 5
+  },
+
+  "keep_inventory_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.keepInventory",
+    "$opt_enabled_bdg_nm": "#keep_inventory_enabled",
+    "$tgl_nm": "keep_inventory",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "natural_regeneration_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.naturalRegeneration",
+    "$opt_enabled_bdg_nm": "#natural_regeneration_enabled",
+    "$tgl_nm": "natural_regeneration",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "immediate_respawn_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.doImmediateRespawn",
+    "$opt_enabled_bdg_nm": "#immediaterespawn_enabled",
+    "$tgl_nm": "doimmediaterespawn",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "mob_spawn_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.doMobSpawning",
+    "$opt_enabled_bdg_nm": "#mob_spawn_enabled",
+    "$tgl_nm": "mob_spawn",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "mob_griefing_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.mobGriefing",
+    "$opt_enabled_bdg_nm": "#mob_griefing_enabled",
+    "$tgl_nm": "mob_griefing",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "entities_drop_loot_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.doEntityDrops",
+    "$opt_enabled_bdg_nm": "#entities_drop_loot_enabled",
+    "$tgl_nm": "entities_drop_loot",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "mob_loot_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.doMobLoot",
+    "$opt_enabled_bdg_nm": "#mob_loot_enabled",
+    "$tgl_nm": "mob_loot",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+  
+  "tile_drops_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.doTileDrops",
+    "$opt_enabled_bdg_nm": "#tile_drops_enabled",
+    "$tgl_nm": "tile_drops",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "always_day_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.alwaysDay",
+    "$opt_enabled_bdg_nm": "#always_day_enabled",
+    "$tgl_nm": "always_day",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "daylight_cycle_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.doDaylightCycle",
+    "$opt_enabled_bdg_nm": "#daylight_cycle_enabled",
+    "$tgl_nm": "daylight_cycle",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "weather_cycle_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.doWeatherCycle",
+    "$opt_enabled_bdg_nm": "#weather_cycle_enabled",
+    "$tgl_nm": "weather_cycle",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "command_blocks_enabled_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.commandBlockEnabled",
+    "$opt_enabled_bdg_nm": "#command_blocks_enabled_on",
+    "$tgl_nm": "command_blocks_enabled",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "pvp_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.pvp",
+    "$opt_enabled_bdg_nm": "#pvp_enabled",
+    "$tgl_nm": "pvp",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "show_coordinates_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.showCoordinates",
+    "$opt_enabled_bdg_nm": "#show_coordinates_enabled",
+    "$tgl_nm": "show_coordinates",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "fire_spreads_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.doFireTick",
+    "$opt_enabled_bdg_nm": "#fire_spreads_enabled",
+    "$tgl_nm": "fire_spreads",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "tnt_explodes_toggle@gamerules_jexp.gamerules_option": {
+    "$opt_text": "gamerule.tntExplodes",
+    "$opt_enabled_bdg_nm": "#tnt_explodes_enabled",
+    "$tgl_nm": "tnt_explodes",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "category": {
+    "type": "panel",
+    "size": ["100%", 28],
+    "controls": [
+      { "category_text": {
+          "type": "label",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "$category_text",
+          "color": [1, 1, 0.333],
+          "offset": [0, 8],
+          "shadow": true,
+          "layer": 10
+        }
+      }
+    ]
+  }
+}

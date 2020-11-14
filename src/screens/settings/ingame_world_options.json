@@ -1,0 +1,98 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "ingame_world_options_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "popup_dialog_factory@screen_jexp.popup_dialog_factory": {} },
+      { "content": {
+          "type": "panel",
+          "controls": [
+            { "title@screen_jexp.title": { "text": "selectWorld.settings", "offset": ["50% - 50%x", 20.5] } },
+            { "world_seed@more_options_jexp.world_seed_box": { "offset": ["50% - 50%x", "25% - 28px + 5px"], "$header": "" } },
+            { "edu_world_seed@more_options_jexp.edu_world_seed_box": { "offset": ["50% - 50%x", "25% - 28px + 5px"], "$header": "" } },
+            { "gamemode_iterable_tgl@world_create_jexp.gamemode_iterable_tgl": { "offset": ["50% - 155px", "25% + 5px"] } },
+            { "player_gamemode_iterable_tgl@ingame_world_options_jexp.player_gamemode_iterable_tgl": { "offset": ["50% + 5px", "25% + 5px"] } },
+            { "gamerules@world_create_jexp.gamerules_button": { "offset": ["50% - 155px", "25% + 24px + 5px"] } },
+            { "multiplayer@world_create_jexp.multiplayer_button": { "offset": ["50% + 5px", "25% + 24px + 5px"] } },
+            { "resource_packs@world_create_jexp.resource_packs_button": { "offset": ["50% - 155px", "25% + 48px + 5px"] } },
+            { "behavior_packs@world_create_jexp.behavior_packs_button": { "offset": ["50% + 5px", "25% + 48px + 5px"] } },
+            { "experimental@world_create_jexp.experimental_button": { "offset": ["50% - 155px", "25% + 72px + 5px"] } },
+            { "permissions_iterable@advanced_jexp.permissions_iterable_tgl": { "offset": ["50% + 5px", "25% + 72px + 5px"] } },
+            { "allow_cheats_toggle@world_create_jexp.allow_cheats_toggle": { "offset": ["50% - 155px", "25% + 96px + 5px"] } },
+            { "back@options_jexp.back_tgl_btn": { "offset": ["50% - 100px", "100% - 29px"] } }
+          ],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "behavior_packs_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            },
+            { "binding_type": "view",
+              "source_control_name": "gamerules_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            },
+            { "binding_type": "view",
+              "source_control_name": "multiplayer_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            },
+            { "binding_type": "view",
+              "source_control_name": "experimental_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            },
+            { "binding_type": "view",
+              "source_control_name": "resource_packs_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "ingame_world_options_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "player_gamemode_iterable_tgl@iterable_toggle_jexp.iterable_tgl_panel": {
+    "$opt_enabled_bdg_nm": "#player_game_mode_dropdown_enabled",
+    "$tgl_type_text": "createWorldScreen.gameMode.personal",
+    "controls": [
+      { "default@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "createWorldScreen.gameMode.serverDefault",
+          "$this_action": "#player_game_mode_radio_default",
+          "$next_action": "#player_game_mode_radio_survival"
+        }
+      },
+      { "survival@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "selectWorld.gameMode.survival",
+          "$this_action": "#player_game_mode_radio_survival",
+          "$next_action": "#player_game_mode_radio_creative"
+        }
+      },
+      { "creative@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "selectWorld.gameMode.creative",
+          "$this_action": "#player_game_mode_radio_creative",
+          "$next_action": "#player_game_mode_radio_adventure"
+        }
+      },
+      { "adventure@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "createWorldScreen.gameMode.adventure",
+          "$this_action": "#player_game_mode_radio_adventure",
+          "$next_action": "#player_game_mode_radio_default"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "chat_screen@screen_jexp.screen": {
+    "close_on_player_hurt": "$force_container_close_on_player_hurt",
+    "$scrn_cont": "chat_jexp.screen_content",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_exit",
+        "to_button_id": "button.chat_menu_cancel",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.chat_menu_cancel",
+        "mapping_type": "global"
+      }
+    ]
+  }
+}

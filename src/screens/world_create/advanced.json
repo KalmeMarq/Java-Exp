@@ -1,0 +1,217 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "advanced_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "content": {
+          "type": "panel",
+          "controls": [
+            { "title@screen_jexp.title": { "offset": ["50% - 50%x", 19], "text": "$title" } },
+            /* Options */
+            { "server_sim_distance@advanced_jexp.server_sim_distance_slider": { "offset": ["50% - 155px", 100] } },
+            { "education@more_options_jexp.education_toggle": { "offset": ["50% + 5px", 100] } },
+            { "experimental@world_create_jexp.experimental_button": { "offset": ["50% - 155px", 124] } },
+            { "multiplayer@world_create_jexp.multiplayer_button": { "offset": ["50% + 5px", 124] } },
+            { "classroom_settings@advanced_jexp.classroom_settings_toggle": { "offset": ["50% - 155px", 148] } },
+            { "code_builder_toggle@advanced_jexp.code_builder_toggle": { "offset": ["50% - 155px", 148] } },
+            { "education_button@world_create_jexp.education_button": { "offset": ["50% - 155px", 172] } },
+            { "back@world_create_jexp.back_tgl_btn": { "offset": ["50% + 5px", 185], "$tgl_nm": "advanced_settings", "size": [150, 20] } },
+            /* Bottom */
+            { "edu_host@world_create_jexp.edu_host_button": { "offset": ["50% - 155px", "100% - 52px"] } },
+            { "edu_play@world_create_jexp.edu_play_button": { "offset": ["50% - 155px", "100% - 28px"] } },
+            { "create_world@world_create_jexp.create_world_button": { "offset": ["50% - 155px", "100% - 28px"] } },
+            { "cancel@world_create_jexp.cancel_button": { "offset": ["50% + 5px", "100% - 28px"] } }
+          ],
+          "$title|default": "selectWorld.create",
+          "variables": {
+            "requires": "(not $is_world_create)",
+            "$title": "selectWorld.edit"
+          },
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "experimental_view",
+              "source_property_name": "(not #toggle_state)",
+              "target_property_name": "#visible"
+            },
+            { "binding_type": "view",
+              "source_control_name": "multiplayer_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            },
+            { "binding_type": "view",
+              "source_control_name": "education_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "advanced_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "server_sim_distance_slider@option_slider_jexp.option_slider": {
+    "$tts_sect_hdr": "createWorldScreen.worldPreferences",
+    "enabled": "(not $is_holographic)",
+    "$sldr_text": "#server_sim_distance_slider_label",
+    "$sldr_nm": "server_sim_distance",
+    "$sldr_value_bdg_nm": "#server_sim_distance",
+    "$opt_enabled_bdg_nm": "#server_sim_distance_enabled",
+    "$sldr_tts_text_value": "#server_sim_distance_text_value",
+    "$sldr_steps_bdg_nm": "#server_sim_distance_steps",
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ]
+  },
+
+  "permissions_iterable_tgl@iterable_toggle_jexp.iterable_tgl_panel": {
+    "$tts_sect_hdr": "createWorldScreen.worldPreferences",
+    "$header|default": "permissions.title.settings",
+    "$button_type_panel": "permissions.permission_level_dropdown_state_content",
+    "$opt_enabled_bdg_nm": "#player_permissions_dropdown_enabled",
+    "$is_world_settings|default": true,
+		"$is_in_realm|default": false,
+    "$tgls": [
+      { "info@world_create_jexp.info_label": { "text": "$header", "offset": [4, 21] } },
+      /* Visitor */
+      {	"permission_level_radio_visitor@iterable_toggle_jexp.iterable_tgl": {
+					"ignored": "$is_world_settings",
+					"$this_action": "#permission_level_radio_visitor",
+					"$next_action": "#permission_level_radio_member",
+					"$tgl_text": "permissions.level.visitor"
+				}
+			},
+			{	"permission_level_radio_visitor_settings@iterable_toggle_jexp.iterable_tgl": {
+					"ignored": "(not $is_world_settings)",
+          "$this_action": "#permission_level_radio_visitor",
+					"$next_action": "#permission_level_radio_member",
+					"$tgl_text": "permissions.level.visitor",
+					"$tooltip_text": "permissions.description.visitors"
+				}
+      },
+			{ "cheats_on": {
+          "type": "panel",
+          "visible": false,
+          "controls": [
+            /* Member */
+            {	"permission_level_radio_member@iterable_toggle_jexp.iterable_tgl": {
+                "ignored": "$is_world_settings",
+                "$this_action": "#permission_level_radio_member",
+                "$next_action": "#permission_level_radio_operator",
+                "$tgl_text": "permissions.level.member"
+              }
+            },
+            {	"permission_level_radio_member_settings@iterable_toggle_jexp.iterable_tgl": {
+                "ignored": "(not $is_world_settings)",
+                "$this_action": "#permission_level_radio_member",
+                "$next_action": "#permission_level_radio_operator",
+                "$tgl_text": "permissions.level.member",
+                "$tooltip_text": "permissions.description.members"
+              }
+            },
+            /* Operator */
+            {	"permission_level_radio_operator@iterable_toggle_jexp.iterable_tgl": {
+                "ignored": "$is_world_settings",
+                "$this_action": "#permission_level_radio_operator",
+                "$next_action": "#permission_level_radio_visitor",
+                "$tgl_text": "permissions.level.operator",
+                "variables": {
+                  "requires": "$is_in_realm",
+                  "$next_action": "#permission_level_radio_visitor"
+                }
+              }
+            },
+            {	"permission_level_radio_operator_settings@iterable_toggle_jexp.iterable_tgl": {
+                "ignored": "(not $is_world_settings)",
+                "$this_action": "#permission_level_radio_operator",
+                "$next_action": "#permission_level_radio_visitor",
+                "$tgl_text": "permissions.level.operator",
+                "$tooltip_text": "permissions.description.operators"
+              }
+            },
+            /* Custom */
+            {	"permission_level_radio_custom@iterable_toggle_jexp.iterable_tgl": {
+                "ignored": "($is_world_settings or $is_in_realm)",
+                "$this_action": "#permission_level_radio_custom",
+                "$next_action": "#permission_level_radio_visitor",
+                "$tgl_text": "permissions.level.custom"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "#achievment_warning_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "cheats_off": {
+          "type": "panel",
+          "controls": [
+            /* Member */
+            {	"permission_level_radio_member@iterable_toggle_jexp.iterable_tgl": {
+                "ignored": "$is_world_settings",
+                "$this_action": "#permission_level_radio_member",
+                "$next_action": "#permission_level_radio_visitor",
+                "$tgl_text": "permissions.level.member"
+              }
+            },
+            {	"permission_level_radio_member_settings@iterable_toggle_jexp.iterable_tgl": {
+                "ignored": "(not $is_world_settings)",
+                "$this_action": "#permission_level_radio_member",
+                "$next_action": "#permission_level_radio_visitor",
+                "$tgl_text": "permissions.level.member",
+                "$tooltip_text": "permissions.description.members"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "cheats_on",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#show_permissions_dropdown",
+        "binding_name_override": "#enabled"
+      }
+    ],
+    "variables": {
+      "requires": "$education_edition",
+      "$header": "permissions.title.settings.edu"
+    }
+  },
+
+  "classroom_settings_toggle@option_toggle_jexp.option_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "ignored": "(not $education_edition)",
+    "$tgl_text": "createWorldScreen.classroomsettings",
+    "$opt_bdg_nm": "#classroom_settings",
+    "$opt_enabled_bdg_nm": "#classroom_settings_enabled",
+    "$tgl_nm": "classroom_settings",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "code_builder_toggle@option_toggle_jexp.option_toggle": {
+    "$tts_sect_hdr": "createWorldScreen.cheatSettings",
+    "ignored": "(not $education_edition)",
+    "$tgl_text": "options.codeBuilder",
+    "$opt_bdg_nm": "#code_builder",
+    "$opt_enabled_bdg_nm": "#code_builder_enabled",
+    "$tgl_nm": "code_builder",
+    "$tgl_bdg_cond": "always_when_visible"
+  }
+}

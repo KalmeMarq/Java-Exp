@@ -1,0 +1,155 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "tooltip_jexp",
+
+  "tooltip": {
+    "type": "button",
+    "size": [0, 0],
+    "offset": [66669, 66669],
+    "layer": -10,
+    "focus_enabled": true,
+    "follows_cursor": true,
+    "consume_hover_events": false,
+    "always_handle_pointer": true,
+    "allow_clipping": false,
+    "locked_control": "",
+    "$tooltip_bg|default": "tooltip_jexp.dflt_tooltip_bg",
+    "$tooltip_cont|default": "tooltip_jexp.tooltip_text_panel",
+    "variables": [
+      { "requires": "$custom_tooltip_bg",
+        "$tooltip_bg": "tooltip_jexp.custom_tooltip_bg"
+      },
+      { "requires": "($text_align = right)",
+        "$bg_offset": ["-50%c - 8px", "50%c - 15px"],
+        "$bg_anchor": "top_right",
+        "$panel_offset": ["-50%c - 12px", "50%c - 12px"]
+      }
+    ],
+    "$tooltip_bdgs|default": [],
+    "$tooltip_vars|default": [],
+    "$text_align|default": "left",
+    "controls": [
+      { "$tooltip_bg@$tooltip_bg": {
+          "size": ["100%sm", "100%sm"],
+          "offset": "$bg_offset",
+          "$bg_offset|default": ["50%c + 8px", "50%c - 15px"],
+          "alpha": "$tootlip_bg_alpha",
+          "variables": "$tooltip_vars",
+          "anchor_from": "$bg_anchor",
+          "bindings": "$tooltip_bdgs",
+          "anchor_to": "$bg_anchor",
+          "$bg_anchor|default": "top_left",
+          "layer": 110
+        }
+      },
+      { "tooltip_panel": {
+          "type": "panel",
+          "size": ["100%c + 8px", "100%c + 6px"],
+          "offset": "$panel_offset",
+          "$panel_offset|default": ["50%c + 12px", "50%c - 12px"],
+          "variables": "$tooltip_vars",
+          "bindings": "$tooltip_bdgs",
+          "layer": 110,
+          "controls": [ { "cont@$tooltip_cont": {} } ]
+        }
+      }
+    ]
+  },
+
+  "dflt_tooltip_bg": {
+    "type": "image",
+    "texture": "src/assets/tooltip",
+    "nineslice_size": 3
+  },
+
+  "custom_tooltip_bg": {
+    "type": "image"/* ,
+    "texture": "assets/fmarquespto/textures/static/tooltip_background",
+    "color": "$tooltip_background_color",
+    "nineslice_size": 3,
+    "$bg_offset": ["8px", "-15px"],
+    "controls": [
+      {
+        "custom_tooltip_border": {
+          "type": "image",
+          "size": ["100%", "100%"],
+          "texture": "assets/fmarquespto/textures/static/tooltip_border",
+          "color": "$tooltip_border_color",
+          "nineslice_size": 3,
+          "layer": 1
+        }
+      }
+    ] */
+  },
+
+  "tooltip_text_panel": {
+    "type": "stack_panel",
+    "size": ["100%cm", "100%c"],
+    "$tooltip_text|default": "",
+    "$tooltip_desc|default": "",
+    "$tooltip_extra|default": "",
+    "$tooltip_label_color|default": [1, 1, 1],
+    "$tooltip_desc_color|default": [1, 1, 1],
+    "$tooltip_extra_color|default": [1, 1, 1],
+    "$tooltip_label_bdgs|default": [],
+    "$tooltip_desc_bdgs|default": [],
+    "controls": [
+      {
+        "label": {
+          "type": "stack_panel",
+          "size": ["100%cm", "100%c"],
+          "controls": "$tooltip_label_ctrls",
+          "$tooltip_label_ctrls|default": [
+            { "label@tooltip_jexp.tooltip_label": {} }
+          ]
+        }
+      },
+      {
+        "desc": {
+          "type": "stack_panel",
+          "size": ["100%cm", "100%c"],
+          "controls": "$tooltip_desc_ctrls",
+          "$tooltip_desc_ctrls|default": [
+            { "desc@tooltip_jexp.tooltip_desc": {} },
+            { "extra@tooltip_jexp.tooltip_extra": {} }
+          ]
+        }
+      }
+    ]
+  },
+
+  "tooltip_text": {
+    "type": "label",
+    "size": ["default", "default"],
+    "max_size": "$max_text_size",
+    "$max_text_size|default": [180, "default"],
+    "min_size": [0, 0],
+    "shadow": true,
+    "layer": 10
+  },
+
+  "tooltip_label@tooltip_jexp.tooltip_text": {
+    "color": "$tooltip_label_color",
+    "text": "$tooltip_text",
+    "visible": "(not $tooltip_text = '')",
+    "variables": "$tooltip_label_vars",
+    "$tooltip_label_vars|default": [],
+    "bindings": "$tooltip_label_bdgs"
+  },
+
+  "tooltip_desc@tooltip_jexp.tooltip_text": {
+    "color": "$tooltip_desc_color",
+    "text": "$tooltip_desc",
+    "bindings": "$tooltip_desc_bdgs",
+    "visible": "(not $tooltip_desc = '')"
+  },
+  
+  "tooltip_extra@tooltip_jexp.tooltip_text": {
+    "color": "$tooltip_extra_color",
+    "text": "$tooltip_extra",
+    "visible": "(not $tooltip_extra = '')"
+  }
+}

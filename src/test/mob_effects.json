@@ -1,0 +1,24 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "mob_effects_jexp_test",
+
+  "effect_icon": {
+    "type": "image",
+    "size": [18, 18],
+    "bindings": [
+      { "binding_type": "collection",
+        "binding_name": "$txr_bdg",
+        "binding_collection_name": "mob_effects_collection",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "speed@effect_icon": {
+    "$txr_bdg": "(#texture = 'textures/ui/speed_effect')",
+    "texture": "assets/minecraft/textures/mob_effect/speed"
+  }
+}

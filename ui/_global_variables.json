@@ -1,0 +1,163 @@
+{
+  /**********************************
+    UI Customization
+  ***********************************/
+  "$development_version_visible": "(not $is_publish)",
+
+  "$remove_beta_info_text": true, // Default: true | Removes the debug beta text on the top middle screen. 
+
+  "$show_wrongly_spelled_mc_title": true, // Default: false | Show "Mineceraft" instead of "Minecraft". 
+  "$show_edition_below_title": true, // Default: true | Show edition texture below the "Minecraft" title.
+    "$edition_name": "java", // Default: cpp | Which edition texture show below the "Minecraft". Values: "java", "cpp"/"c++", "bedrock",  or leave blank for none.
+  "$show_playername_on_bottom_panel": false, // Default: false, | Shows gamertag after the version.
+  "$show_player_skin_on_main_menu": false, // Default: false | Show the Paper Doll on the "$player_skin_position".
+    "$player_skin_position": "right", // Default: right (Values: right and left)
+
+  "$show_item_stack_number_on_creative_mode": true, // Default: true
+
+  "$hide_hud_vignette": false, // Default: false
+
+  "$player_position_anchor": "top_right", // Default: "top_right"
+  "$player_position_offset": [-1, 1], // Default: [-1, 1]
+
+  "$chat_size": [326, 180], // Default: [326, 180]
+  "$chat_offset": [0, -40], // Default: [0, -40] | Recommended for touch: [0, 40]
+  "$chat_anchor": "bottom_left", // Default: "bottom_left" | Recommend for touch: "top_left"
+  "$chat_lines_spacing": 0, // Default: 0
+
+  "$show_chat_auto_complete_buttons": false, // Default: false
+  "$show_chat_prev_next_msg_sent_buttons": false, // Default: false
+
+  "$scoreboard_position": "right_middle", // Default: "right_middle"
+  "$scoreboard_ignore_numbers": false, // Default: false
+
+  "$show_enchantments_below_hud_item_name": false, // Default: false
+  "$show_dark_bg_below_hud_texts": false, // Default: false
+
+  "$faster_mouse_keymappings": true, // Default: true | Display the keymappings items without categories.
+  // Disable it to get the full Java experience but screen will take longer to load.
+
+  "$faster_controller_keymappings": true, // Default: true | Display the keymappings items without categories.
+        // Disable it to get the full Java experience but screen will take longer to load.
+
+  // "$show_furnace_recipe_book": false, // Default: false | Not working on 1.16.100 betas
+  
+  "$force_container_close_on_player_hurt": false, // Default: false, | When the player is hurted while using a container it'll close the container in use.
+
+  "$ignore_slot_and_inv_lock_overlay": false, // Default: false
+  /**********************************
+    Colors, Alpha, ...
+  ***********************************/
+  "$title_color": "white", // Default: "white"
+  "$subtitle_color": [0.333, 0.333, 0.333], // Default: [0.333, 0.333, 0.333]
+  "$primary_color": "white", // Default: "white"
+  "$secondary_color": [0.5, 0.5, 0.5], // Default: [0.5, 0.5, 0.5]
+  "$info_color": [0.62, 0.62, 0.62], // Default: [0.62, 0.62, 0.62]
+
+  "$btn_dflt_color": "white", // Default: "white"
+  "$btn_hov_color": "white", // Default: "white"
+  "$btn_lkd_color": [0.62745, 0.62745, 0.62745], // Default: [0.625, 0.625, 0.625]
+
+  "$screen_bg_color": [0.08, 0.08, 0.08], // Default: [0.08, 0.08, 0.08]
+  "$screen_bg_alpha": 0.75, // Default: 0.75
+
+  "$player_position_text_color": [1, 1, 1], // Default: [1, 1, 1]
+  "$player_position_text_alpha": 1.0, // Default: 1.0
+  "$player_position_bg_color": [0.3, 0.3, 0.3], // Default: [0.3, 0.3, 0.3]
+  "$player_position_bg_alpha": 0.4, // Default: 0.4
+
+  "$chat_bg_color": "black", // Default: "black"
+  "$chat_bg_alpha": 0.5, // Default: 0.5
+  "$chat_text_alpha": 1.0, // Default: 1.0
+
+  "$default_bossbar_name_text_color": "white", // Default: "white"
+  "$default_bar_color": "pink", // Default: "pink"
+  "$default_bar_style": "progress", // Default: "progress"
+
+  "$scoreboard_header_text_color": "white", // Default: "white"
+  "$scoreboard_players_text_color": "white", // Default: "white"
+  "$scoreboard_score_text_color": [1, 0.333, 0.333], // Default: [1, 0.333, 0.333]
+  "$scoreboard_header_bg_color": "black", // Default: "black"
+  "$scoreboard_list_bg_color": "black", // Default: "black"
+  "$scoreboard_header_bg_alpha": 0.4, // Default: 0.4
+  "$scoreboard_list_bg_alpha": 0.3, // Default: 0.3
+  "$scoreboard_header_text_alpha": 1.0, // Default: 1.0
+  "$scoreboard_list_text_alpha": 1.0, // Default: 1.0
+
+  "$title_hud_text_color": "white", // Default: "white"
+  "$subtitle_hud_text_color":"white", // Default: "white"
+  "$actionbar_text_color": "white", // Default: "white"
+  "$item_name_text_color": "white", // Default: "white"
+  "$hud_texts_dark_bg_color": "black", // Default: "black"
+
+  "$xp_number_text_color": [0.5, 1, 0.5], //Default: [0.5, 1, 0.5]
+  "$xp_number_border_color": "black", // Default: "black"
+
+  "$jukebox_text_color_1": [0.333, 1, 0.333], // (Green) | Default: [0.333, 1, 0.333]
+  "$jukebox_text_color_2": [1, 0.333, 0.333], // (Red) | Default: [1, 0.333, 0.333]
+  "$jukebox_text_color_3": [0.666, 0, 0.666], // (Dark Purple) | Default: [0.666, 0, 0.666]
+  "$jukebox_text_color_4": [0.333, 0.333, 1], // (Blue) | Default: [0.333, 0.333, 1]
+  "$jukebox_text_color_5": [0, 0.666, 0.666], // (Dark Aqua) | Default: [0, 0.666, 0.666]
+  "$jukebox_text_color_6": [0, 0.666, 0], // (Dark Green) | Default: [0, 0.666, 0]
+  "$jukebox_text_color_7": [1, 0.666, 0], // (Gold) | Default: [1, 0.666, 0]
+
+  "$book_title_color": "black", // Default: "black"
+  "$book_author_color": [0.7, 0.7, 0.7], // Default: [0.7, 0.7, 0.7]
+  "$book_warning_color": "black", // Default: "black"
+  "$book_page_number_color": "black", // Default: "black"
+  "$book_page_color": "black", // Default: "black"
+
+  "$container_text_color": [0.25, 0.25, 0.25], // Default: [0.25, 0.25, 0.25] | Container title and "Inventory" text.
+  "$item_stack_text_color": "white", // Default: "white"
+  "$selected_item_stack_text_color": "white", // Default: "white"
+  "$slot_highlight_color": "white", // Default: "white"
+  "$slot_highlight_alpha": 0.5, // Default: 0.5
+
+  "$slot_lock_in_slot_color": "red", // Default: "red"
+  "$slot_lock_in_inv_color": "yellow", // Default: "yellow"
+
+  "$tootlip_bg_alpha": 0.95, // Default: 0.95
+  "$custom_tooltip_bg": false, // Default: false
+    "$custom_tooltip_border_color": [0.1441, 0, 0.3559], // Default: [0.1441, 0, 0.3559]
+    "$custom_tooltip_bg_color": [0.0862, 0.0039, 0.0862], // Default: [0.0862, 0.0039, 0.0862]
+
+  "$anvil_cost_success_text_color": [0.49, 0.99, 0.125], // Default: [0.49, 0.99, 0.125]
+  "$anvil_cost_fail_text_color": [0.99, 0.35, 0.37], // Default: [0.99, 0.35, 0.37]
+
+  "$enchanting_cost_success_text_color": [0.4941, 0.9882, 0.1254], // Default: [0.4941, 0.9882, 0.1254]
+  "$enchanting_cost_fail_text_color": [0.2470, 0.4901, 0.0627], // Default: [0.2470, 0.4901, 0.0627]
+
+  /**********************************
+    Resolutions | Default: "256x"
+  ***********************************/
+  "$title_res": "256x", // "assets/minecraft/textures/gui/title/minecraft.png",
+  "$edition_res": "256x", // "assets/minecraft/textures/gui/title/edition.png",
+  "$options_bg_res": "256x", // "assets/minecraft/textures/gui/options_background.png",
+  "$bars_res": "256x", // "assets/minecraft/textures/gui/bars.png"
+  "$book_res": "256x", // "assets/minecraft/textures/gui/book.png"
+  "$icons_res": "256x", // "assets/minecraft/textures/gui/icons.png"
+  "$widgets_res": "256x", // "assets/minecraft/textures/gui/widgets.png"
+  "$resource_packs_res": "256x", // "assets/minecraft/textures/gui/resource_packs.png"
+  "$toasts_res": "256x", // "assets/minecraft/textures/gui/toasts.png"
+  "$anvil_res": "256x", // "assets/minecraft/textures/gui/container/anvil.png"
+  "$beacon_res": "256x", // "assets/minecraft/textures/gui/container/beacon.png"
+  "$brewing_stand_res": "256x", // "assets/minecraft/textures/gui/container/brewing_stand.png"
+  "$cartography_res": "256x", // "assets/minecraft/textures/gui/container/cartography_table.png"
+  "$compound_creator_res": "256x", // "src/assets/container/compound_creator.png"
+  "$dispenser_res": "256x", // "assets/minecraft/textures/gui/container/dispenser.png"
+  "$element_constructor_res": "256x", // "src/assets/container/element_constructor.png"
+  "$enchanting_table_res": "256x", // "assets/minecraft/textures/gui/container/enchanting_table.png"
+  "$furnace_res": "256x", // "assets/minecraft/textures/gui/container/furnace.png"
+  "$hopper_res": "256x", // "assets/minecraft/textures/gui/container/hopper.png"
+  "$horse_res": "256x", // "assets/minecraft/textures/gui/container/horse.png"
+  "$inventory_res": "256x", // "assets/minecraft/textures/gui/container/inventory.png"
+  "$generic_54_res": "256x", // "assets/minecraft/textures/gui/container/generic_54.png"
+  "$grindstone_res": "256x", // "assets/minecraft/textures/gui/container/grindstone.png"
+  "$lab_table_res": "256x", // "assets/src/container/lab_table.png"
+  "$loom_res": "256x", // "assets/minecraft/textures/gui/container/loom.png"
+  "$material_reducer_res": "256x", // "assets/src/container/material_reducer.png"
+  "$shulker_box_res": "256x", // "assets/minecraft/textures/gui/container/shulker_box.png"
+  "$smithing_table_res": "256x", // "assets/minecraft/textures/gui/container/smithing_table.png"
+  "$stonecutter_res": "256x", // "assets/minecraft/textures/gui/container/stonecutter.png"
+  "$villager2_res": "256x" // "assets/minecraft/textures/gui/container/villager2.png"
+}

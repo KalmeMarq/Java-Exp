@@ -1,0 +1,128 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "music_n_sound_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "popup_dialog_factory@popup_dialog_factory": {} },
+      { "title@screen_jexp.title": { "text": "options.sounds.title", "offset": ["50% - 50%x", 15] } },
+      { "master@master_sldr": { "offset": ["50% - 155px", "16.666666667% - 12px"] } },
+      { "music@music_sldr": { "offset": ["50% - 155px", "16.666666667% + 12px"] } },
+      { "record@record_sldr": { "offset": ["50% + 5px", "16.666666667% + 12px"] } },
+      { "weather@weather_sldr": { "offset": ["50% - 155px", "16.666666667% + 36px"] } },
+      { "blocks@blocks_sldr": { "offset": ["50% + 5px", "16.666666667% + 36px"] } },
+      { "hostile@hostile_sldr": { "offset": ["50% - 155px", "16.666666667% + 60px"] } },
+      { "neutral@neutral_sldr": { "offset": ["50% + 5px", "16.666666667% + 60px"] } },
+      { "player@player_sldr": { "offset": ["50% - 155px", "16.666666667% + 84px"] } },
+      { "ambient@ambient_sldr": { "offset": ["50% + 5px", "16.666666667% + 84px"] } },
+      { "sound@sound_sldr": { "offset": ["50% - 155px", "16.666666667% + 108px"] } },
+      { "reset@options_jexp.reset_btn": {
+          "offset": ["50% - 75px", "16.666666667% + 132px"],
+          "property_bag": { "reset_group": "audio" }
+        }
+      },
+      { "back@options_jexp.back_tgl_btn": { "offset": ["50% - 100px", "16.666666667% + 168px"] } }
+    ],
+    "$sldr_per": true,
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "music_n_sound_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "master_sldr@option_slider_jexp.option_slider": {
+    "size": [310, 20],
+    "$sldr_text": "#main_volume_slider_label",
+    "$sldr_nm": "main_volume",
+    "$sldr_value_bdg_nm": "#main_volume",
+    "$sldr_tts_text_value": "#main_volume_text_value",
+    "$sldr_enabled_bdg_nm": "#main_volume_enabled"
+  },
+
+  "ambient_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#ambient_volume_slider_label",
+    "$sldr_nm": "ambient_volume",
+    "$sldr_value_bdg_nm": "#ambient_volume",
+    "$sldr_tts_text_value": "#ambient_volume_text_value",
+    "$sldr_enabled_bdg_nm": "#ambient_volume_enabled"
+  },
+
+  "blocks_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#block_volume_slider_label",
+    "$sldr_nm": "block_volume",
+    "$sldr_value_bdg_nm": "#block_volume",
+    "$sldr_tts_text_value": "#block_volume_text_value",
+    "$sldr_enabled_bdg_nm": "#block_volume_enabled"
+  },
+
+  "hostile_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#hostile_volume_slider_label",
+    "$sldr_nm": "hostile_volume",
+    "$sldr_value_bdg_nm": "#hostile_volume",
+    "$sldr_tts_text_value": "#hostile_volume_text_value",
+    "$sldr_enabled_bdg_nm": "#hostile_volume_enabled"
+  },
+
+  "neutral_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#neutral_volume_slider_label",
+    "$sldr_nm": "neutral_volume",
+    "$sldr_value_bdg_nm": "#neutral_volume",
+    "$sldr_tts_text_value": "#neutral_volume_text_value",
+    "$sldr_enabled_bdg_nm": "#neutral_volume_enabled"
+  },
+
+  "player_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#player_volume_slider_label",
+    "$sldr_nm": "player_volume",
+    "$sldr_value_bdg_nm": "#player_volume",
+    "$sldr_tts_text_value": "#player_volume_text_value",
+    "$sldr_enabled_bdg_nm": "#player_volume_enabled"
+  },
+
+  "record_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#record_volume_slider_label",
+    "$sldr_nm": "record_volume",
+    "$sldr_value_bdg_nm": "#record_volume",
+    "$sldr_tts_text_value": "#record_volume_text_value",
+    "$sldr_enabled_bdg_nm": "#record_volume_enabled"
+  },
+
+  "weather_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#weather_volume_slider_label",
+    "$sldr_nm": "weather_volume",
+    "$sldr_value_bdg_nm": "#weather_volume",
+    "$sldr_tts_text_value": "#weather_volume_text_value",
+    "$sldr_enabled_bdg_nm": "#weather_volume_enabled"
+  },
+
+  "music_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#music_volume_slider_label",
+    "$sldr_nm": "music_volume",
+    "$sldr_value_bdg_nm": "#music_volume",
+    "$sldr_tts_text_value": "#music_volume_text_value",
+    "$sldr_enabled_bdg_nm": "#music_volume_enabled"
+  },
+  
+  "sound_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#sound_volume_slider_label",
+    "$sldr_nm": "sound_volume",
+    "$sldr_value_bdg_nm": "#sound_volume",
+    "$sldr_tts_text_value": "#sound_volume_text_value",
+    "$sldr_enabled_bdg_nm": "#sound_volume_enabled"
+  },
+  
+  "popup_dialog_factory": {
+    "type": "factory",
+    "control_ids": { "modal_dialog_popup": "@music_n_sound_jexp.reset_sound_popup" }
+  },
+
+  "reset_sound_popup@options_jexp.reset_settings_popup": { "$msg_text": "popup.resetSettings.sound" }
+}

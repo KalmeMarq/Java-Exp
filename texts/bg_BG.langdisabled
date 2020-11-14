@@ -1,0 +1,670 @@
+##Lang Binding Reset
+##entity.wither.name=0	#
+##entity.ender_dragon.name=1	#
+##raid.name=2	#
+##raid.progress=3	#
+options.fov=0	#
+
+##entity.wither.name.new=Чезнещия	#
+##entity.ender_dragon.name.new=Пагубен дракон	#
+##raid.name.new=Нашествие	#
+##raid.progress.new=Оставащи мобове:	#
+options.fov.label=Обхват на изгледа	#
+
+##Others
+record.nowPlaying=Сега свири: %s	#
+map.position.agent=агент XYZ: %s / %s / %s	#
+map.position=XYZ: %s / %s / %s	#
+
+##Recipe Book
+gui.recipebook.search_hint=§o\u0422\u044aрсе\u043dе...	#
+gui.recipebook.toggleRecipes.all=\u041fо\u043aа\u0437ва се вси\u0447\u043aо"	#
+gui.recipebook.toggleRecipes.reset=нулиране	#
+gui.recipebook.toggleRecipes.craftable=\u041fо\u043aа\u0437ва\u0442 се са\u043cо и\u0437ра\u0431о\u0442вае\u043cи \u043fре\u0434\u043cе\u0442и	#
+
+craftingScreen.tab.search=All
+craftingScreen.tab.survival=Inventory
+
+##Containers
+container.repair=\u041fо\u043fрав\u043aа и и\u043cе\u043d\u0443ва\u043dе	#
+container.repair.cost=\u0426е\u043dа \u043dа о\u043cаг\u044cосва\u043dе: %1$d	#
+container.repair.expensive=\u0422в\u044aр\u0434е с\u043a\u044a\u043fо!	#
+block.minecraft.beacon.primary=\u041eс\u043dове\u043d е\u0444е\u043a\u0442	#
+block.minecraft.beacon.secondary=\u0412\u0442ори\u0447е\u043d е\u0444е\u043a\u0442	#
+container.cartography_table=\u041aар\u0442огра\u0444с\u043aа \u043cаса	#
+container.inventory=\u0418\u043dве\u043d\u0442ар	#
+container.crafting=\u0418\u0437ра\u0431о\u0442ва\u043dе	#
+container.enchant=\u041e\u043cаг\u044cосва\u043dе	#
+container.grindstone=\u041fо\u043fрав\u043aа \u0431е\u0437 о\u043cаг\u044cосва\u043dи\u044f	#
+container.loom=\u0422\u044a\u043aа\u0447е\u043d с\u0442а\u043d	#
+container.upgrade=\u041cо\u0434ер\u043dи\u0437ира\u043dе \u043dа е\u043aи\u043fиров\u043aа\u0442а	#
+container.stonecutter=\u0424ре\u0437а \u0437а \u043aа\u043c\u044a\u043a	#
+merchant.trades=С\u0434е\u043b\u043aи	#
+
+##Menu
+menu.play=Играй
+menu.courses=Курсове
+menu.profile=Профил
+menu.skins=промяна Skin
+menu.store=пазар
+menu.options=Нас\u0442ро\u0439\u043aи...
+menu.quit=\u0418\u0437\u0445о\u0434 о\u0442 игра\u0442а
+menu.switchAccounts=Превключване на акаунти
+menu.launchEditions=Editions
+menu.returnToGame=\u0412р\u044a\u0449а\u043dе \u043a\u044a\u043c игра\u0442а"
+menu.permissions=Разрешения
+menu.feed=Информационен канал
+menu.playersMenu=играчи
+menu.takeScreenshot=направи снимка на екрана
+menu.sendFeedback=\u0414ава\u043dе \u043dа о\u0442\u0437ив
+menu.invitePlayer=покани играчи
+menu.takeScreenshot.short=снимки
+menu.returnToMenu=\u0417а\u043fа\u0437ва\u043dе и и\u0437\u043bи\u0437а\u043dе
+menu.disconnect=разединявам
+menu.savingLevel=\u0417а\u043fа\u0437ва\u043dе \u043dа све\u0442а
+menu.savingChunks=\u0417а\u043fа\u0437ва\u043dе \u043dа ра\u0437ре\u0437и\u0442е
+progressScreen.message.resourceLoading=\u0420а\u0437\u0447и\u0442а\u043dе \u043dа \u0434а\u043d\u043dи \u0437а све\u0442а...
+
+##Chat
+chat.settings.muteAll=заглушаване на чата
+chat.settings.tts=TTS за чат
+chat.settings.fontType=тип шрифт
+chat.settings.chatColor=Цвят на чата
+chat.settings.mentionsColor=Споменава цвят
+chat.settings.fontSize.disabled=Размер: Само с %s
+
+##Add External Server
+addServer.title=\u0420е\u0434а\u043a\u0442ира\u043dе \u043dа и\u043d\u0444ор\u043cа\u0446и\u044f \u0437а с\u044aрв\u044aра
+addServer.enterName=\u0418\u043cе \u043dа с\u044aрв\u044aра
+addServer.enterIp=\u0410\u0434рес \u043dа с\u044aрв\u044aра
+addServer.enterPort=сървър порт
+addServer.add=\u0413о\u0442ово
+addServer.delete=\u0418\u0437\u0442рива\u043dе
+addServer.play=игра
+
+##Command Block
+advMode.setCommand=\u0417а\u0434ава\u043dе \u043dа \u043aо\u043cа\u043d\u0434а
+advMode.command=\u041aо\u043cа\u043d\u0434\u043dа
+advMode.previousOutput=\u041fре\u0434и\u0448е\u043d о\u0442говор
+advMode.mode.sequence=\u0412ери\u0436е\u043d
+advMode.mode.auto=\u041fов\u0442ар\u044f\u0449 се
+advMode.mode.redstone=\u0415\u0434и\u043dи\u0447\u043dо
+advMode.mode.conditional=\u0423с\u043bове\u043d
+advMode.mode.unconditional=\u0411е\u0437\u0443с\u043bове\u043d
+advMode.mode.redstoneTriggered=\u0418\u0437ис\u043aва \u0447ерве\u043d \u043aа\u043c\u044a\u043a
+advMode.mode.autoexec.bat=\u0412и\u043dаги а\u043a\u0442иве\u043d
+advMode.execOnFirstTick=Изпълнете при първа Tick
+
+##Sign
+sign.edit=\u0420е\u0434а\u043a\u0442ира\u043dе \u043dа с\u044aо\u0431\u0449е\u043dие\u0442о \u043dа \u0442а\u0431е\u043b\u043aа\u0442а
+
+##Structure Block
+structure_block.position=\u041e\u0442\u043dоси\u0442е\u043b\u043dа \u043fо\u0437и\u0446и\u044f
+structure_block.size=\u0420а\u0437\u043cер \u043dа \u043aо\u043dс\u0442р\u0443\u043a\u0446и\u044f\u0442а
+structure_block.show=покажете структура
+structure_block.hide=скрийте структура
+structure_block.detect_size=\u041e\u0442\u043aрива\u043dе ра\u0437\u043cера и \u043fо\u0437и\u0446и\u044f\u0442а \u043dа \u043aо\u043dс\u0442р\u0443\u043a\u0446и\u044f\u0442а:
+
+##Settings
+options.off=\u0418\u0437\u043a\u043b.
+options.on=\u0412\u043a\u043b.
+options.title=Нас\u0442ро\u0439\u043aи
+options.fov.format=%s
+options.fov.toggle=динамично зрително поле
+options.resetSettings=Нулиране до стойностите по подразбиране
+options.difficulty=\u0422р\u0443\u0434\u043dос\u0442
+options.difficulty.peaceful=\u041cир\u043dо
+options.difficulty.easy=\u041bес\u043dо
+options.difficulty.normal=Нор\u043cа\u043b\u043dо
+options.difficulty.hard=\u0422р\u0443\u0434\u043dо
+
+options.accessibility=Нас\u0442ро\u0439\u043aи \u0437а \u0434ос\u0442\u044a\u043f\u043dос...
+options.accessibility.title=Нас\u0442ро\u0439\u043aи \u0437а \u0434ос\u0442\u044a\u043f\u043dос
+options.perspective=перспектива
+options.perspective.firstPerson=В първо лице
+options.perspective.thirdBack=В трето лице отзад
+options.perspective.thirdFront=В трето лице отпред
+options.enableChatTextToSpeech=разказвач за чат
+options.enableAutoPlatformTextToSpeech=разказвач за текст
+options.enableUITextToSpeech=разказвач за система
+options.enableOpenChatMessage=може да чат съобщение
+
+options.controls=\u041aо\u043d\u0442ро\u043bи...
+options.mouse=мишка...
+options.touch=допир...
+options.hotbarOnlyTouch=Засяга само Hotbar
+options.mouse_settings=Нас\u0442ро\u0439\u043aи \u043dа \u043cи\u0448\u043aа\u0442а...
+options.mouse_settings.title=Нас\u0442ро\u0439\u043aи \u043dа \u043cи\u0448\u043aа\u0442а
+options.controller=Контролер...
+options.controller_settings=Настройки на контролера...
+options.controller_settings.title=Настройки на контролера
+options.gamepadcursorsensitivity=Cursor Sensitivity
+options.graphics.fancy.tooltip="Fancy" graphics balances performance and quality for the majority of machines.
+options.graphics.fast.tooltip="Fast" graphics reduces the amount of visible rain and snow. Transparency effects are disabled for various blocks such as tree-leaves.
+options.autoJump=Auto-Jump
+controls.reset=Н\u0443\u043bира\u043dе
+controls.resetAll=Нас\u0442ро\u0439\u043aи \u043fо \u043fо\u0434ра\u0437\u0431ира\u043dе
+
+options.resourcePacks=Resource Packs...
+options.behaviorPacks=Behavior Packs
+options.resourcePacks.title=Select Resource Pack
+options.behaviorPacks.title=Select Behavior Pack
+pack.dropInfo=Drag and drop files into 'resource_packs' folder to add packs
+resourcePack.available.title=§lAvailable
+resourcePack.selected.title=§lSelected
+pack.source.builtin=built-in
+
+options.language=Language...
+options.languageWarning=Language translations may not be 100%% accurate
+
+options.sounds=Music & Sounds...
+options.sounds.title=Music & Sound Options
+options.sound=Volume
+options.music=Music
+
+options.storage=Storage Managment...
+options.storage.title=Your Storage
+storageManager.selection.single=Single Selection
+storageManager.selection.multi=Multi Selection
+
+options.user_profile=Profile...
+options.user_profile.title=User Profile Settings
+options.autoUpdateMode=Auto Update
+options.autoUpdateMode=Update Unlocked Packs
+options.autoUpdateMode.on.withWifiOnly=Wi-Fi Only
+options.autoUpdateMode.on.withCellular=Wi-Fi/Cellular Data
+options.filelocation.title=File Storage
+
+options.video=Video Settings...
+options.video.title=Video Settings
+options.video.advanced=Advanced
+options.graphics=Graphics
+options.graphics.fancy=Fancy
+options.graphics.fast=Fast
+options.transparentleaves=Leaves
+options.transparentleaves.fancy=Fancy
+options.transparentleaves.fast=Fast
+options.box_selection=Selection
+options.box_selection.outline=Outline
+options.box_selection.highlight=Highlight
+options.renderclouds=Clouds
+options.fancyskies=Sky
+options.fancyskies.fancy=Fancy
+options.fancyskies.fast=Fast
+options.bubbleparticles=Bubbles Particles
+options.bubbleparticles.fancy=Fancy
+options.bubbleparticles.fast=Fast
+options.maxFramerate=Max Framerate
+
+key.sprint=Sprint
+key.forward=Walk Forwards
+key.left=Strafe Left
+key.back=Walk Backwards
+key.right=Strafe Right
+key.jump=Jump
+key.inventory=Open/Close Inventory
+key.drop=Drop Selected Item
+key.chat=Open Chat
+key.sneak=Sneak
+key.attack=Attack/Destroy
+key.use=Use Item/Place Block
+key.pickItem=Pick Block
+key.command=Open Command
+key.togglePerspective=Toggle Perspective
+key.hotbar.1=Hotbar Slot 1
+key.hotbar.2=Hotbar Slot 2
+key.hotbar.3=Hotbar Slot 3
+key.hotbar.4=Hotbar Slot 4
+key.hotbar.5=Hotbar Slot 5
+key.hotbar.6=Hotbar Slot 6
+key.hotbar.7=Hotbar Slot 7
+key.hotbar.8=Hotbar Slot 8
+key.hotbar.9=Hotbar Slot 9
+key.mobEffects=Mob Effects
+key.emote=Emotes
+key.tabLeft=Menu Tab Left
+key.tabRight=Menu Tab Right
+key.lookUpSlight=Look Up Slight
+key.lookDownSlight=Look Down Slight
+key.lookUpRight=Look Up Right
+key.lookUp=Look Up
+key.lookUpLeft=Look Up Left
+key.lookRight=Look Right
+key.lookCenter=Look Center
+key.lookLeft=Look Left
+key.lookDownRight=Look Down Right
+key.lookDown=Look Down
+key.lookDownLeft=Look Down Left
+key.lookUpSmooth=Look Up Smooth
+key.lookDownSmooth=Look Down Smooth
+key.lookLeftSmooth=Look Left Smooth
+key.lookRightSmooth=Look Right Smooth
+key.cycleItemLeft=Cycle Item Left
+key.cycleItemRight=Cycle Item Right
+key.categories.movement=Movement
+key.categories.misc=Miscellaneous
+key.categories.multiplayer=Multiplayer
+key.categories.gameplay=Gameplay
+key.categories.inventory=Inventory
+key.categories.additional=Additional
+
+controllerLayoutScreen.unassigned= 
+
+##Popups
+popup.quitGame.question=Are you sure you want to quit?
+popup.deathConfirm.question=Are you sure you want to quit?
+popup.feedback.question=Do you want to give some suggestions, feedback or report bugs?
+popup.resetSettings.accessibility=Are you sure yo want to reset the accessibility settings?
+popup.resetSettings.audio=Are you sure yo want to reset the sounds settings?
+popup.resetSettings.video=Are you sure yo want to reset the video settings?
+popup.resetSettings.mouse=Are you sure yo want to reset the mouse settings?
+popup.resetSettings.controller=Are you sure yo want to reset the controller settings?
+popup.resetSettings.touch=Dre you sure yo want to reset the touch settings?.unassigned= 
+
+##keyboard.keyName.backspace=Back
+##keyboard.keyName.tab=Tab
+##keyboard.keyName.return=Return
+##keyboard.keyName.pause=Pause
+##keyboard.keyName.lshift=Shift
+##keyboard.keyName.control=Control
+##keyboard.keyName.capsLock=Caps Lock
+##keyboard.keyName.escape=Escape
+##keyboard.keyName.space=Space
+##keyboard.keyName.pgDown=Down Pgn
+##keyboard.keyName.pgUp=Up Pgn
+##keyboard.keyName.end=End
+##keyboard.keyName.home=Home
+##keyboard.keyName.left=Left Arrow
+##keyboard.keyName.up=Up Arrow
+##keyboard.keyName.right=Right Arrow
+##keyboard.keyName.down=Down Arrow
+##keyboard.keyName.insert=Insert
+##keyboard.keyName.delete=Delete
+##keyboard.keyName.0=0
+##keyboard.keyName.1=1
+##keyboard.keyName.2=2
+##keyboard.keyName.3=3
+##keyboard.keyName.4=4
+##keyboard.keyName.5=5
+##keyboard.keyName.6=6
+##keyboard.keyName.7=7
+##keyboard.keyName.8=8
+##keyboard.keyName.9=9
+##keyboard.keyName.a=a
+##keyboard.keyName.b=b
+##keyboard.keyName.c=c
+##keyboard.keyName.d=d
+##keyboard.keyName.e=e
+##keyboard.keyName.f=f
+##keyboard.keyName.g=g
+##keyboard.keyName.h=h
+##keyboard.keyName.i=i
+##keyboard.keyName.j=j
+##keyboard.keyName.k=k
+##keyboard.keyName.l=l
+##keyboard.keyName.m=m
+##keyboard.keyName.n=n
+##keyboard.keyName.o=o
+##keyboard.keyName.p=p
+##keyboard.keyName.q=q
+##keyboard.keyName.r=r
+##keyboard.keyName.s=s
+##keyboard.keyName.t=t
+##keyboard.keyName.u=u
+##keyboard.keyName.v=v
+##keyboard.keyName.w=w
+##keyboard.keyName.x=x
+##keyboard.keyName.y=y
+##keyboard.keyName.z=z
+##keyboard.keyName.f1=F1
+##keyboard.keyName.f2=F2
+##keyboard.keyName.f3=F3
+##keyboard.keyName.f4=F4
+##keyboard.keyName.f5=F5
+##keyboard.keyName.f6=F6
+##keyboard.keyName.f7=F7
+##keyboard.keyName.f8=F8
+##keyboard.keyName.f9=F9
+##keyboard.keyName.f10=F10
+##keyboard.keyName.f11=F11
+##keyboard.keyName.f12=F12
+##keyboard.keyName.f13=F13
+##keyboard.keyName.numpad0=NP 0
+##keyboard.keyName.numpad1=NP 1
+##keyboard.keyName.numpad2=NP 2
+##keyboard.keyName.numpad3=NP 3
+##keyboard.keyName.numpad4=NP 4
+##keyboard.keyName.numpad5=NP 5
+##keyboard.keyName.numpad6=NP 6
+##keyboard.keyName.numpad7=NP 7
+##keyboard.keyName.numpad8=NP 8
+##keyboard.keyName.numpad9=NP 9
+##keyboard.keyName.scroll=Scroll
+##keyboard.keyName.equals=+
+##keyboard.keyName.add=Add
+##keyboard.keyName.minus=-
+##keyboard.keyName.subtract=Subtract
+##keyboard.keyName.multiply=Multiply
+##keyboard.keyName.divide=Divide
+##keyboard.keyName.decimal=Decimal
+##keyboard.keyName.grave=Grave
+##keyboard.keyName.numLock=Num Lock
+##keyboard.keyName.slash=~
+##keyboard.keyName.semicolon=;
+##keyboard.keyName.apostrophe=APOSTROPHE
+##keyboard.keyName.comma=,
+##keyboard.keyName.period=.
+##keyboard.keyName.backslash=\
+##keyboard.keyName.lbracket=[
+##keyboard.keyName.rbracket=]
+
+##Create New World & Edit World
+selectWorld.create=Create New World
+selectWorld.edit=Edit World
+selectWorld.settings=Game Settings
+selectWorld.resultFolder=Will be saved with:
+selectWorld.gameMode=Game Mode
+selectWorld.gameModePlayer=Personal GMode
+selectWorld.gameMode.default=Default
+selectWorld.gameMode.survival=Survival
+selectWorld.gameMode.survival.line1=Search for resources, craft, gain
+selectWorld.gameMode.survival.line2=levels, health and hunger
+selectWorld.gameMode.creative=Creative
+selectWorld.gameMode.creative.line1=Unlimited resources, free flying and
+selectWorld.gameMode.creative.line2=destroy blocks instantly
+selectWorld.gameMode.spectator=Spectator
+selectWorld.gameMode.spectator.line1=You can look but don't touch
+selectWorld.gameMode.spectator.line2=
+selectWorld.gameMode.hardcore=Hardcore
+selectWorld.gameMode.hardcore.line1=Same as survival mode, locked at hardest
+selectWorld.gameMode.hardcore.line2=difficulty, and one life only
+selectWorld.gameMode.adventure=Adventure
+selectWorld.gameMode.adventure.line1=Same as survival mode, but blocks can't
+selectWorld.gameMode.adventure.line2=be added or removed
+selectWorld.enterSeed=Seed for the world generator
+selectWorld.seedInfo=Leave blank for a random seed
+selectWorld.moreWorldOptions=More World Options...
+selectWorld.mapFeatures=Generate Structures
+selectWorld.mapFeatures.info=illages, dungeons etc
+selectWorld.mapType=World Type
+selectWorld.mapType.normal=Normal
+selectWorld.allowCommands=Allow Cheats
+selectWorld.allowCommands.info= Commands like /gamemode, /experience
+selectWorld.hardcoreMode=Hardcore
+selectWorld.hardcoreMode.info= World is deleted upon death
+selectWorld.experimentalGameplay=Experimental Gameplay
+selectWorld.experimentalGameplay.info=Test out new features comming to Minecraft
+selectWorld.forceUser.info=Force users to use this resources
+selectWorld.bonusItems= Bonus Chest
+generator.default=Default
+generator.flat=Superflat
+generator.small=Small
+seedPicker.title=Seed Picker
+seedPicker.use=Done
+
+##Gamerules/Resource/Behavior
+selectWorld.gameRules=Game Rules
+selectWorld.resourcePacks=Game Rules
+selectWorld.behaviorPacks=Game Rules
+editGamerule.title=Edit game rules
+gamerule.category.chat=§lChat
+gamerule.category.spawning=§lSpawning
+gamerule.category.updates=§lWorld updates
+gamerule.category.drops=§lDrops
+gamerule.category.mobs=§lMobs
+gamerule.category.player=§lPlayer
+gamerule.category.misc=§lMiscellaneous
+editGamerule.default.on=Default: true
+editGamerule.default.off=Default: false
+editGamerule.default.spawnRadius=Default: 5
+editGamerule.default.randomTickSpeed=Default: 1
+gamerule.doImmediateRespawn=Respawn immediately
+gamerule.naturalRegeneration=Regenerate health
+gamerule.doMobSpawning=Spawn mobs
+gamerule.mobGriefing=Allow destructive mob actions
+gamerule.keepInventory=Keep inventory after death
+gamerule.doMobLoot=Drop mob loot
+gamerule.doEntityDrops=Drop entity equipment
+gamerule.doTileDrops=Drop blocks
+gamerule.doDaylightCycle=Advance in-game time
+gamerule.alwaysDay=Always Day
+gamerule.doFireTick=Update fire
+gamerule.tntExplodes=TNT Explodes
+gamerule.doWeatherCycle=Update weather
+gamerule.commandBlockEnabled=Command Blocks
+gamerule.spawnRadius=Respawn location radius
+gamerule.randomTickSpeed=Random tick speed rate
+gamerule.pvp=Allow PVP
+gamerule.showCoordinates=Show Coordinates
+gamerule.doMobLoot.description=Controls resource drops, including experience orbs
+gamerule.doEntityDrops.description=Controls drops from minecarts (including inventories), item frames, boats, etc.
+gamerule.doMobSpawning.description=Some entities might have separate rules
+gamerule.doTileDrops.description=Controls resource drops, including experience orbs
+
+##Create World Upsell
+createWorldUpsell.title=Create New World or Realm
+createWorldUpsell.newWorld=New World
+createWorldUpsell.newRealm=New Realm
+
+##World Templates
+worldTemplates.title=Templates
+worldTemplates.world=World
+worldTemplates.realm=Realms
+worldTemplates.help=Help
+
+
+
+
+
+createWorldScreen.gameMode.adventure=Adventure Mode
+createWorldScreen.gameMode.creative=Creative Mode
+createWorldScreen.gameMode.survival=Survival Mode
+
+selectWorld.title=Select World
+selectWorld.select=Play Selected World
+selectWorld.create=Create New World
+selectWorld.createDemo=Play New Demo World
+selectWorld.import=Import
+selectWorld.edit=Edit
+selectWorld.versionWarning=Backup this world because loading it in the beta can cause corruption!
+
+multiplayer.title=Play Multiplayer
+selectServer.add=Add Server
+
+##Add External Server
+
+
+
+
+##Loadings
+multiplayer.downloadingTerrain=Loading terrain...
+
+##Beacon
+
+##Potions
+potion.nightVision=§9Night Vision§f
+potion.invisibility=§9Invisibility§f
+potion.jump=§9Jump Boost§f
+potion.fireResistance=§9Fire Resistance§f
+potion.moveSpeed=§9Speed§f
+potion.waterBreathing=§9Water Breathing§f
+potion.weakness=§9Weakness§f
+potion.heal=§9Instant Health§f
+potion.regeneration=§9Regeneration§f
+potion.damageBoost=§9Strength§f
+potion.slowFalling=§9Slow Falling§f
+
+##Attributes
+attribute.modifier.plus.0=§2+%d §2%s§f
+attribute.modifier.plus.1=§2+%d%% §2%s§f
+attribute.modifier.plus.2=§2+%d%% §2%s§f
+attribute.modifier.take.0=-%d %s§f
+attribute.modifier.take.1=-%d%% %s§f
+attribute.modifier.take.2=-%d%% %s§f
+
+##Items
+item.experience_bottle.name=§eBottle o' Enchanting§f
+item.netherStar.name=§eNether Star§f
+item.record.name=§bMusic Disc§f
+item.heart_of_the_sea.name=§eHeart of the Sea§f
+item.banner_pattern.name=§eBanner Pattern§f
+item.golden_apple.name=§bGolden Apple§f
+item.appleEnchanted.name=§5Enchanted Golden Apple§f
+item.skull.char.name=§eHead§f
+item.skull.creeper.name=§eCreeper Head§f
+item.skull.dragon.name=§eDragon Head§f
+item.skull.player.name=§e%s's Head§f
+item.skull.skeleton.name=§eSkeleton Skull§f
+item.skull.wither.name=§eWither Skeleton Skull§f
+item.skull.zombie.name=§eZombie Head§f
+item.end_crystal.name=§bEnd Crystal§f
+item.elytra.name=§eElytra§f
+item.totem.name=§eTotem of Undying§f
+item.dragon_breath.name=§eDragon's Breath§f
+item.spawn_egg.entity.agent.name=Agent Spawn Egg
+item.spawn_egg.entity.bee.name=Bee Spawn Egg
+item.spawn_egg.entity.cat.name=Cat Spawn Egg
+item.spawn_egg.entity.chicken.name=Chicken Spawn Egg
+item.spawn_egg.entity.cow.name=Cow Spawn Egg
+item.spawn_egg.entity.cod.name=Cod Spawn Egg
+item.spawn_egg.entity.pufferfish.name=Pufferfish Spawn Egg
+item.spawn_egg.entity.salmon.name=Salmon Spawn Egg
+item.spawn_egg.entity.tropicalfish.name=Tropical Fish Spawn Egg
+item.spawn_egg.entity.pig.name=Pig Spawn Egg
+item.spawn_egg.entity.sheep.name=Sheep Spawn Egg
+item.spawn_egg.entity.npc.name=NPC Spawn Egg
+item.spawn_egg.entity.wolf.name=Wolf Spawn Egg
+item.spawn_egg.entity.villager.name=Villager Spawn Egg
+item.spawn_egg.entity.villager_v2.name=Villager Spawn Egg
+item.spawn_egg.entity.vindicator.name=Vindicator Spawn Egg
+item.spawn_egg.entity.mooshroom.name=Mooshroom Spawn Egg
+item.spawn_egg.entity.squid.name=Squid Spawn Egg
+item.spawn_egg.entity.rabbit.name=Rabbit Spawn Egg
+item.spawn_egg.entity.bat.name=Bat Spawn Egg
+item.spawn_egg.entity.ravager.name=Ravager Spawn Egg
+item.spawn_egg.entity.iron_golem.name=Iron Golem Spawn Egg
+item.spawn_egg.entity.snow_golem.name=Snow Golem Spawn Egg
+item.spawn_egg.entity.ocelot.name=Ocelot Spawn Egg
+item.spawn_egg.entity.parrot.name=Parrot Spawn Egg
+item.spawn_egg.entity.horse.name=Horse Spawn Egg
+item.spawn_egg.entity.llama.name=Llama Spawn Egg
+item.spawn_egg.entity.polar_bear.name=Polar Bear Spawn Egg
+item.spawn_egg.entity.donkey.name=Donkey Spawn Egg
+item.spawn_egg.entity.mule.name=Mule Spawn Egg
+item.spawn_egg.entity.skeleton_horse.name=Skeleton Horse Spawn Egg
+item.spawn_egg.entity.zombie_horse.name=Zombie Horse Spawn Egg
+item.spawn_egg.entity.zombie.name=Zombie Spawn Egg
+item.spawn_egg.entity.drowned.name=Drowned Spawn Egg
+item.spawn_egg.entity.creeper.name=Creeper Spawn Egg
+item.spawn_egg.entity.skeleton.name=Skeleton Spawn Egg
+item.spawn_egg.entity.spider.name=Spider Spawn Egg
+item.spawn_egg.entity.zombie_pigman.name=Zombie Pigman Spawn Egg
+item.spawn_egg.entity.slime.name=Slime Spawn Egg
+item.spawn_egg.entity.enderman.name=Enderman Spawn Egg
+item.spawn_egg.entity.silverfish.name=Silverfish Spawn Egg
+item.spawn_egg.entity.cave_spider.name=Cave Spider Spawn Egg
+item.spawn_egg.entity.ghast.name=Ghast Spawn Egg
+item.spawn_egg.entity.magma_cube.name=Magma Cube Spawn Egg
+item.spawn_egg.entity.blaze.name=Blaze Spawn Egg
+item.spawn_egg.entity.zombie_villager.name=Zombie Villager Spawn Egg
+item.spawn_egg.entity.zombie_villager_v2.name=Zombie Villager Spawn Egg
+item.spawn_egg.entity.witch.name=Witch Spawn Egg
+item.spawn_egg.entity.stray.name=Stray Spawn Egg
+item.spawn_egg.entity.husk.name=Husk Spawn Egg
+item.spawn_egg.entity.wither_skeleton.name=Wither Skeleton Spawn Egg
+item.spawn_egg.entity.guardian.name=Guardian Spawn Egg
+item.spawn_egg.entity.elder_guardian.name=Elder Guardian Spawn Egg
+item.spawn_egg.entity.shulker.name=Shulker Spawn Egg
+item.spawn_egg.entity.endermite.name=Endermite Spawn Egg
+item.spawn_egg.entity.evocation_illager.name=Evoker Spawn Egg
+item.spawn_egg.entity.vex.name=Vex Spawn Egg
+item.spawn_egg.entity.turtle.name=Turtle Spawn Egg
+item.spawn_egg.entity.dolphin.name=Dolphin Spawn Egg
+item.spawn_egg.entity.phantom.name=Phantom Spawn Egg
+item.spawn_egg.entity.panda.name=Panda Spawn Egg
+item.spawn_egg.entity.pillager.name=Pillager Spawn Egg
+item.spawn_egg.entity.fox.name=Fox Spawn Egg
+item.spawn_egg.entity.unknown.name=Spawn Spawn Egg
+item.spawn_egg.entity.wandering_trader.name=Wandering Trader Spawn Egg
+item.cooked_beef.name=Steak
+item.wheat_seeds.name=Wheat Seeds
+item.melon.name=Melon Slice
+item.speckled_melon.name=Glistering Melon Slice
+
+##Blocks
+tile.dragon_egg.name=§5Dragon Egg§f
+tile.beacon.name=§bBeacon§f
+tile.conduit.name=§bConduit§f
+tile.double_plant.grass.name=Tall grass
+tile.snow.name=Snow Block
+tile.snow_layer.name=Snow
+tile.brown_mushroom.name=Mushroom Steam
+tile.brown_mushroom_block.name=Brown Mushroom Block
+tile.red_mushroom.name=Mushroom
+tile.red_mushroom_block.name=Red Mushroom Block
+item.reeds.name=Sugar Cane
+tile.mob_spawner.name=Spawner
+tile.turtle_egg.name=Turtle Egg
+tile.planks.acacia.name=Acacia Planks
+tile.planks.big_oak.name=Dark Oak Planks
+tile.planks.birch.name=Birch Planks
+tile.planks.jungle.name=Jungle Planks
+tile.planks.oak.name=Oak Planks
+tile.planks.spruce.name=Spruce Planks
+tile.oak_stairs.name=Oak Stairs
+tile.acacia_stairs.name=Acacia Stairs
+tile.birch_stairs.name=Birch Stairs
+tile.dark_oak_stairs.name=Dark Oak Stairs
+tile.jungle_stairs.name=Jungle Stairs
+tile.spruce_stairs.name=Spruce Stairs
+tile.wooden_slab.acacia.name=Acacia Slab
+tile.wooden_slab.big_oak.name=Dark Oak Slab
+tile.wooden_slab.birch.name=Birch Slab
+tile.wooden_slab.jungle.name=Jungle Slab
+tile.wooden_slab.oak.name=Oak Slab
+tile.wooden_slab.spruce.name=Spruce Slab
+tile.brick_block.name=Bricks
+tile.quartz_block.smooth.name=Smooth Quartz
+tile.nether_brick.name=Nether Bricks
+tile.red_nether_brick.name=Red Nether Bricks
+tile.clay.name=Clay
+tile.anvil.slightlyDamaged.name=Chipped Anvil
+tile.anvil.veryDamaged.name=Damaged Anvil
+tile.enchanting_table.name=Enchanting Table
+item.milk.name=Milk Bucket
+tile.end_portal_frame.name=End Portal Frame
+item.writable_book.name=Book and Quill
+item.redstone.name=Redstone Dust
+tile.heavy_weighted_pressure_plate.name=Heavy Weighted Pressure Plate
+tile.light_weighted_pressure_plate.name=Light Weighted Pressure Plate
+tile.daylight_detector.name=Daylight Detector
+
+##Realms
+mco.client.incompatible.title=Client Incompatible!
+mco.client.incompatible.msg.line1=Your client is not compatible with Realms.
+mco.client.incompatible.msg.line2=Please use the most recent version of Minecraft.
+mco.client.incompatible.msg.line3=Realms is not compatible with beta versions.
+
+mco.selectServer.configure=Configure realm
+mco.selectServer.leave=Leave realm
+mco.invites.title=Pending Invites
+mco.invites.nopending=No pending invites!
+mco.selectServer.info=What is Realms?
+mco.selectServer.close=Close
+mco.selectServer.popup=Realms is a safe, simple way to enjoy an online Minecraft world with up to ten friends at a time.   It supports loads of minigames and plenty of custom worlds! Only the owner of the realm needs to pay.
+
+realmsSettingsScreen.selectorSectionLabel=%s
+mco.configure.world.title=Configure realm:
+mco.configure.world.name=Realm name
+mco.configure.world.description=Realm description
+mco.configure.world.buttons.players=Players
+mco.configure.world.buttons.settings=Settings
+mco.configure.world.buttons.subscription=Subscription
+mco.configure.world.buttons.options=World options
+mco.configure.world.buttons.done=Done
+mco.configure.world.buttons.delete=Delete
+mco.configure.world.buttons.open=Open realm
+mco.configure.world.buttons.close=Close realm
+mco.configure.world.backup=World backups
+mco.configure.world.buttons.resetworld=Reset world
+mco.configure.world.subscription.title=Your subscription

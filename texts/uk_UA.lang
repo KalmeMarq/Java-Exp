@@ -1,0 +1,215 @@
+options.fov.label=Кут огляду	#
+options.fov=0	#
+options.fov.format=%s
+
+##entity.wither.name.new=Візер	#
+##entity.wither.name=0	#
+
+##entity.ender_dragon.name.new=Дракон Ендеру	#
+##entity.ender_dragon.name=1	#
+
+##raid.name.new=Наскок	#
+##raid.progress.new=Залишилося мобів:	#
+##raid.name=2	#
+##raid.progress=3	#
+
+##Others
+map.position.agent=Agent XYZ: %s / %s / %s
+map.position=XYZ: %s / %s / %s
+
+##Recipe Book
+gui.recipebook.search_hint=§oSearch...
+gui.recipebook.toggleRecipes.all=Showing all
+gui.recipebook.toggleRecipes.reset=Reset
+gui.recipebook.toggleRecipes.craftable=Showing craftable
+
+craftingScreen.tab.search=All
+craftingScreen.tab.survival=Inventory
+
+##Containers
+merchant.trades=Trades
+
+##Menu
+menu.options=Options...
+menu.quit=Quit Game
+menu.playersMenu=Players
+menu.sendFeedback=Give Feedback
+menu.returnToMenu=Save and Quit to Title
+progressScreen.message.resourceLoading=Reading World Data
+
+##Command Block
+advMode.command=Console Command
+advMode.mode.sequence=Chain
+advMode.mode.auto=Repeat
+advMode.mode.redstone=Impulse
+advMode.mode.conditional=Conditional
+advMode.mode.unconditional=Unconditional
+advMode.mode.redstoneTriggered=Needs Redstone
+advMode.mode.autoexec.bat=Always Active
+advMode.execOnFirstTick=Execute on First Tick
+
+##Structure Block
+structure_block.position=Relative Position
+structure_block.size=Structure Size
+structure_block.show=Show Structure
+structure_block.hide=Hide Structure
+structure_block.detect_size=Detect structure size and position:
+
+##Settings
+options.fov.format=%s
+options.fov.toggle=Dynamic FOV
+
+options.accessibility=Accessibility Settings...
+options.accessibility.title=Accessibility Settings
+options.perspective=Perspective
+options.perspective.firstPerson=First Person
+options.perspective.thirdBack=Third Per. Back
+options.perspective.thirdFront=Third Per. Front
+options.enableChatTextToSpeech=Narrator For Chat
+options.enableAutoPlatformTextToSpeech=Narrator For Text
+options.enableUITextToSpeech=Narrator For System
+options.enableOpenChatMessage=Can Chat Message
+
+options.mouse=Mouse...
+options.touch=Touch...
+options.hotbarOnlyTouch=Only Affect Hotbar
+options.mouse_settings=Mouse Settings...
+options.mouse_settings.title=Mouse Settings
+options.controller=Controller...
+options.controller_settings=Controller Settings...
+options.controller_settings.title=Controller Settings
+options.gamepadcursorsensitivity=Cursor Sensitivity
+options.graphics.fancy.tooltip="Fancy" graphics balances performance and quality for the majority of machines.
+options.graphics.fast.tooltip="Fast" graphics reduces the amount of visible rain and snow. Transparency effects are disabled for various blocks such as tree-leaves.
+options.autoJump=Auto-Jump
+controls.reset=Reset
+controls.resetAll=Reset Keys
+
+options.resourcePacks=Resource Packs...
+options.behaviorPacks=Behavior Packs
+options.resourcePacks.title=Select Resource Pack
+options.behaviorPacks.title=Select Behavior Pack
+resourcePacks.dropInfo=Drag and drop files into 'resource_packs' folder to add packs
+behaviorPacks.dropInfo=Drag and drop files into 'behavior_packs' folder to add packs
+resourcePack.available.title=§lAvailable
+resourcePack.selected.title=§lSelected
+pack.source.builtin=built-in
+
+options.language=Language...
+options.languageWarning=Language translations may not be 100%% accurate
+
+options.sounds=Music & Sounds...
+options.sounds.title=Music & Sound Options
+options.sound=Volume
+options.music=Music
+
+options.storage=Storage Managment...
+storageManager.selection.single=Single Selection
+storageManager.selection.multi=Multi Selection
+
+options.user_profile=Profile...
+options.autoUpdate=Auto Update
+
+options.video=Video Settings...
+options.video.advanced=Advanced
+options.graphics=Graphics
+options.transparentleaves=Leaves
+options.transparentleaves.fancy=Fancy
+options.transparentleaves.fast=Fast
+options.box_selection=Selection
+options.box_selection.outline=Outline
+options.box_selection.highlight=Highlight
+options.renderclouds=Clouds
+options.fancyskies=Sky
+options.fancyskies.fancy=Fancy
+options.fancyskies.fast=Fast
+options.bubbleparticles=Bubbles Particles
+options.bubbleparticles.fancy=Fancy
+options.bubbleparticles.fast=Fast
+options.maxFramerate=Max Framerate
+
+key.categories.additional=Additional
+
+controllerLayoutScreen.unassigned= 
+
+##Popups
+popup.quitGame.question=Are you sure you want to quit?
+popup.deathConfirm.question=Are you sure you want to quit?
+popup.feedback.question=Do you want to give some suggestions, feedback or report bugs?
+popup.resetSettings.accessibility=Are you sure yo want to reset the accessibility settings?
+popup.resetSettings.audio=Are you sure yo want to reset the sounds settings?
+popup.resetSettings.video=Are you sure yo want to reset the video settings?
+popup.resetSettings.mouse=Are you sure yo want to reset the mouse settings?
+popup.resetSettings.controller=Are you sure yo want to reset the controller settings?
+popup.resetSettings.touch=Dre you sure yo want to reset the touch settings?.unassigned= 
+
+##Create New World & Edit World
+accessibility.play.editWorld=Edit World
+selectWorld.settings=Game Settings
+selectWorld.resultFolder=Will be saved with:
+selectWorld.gameModePlayer=Personal GMode
+selectWorld.enterSeed=Seed for the world generator
+selectWorld.allowCommands=Allow Cheats
+createWorldScreen.experimentalgameplay=Experimental Gameplay
+selectWorld.experimentalGameplay.info=Test out new features comming to Minecraft
+selectWorld.forceUser.info=Force users to use this resources
+selectWorld.bonusItems=Bonus Chest
+generator.flat=Superflat
+
+##Gamerules/Resource/Behavior
+selectWorld.gameRules=Game Rules
+editGamerule.title=Edit game rules
+gamerule.category.chat=§lChat
+gamerule.category.spawning=§lSpawning
+gamerule.category.updates=§lWorld updates
+gamerule.category.drops=§lDrops
+gamerule.category.mobs=§lMobs
+gamerule.category.player=§lPlayer
+gamerule.category.misc=§lMiscellaneous
+editGamerule.default.on=Default: true
+editGamerule.default.off=Default: false
+editGamerule.default.spawnRadius=Default: 5
+editGamerule.default.randomTickSpeed=Default: 1
+gamerule.doImmediateRespawn=Respawn immediately
+gamerule.naturalRegeneration=Regenerate health
+gamerule.doMobSpawning=Spawn mobs
+gamerule.mobGriefing=Allow destructive mob actions
+gamerule.keepInventory=Keep inventory after death
+gamerule.doMobLoot=Drop mob loot
+gamerule.doEntityDrops=Drop entity equipment
+gamerule.doTileDrops=Drop blocks
+gamerule.doDaylightCycle=Advance in-game time
+gamerule.alwaysDay=Always Day
+gamerule.doFireTick=Update fire
+gamerule.tntExplodes=TNT Explodes
+gamerule.doWeatherCycle=Update weather
+gamerule.commandBlockEnabled=Command Blocks
+gamerule.spawnRadius=Respawn location radius
+gamerule.randomTickSpeed=Random tick speed rate
+gamerule.pvp=Allow PVP
+gamerule.showCoordinates=Show Coordinates
+gamerule.doMobLoot.description=Controls resource drops, including experience orbs
+gamerule.doEntityDrops.description=Controls drops from minecarts (including inventories), item frames, boats, etc.
+gamerule.doMobSpawning.description=Some entities might have separate rules
+gamerule.doTileDrops.description=Controls resource drops, including experience orbs
+
+##Create World Upsell
+createWorldUpsell.newWorld=New World
+createWorldUpsell.newRealm=New Realm
+
+##World Templates
+worldTemplates.title=Templates
+worldTemplates.world=World
+worldTemplates.realm=Realms
+worldTemplates.help=Help
+
+createWorldScreen.gameMode.adventure=Adventure Mode
+createWorldScreen.gameMode.creative=Creative Mode
+createWorldScreen.gameMode.survival=Survival Mode
+
+selectWorld.import=Import
+selectWorld.edit=Edit
+selectWorld.versionWarning=Backup this world because loading it in the beta can cause corruption!
+
+##Loadings
+multiplayer.downloadingTerrain=Loading terrain...

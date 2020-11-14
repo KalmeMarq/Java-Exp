@@ -1,0 +1,306 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "user_profile_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "popup_dialog_factory@screen_jexp.popup_dialog_factory": {} },
+      { "title@screen_jexp.title": { "text": "options.profileTitle", "offset": ["50% - 50%x", 20.5] } },
+      { "popups@popups": {} },
+      { "third_party_copyright@third_party_copyright_button": {} },
+      { "build_info@build_info_button": {} },
+     /*  { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "size": ["100%", "100% - 64px"],
+          "$scroll_cont": "dirt@user_profile_jexp.scroll_cont"
+        }
+      }, */
+      { "scroll_cont@scroll_cont": {} }
+      // { "back@options_jexp.back_tgl_btn": { "offset": ["50% - 100px", "100% - 29px"] } }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "user_profile_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "popups": {
+    "type": "stack_panel",
+    "size": [160, "100%c"],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      { "accountError_popup@world_create_jexp.abstract_popup": {
+          "$label_bdg_nm": "options.accountError",
+          "bindings": [
+            { "binding_name": "#has_account_error",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "box": {
+          "type": "panel",
+          "size": ["100%", 22],
+          "bindings": [
+            { "binding_name": "#has_account_error",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            { "view_errors_button@button_jexp.button": {
+                "size": [150, 20],
+                "$btn_text": "options.accountErrorButton",
+                "$prsd_btn_nm": "button.view_account_errors"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": [310, "100%c"],
+    "offset": [0, "16.66666667%"],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "$hide_login_button": "($win10_edition or not $is_xboxlive_enabled)",
+    "controls": [
+       { "stack_0@debug_jexp.stack_item": {
+          "ignored": "(not $is_holographic and not $fire_tv)",
+          "$lt": "user_profile_jexp.licensed_content_popup_button",
+          "$rt": "user_profile_jexp.attribution_popup_button"
+        }
+      },
+      { "stack_0@debug_jexp.stack_item": {
+          "$lt": "user_profile_jexp.credits_button",
+          "$rt": "user_profile_jexp.font_license_popup_button"
+        }
+      },
+      { "stack_1@debug_jexp.stack_item": {
+          "ignored": "$education_edition",
+          "$lt": "user_profile_jexp.content_file_log",
+          "$rt": "user_profile_jexp.content_gui_log"
+        }
+      },
+      { "stack_2@debug_jexp.stack_item": {
+          "ignored": "$education_edition",
+          "$lt": "user_profile_jexp.open_content_log_history",
+          "$rt": "user_profile_jexp.clear_content_log_files"
+        }
+      },
+      { "stack_3@debug_jexp.stack_item": {
+          "$lt": "options_jexp.view_subcts_btn"
+        }
+      },
+      { "space@screen_jexp.v10px": {} },
+      { "box": {
+          "type": "panel",
+          "size": ["100%", 20],
+          "controls": [
+            { "back@options_jexp.back_tgl_btn": { "offset": ["50% - 100px", 0] } }
+          ]
+        }
+      }
+    ]
+  },
+
+  "credits_button@button_jexp.button_action": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.credits",
+    "$btn_text": "options.credits"
+  },
+
+  "font_license_popup_button@button_jexp.button_action": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.font_license_popup",
+    "$btn_text": "options.font_license"
+  },
+
+  "licensed_content_link_button@button_jexp.button_link": {
+    "size": [150, 20],
+    "ignored": "($is_holographic or $fire_tv)",
+    "enabled": "(not $education_edition)",
+    "$btn_text": "options.licensed_content",
+    "$licensed_content_button_url|default": "https://www.minecraft.net/licensed-content/?hideChrome",
+    "variables": {
+      "requires": "($nx_os)",
+      "$licensed_content_button_url": "https://aka.ms/switchcontent"
+    },
+    "property_bag": { "#hyperlink": "$licensed_content_button_url" }
+  },
+
+  "licensed_content_popup_button@button_jexp.button_action": {
+    "size": [150, 20],
+    "ignored": "(not $is_holographic and not $fire_tv)",
+    "$prsd_btn_nm": "button.licensed_content_popup",
+    "$btn_text": "options.licensed_content"
+  },
+
+  "attribution_popup_button@button_jexp.action_button_actionbutton": {
+    "ignored": "(not $is_holographic and not $fire_tv)",
+    "$prsd_btn_nm": "button.attribution_popup",
+    "$btn_text": "options.attribution"
+  },
+
+  "terms_and_conditions_link_button@settings_common.link_button": {
+    "ignored": "($is_holographic or $fire_tv or not $thirdpartyconsole)",
+    "$button_text": "options.termsAndConditions",
+    "bindings": [
+      {
+        "binding_name": "#terms_and_conditions_hyperlink",
+        "binding_name_override": "#hyperlink",
+        "binding_type": "global"
+      }
+    ]
+  },
+  
+  "terms_and_conditions_content_popup_button@settings_common.action_button": {
+    "ignored": "((not $is_holographic and not $fire_tv) or not $thirdpartyconsole)",
+    "$pressed_button_name": "button.terms_and_conditions_popup",
+    "$button_text": "options.termsAndConditions"
+  },
+
+  "unlink_msa_account@settings_common.action_button": {
+    // (never show in game) AND (never show on Publish builds unless its PS4)
+    "ignored": "((not $is_pregame) or ($is_publish and (not $is_ps4)))",
+    "$pressed_button_name": "button.unlink_msa",
+    "$button_text": "options.unlink_msa.button",
+    "bindings": [
+      {
+        "binding_name": "#logged_in",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "content_file_log@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.content_log_file",
+    "$opt_enabled_bdg_nm": "#content_log_file_enabled",
+    "$tgl_nm": "content_log_file",
+    "$tooltip_text": "contentlog.logLocationSectionName",
+    "$tooltip_desc": "#text",
+    "$tooltip_bdgs": [
+      { "binding_name": "#content_log_file_enabled",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "$tooltip_desc_bdgs": [
+      { "binding_name": "#content_log_location_text",
+        "binding_name_override": "#text"
+      }
+    ]
+  },
+
+  "content_gui_log@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.content_log_gui",
+    "$opt_enabled_bdg_nm": "#content_log_gui_enabled",
+    "$tgl_nm": "content_log_gui"
+  },
+
+  "open_content_log_history@button_jexp.button_action": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.open_content_log_history",
+    "$btn_text": "contentlog.history.title",
+    "bindings": [
+      { "binding_name": "#content_log_gui_option_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "clear_content_log_files@button_jexp.button_action": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.clear_content_log_files",
+    "$btn_text": "contentlog.clear_files",
+    "bindings": [
+      { "binding_name": "#allow_content_log_write_to_disk",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "third_party_copyright_button@button_jexp.button": {
+    "ignored": "(not $display_copyright_info)",
+    "offset": ["100% - 54px", 14.5],
+    "size": [20, 20],
+    "$prsd_btn_nm": "",
+    "$btn_text": "T",
+    "$text_align": "right",
+    "$tooltip_text": "thirdPartyConsole.copyright"
+  },
+
+  "build_info_button@button_jexp.button": {
+    "offset": ["100% - 30px", 12.5],
+    "size": [20, 20],
+    "$prsd_btn_nm": "",
+    "$btn_cont": "user_profile_jexp.info_icon",
+    "$text_align": "right",
+    "$tooltip_text": "#build_id",
+    "$tooltip_cont": "user_profile_jexp.build_info_tooltip_text",
+    "$max_text_size": ["default", "default"]
+  },
+
+  "info_icon": {
+    "type": "image",
+    "texture": "src/assets/icon/info",
+    "offset": [1.5, 0],
+    "size": ["100%", "100%"]
+  },
+
+  "build_info_tooltip_text": {
+    "type": "stack_panel",
+    "size": ["100%cm", "100%c"],
+    "$tooltip_label_color|default": [1, 1, 1],
+    "controls": [
+      { "build_id_label@tooltip_jexp.tooltip_label": {
+          "bindings": [ { "binding_name": "#build_id" } ]
+        }
+      },
+      { "protocol_version_label@tooltip_jexp.tooltip_label": {
+          "text": "#protocol_version",
+          "bindings": [ { "binding_name": "#protocol_version" } ]
+        }
+      },
+      { "device_id_label@tooltip_jexp.tooltip_label": {
+          "text": "#device_id",
+          "bindings": [ { "binding_name": "#device_id" } ]
+        }
+      },
+      { "MinecraftAccount_id_label@tooltip_jexp.tooltip_label": {
+          "text": "#MinecraftAccount_id",
+          "bindings": [ { "binding_name": "#MinecraftAccount_id" } ]
+        }
+      },
+      { "commerce_id_label@tooltip_jexp.tooltip_label": {
+          "text": "#commerce_id",
+          "bindings": [ { "binding_name": "#commerce_id" } ]
+        }
+      },
+      { "account_transfer_status_label@tooltip_jexp.tooltip_label": {
+          "text": "#account_transfer_status",
+          "bindings": [ { "binding_name": "#account_transfer_status" } ]
+        }
+      },
+      { "build_date_label@tooltip_jexp.tooltip_label": {
+          "text": "#build_date",
+          "bindings": [ { "binding_name": "#build_date" } ]
+        }
+      },
+      { "world_converter_label@tooltip_jexp.tooltip_label": {
+          "text": "#world_conversion_version",
+          "bindings": [ { "binding_name": "#world_conversion_version" } ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+/**************************
+* (c) Copyright 2020 @FMarquesPTO.
+* All rights reserved.
+* &comp
+***************************/
+{
+  "namespace": "iterable_toggle_jexp",
+
+  "iterable_tgl_panel": {
+    "type": "panel",
+    "size": [150, 20],
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "controls": "$tgls",
+    "$tgls|default": []
+  },
+
+  "iterable_tgl": {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "$this_action|default": "",
+    "$next_action|default": "",
+    "$tgl_tts_hdr": "",
+    "$tgl_type_text|default": "",
+    "$tgl_tts_nm": "accessibility.dropdown.listItem",
+    "$tgl_tts_tgl_on_text": "accessibility.state.selected",
+    "$tgl_tts_tgl_off_text": "accessibility.state.unselected",
+    "$tgl_tts_type_pri": 50,
+    "$enabled|default": true,
+    "controls": [ { "ctrl@iterable_toggle_jexp.iterable_tgl_ctrl": {} } ],
+    "bindings": [
+      { "binding_name": "$this_action",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "iterable_tgl_ctrl@option_toggle_jexp.option_toggle": {
+    "size": ["100%", "100%"],
+    "$tgl_cont": "iterable_toggle_jexp.tgl_text",
+    "$tgl_nm": "$next_action",
+    "$tgl_bdg_nm": "$next_action",
+    "$tgl_group": true
+  },
+
+  "tgl_text": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", 10],
+    "offset": [1, 0],
+    "$show_comma|default": true,
+    "$comma_text|default": ": ",
+    "variables": {
+      "requires": "($tgl_type_text = '')",
+      "$show_comma": false
+    },
+    "controls": [
+      { "toggle_label@button_jexp.button_label": {
+          "text": "$tgl_type_text",
+          "bindings": "$tgl_type_text_bdgs",
+          "visible": "$show_comma",
+          "$tgl_type_text_bdgs|default": []
+        }
+      },
+      { "space": {
+          "type": "label",
+          "text": "$comma_text",
+          "color": "$text_color",
+          "size": ["default", "default"],
+          "visible": "$show_comma",
+          "shadow": true,
+          "layer": 10
+        }
+      },
+      { "action_text@button_jexp.button_label": {
+          "text": "$tgl_text",
+          "color": "$text_color",
+          "bindings": "$tgl_text_bdgs",
+          "$tgl_text_bdgs|default": []
+        }
+      }
+    ]
+  }
+}

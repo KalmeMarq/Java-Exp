@@ -1,0 +1,228 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "multiplayer_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "offset": ["50% - 50%x", 19], "text": "$title" } },
+      /* Options */
+      { "multiplayer_game@multiplayer_jexp.multiplayer_game_toggle": { "offset": ["50% - 155px", 100] } },
+      { "server_visible@multiplayer_jexp.server_visible_toggle": { "offset": ["50% + 5px", 100] } },
+      { "platform_settings@multiplayer_jexp.platform_settings_iterable": { "offset": ["50% + 5px", 124] } },
+      { "xbl_settings@multiplayer_jexp.xbl_settings_iterable": { "offset": "$xbl_offset" } },
+      { "open_uri@multiplayer_jexp.open_uri_button": { "offset": ["50% - 155px", 185] } },
+      { "back@multiplayer_jexp.back_button": { "offset": ["50% + 5px", 185] } },
+      /* Bottom */
+      { "edu_host@world_create_jexp.edu_host_button": { "offset": ["50% - 155px", "100% - 52px"] } },
+      { "edu_play@world_create_jexp.edu_play_button": { "offset": ["50% - 155px", "100% - 28px"] } },
+      { "create_world@world_create_jexp.create_world_button": { "offset": ["50% - 155px", "100% - 28px"] } },
+      { "cancel@world_create_jexp.cancel_button": { "offset": ["50% + 5px", "100% - 28px"] } }
+    ],
+    "$title|default": "selectWorld.create",
+    "$xbl_offset|default": ["50% - 155px", 124],
+    "variables": [
+      { "requires": "(not $nx_os and not $is_ps4)",
+        "$xbl_offset": ["50% - 155px", 124]
+      },
+      { "requires": "(not $is_world_create)",
+        "$title": "selectWorld.edit"
+      },
+      { "requires": "(not $is_pregame)",
+        "$title": "selectWorld.settings"
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "multiplayer_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "multiplayer_game_toggle@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.multiplayergame",
+    "$opt_enabled_bdg_nm": "#multiplayer_game_enabled",
+    "$tgl_nm": "multiplayer_game"
+  },
+
+  "platform_settings_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
+    "ignored": "(not $nx_os and not $is_ps4)",
+    "$tgl_type_text": "options.thirdPartyConsoleVisible",
+    "$opt_enabled_bdg_nm": "#platform_show_broadcast_dropdown",
+    "$tgls": [
+      { "all_visible": {
+          "type": "panel",
+          "controls": [
+            { "invite_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_invite_only",
+                "$next_action": "#platform_broadcast_friends_only",
+                "$tgl_text": "options.xboxliveBroadcast.inviteOnly"
+              }
+            },
+            { "friends_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_only",
+                "$next_action": "#platform_broadcast_friends_of_friends",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOnly"
+              }
+            },
+            { "friends_of_friends_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_of_friends",
+                "$next_action": "#platform_broadcast_invite_only",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOfFriends"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "#platform_toggle_visible_friends_of_friends" },
+            { "binding_name": "#platform_toggle_visible_invite_only" },
+            { "binding_name": "(#platform_toggle_visible_friends_of_friends and #platform_toggle_visible_invite_only)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "invite_not_visible": {
+          "type": "panel",
+          "controls": [
+            { "friends_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_only",
+                "$next_action": "#platform_broadcast_friends_of_friends",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOnly"
+              }
+            },
+            { "friends_of_friends_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_of_friends",
+                "$next_action": "#platform_broadcast_friends_only",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOfFriends"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "(not #platform_toggle_visible_invite_only)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "friends_of_friends_not_visible": {
+          "type": "panel",
+          "controls": [
+            { "invite_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_invite_only",
+                "$next_action": "#platform_broadcast_friends_only",
+                "$tgl_text": "options.xboxliveBroadcast.inviteOnly"
+              }
+            },
+            { "friends_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_only",
+                "$next_action": "#platform_broadcast_invite_only",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOnly"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "(not #platform_toggle_visible_friends_of_friends)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "invite_only_n_fof_not_visible": {
+          "type": "panel",
+          "controls": [
+            { "friends_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_only",
+                "$next_action": "#platform_broadcast_invite_only",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOnly"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "#platform_toggle_visible_friends_of_friends" },
+            { "binding_name": "#platform_toggle_visible_invite_only" },
+            { "binding_name": "(not (#platform_toggle_visible_friends_of_friends and #platform_toggle_visible_invite_only))",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [ 
+      { "binding_name": "#can_be_platform_network_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "xbl_settings_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
+    "ignored": "(not $is_xboxlive_enabled)",
+    "$tgl_type_text": "options.xboxliveBroadcastSettings",
+    "$opt_enabled_bdg_nm": "#xbl_show_broadcast_dropdown",
+    "variables": {
+      "requires": "($nx_os or $is_ps4)",
+      "$tgl_type_text": "options.xboxliveBroadcastSettingsForCrossplatform"
+    },
+    "$tgls": [
+      { "invite_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+          "$this_action": "#xbl_broadcast_invite_only",
+          "$next_action": "#xbl_broadcast_friends_only",
+          "$tgl_text": "options.xboxliveBroadcast.inviteOnly"
+        }
+      },
+      { "friends_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+          "$this_action": "#xbl_broadcast_friends_only",
+          "$next_action": "#xbl_broadcast_friends_of_friends",
+          "$tgl_text": "options.xboxliveBroadcast.friendsOnly"
+        }
+      },
+      { "friends_of_friends_toggle@iterable_toggle_jexp.iterable_tgl": {
+          "$this_action": "#xbl_broadcast_friends_of_friends",
+          "$next_action": "#xbl_broadcast_invite_only",
+          "$tgl_text": "options.xboxliveBroadcast.friendsOfFriends"
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#can_be_xbl_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "server_visible_toggle@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.servervisible",
+    "$opt_enabled_bdg_nm": "#server_visibility_enabled",
+    "$tgl_nm": "server_visible",
+    "bindings": [
+      { "binding_name": "#can_be_server_visible",
+        "binding_name_override": "#enabled"
+      },
+      { "binding_name": "#can_be_server_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "open_uri_button@button_jexp.button_link": {
+    "size": [150, 20],
+    "ignored": "$is_holographic",
+    "$btn_text": "permissions.open.account.help.button",
+    "$link": "https://aka.ms/MCMultiplayerHelp",
+    "bindings": [
+      { "binding_name": "#open_uri_button_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+  
+  "back_button@world_create_jexp.back_tgl_btn": {
+    "$tgl_idx": 0,
+    "$tgl_nm": "multiplayer_settings",
+    "size": [150, 20]
+  }
+}

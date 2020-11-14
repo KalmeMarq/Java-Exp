@@ -1,0 +1,72 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "account_banned_jexp",
+
+  "content_panel": {
+    "type": "panel",
+    "controls": [
+      { "image@account_banned.Hammer_image": {
+          "size": [70, 54],
+          "anchor_to": "top_left",
+          "anchor_from": "top_left",
+          "offset": [10, 10]
+        }
+      },
+      { "content@popup_jexp.modal_with_buttons": {
+          "$title": "account_banned_jexp.title",
+          "$description": "account_banned_jexp.description",
+          "$button_panel": "account_banned_jexp.buttons_panel"
+        }
+      }
+    ]
+  },
+
+  "title@screen_jexp.title": {
+    "size": ["100%", "default"],
+    "text_alignment": "center",
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "text": "playfab.account.banned.title",
+    "property_bag": { "#tts_dialog_title": "playfab.account.banned.title" },
+    "bindings": [
+      { "binding_type": "global",
+        "binding_condition": "once",
+        "binding_name": "#tts_dialog_title"
+      }
+    ]
+  },
+  
+  "description": {
+    "type": "label",
+    "max_size": ["80%", "default"],
+    "text_alignment": "center",
+    "shadow": true,
+    "text": "playfab.account.banned.body"
+  },
+
+  "buttons_panel": {
+    "type": "stack_panel",
+    "size": [310, 20],
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "orientation": "horizontal",
+    "controls": [
+      { "view_more_info_button@button_jexp.button_link": {
+          "size": [150, 20],
+          "$btn_text": "playfab.account.banned.body.button",
+          "$link": "https://aka.ms/MCBanned"
+        }
+      },
+      { "space@screen_jexp.hfill": {} },
+      { "right@button_jexp.button": {
+          "size": [150, 20],
+          "$btn_text": "gui.done",
+          "$prsd_btn_nm": "button.menu_exit"
+        }
+      }
+    ]
+  }
+}

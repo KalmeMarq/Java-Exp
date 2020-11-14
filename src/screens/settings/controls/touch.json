@@ -1,0 +1,126 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "touch_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "popup_dialog_factory@popup_dialog_factory": {} },
+      { "title@screen_jexp.title": { "text": "controls.title", "offset": ["50% - 50%x", 7.5] } },
+      { "swap_jump_sneak@swap_jump_sneak_tgl": { "offset": ["50% - 155px", 18] } },
+      { "auto_jump@auto_jump_tgl": { "offset": ["50% + 5px", 18] } },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 43],
+          "size": ["100%", "100% - 75px"],
+          "$scroll_cont": "dirt@touch_jexp.scroll_cont"
+        }
+      },
+      { "reset@touch_jexp.reset_btn": { "offset": ["50% - 155px", "100% - 29px"] } },
+      { "back@options_jexp.back_tgl_btn": { "size": [150, 20], "offset": ["50% - 155px + 160px", "100% - 29px"] } }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "touch_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "panel",
+    "size": ["100%", "100%cm"],
+    "controls": [
+      { "sensitivity@sensitivity_sldr": { "offset": ["50% - 155px", 4] } },
+      { "invert_y_axis@invert_y_axis_tgl": { "offset": ["50% - 155px + 160px", 4] } },
+      { "split_controls@split_controls_tgl": { "offset": ["50% - 155px", 28] } },
+      { "destroy_vibration@destroy_vibration_tgl": { "offset": ["50% - 155px + 160px", 28] } },
+      { "button_size@button_size_sldr": { "offset": ["50% - 155px", 52] } },
+      { "left_handed@left_handed_tgl": { "offset": ["50% - 155px + 160px", 52] } },
+      { "hotbar_only_touch@hotbar_only_touch_tgl": { "offset": ["50% - 155px + 160px", 76] } }
+    ]
+  },
+
+  "swap_jump_sneak_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.swapJumpAndSneak",
+    "$opt_enabled_bdg_nm": "#swap_jump_and_sneak_enabled",
+    "$tgl_nm": "swap_jump_and_sneak"
+  },
+
+  "auto_jump_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.autojump",
+    "$opt_enabled_bdg_nm": "#touch_autojump_enabled",
+    "$tgl_nm": "touch_autojump"
+  },
+
+  "sensitivity_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#touch_sensitivity_slider_label",
+    "$sldr_nm": "touch_sensitivity",
+    "$sldr_value_bdg_nm": "#touch_sensitivity",
+    "$sldr_tts_text_value": "#touch_sensitivity_text_value",
+    "$opt_enabled_bdg_nm": "#touch_sensitivity_enabled",
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ]
+  },
+
+  "destroy_vibration_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.destroyvibration",
+    "$opt_enabled_bdg_nm": "#touch_vibration_enabled",
+    "$tgl_nm": "touch_vibration"
+  },
+
+  "option_toggle_3@option_toggle_jexp.option_toggle": {
+    "ignored": true,
+    "$tgl_text": "options.toggleCrouch",
+    "$opt_enabled_bdg_nm": "#touch_toggle_crouch_enabled",
+    "$tgl_nm": "touch_toggle_crouch"
+  },
+
+  "split_controls_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.usetouchpad",
+    "$opt_enabled_bdg_nm": "#split_controls_enabled",
+    "$tgl_nm": "split_controls"
+  },
+
+  "left_handed_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.lefthanded",
+    "$opt_enabled_bdg_nm": "#left_handed_enabled",
+    "$tgl_nm": "left_handed"
+  },
+
+  "invert_y_axis_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.invertYAxis",
+    "$opt_enabled_bdg_nm": "#touch_invert_y_axis_enabled",
+    "$tgl_nm": "touch_invert_y_axis"
+  },
+
+  "hotbar_only_touch_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.hotbarOnlyTouch",
+    "$opt_enabled_bdg_nm": "#hotbar_only_touch_enabled",
+    "$tgl_nm": "hotbar_only_touch"
+  },
+
+  "button_size_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#button_size_slider_label",
+    "$sldr_nm": "button_size",
+    "$sldr_value_bdg_nm": "#button_size",
+    "$sldr_tts_text_value": "#button_size_text_value",
+    "$opt_enabled_bdg_nm": "#button_size_enabled",
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ]
+  },
+
+  "reset_btn@button_jexp.button_action": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.reset_touch_bindings",
+    "$btn_text": "options.resetSettings"
+  },
+
+  "popup_dialog_factory": {
+    "type": "factory",
+    "control_ids": { "modal_dialog_popup": "@touch_jexp.reset_touch_popup" }
+  },
+
+  "reset_touch_popup@options_jexp.reset_settings_popup": { "$msg_text": "popup.resetSettings.touch" }
+}

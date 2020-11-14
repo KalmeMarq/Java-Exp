@@ -1,0 +1,103 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "accessibility_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "popup_dialog_factory@popup_dialog_factory": {} },
+      { "title@screen_jexp.title": { "text": "options.accessibility.title", "offset": ["50% - 50%x", 20.5] } },
+      { "text_to_speech@text_to_speech_toggle": { "offset": ["50% - 155px", "16.666666667% + 0px"] } },
+      { "ui_text_to_speech@ui_text_to_speech_toggle": { "offset": ["50% + 5px", "16.666666667% + 0px"] } },
+      { "chat_text_to_speech@chat_text_to_speech_toggle": { "offset": ["50% - 155px", "16.666666667% + 24px"] } },
+      { "open_chat_message@open_chat_message_toggle": { "offset": ["50% + 5px", "16.666666667% + 24px"] } },
+      { "text_bg_opacity@text_background_opacity_slider": { "offset": ["50% - 155px", "16.666666667% + 48px"] } },
+      { "camera_shake@camera_shake_tgl": { "offset": ["50% + 5px", "16.666666667% + 48px"] } },
+      { "how_to_play@how_to_play_btn": { "offset": ["50% - 155px", "16.666666667% + 72px"] } },
+      { "reset@options_jexp.reset_btn": {
+          "offset": ["50% - 75px", "16.666666667% + 96px"],
+          "property_bag": { "reset_group": "accessibility" }
+        }
+      },
+      { "back@options_jexp.back_tgl_btn": { "offset": "$back_btn_offset" } }
+    ],
+    "$back_btn_offset|default": ["50% - 100px", "16.666666667% + 144px"],
+    "variables": {
+      "requires": "(not $is_pregame)",
+      "$back_btn_offset": ["50% - 100px", "16.666666667% + 144px"]
+    },
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "accessibility_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "text_to_speech_toggle@option_toggle_jexp.option_toggle": {
+    "enabled": "($text_to_speech_supported or $platform_tts_exists)",
+    "$tgl_text": "options.enableAutoPlatformTextToSpeech",
+    "$opt_enabled_bdg_nm": "#enable_auto_text_to_speech_enabled",
+    "$tgl_nm": "enable_auto_text_to_speech"
+  },
+
+  "ui_text_to_speech_toggle@option_toggle_jexp.option_toggle": {
+    "enabled": "$text_to_speech_supported",
+    "$tgl_text": "options.enableUITextToSpeech",
+    "$opt_enabled_bdg_nm": "#enable_ui_text_to_speech_enabled",
+    "$tgl_nm": "enable_ui_text_to_speech"
+  },
+
+  "chat_text_to_speech_toggle@option_toggle_jexp.option_toggle": {
+    "enabled": "$text_to_speech_supported",
+    "$tgl_text": "options.enableChatTextToSpeech",
+    "$opt_enabled_bdg_nm": "#enable_chat_text_to_speech_enabled",
+    "$tgl_nm": "enable_chat_text_to_speech",
+    "bindings": [
+      { "binding_name": "#not_hide_chat",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "open_chat_message_toggle@option_toggle_jexp.option_toggle": {
+    "enabled": "$text_to_speech_supported",
+    "$tgl_text": "options.enableOpenChatMessage",
+    "$opt_enabled_bdg_nm": "#enable_open_chat_message_enabled",
+    "$tgl_nm": "enable_open_chat_message"
+  },
+
+  "text_background_opacity_slider@option_slider_jexp.option_slider": {
+    "$sldr_text": "#text_background_opacity_slider_label",
+    "$sldr_nm": "text_background_opacity",
+    "$sldr_value_bdg_nm": "#text_background_opacity",
+    "$sldr_tts_text_value": "#text_background_opacity_text_value",
+    "$opt_enabled_bdg_nm": "#text_background_opacity_enabled",
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ]
+  },
+
+  "camera_shake_tgl@option_toggle_jexp.option_toggle": {
+    "ignored": "($is_holographic and $is_reality_mode and not $is_pregame)",
+    "$tgl_text": "options.screenShake",
+    "$opt_enabled_bdg_nm": "#camera_shake_enabled",
+    "$tgl_nm": "camera_shake"
+  },
+
+  "how_to_play_btn@options_jexp.open_tgl_btn": {
+    "$tooltip_text": "menu.howToPlay.generalMessage",
+    "$tgl_idx": "$how_to_play_index",
+    "$tgl_text": "menu.howToPlay",
+    "$tgl_ctrl_nm": "how_to_play_button_toggle"
+  },
+
+  "popup_dialog_factory": {
+    "type": "factory",
+    "control_ids": { "modal_dialog_popup": "@accessibility_jexp.reset_accessibility_popup" }
+  },
+
+  "reset_accessibility_popup@options_jexp.reset_settings_popup": { "$msg_text": "popup.resetSettings.accessibility" }
+}

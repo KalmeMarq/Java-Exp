@@ -1,0 +1,25 @@
+{
+  "book_screen@screen_jexp.screen": {
+    "close_on_player_hurt": "$force_container_close_on_player_hurt",
+    "button_mappings": [
+      { "from_button_id": "button.menu_exit",
+        "to_button_id": "button.book_exit",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.book_exit",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_tab_left",
+        "to_button_id": "button.prev_page",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_tab_right",
+        "to_button_id": "button.next_page",
+        "mapping_type": "global"
+      }
+    ],
+    "$scrn_cont": "book_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.screen_background"
+  } 
+}

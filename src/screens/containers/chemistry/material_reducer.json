@@ -1,0 +1,164 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "material_reducer_jexp",
+
+  "screen_content@container_jexp.container_panel": {
+    "$container_size": [176, 195],
+    "$container_bg": "material_reducer_jexp.material_reducer_bg",
+    "$container_cont": "material_reducer_jexp.content_panel"
+  },
+
+  "content_panel": {
+    "type": "panel",
+    "controls": [
+      { "title@container_jexp.title": {
+          "text": "materialreducer.title",
+          "offset": ["50% - 50%x", 4]
+        }
+      },
+      { "input@material_reducer_jexp.input_slot": {} },
+      { "output_slots@material_reducer_jexp.output_slots": {} },
+      { "inventory@container_jexp.player_inventory": {} },
+      { "hotbar@container_jexp.player_hotbar": {} }
+    ]
+  },
+
+  "material_reducer_bg@screen_jexp.res_txr": {
+    "texture": "src/assets/container/material_reducer",
+    "size": [176, 195],
+    "$uv_sz": [176, 195],
+    "variables": [
+      { "requires": "($material_reducer_res = 512x)", "$uv_sz": [352, 390] },
+      { "requires": "($material_reducer_res = 1024x)", "$uv_sz": [704, 780] },
+      { "requires": "($material_reducer_res = 2048x)", "$uv_sz": [1408, 1560] },
+      { "requires": "($material_reducer_res = 4096x)", "$uv_sz": [2816, 3120] }
+    ]
+  },
+
+  "input_slot": {
+    "type": "panel",
+    "size": [18, 18],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [79, 16],
+    "controls": [
+      { "slot@container_jexp.slot": {
+          "size": [18, 18],
+          "layer": 2,
+          "$item_collt_nm": "matreduce_input",
+          "$btn_ref": "material_reducer_jexp.one_touch_btn",
+          "bindings": [
+            { "binding_name": "#input_enabled",
+              "binding_name_override": "#enabled"
+            }
+          ]
+        }
+      },
+      { "locked_overlay": {
+          "type": "image",
+          "layer": 4,
+          "size": ["100% - 2px", "100% - 2px"],
+          "texture": "src/assets/white",
+          "color": "red",
+          "alpha": 0.35,
+          "bindings": [
+            { "binding_name": "(not #input_enabled)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "one_touch_btn@container_jexp.slot_prototype_btn": {
+    "$take_all_place_all": "button.matreduce_take_all_place_all",
+    "$coalesce_stack": "button.matreduce_coalesce_stack",
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "$take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "$take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.container_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.controller_select",
+        "to_button_id": "button.container_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_auto_place",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_inventory_drop",
+        "to_button_id": "button.drop_one",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_inventory_drop_all",
+        "to_button_id": "button.drop_all",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "$coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "$coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      { "to_button_id": "button.shape_drawing",
+        "mapping_type": "pressed"
+      },
+      { "to_button_id": "button.container_slot_hovered",
+        "mapping_type": "pressed"
+      }
+    ]
+  },
+
+  "output_slot": {
+    "type": "panel",
+    "grid_position": "$grid_pos",
+    "size": [18, 18],
+    "controls": [
+      { "slot@container_jexp.slot": {
+          "$offset|default": [0, 0],
+          "offset": "$offset",
+          "$item_collt_nm": "matreduce_output"
+        }
+      }
+    ]
+  },
+
+  "output_slots": {
+    "type": "grid",
+    "size": [130, 50],
+    "offset": [4, 51],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "grid_dimensions": [5, 2],
+    "collection_name": "matreduce_output",
+    "controls": [
+      { "a@material_reducer_jexp.output_slot": { "$grid_pos": [0, 0] } },
+      { "b@material_reducer_jexp.output_slot": { "$grid_pos": [1, 0] } },
+      { "c@material_reducer_jexp.output_slot": { "$grid_pos": [2, 0] } },
+      { "d@material_reducer_jexp.output_slot": { "$grid_pos": [3, 0] } },
+      { "e@material_reducer_jexp.output_slot": { "$grid_pos": [4, 0] } },
+      { "f@material_reducer_jexp.output_slot": { "$grid_pos": [0, 1], "$offset": [13, 0] } },
+      { "g@material_reducer_jexp.output_slot": { "$grid_pos": [1, 1], "$offset": [13, 0] } },
+      { "h@material_reducer_jexp.output_slot": { "$grid_pos": [2, 1], "$offset": [13, 0] } },
+      { "i@material_reducer_jexp.output_slot": { "$grid_pos": [3, 1], "$offset": [14, 0] } }
+    ]
+  }
+}

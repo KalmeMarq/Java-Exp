@@ -1,0 +1,123 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "realm_world_options_jexp",
+  
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      /* Header */
+      { "title@screen_jexp.title": { "text": "mco.configure.world.buttons.options" } },
+      /* Options */
+      { "gamemode@realm_world_options_jexp.gamemode_iterable": { "offset": ["50% - 155px", "16.666666667% + 0px"] } },
+      { "difficulty@realm_world_options_jexp.difficulty_iterable": { "offset": ["50% + 5px", "16.666666667% + 0px"] } },
+      { "allow_cheats@realm_world_options_jexp.allow_cheats_toggle": { "offset": ["50% - 155px", "16.666666667% + 24px"] } },
+      { "download_world@realm_world_options_jexp.download_world_button": { "offset": ["50% + 5px", "16.666666667% + 24px"] } },
+      { "upload_world@realm_world_options_jexp.upload_world_button": { "offset": ["50% - 155px", "16.666666667% + 48px"] } },
+      { "back@realms_settings_mcjava.back_tgl_btn": { "size": [150, 20], "$tgl_nm": "options", "offset": ["50% - 155px", "16.666666667% + 72px"] } },
+      { "manage_feed@realm_world_options_jexp.manage_feed_button": { "offset": ["50% + 5px", "16.666666667% + 72px"] } }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_button_name": "options_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "download_world_button@button_jexp.button_action": {
+    "size": [150, 20],
+    "$btn_text": "realmsSettingsScreen.downloadWorldButton",
+    "$prsd_btn_nm": "menu_download_world",
+    "ignored": "(not $is_pregame)"
+  },
+
+  "upload_world_button@button_jexp.button_action": {
+    "size": [150, 20],
+    "$btn_text": "realmsSettingsScreen.uploadWorldButton",
+    "$prsd_btn_nm": "menu_upload_world",
+    "ignored": "(not $is_pregame)",
+    "bindings": [
+      { "binding_name": "#upload_button_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "gamemode_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
+    "size": [150, 20],
+    "$opt_enabled_bdg_nm": "#realms_game_mode_dropdown_enabled",
+    "$tgl_type_text": "selectWorld.gameMode",
+    "$tgls": [
+      { "survival@iterable_toggle_jexp.iterable_tgl": {
+          "size": [150, 20],
+          "$tgl_text": "selectWorld.gameMode.survival",
+          "$this_action": "#world_game_mode_radio_survival",
+          "$next_action": "#world_game_mode_radio_creative"
+        }
+      },
+      { "creative@iterable_toggle_jexp.iterable_tgl": {
+          "size": [150, 20],
+          "$tgl_text": "selectWorld.gameMode.creative",
+          "$this_action": "#world_game_mode_radio_creative",
+          "$next_action": "#world_game_mode_radio_survival"
+        }
+      }
+    ]
+  },
+
+  "difficulty_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
+    "size": [150, 20],
+    "$opt_enabled_bdg_nm": "#realms_difficulty_dropdown_enabled",
+    "$tgl_type_text": "options.difficulty",
+    "$tgls": [
+      { "peaceful@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.difficulty.peaceful",
+          "$this_action": "#world_difficulty_radio_peaceful",
+          "$next_action": "#world_difficulty_radio_easy"
+        }
+      },
+      { "easy@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.difficulty.easy",
+          "$this_action": "#world_difficulty_radio_easy",
+          "$next_action": "#world_difficulty_radio_normal"
+        }
+      },
+      { "normal@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.difficulty.normal",
+          "$this_action": "#world_difficulty_radio_normal",
+          "$next_action": "#world_difficulty_radio_hard"
+        }
+      },
+      { "hard@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.difficulty.hard",
+          "$this_action": "#world_difficulty_radio_hard",
+          "$next_action": "#world_difficulty_radio_peaceful"
+        }
+      }
+    ]
+  },
+
+  "allow_cheats_toggle@option_toggle_mcjava.option_toggle": {
+    "$tgl_text": "selectWorld.cheats",
+    "$opt_enabled_bdg_nm": "#allow_cheats_enabled",
+    "$tgle_nm": "allow_cheats"
+  },
+
+  "manage_feed_button@button_jexp.button_action": {
+    "size": [150, 20],
+    "$btn_text": "feed.manage_feed",
+    "$prsd_btn_nm": "menu_manage_feed",
+    "bindings": [
+      { "binding_name": "#manage_feed_button_enabled",
+        "binding_name_override": "#enabled"
+      },
+      { "binding_name": "#manage_feed_button_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  }
+}

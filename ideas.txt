@@ -1,0 +1,4 @@
+Seperate the position coordinates
+durability bar like Java
+custom renderer controls
+show world thumb

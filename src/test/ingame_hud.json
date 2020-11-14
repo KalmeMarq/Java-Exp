@@ -1,0 +1,99 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "ingame_hud_jexp_test",
+
+  "player_position": {
+    "type": "stack_panel",
+    "size": ["100%c", "100%c"],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "x": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100%c", 10],
+          "controls": [
+            {
+              "x": {
+                "type": "label",
+                "text": "X: "
+              }
+            },
+            {
+              "value": {
+                "type": "panel",
+                "size": ["33.3333%c - 20px", 10],
+                // "clips_children": true,
+                "controls": [
+                  {
+                    "x@ingame_hud_jexp_test.player_position_text": {
+                      "offset": [-24, 0]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Z": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100%c", 10],
+          "controls": [
+            {
+              "Z": {
+                "type": "label",
+                "text": "Z: "
+              }
+            },
+            {
+              "value": {
+                "type": "panel",
+                "size": ["33.3333%c - 20px", 10],
+                // "clips_children": true,
+                "controls": [
+                  {
+                    "z@ingame_hud_jexp_test.player_position_text": {
+                      "anchor_from": "top_right",
+                      "anchor_to": "top_right",
+                      "offset": ["0px", 0]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      } 
+    ],
+    "bindings": [
+      { "binding_name": "#player_position_visible",
+        "binding_name_override": "#visible",
+        "binding_condition": "always",
+        "binding_type": "global"
+      }
+    ]
+  },
+
+  "player_position_text": {
+    "type": "label",
+    "text": "#text",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "shadow": true,
+    "layer": 1,
+    "bindings": [
+      { "binding_name": "#player_position_text",
+        "binding_name_override": "#text",
+        "binding_condition": "always_when_visible",
+        "binding_type": "global"
+      }
+    ]
+  }
+}

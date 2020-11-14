@@ -1,0 +1,89 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "language_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "popup_dialog_factory@screen_jexp.popup_dialog_factory": {} },
+      { "title@screen_jexp.title": { "text": "options.language", "offset": ["50% - 50%x", 16] } },
+      { "langs_scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "size": ["100%", "100% - 95px"],
+          "$scroll_cont": "dirt@language_jexp.scroll_cont"
+        }
+      },
+      { "warning@warning_text": { "offset": ["50% - 50%x", "100% - 56px"] } },
+      { "back@options_jexp.back_tgl_btn": { "offset": ["50% - 100px", "100% - 38px"] } }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "language_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "panel",
+    "size": ["270px", "100%c + 4px"],
+    "controls": [ { "langs@language_jexp.langs_grid": {} } ]
+  },
+
+  "langs_grid": {
+    "type": "grid",
+    "offset": [0, 1],
+    "size": ["100%", "100%c"],
+    "grid_item_template": "language_jexp.langs_grid_item",
+    "grid_dimension_binding": "#language_grid_dimension",
+    "collection_name": "languages",
+    "bindings": [ { "binding_name": "#language_grid_dimension" } ]
+  },
+
+  "langs_grid_item@radio_toggle_jexp.radio_toggle": {
+    "$tgl_text": "#language_description",
+    "$tgl_text_bdgs": [
+      { "binding_name": "#language_description",
+        "binding_type": "collection",
+        "binding_condition": "once",
+        "binding_collection_name": "languages"
+      }
+    ],
+    "$tgl_state_bdg_nm": "#language_initial_selected",
+    "$tgl_bdg_type": "collection",
+    "$tgl_nm": "languages",
+    "$tgl_grid_coll_nm": "languages",
+    "$opt_enabled_bdg_nm": "",
+    "bindings": [
+      { "binding_name": "#default_focus_precedence",
+        "binding_type": "collection",
+        "binding_condition": "visible",
+        "binding_collection_name": "languages"
+      }
+    ]
+  },
+
+  "base_text": {
+    "type": "label",
+    "color": "$secondary_color",
+    "shadow": true,
+    "layer": 1
+  },
+
+  "warning_text": {
+    "type": "stack_panel",
+    "size": ["100%c", "100%c"],
+    "orientation": "horizontal",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      { "par_left@base_text": { "text": "gui.parenteses.left" } },
+      { "warning@base_text": { "text": "options.languageWarning"} },
+      { "par_right@base_text": { "text": "gui.parenteses.right" } }
+    ]
+  }
+}

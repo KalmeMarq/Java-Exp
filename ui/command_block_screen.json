@@ -1,0 +1,12 @@
+{
+  "command_block_screen@screen_jexp.screen": {
+    "$scrn_cont": "command_block_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.screen_background",
+    "button_mappings": [
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ]
+  }
+}

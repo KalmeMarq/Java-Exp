@@ -1,0 +1,93 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "add_external_server_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "text": "addServer.title", "offset": ["50% - 50%x", 17] } },
+      /* Text Widgets */
+      { "name_label@label": { "text": "addServer.title", "offset": ["50% - 100px", 53] } },
+      { "name@text_box": {
+          "offset": ["50% - 100px", 66],
+          "$text_type": "ExtendedASCII",
+          "$text_box_name": "#name_text_box",
+          "$cont_bdg_nm": "#name_text_box_content",
+          "$max_length": 32,
+          "$text_box_tts_hdr": "addExternalServerScreen.nameTextBoxLabel"
+        }
+      },
+      { "ip_label@label": { "text": "addServer.enterIp", "offset": ["50% - 100px", 94]  } },
+      { "ip@text_box": {
+          "offset": ["50% - 100px", 106],
+          "$text_type": "ExtendedASCII",
+          "$text_box_name": "#ip_text_box",
+          "$cont_bdg_nm": "#ip_text_box_content",
+          "$max_length": 64,
+          "$text_box_tts_hdr": "addExternalServerScreen.ipTextBoxLabel"
+        }
+      },
+      { "port_label@label": { "text": "externalServerScreen.serverPortInput", "offset": ["50% - 100px", 135] } },
+      { "port@text_box": {
+          "offset": ["50% - 100px", 146],
+          "$text_type": "NumberChars",
+          "$text_box_name": "#port_text_box",
+          "$cont_bdg_nm": "#port_text_box_content",
+          "$max_length": 6,
+          "$text_box_tts_hdr": "addExternalServerScreen.portTextBoxLabel"
+        }
+      },
+      /* Buttons */
+      { "play@play_button": { "ignored": "$edit_mode", "offset": ["50% - 100px", "25% + 72px + 18px + 13px"] } },
+      { "delete@delete_button": { "ignored": "(not $edit_mode)", "offset": ["50% - 100px", "25% + 72px + 18px + 13px"] } },
+      { "save@save_button": { "offset": ["50% - 100px", "25% + 96px + 18px + 13px"] } },
+      { "cancel@button_jexp.button": {
+          "offset": ["50% - 100px", "25% + 120px + 18px + 13px"],
+          "$prsd_btn_nm": "button.menu_exit",
+          "$btn_text": "gui.cancel" 
+        }
+      }
+    ]
+  },
+
+  "label@screen_jexp.title": { "color": "$info_color" },
+
+  "text_box@text_box_jexp.text_box": {
+    "size": [200, 20],
+    "max_length": "$max_length",
+    "$text_box_name": "$text_box_name",
+    "$text_edit_box_cont_bdg_nm": "$cont_bdg_nm",
+    "$text_box_tts_nm": "",
+    "text_type": "$text_type",
+    "$text_edit_box_bdg_cond": "once"
+  },
+
+  "play_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.play_button",
+    "$btn_text": "menu.play",
+    "ignored": "$edit_mode",
+    "bindings": [
+      { "binding_name": "#play_button_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "delete_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.remove_button",
+    "$btn_text": "gui.delete"
+  },
+
+  "save_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.save_button",
+    "$btn_text": "addServer.add",
+    "bindings": [
+      { "binding_name": "#save_button_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  }
+}

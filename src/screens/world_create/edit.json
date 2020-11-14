@@ -1,0 +1,151 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "world_edit_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "$tts_sect_hdr": "options.editSettings",
+    "controls": [
+      { "edit@world_edit_jexp.content_panel": {} },
+      { "sections": {
+          "type": "panel",
+          "focus_container": true,
+          "use_last_focus": false,
+          "focus_nagivation_mode_down": "contained",
+          "focus_nagivation_mode_up": "contained",
+          "focus_nagivation_mode_left": "contained",
+          "focus_nagivation_mode_right": "contained",
+          "ttsSectionContainer": true,
+          "$is_world_edit": true,
+          "controls": [
+            { "behavior_packs_scrn@packs_jexp.addon_screen_content": { "visible": false } },
+            { "experimental_scrn@experimental_jexp.screen_content": { "visible": false } },
+            { "gamerules_scrn@gamerules_jexp.screen_content": { "visible": false } },
+            { "education_scrn@education_jexp.screen_content": { "visible": false } },
+            { "advanced_scrn@advanced_jexp.screen_content": { "visible": false } },
+            { "multiplayer_scrn@multiplayer_jexp.screen_content": { "visible": false } },
+            { "resource_packs_scrn@packs_jexp.level_screen_content": { "visible": false } }
+          ]
+        }
+      }
+    ]
+  },
+
+  "content_panel": {
+    "type": "panel",
+    "$education_ios": "($education_edition and $ios)",
+    "controls": [
+      { "title@screen_jexp.title": { "offset": ["50% - 50%x", 15], "text": "selectWorld.edit" } },
+      /* World Name */
+      { "world_name_label@option_text_box_jexp.box_label": { "text": "selectWorld.enterName", "offset": ["50% - 100px", 24] } },
+      { "world_name_box@world_name_box": { "offset": ["50% - 100px", 38] } },
+      /* Sections */
+      { "advanced@world_create_jexp.advanced_button": { "size": [200, 20], "offset": ["50% - 100px", "25% + 5px"] } },
+      { "resource_packs@world_create_jexp.resource_packs_button": { "size": [200, 20], "offset": ["50% - 100px", "25% + 24px + 5px"] } },
+      { "behavior_packs@world_create_jexp.behavior_packs_button": { "size": [200, 20], "offset": ["50% - 100px", "25% + 48px + 5px"] } },
+      /* Options */
+      { "stack": {
+          "type": "stack_panel",
+          "size": [200, "100%c"],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": ["50% - 100px", "25% + 72px + 5px"],
+          "controls": [
+            { "convert_to_infinite@main_menu_jexp.stack_item": {
+                "ignored": "(not $is_pregame or not $is_world_edit)",
+                "bindings": [
+                  { "binding_name": "#show_convert_to_infinite_button",
+                    "binding_name_override": "#visible"
+                  }
+                ],
+                "controls": [ { "@world_edit_jexp.convert_to_infinite_button": {} } ]
+              }
+            },
+            { "copy@main_menu_jexp.stack_item": {
+                "ignored": "($is_mp_client or $trial or not $is_pregame or $export_disabled)",
+                "controls": [ { "@world_edit_jexp.copy_world_button": {} } ]
+              }
+            },
+            { "export@main_menu_jexp.stack_item": {
+                "ignored": "(($pocket_edition or $export_disabled or not $file_picking_supported) and not $education_ios",
+                "controls": [ { "@world_edit_jexp.export_button": {} } ]
+              }
+            },
+            { "horizontal_stack": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": ["100%", 20],
+                "controls": [
+                  { "exit@button_jexp.button": {
+                      "size": [98, 20],
+                      "$prsd_btn_nm": "button.menu_exit",
+                      "$btn_text": "gui.done",
+                      "$btn_tts_header": "accessibility.button.back"
+                    }
+                  },
+                  { "fill@screen_jexp.hfill": {} },
+                  { "delete@world_edit_jexp.delete_button": {} }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "behavior_packs_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "advanced_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "resource_packs_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "world_name_box@option_text_box_jexp.option_text_box": {
+    "$header": "selectWorld.enterName",
+    "$opt_bdg_nm": "#world_name",
+    "$opt_enabled_bdg_nm": "#world_name_enabled",
+    "$text_box_name": "world_name_text_box",
+    "$focus_ovrd_right": "FOCUS_OVERRIDE_STOP",
+    "$tts_ovrd_ctrl_value": " "
+  },
+
+  "copy_world_button@button_jexp.button_action": {
+    "size": [200, 20],
+    "$btn_text": "gui.copyWorld",
+    "$prsd_btn_nm": "copy_world_button"
+  },
+
+  "delete_button@button_jexp.button_action": {
+    "size": [98, 20],
+    "$btn_text": "Delete",
+    "$prsd_btn_nm": "delete_world_button",
+    "$focus_id": "delete_world_button"
+  },
+
+  "export_button@button_jexp.button_action": {
+    "size": [200, 20],
+    "$btn_text": "gui.exportWorldLong",
+    "$prsd_btn_nm": "export_world_button",
+    "$focus_id": "export_world_button"
+  },
+
+  "convert_to_infinite_button@button_jexp.button_action": {
+    "size": [200, 20],
+    "$prsd_btn_nm": "convert_to_infinite_button",
+    "$btn_text": "createWorldScreen.action.editLocal"
+  }
+}

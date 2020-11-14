@@ -1,0 +1,98 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "experimental_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "offset": ["50% - 50%x", 19], "text": "$title" } },
+      /* Options */
+      { "tgls@experimental_jexp.experimental_toggles": { "offset": ["50% - 155px", 100] } },
+      { "back@world_create_jexp.back_tgl_btn": { "offset": ["50% + 5px", 185], "$tgl_nm": "experimental_settings", "size": [150, 20]  } },
+      /* Bottom */
+      { "edu_host@world_create_jexp.edu_host_button": { "offset": ["50% - 155px", "100% - 52px"] } },
+      { "edu_play@world_create_jexp.edu_play_button": { "offset": ["50% - 155px", "100% - 28px"] } },
+      { "create_world@world_create_jexp.create_world_button": { "offset": ["50% - 155px", "100% - 28px"] } },
+      { "cancel@world_create_jexp.cancel_button": { "offset": ["50% + 5px", "100% - 28px"] } }
+    ],
+    "$title|default": "selectWorld.create",
+    "variables": [
+      { "requires": "(not $is_world_create)",
+        "$title": "selectWorld.edit"
+      },
+      { "requires": "(not $is_pregame)",
+        "$title": "selectWorld.settings"
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "experimental_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "experimental_toggles": {
+    "ignored": "$education_edition",
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": ["100%", "100%c"],
+    "factory": {
+      "name": "experimental_toggle_factory",
+      "control_name": "experimental_jexp.experimental_toggle_holder"
+    },
+    "collection_name": "experimental_toggles",
+    "bindings": [
+      {
+        "binding_name": "#experimental_toggle_count",
+        "binding_name_override": "#collection_length"
+      }
+    ]
+  },
+
+  "experimental_toggle_holder": {
+    "type": "stack_panel",
+    "controls": [
+      { "experimental_toggle@experimental_toggle": {} },
+      { "space@screen_jexp.v4px": {} }
+    ]
+  },
+
+  "experimental_toggle@option_toggle_jexp.option_toggle": {
+    "ignored": "$education_edition",
+    "$tts_sect_hdr": "createWorldScreen.worldSettings",
+    "$tgl_tts_hdr_bdg_type": "collection",
+    "$tgl_tts_hdr_bdg_collt_nm": "experimental_toggles",
+    "$tgl_text": "#text",
+    "$opt_bdg_nm": "#experimental_toggle_value",
+    "$opt_enabled_bdg_nm": "#experimental_toggle_enabled",
+    "$tgl_nm": "experimental_toggle",
+    "$tgl_grid_collt_nm": "experimental_toggles",
+    "$tgl_collt_details_type": "collection_details",
+    "$tgl_collt_detail_nm": "experimental_toggles",
+    "$tgl_bdg_type": "collection",
+    "bindings": [
+      { "binding_name": "#show_experimental_toggle",
+        "binding_name_override": "#visible"
+      },
+      { "binding_name": "#experimental_toggle_enabled",
+        "binding_type": "collection",
+        "binding_name_override": "#enabled",
+        "binding_collection_name": "experimental_toggles"
+      }
+    ],
+    "$tgl_text_bdgs": [
+      { "binding_name": "#experimental_toggle_text",
+        "binding_name_override": "#text",
+        "binding_type": "collection",
+        "binding_collection_name": "experimental_toggles"
+      }
+    ]
+  }
+}

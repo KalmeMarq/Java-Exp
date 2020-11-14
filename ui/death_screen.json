@@ -1,0 +1,7 @@
+{
+  "death_screen@screen_jexp.screen": {
+    "load_screen_immediately": true,
+    "$scrn_cont": "death_screen_jexp.screen_content",
+    "$scrn_bg": "death_screen_jexp.background_gradient"
+  }
+}

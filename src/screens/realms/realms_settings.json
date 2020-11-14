@@ -1,0 +1,198 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "realms_settings_jexp",
+  
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "cont@realms_settings_jexp.content_panel": {} },
+      { "players_scrn@realm_players_jexp.screen_content": { "visible": false } },
+      // { "settings_scrn@realm_settings_jexp.screen_content": { "visible": false } },
+      { "subscriptions_scrn@realm_subcriptions_jexp.screen_content": { "visible": false } },
+      { "backups_scrn@realm_world_backups_jexp.screen_content": { "visible": false } },
+      { "options_scrn@realm_world_options_jexp.screen_content": { "visible": false } }
+    ]
+  },
+
+  "content_panel": {
+    "type": "panel",
+    "controls": [
+      { "confrealm@screen_jexp.title": { "text": "Configure Realm:", "offset": ["50% - 50%x", 17] } },
+      { "title@screen_jexp.title": {
+          "text": "#dialog_title",
+          "offset": ["50% - 50%x", 28],
+          "color": "$a_color_format",
+          "bindings": [
+            { "binding_name": "#dialog_title" },
+            { "binding_name": "(not #is_realm_expired)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "expired_title@screen_jexp.title": {
+          "text": "#dialog_title",
+          "offset": ["50% - 50%x", 28],
+          "color": "$4_color_format",
+          "bindings": [
+            { "binding_name": "#dialog_title" },
+            { "binding_name": "#is_realm_expired",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "game_status_icon@realms_settings_jexp.realms_world_game_status_icon": {} },
+      { "players@players_button": { "offset": ["50% - 155px", 40] } },
+      { "settings@settings_button": { "offset": ["50% - 50%x", 40] } },
+      { "subscriptions@subscription_button": { "offset": ["50% + 55px", 40] } },
+      { "options@options_button": { "offset": ["50% - 187px", 204] } },
+      { "backups@backups_button": { "offset": ["50% - 187px + 95px", 204] } },
+      { "reset@reset_button": { "offset": ["50% - 187px + 190px", 204] } },
+      { "exit_btn@button_jexp.button": {
+          "ignored": "$is_realms",
+          "offset": ["50% + 190px - 80px + 8px", 204],
+          "size": [70, 20],
+          "$btn_text": "gui.back",
+          "$prsd_btn_nm": "button.menu_exit"
+        }
+      },
+      { "back@options_jexp.back_tgl_btn": {
+          "offset": ["50% + 190px - 80px + 8px", 204],
+          "size": [70, 20],
+          "$tgl_text": "gui.back",
+          "ignored": "(not $is_realms)"
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "players_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "settings_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "subscriptions_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "backups_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "options_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "reset_button@button_jexp.button_action": {
+    "size": [90, 20],
+    "$btn_text": "realmsSettingsScreen.resetWorldButton",
+    "$prsd_btn_nm": "menu_reset_world",
+    "bindings": [
+      { "binding_name": "#reset_button_enabled",
+        "binding_name_override": "#enabled"
+      },
+      { "binding_name": "#reset_button_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "realms_world_game_status_icon": {
+    "type": "panel",
+    "size": [ 10, 32 ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [0, 6],
+    "layer": 30,
+    "controls": [
+      { "game_online_icon@realms_settings_jexp.game_online_icon": {
+          "bindings": [
+            { "binding_name": "(not #is_realm_expired)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "game_unavailable_icon@realms_settings_jexp.game_offline_icon": {
+          "bindings": [
+            { "binding_name": "#is_realm_expired",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "game_online_icon": {
+    "type": "image",
+    "texture": "assets/realms/textures/gui/realms/on_icon",
+    "size": [10, 28]
+  },
+  
+  "game_offline_icon": {
+    "type": "image",
+    "texture": "assets/realms/textures/gui/realms/off_icon", 
+    "size": [10, 28]
+  },
+
+  "players_button@toggle_button_jexp.toggle_button": {
+    "size": [100, 20],
+    "$tgl_idx": 1,
+    "$tgl_text": "Players",
+    "$tgl_nm": "players",
+    "$tgl_ctrl_nm": "players_view"
+  },
+
+  "settings_button@toggle_button_jexp.toggle_button": {
+    "size": [100, 20],
+    "$tgl_idx": 2,
+    "$tgl_text": "Settings",
+    "$tgl_nm": "settings",
+    "$tgl_ctrl_nm": "settings_view"
+  },
+
+  "subscription_button@toggle_button_jexp.toggle_button": {
+    "size": [100, 20],
+    "$tgl_idx": 3,
+    "$tgl_text": "Subscriptions",
+    "$tgl_nm": "subscriptions",
+    "$tgl_ctrl_nm": "subscriptions_view"
+  },
+  
+  "options_button@toggle_button_jexp.toggle_button": {
+    "size": [90, 20],
+    "$tgl_idx": 4,
+    "$tgl_text": "World options",
+    "$tgl_nm": "options",
+    "$tgl_ctrl_nm": "options_view"
+  },
+
+  "backups_button@toggle_button_jexp.toggle_button": {
+    "size": [90, 20],
+    "$tgl_idx": 5,
+    "$tgl_text": "World backups",
+    "$tgl_nm": "backups",
+    "$tgl_ctrl_nm": "backups_view"
+  },
+
+  "back_button@toggle_button_jexp.toggle_button": {
+    "$cancel_mapg": true,
+    "size": [200, 20],
+    "$tgl_text": "gui.done"
+  }
+}

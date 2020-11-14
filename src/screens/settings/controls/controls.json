@@ -1,0 +1,123 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "controls_jexp",
+
+  "screen_content": {
+    "type": "input_panel",
+    "size": ["100%", "100%"],
+    "focus_enabled": true,
+    "layer": 50,
+    "controls": [
+      { "bg@screen_jexp.screen_background": { "alpha": 0.4 } },
+      {
+        "back@options_jexp.back_tgl_btn": {
+          "offset": "$back_btn_offset",
+          "size": "$back_btn_size",
+          "layer": 0,
+          "$tgl_bg": "",
+          "$tgl_cont": ""
+        }
+      },
+      { "mouse@options_jexp.mouse_btn": { "offset": ["50% + 5px", "16.666666667% + 72px - 6px"] } },
+      { "controller@options_jexp.controller_btn": { "offset": ["50% + 5px", "16.666666667% + 96px - 6px"] } },
+      { "touch@options_jexp.touch_btn": { "offset": ["50% + 5px", "16.666666667% + 120px - 6px"] } }
+    ],
+    "$back_btn_offset|default": [0, "100% + 40px"],
+    "$back_btn_size|default": [0, 0],
+    "variables": {
+      "requires": "$touch",
+      "$back_btn_offset": [0, 0],
+      "$back_btn_size": ["100%", "100%"]
+    },
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "controls_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "keys_cat": {
+    "type": "panel",
+    "size": ["100%", 20],
+    "layer": 2,
+    "controls": [
+      {
+        "label": {
+          "type": "label",
+          "shadow": true,
+          "text_alignment": "center",
+          "text": "$keys_cat",
+          "$keys_cat|default": ""
+        }
+      }
+    ]
+  },
+
+  "keymapg_grid_item@screen_jexp.single_grid_item": {
+    "size": ["100%", 20],
+    "collection_name": "$keymapg_coll",
+    "$item_tplt": "controls_jexp.keymapg_item"
+  },
+  
+  "keymapg_item": {
+    "type": "panel",
+    "size": ["100%", 20],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "layer": 4,
+    "controls": [
+      { "keymapping_label": {
+          "type": "label",
+          "text": "#keymapping_name",
+          "size": ["100%", "default"],
+          "offset": ["50% - 163px", 3],
+          "text_alignment": "left",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "bindings": [
+            { "binding_name": "#keymapping_name",
+              "binding_type": "collection",
+              "binding_collection_name": "$keymapg_coll"
+            }
+          ]
+        }
+      },
+      { "binding@controls_jexp.binding_btn": { "offset": ["50% + 105px - 102px", 0] } },
+      { "reset_bdg@controls_jexp.reset_bdg_btn": { "offset": ["50% + 190px - 102px", 0] } }
+    ]
+  },
+
+  "binding_btn@button_jexp.button": {
+    "size": [75, 20],
+    "$prsd_btn_nm": "button.binding_button",
+    "$btn_tts_hdr":  "#audible_keymapping_name",
+    "$btn_cont": "$bdg_btn_cont",
+    "bindings": [
+      { "binding_type": "collection_details",
+        "binding_collection_name": "$keymapg_coll"
+      },
+      { "binding_name":  "#audible_keymapping_name",
+        "binding_type":  "collection",
+        "binding_collection_name": "$keymapg_coll"
+      }
+    ]
+  },
+
+  "reset_bdg_btn@button_jexp.button": {
+    "size": [50, 20],
+    "$btn_text": "controls.reset",
+    "$prsd_btn_nm": "button.reset_binding",
+    "$btn_tts_hdr": "accessibility.settings.reset",
+    "bindings": "$reset_btn_bdgs",
+    "$reset_btn_bdgs|default": [
+      { "binding_type": "collection_details",
+        "binding_collection_name": "$keymapg_coll"
+      }
+    ]
+  }
+}

@@ -1,0 +1,246 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "mouse_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "popup_dialog_factory@popup_dialog_factory": {} },
+      { "screen_cont": {
+          "type": "panel",
+          "controls": [
+            { "title@screen_jexp.title": { "text": "controls.title", "offset": ["50% - 50%x", 7.5] } },
+            { "settings@options_jexp.mouse_settings_btn": { "offset": ["50% - 155px", 18] } },
+            { "auto_jump@auto_jump_tgl": { "offset": ["50% - 155px + 160px", 18] } },
+            { "keys_scroll@scrollpane_jexp.scrollpane": {
+                "offset": [0, 43],
+                "size": ["100%", "100% - 75px"],
+                "$scroll_cont": "dirt@mouse_jexp.scroll_cont",
+                "variables": {
+                  "requires": "$faster_mouse_keymappings",
+                  "$scroll_cont": "dirt@mouse_jexp.faster_scroll_cont"
+                }
+              }
+            },
+            { "reset@mouse_jexp.reset_btn": { "offset": ["50% - 155px", "100% - 29px"] } },
+            { "back@options_jexp.back_tgl_btn": { "size": [150, 20], "offset": ["50% - 155px + 160px", "100% - 29px"] } }
+          ],
+          "$bdg_btn_cont": "mouse_jexp.bdg_btn_cont",
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "mouse_settings_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "mouse_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "auto_jump_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.autoJump",
+    "$opt_enabled_bdg_nm": "#mouse_autoJump_enabled",
+    "$tgl_nm": "mouse_autojump"
+  },
+
+  "reset_btn@button_jexp.button_action": {
+    "$prsd_btn_nm": "button.reset_keyboard_bindings",
+    "$btn_text": "controls.resetAll",
+    "size": [150, 20]
+  },
+
+  "scroll_cont": {
+    "type": "panel",
+    "size": [318, "100%c"],
+    "controls": [
+      { "standart": {
+          "type": "stack_panel",
+          "size": ["100%", "100%c"],
+          "$keymapg_grid_dime": "#keyboard_standard_grid_dimension",
+          "$keymapg_coll": "keyboard_standard_collection",
+          "bindings": [
+            { "binding_name": "#keyboard_show_standard_keyboard_options",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            { "movement@controls_jexp.keys_cat": { "$keys_cat": "key.categories.movement" } },
+            { "jump@controls_jexp.keymapg_grid_item": { "$item_label": "key.jump", "$item_idx": 15 } },
+            { "sneak@controls_jexp.keymapg_grid_item": { "$item_label": "key.sneak", "$item_idx": 16 } },
+            { "sprint@controls_jexp.keymapg_grid_item": { "$item_label": "key.sprint", "$item_idx": 17 } },
+            { "strafe_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.left", "$item_idx": 18 } },
+            { "strafe_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.right", "$item_idx": 19 } },
+            { "walk_backwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.back", "$item_idx": 20 } },
+            { "walk_forwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.forward", "$item_idx": 21 } },
+            { "gameplay@controls_jexp.keys_cat": { "$keys_cat": "key.categories.gameplay" } },
+            { "attack_or_destroy@controls_jexp.keymapg_grid_item": { "$item_label": "key.attack", "$item_idx": 0 } },
+            { "pick_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.pickItem", "$item_idx": 1 } },
+            { "use_item_or_place_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.use", "$item_idx": 2 } },
+            { "inventory@controls_jexp.keys_cat": { "$keys_cat": "key.categories.inventory" } },
+            { "drop_selected_item@controls_jexp.keymapg_grid_item": { "$item_label": "key.drop", "$item_idx": 3 } },
+            { "hotbar_one@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.1", "$item_idx": 4 } },
+            { "hotbar_two@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.2", "$item_idx": 5 } },
+            { "hotbar_three@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.3", "$item_idx": 6 } },
+            { "hotbar_four@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.4", "$item_idx": 7 } },
+            { "hotbar_five@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.5", "$item_idx": 8 } },
+            { "hotbar_six@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.6", "$item_idx": 9 } },
+            { "hotbar_seven@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.7", "$item_idx": 10 } },
+            { "hotbar_eight@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.8", "$item_idx": 11 } },
+            { "hotbar_nine@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.9", "$item_idx": 12 } },
+            { "open_and_close_inventory@controls_jexp.keymapg_grid_item": { "$item_label": "key.inventory", "$item_idx": 13 } },
+            { "multiplayer@controls_jexp.keys_cat": { "$keys_cat": "key.categories.multiplayer" } },
+            { "open_chat@controls_jexp.keymapg_grid_item": { "$item_label": "key.chat", "$item_idx": 23 } },
+            { "open_command@controls_jexp.keymapg_grid_item": { "$item_label": "key.command", "$item_idx": 24 } },
+            { "miscellaneous@controls_jexp.keys_cat": { "$keys_cat": "Miscellaneous" } },
+            { "toggle_perspetive@controls_jexp.keymapg_grid_item": { "$item_label": "key.togglePerspective", "$item_idx": 14 } },
+            { "mob_effects@controls_jexp.keymapg_grid_item": { "$item_label": "key.mobEffects", "$item_idx": 22 } },
+            { "emote@controls_jexp.keymapg_grid_item": { "$item_label": "key.emote", "$item_idx": 25 } },
+            { "menu_tab_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabLeft", "$item_idx": 26 } },
+            { "menu_tab_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabRight", "$item_idx": 27 } },
+            { "space_bottom@screen_jexp.v2px": {} }
+          ]
+        }
+      },
+      { "full": {
+          "type": "stack_panel",
+          "size": ["100%", "100%c"],
+          "$keymapg_grid_dime": "#keyboard_full_grid_dimension",
+          "$keymapg_coll": "keyboard_full_collection",
+          "bindings": [
+            { "binding_name": "#keyboard_show_full_keyboard_options",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            { "movement@controls_jexp.keys_cat": { "$keys_cat": "key.categories.movement" } },
+            { "jump@controls_jexp.keymapg_grid_item": { "$item_label": "key.jump", "$item_idx": 32 } },
+            { "sneak@controls_jexp.keymapg_grid_item": { "$item_label": "key.sneak", "$item_idx": 33 } },
+            { "sprint@controls_jexp.keymapg_grid_item": { "$item_label": "key.sprint", "$item_idx": 34 } },
+            { "strafe_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.left", "$item_idx": 35 } },
+            { "strafe_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.right", "$item_idx": 36 } },
+            { "walk_backwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.back", "$item_idx": 37 } },
+            { "walk_forwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.forward", "$item_idx": 38 } },
+            { "gameplay@controls_jexp.keys_cat": { "$keys_cat": "key.categories.gameplay" } },
+            { "attack_or_destroy@controls_jexp.keymapg_grid_item": { "$item_label": "key.attack", "$item_idx": 17 } },
+            { "pick_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.pickItem", "$item_idx": 18 } },
+            { "use_item_or_place_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.use", "$item_idx": 19 } },
+            { "inventory@controls_jexp.keys_cat": { "$keys_cat": "key.categories.inventory" } },
+            { "drop_selected_item@controls_jexp.keymapg_grid_item": { "$item_label": "key.drop", "$item_idx": 20 } },
+            { "hotbar_one@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.1", "$item_idx": 21 } },
+            { "hotbar_two@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.2", "$item_idx": 22 } },
+            { "hotbar_three@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.3", "$item_idx": 23 } },
+            { "hotbar_four@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.4", "$item_idx": 24 } },
+            { "hotbar_five@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.5", "$item_idx": 25 } },
+            { "hotbar_six@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.6", "$item_idx": 26 } },
+            { "hotbar_seven@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.7", "$item_idx": 27 } },
+            { "hotbar_eight@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.8", "$item_idx": 28 } },
+            { "hotbar_nine@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.9", "$item_idx": 29 } },
+            { "open_and_close_inventory@controls_jexp.keymapg_grid_item": { "$item_label": "key.inventory", "$item_idx": 30 } },
+            { "multiplayer@controls_jexp.keys_cat": { "$keys_cat": "key.categories.multiplayer" } },
+            { "open_chat@controls_jexp.keymapg_grid_item": { "$item_label": "key.chat", "$item_idx": 40 } },
+            { "open_command@controls_jexp.keymapg_grid_item": { "$item_label": "key.command", "$item_idx": 41 } },
+            { "miscellaneous@controls_jexp.keys_cat": { "$keys_cat": "Miscellaneous" } },
+            { "toggle_perspetive@controls_jexp.keymapg_grid_item": { "$item_label": "key.togglePerspective", "$item_idx": 31 } },
+            { "mob_effects@controls_jexp.keymapg_grid_item": { "$item_label": "key.mobEffects", "$item_idx": 39 } },
+            { "emote@controls_jexp.keymapg_grid_item": { "$item_label": "key.emote", "$item_idx": 42 } },
+            { "menu_tab_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabLeft", "$item_idx": 43 } },
+            { "menu_tab_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabRight", "$item_idx": 44 } },
+            { "additional@controls_jexp.keys_cat": { "$keys_cat": "key.categories.additional" } },
+            // Additional
+            { "look_up_slight@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpSlight", "$item_idx": 0 } },
+            { "look_down_slight@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownSlight", "$item_idx": 1 } },
+            { "look_up_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpRight", "$item_idx": 2 } },
+            { "look_up@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUp", "$item_idx": 3 } },
+            { "look_up_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpLeft", "$item_idx": 4 } },
+            { "look_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookRight", "$item_idx": 5 } },
+            { "look_center@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookCenter", "$item_idx": 6 } },
+            { "look_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookLeft", "$item_idx": 7 } },
+            { "look_down_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownRight", "$item_idx": 8 } },
+            { "look_down@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDown", "$item_idx": 9 } },
+            { "look_down_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownLeft", "$item_idx": 10 } },
+            { "look_up_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpSmooth", "$item_idx": 11 } },
+            { "look_down_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownSmooth", "$item_idx": 12 } },
+            { "look_left_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookLeftSmooth", "$item_idx": 13 } },
+            { "look_right_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookRightSmooth", "$item_idx": 14 } },
+            { "cycle_item_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.cycleItemLeft", "$item_idx": 15 } },
+            { "cycle_item_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.cycleItemRight", "$item_idx": 16 } },
+            { "space_bottom@screen_jexp.v2px": {} }
+          ]
+        }
+      }
+    ]
+  },
+
+  "faster_scroll_cont": {  
+    "type": "stack_panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      { "space_top@screen_jexp.v2px": {} },
+      { "standart@keymapg_grid": {} },
+      { "full@full_keymapg_grid": {} },
+      { "space_bottom@screen_jexp.v2px": {} }
+    ]
+  },
+
+  "keymapg_grid": {
+    "$type|default": "standard",
+    "$keymapg_coll|default": "keyboard_standard_collection",
+    "type": "grid",
+    "size": ["100%", "default"],
+    "grid_item_template": "controls_jexp.keymapg_item",
+    "grid_dimension_binding": "('#keyboard_' + $type + '_grid_dimension')",
+    "collection_name": "$keymapg_coll",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "bindings": [
+      { "binding_name": "('#keyboard_' + $type + '_grid_dimension')" },
+      { "binding_name": "('#keyboard_show_' + $type + '_keyboard_options')",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "full_keymapg_grid@keymapg_grid": {
+    "$type": "full",
+    "$keymapg_coll": "keyboard_full_collection"
+  },
+
+  "bdg_btn_cont": {
+    "type": "panel",
+    "controls": [
+      { "default_label": {
+          "type": "label",
+          "text": "#binding_button_text",
+          "tts_override_control_value": " ",
+          "color": "$text_color",
+          "shadow": true,
+          "bindings": [
+            { "binding_name": "#binding_button_text",
+              "binding_condition": "none",
+              "binding_type": "collection",
+              "binding_collection_name": "$keymapg_coll"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "popup_dialog_factory": {
+    "type": "factory",
+    "control_ids": { "modal_dialog_popup": "@mouse_jexp.reset_mouse_popup" }
+  },
+
+  "reset_mouse_popup@options_jexp.reset_settings_popup": { "$msg_text": "popup.resetSettings.mouse" }
+}

@@ -1,0 +1,336 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "slider_jexp",
+
+  "slider_base": {
+    "type": "slider",
+    /* Focus */
+    "$focus_id|default": "",
+    "$focus_ovrd_down|default": "",
+    "$focus_ovrd_up|default": "",
+    "$focus_ovrd_left|default": "",
+    "$focus_ovrd_right|default": "",
+    "focus_identifier": "$focus_id",
+    "focus_change_down": "$focus_ovrd_down",
+    "focus_change_up": "$focus_ovrd_up",
+    "focus_change_left": "$focus_ovrd_left",
+    "focus_change_right": "$focus_ovrd_right",
+    "focus_enabled": true,
+    "$dflt_focus_prcdc|default": 0,
+    "default_focus_precedence": "$dflt_focus_prcdc",
+    "$sldr_sel_on_hov|default": false,
+    "slider_select_on_hover": "$sldr_sel_on_hov",
+    "always_listen_to_input": false,
+    "always_handle_pointer": true,
+    /* TTS */
+    "$sldr_tts_hdr|default": "",
+    "$sldr_tts_hdr_bdg_type|default": "none",
+    "$sldr_tts_hdr_bdg_cond|default": "visible",
+    "$sldr_hdr_coll_nm": "",
+    "$sldr_tts_ovrd_value|default": " ", // The header will likely always displays the slider value
+    "$sldr_tts_nm|default": "accessibility.slider.tts.title",
+    "$sldr_tts_text_value|default": "",
+    "$tts_sect_hdr|default": "",
+    "tts_control_header": "$sldr_tts_hdr",
+    "tts_section_header": "$tts_sect_hdr",
+    "tts_override_control_value": "$sldr_tts_ovrd_value",
+    "tts_name": "$sldr_tts_nm",
+    "tts_value_changed": "$sldr_tts_text_value",
+    /* States Control */
+    "default_control": "slider_bar_default",
+    "hover_control": "slider_bar_hover",
+    /* Not being used
+    "background_control": "slider_background",
+    "background_hover_control": "slider_background_hover",
+    "progress_control": "slider_progress",
+    "progress_hover_control": "slider_progress_hover", */
+    "slider_box_control": "slider_box",
+    /* Other Properties */
+    "$sldr_small_dec_btn|default": "slider.small_decrease",
+    "$sldr_small_inc_btn|default": "slider.small_increase",
+    "$sldr_sel_btn|default": "slider.selected",
+    "$sldr_desel_btn|default": "slider.deselected",
+    "slider_small_decrease_button": "$sldr_small_dec_btn",
+    "slider_small_increase_button": "$sldr_small_inc_btn",
+    "slider_selected_button": "$sldr_sel_btn",
+    "slider_deselected_button": "$sldr_desel_btn",
+    "$sldr_nm|default": "",
+    "$slider_track_button|default": "button.slider_skip_track",
+    "$sldr_dir|default": "horizontal",
+    "$sldr_steps|default": 1,
+    "$sldr_coll_nm|default": "",
+    "slider_name": "$sldr_nm",
+    "slider_track_button": "$sldr_nm",
+    "slider_direction": "$sldr_dir",
+    "slider_steps": "$sldr_steps",
+    "slider_collection_name": "$sldr_coll_nm",
+    "layer": 1,
+    /* Slider Steps */
+    "$slider_step_factory_control_ids": {
+      "slider_step": "@screen_jexp.empty_panel",
+      "slider_step_hover": "@screen_jexp.empty_panel",
+      "slider_step_progress": "@screen_jexp.empty_panel",
+      "slider_step_progress_hover": "@screen_jexp.empty_panel"
+    },
+    "factory": {
+      "name": "slider_step_factory",
+      "control_ids": "$slider_step_factory_control_ids"
+    },
+    /* Mapping */
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "$sldr_nm",
+        "mapping_type": "pressed",
+        "button_up_right_of_first_refusal": true
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "$sldr_sel_btn",
+        "mapping_type": "focused"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "$sldr_desel_btn",
+        "mapping_type": "focused"
+      },
+      { "ignored": "($sldr_dir = 'vertical')",
+        "from_button_id": "button.menu_left",
+        "to_button_id": "$sldr_small_dec_btn",
+        "mapping_type": "pressed",
+        "input_mode_condition": "not_gaze"
+      },
+      { "ignored": "($sldr_dir = 'horizontal')",
+        "from_button_id": "button.menu_up",
+        "to_button_id": "$sldr_small_dec_btn",
+        "mapping_type": "pressed",
+        "input_mode_condition": "not_gaze"
+      },
+      { "ignored": "($sldr_dir = 'vertical')",
+        "from_button_id": "button.menu_right",
+        "to_button_id": "$sldr_small_inc_btn",
+        "mapping_type": "pressed",
+        "input_mode_condition": "not_gaze"
+      },
+      { "ignored": "($sldr_dir = 'horizontal')",
+        "from_button_id": "button.menu_down",
+        "to_button_id": "$sldr_small_inc_btn",
+        "mapping_type": "pressed",
+        "input_mode_condition": "not_gaze"
+      }
+    ],
+    "$sldr_bdg_type|default": "global",
+    "$sldr_bdg_cond|default": "visible",
+    "$sldr_value_bdg_nm|default": "#slider_value",
+    "$sldr_steps_bdg_type|default": "global",
+    "$sldr_steps_bdg_cond|default": "visible",
+    "$sldr_steps_bdg_nm|default": "#slider_steps",
+    "$sldr_enabled_bdg_type|default": "none",
+    "$sldr_enabled_bdg_cond|default": "visible",
+    "$sldr_enabled_bdg_nm|default": "#slider_enabled",
+    "$sldr_tts_bdg_type|default": "global",
+    "$sldr_tts_bdg_cond|default": "visible",
+    /* Property Bag */
+    "property_bag": { "#slider_steps": 1, "#slider_value": 0 },
+    /* Bindings */
+    "bindings": [
+      {
+        "binding_type": "$sldr_steps_bdg_type",
+        "binding_condition": "$sldr_steps_bdg_cond",
+        "binding_collection_name": "$sldr_coll_nm",
+        "binding_name": "$sldr_steps_bdg_nm",
+        "binding_name_override": "#slider_steps"
+      },
+      {
+        "binding_type": "$sldr_bdg_type",
+        "binding_condition": "$sldr_bdg_cond",
+        "binding_collection_name": "$sldr_coll_nm",
+        "binding_name": "$sldr_value_bdg_nm",
+        "binding_name_override": "#slider_value"
+      },
+      { "binding_type": "$sldr_enabled_bdg_type",
+        "binding_condition": "$sldr_enabled_bdg_cond",
+        "binding_collection_name": "$sldr_coll_nm",
+        "binding_name": "$sldr_enabled_bdg_nm",
+        "binding_name_override": "#enabled"
+      },
+      { "binding_type": "$sldr_tts_bdg_type",
+        "binding_condition": "$sldr_tts_bdg_cond",
+        "binding_collection_name": "$sldr_coll_nm",
+        "binding_name": "$sldr_tts_text_value"
+      },
+      { "binding_type": "$sldr_tts_hdr_bdg_type",
+        "binding_condition": "$sldr_tts_hdr_bdg_cond",
+        "binding_collection_name": "$sldr_hdr_coll_nm",
+        "binding_name": "$sldr_tts_hdr"
+      }
+    ]
+  },
+
+  "slider": {
+    "type": "panel",
+    "size": [150, 20],
+    "controls": [ { "ctrl@slider_jexp.sldr_ctrl": {} } ]
+  },
+
+  "sldr_ctrl@slider_jexp.slider_base": {
+    "$sldr_cont|default": "slider_jexp.sldr_text",
+    /* Background */
+    "$dflt_sldr_bg|default": "button_jexp.button_default",
+    "$hov_sldr_bg|default": "button_jexp.button_hover",
+    "$lkd_sldr_bg|default": "button_jexp.button_locked",
+    "$dflt_sldrbar_bg|default": "button_jexp.button_locked",
+    "$hov_sldrbar_bg|default": "button_jexp.button_locked",
+    "$lkd_sldrbar_bg|default": "button_jexp.button_locked",
+    /* Text Color */
+    "$dflt_sldr_color|default": "$btn_dflt_color",
+    "$hov_sldr_color|default": "$btn_hov_color",
+    "$lks_sldr_color|default": "$btn_lkd_color",
+    "size": ["100% - 8px", "100%"],
+    "controls": [
+      { "slider_box@slider_jexp.slider_box": { "$slider_track_button": "$sldr_nm" } },
+      { "slider_bar_default@slider_jexp.sldr_bar": {
+          "$sldr_state": "default",
+          "$sldr_bg|default": "$dflt_sldrbar_bg",
+          "$text_color|default": "$dflt_sldr_color",
+          "layer": 2
+        }
+      },
+      { "slider_bar_hover@slider_jexp.sldr_bar": {
+          "$sldr_state": "hover",
+          "$sldr_bg|default": "$hov_sldrbar_bg",
+          "$text_color|default": "$hov_sldr_color",
+          "visible": false,
+          "layer": 3
+        }
+      }
+    ]
+  },
+
+  "slider_box": {
+    "$sldr_cont": "",
+    "type": "slider_box",
+    "size": [8, 20],
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "layer": 4,
+    /* States Control */
+    "default_control": "default",
+    "hover_control": "hover",
+    "locked_control": "locked",
+    "indent_control": "indent",
+    "$tooltip_text": "",
+    "controls": [
+      { "default@sldr_state": {
+          "$sldr_state": "default",
+          "$sldr_bg": "$dflt_sldr_bg",
+          "layer": 2
+        }
+      },
+      { "hover@sldr_state": {
+          "$sldr_state": "hover",
+          "$sldr_bg": "$hov_sldr_bg",
+          "layer": 3
+        }
+      },
+      { "indent@sldr_state": {
+          "$sldr_state": "indent",
+          "$sldr_bg": "$hov_sldr_bg",
+          "layer": 4
+        }
+      },
+      { "locked@sldr_state": {
+          "$sldr_state": "locked",
+          "$sldr_bg": "$lkd_sldr_bg",
+          "layer": 1
+        }
+      }
+    ]
+  },
+
+  "sldr_bar": {
+    "$lkd_bg|default": "$lkd_sldrbar_bg",
+    "type": "panel",
+    "size": ["100% + 8px", "100%"],
+    "controls": [
+      { "sldr_state@slider_jexp.sldr_state": {} },
+      { "$lkd_bg@$lkd_bg": {
+          "bindings": [
+            { "binding_type": "$sldr_enabled_bdg_type",
+              "binding_condition": "$sldr_enabled_bdg_cond",
+              "binding_collection_name": "$sldr_coll_nm",
+              "binding_name": "(not $sldr_enabled_bdg_nm)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "sldr_state": {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "$sldr_state|default": "",
+    "$tooltip_text|default": "",
+    "controls": [
+      { "tooltip@tooltip_jexp.tooltip": {
+          "ignored": "(not ($sldr_state = hover))",
+          "visible": "(not $tooltip_text = '')"
+        }
+      },
+      { "$sldr_bg@$sldr_bg": {} },
+      { "inner_content": {
+          "type": "panel",
+          "size": ["100%", "100%"],
+          "layer": 2,
+          "controls": [ { "$sldr_cont@$sldr_cont": {} } ]
+        }
+      }
+    ]
+  },
+
+  "sldr_text": {
+    "$sldr_per|default": false,
+    "$float_dec_visible|default": true,
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", 10],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "controls": [
+      { "slider_label0@slider_jexp.sldr_label": { "visible": "$float_dec_visible" } },
+      { "slider_label1": {
+          "type": "panel",
+          "size": ["100%c - 13px", "100%c"],
+          "clips_children": true,
+          "visible": "(not $float_dec_visible)",
+          "controls": [
+            { "slider_label@slider_jexp.sldr_label": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left"
+              }
+            }
+          ]
+        }
+      },
+      { "percent": {
+          "ignored": "(not $sldr_per)",
+          "type": "label",
+          "text": "gui.percentage",
+          "color": "$text_color",
+          "shadow": true,
+          "layer": 10
+        }
+      }
+    ]
+  },
+
+  "sldr_label@button_jexp.button_label": {
+    "$sldr_text_bdgs|default": [],
+    "size": ["default", 10],
+    "text": "$sldr_text",
+    "bindings": "$sldr_text_bdgs",
+    "layer": 10
+  }
+}

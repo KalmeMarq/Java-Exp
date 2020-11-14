@@ -1,0 +1,99 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "option_text_box_jexp",
+
+  "option_text_box@screen_jexp.abstract_option": {
+    "size": [200, 20],
+    "$header|default": "",
+    "$max_text_length|default": 30,
+    "$ctrl_ref": "option_text_box_jexp.text_box_ctrl"
+  },
+
+  "text_box_ctrl@text_box_jexp.text_box": {
+    "size": ["100%", "100%"],
+    "max_length": "$max_text_length",
+    "$text_edit_box_cont_bdg_nm": "$opt_bdg_nm",
+    "$text_edit_box_bdg_collt_nm": "$opt_bdg_nm",
+    "$text_edit_box_bdg_type": "global",
+    "$text_box_enabled_bdg_nm": "$opt_enabled_bdg_nm",
+    "enabled": "$enabled",
+    "$text_box_tts_hdr": "$header",
+    "variables": [
+      {
+        "requires": "(not $opt_enabled_bdg_nm or not $enabled)",
+        "$text_box_enabled_bdg_nm": "#not_data_bound",
+        "$text_edit_box_enabled_bdg_type": "none"
+      }
+    ]
+  },
+
+  "box_label": {
+    "type": "label",
+    "$box_label_color|default": "$info_color",
+    "color": "$box_label_color",
+    "shadow": true,
+    "text_alignment": "left",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [1, 0],
+    "bindings": "$label_bdgs",
+    "$label_bdgs|default": [],
+    "layer": 10
+  },
+
+  /* Buttons */
+  "button@button_jexp.button": {
+    "$bto_text": ">",
+    "size": [20, 20],
+    "bindings": "$btn_bdgs",
+    "$btn_bdgs|default": []
+  },
+
+  "button_action@button_jexp.button_action": {
+    "$btn_text": ">",
+    "size": [20, 20],
+    "bindings": "$btn_bdgs",
+    "$btn_bdgs|default": []
+  },
+
+  // Only view
+  "text_box_view@option_text_box": {
+    "size": ["100%", 10],
+    "$enabled": false,
+    "$dflt_box_bg": "screen_jexp.empty_panel",
+    "$hov_box_bg": "screen_jexp.empty_panel",
+    "$lkd_box_bg": "screen_jexp.empty_panel",
+    "$text_indent_size": ["100%", "100% + 2px"],
+    "$text_indent_offset": [3, 0]
+
+   /*  "type": "panel",
+    "size": ["100%", 10],
+    "$phr_ctrl": "text_box_jexp.text_phdr_label",
+    "$text_color": "$info_color",
+    "$text_edit_box_cont_bg_nm": "$opt_bdg_nm",
+    "$text_edit_box_bdg_collt_nm": "$opt_bdg_nm",
+    "$text_edit_box_bdg_type": "global",
+    "$text_edit_text_control": "display_name",
+    "$text_box_enabled_bdg_nm|default": "#text_box_enabled",
+    "$text_edit_box_enabled_bdg_type|default": "global",
+    "$text_edit_box_grid_collt_nm|default": "",
+    "$deselectable_bdg_type|default": "none",
+    "$deselectable_bdg_nm|default": "#can_be_deselected",
+    "$text_edit_box_focusable_bdg_nm|default": "#text_edit_box_focusable",
+    "$text_edit_vis_bdg_nm|default": "#text_edit_box_visible",
+    "$text_edit_vis_bdg_collt_nm|default": "",
+    "$text_edit_vis_bdg_type|default": "none",
+    "bindings": [
+      { "binding_name": "$text_edit_vis_bdg_nm",
+        "binding_name_override": "#visible",
+        "binding_type": "$text_edit_vis_bdg_type",
+        "binding_collection_name": "$text_edit_vis_bdg_collt_nm"
+      }
+    ],
+    "$text_indent_offset": [4, 0],
+    "controls": [ { "@text_box_jexp.text_content_panel": {} } ] */
+  }
+}

@@ -1,0 +1,211 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "chat_settings_jexp",
+
+  "popup_factory": {
+    "type": "factory",
+    "control_ids": { "chat_setting_popup": "@chat_settings_jexp.screen_content" }
+  },
+
+  "screen_content@popup_dialog.modal_input_panel": {
+    "$popup_dialog_escape_button_name": "button.close_chat_settings",
+    "controls": [
+      { "bg@screen_jexp.dirt_background": {} },
+      { "title@screen_jexp.title": { "text": "chat.settings", "offset": ["50% - 50%x", 20] } },
+      { "settings_scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "size": ["100%", "100% - 64px"],
+          "$scroll_cont": "dirt@chat_settings_jexp.scroll_cont"
+        }
+      },
+      { "reset@reset_button": { "offset": ["50% - 155px", "100% - 27px"] } },
+      { "back@button_jexp.button": {
+          "size": [150, 20],
+          "$btn_text": "gui.done",
+          "$prsd_btn_nm": "button.close_chat_settings",
+          "offset": ["50% + 5px", "100% - 27px"]
+        }
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": [310, "100%c"],
+    "controls": [
+      { "vtop@screen_jexp.v2px": {} },
+      { "stack_0@debug_jexp.stack_item": {
+          "$lt": "chat_settings_jexp.mute_all_toggle",
+          "$rt": "chat_settings_jexp.chat_tts_toggle"
+        }
+      },
+      { "stack_1@debug_jexp.stack_item": {
+          "$lt": "chat_settings_jexp.chat_color_iterable",
+          "$rt": "chat_settings_jexp.mentions_color_iterable"
+        }
+      },
+      { "stack_2@debug_jexp.stack_item": {
+          "$lt": "chat_settings_jexp.font_type_iterable",
+          "$rt": "chat_settings_jexp.font_size_slider"
+        }
+      },
+      { "stack_3@debug_jexp.stack_item": {
+          "$enabled": false,
+          "$lt": "chat_settings_jexp.line_spacing_slider"
+        }
+      }
+    ]
+  },
+
+  "line_spacing_slider@option_slider_jexp.option_slider": {
+    "$sldr_text": "#chat_line_spacing_slider_label",
+    "$sldr_nm": "chat_line_spacing",
+    "$sldr_value_bdg_nm": "#chat_line_spacing",
+    "$opt_enabled_bdg_nm": "#chat_line_spacing_enabled",
+    "$sldr_tts_text_value": "#chat_line_spacing_text_value",
+    "$sldr_text_bdgs": [
+      { "binding_name": "$sldr_text",
+        "binding_condition": "visible"
+      },
+      { "binding_name": "$sldr_tts_text_value" }
+    ]
+  },
+
+  "mute_all_toggle@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "chat.mute",
+    "$tgl_nm": "hide_chat",
+    "$focus_id": "mute_all_toggle_focus_id",
+    "$focus_ovrd_up": "reset_button_focus_id"
+  },
+
+  "chat_tts_toggle@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "chat.settings.tts",
+    "$tgl_nm": "toggle_tts"
+  },
+
+  "font_type_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
+    "size": [150, 20],
+    "$opt_enabled_bdg_nm": "#chat_typeface_dropdown_enabled",
+    "$tgl_type_text": "chat.settings.font",
+    "$tgls": [
+      { "mojangles@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "typeface.mojangles",
+          "$this_action": "#typeface_radio_mojangles",
+          "$next_action": "#typeface_radio_notoSans"
+        }
+      },
+      { "notoSans@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "typeface.notoSans",
+          "$this_action": "#typeface_radio_notoSans",
+          "$next_action": "#typeface_radio_mojangles"
+        }
+      }
+    ]
+  },
+
+  "chat_color_iterable@abstract_color_iterable": {
+    "$color_prefix": "chat",
+    "$tgl_type_text": "chat.settings.chatColor"
+  },
+
+  "mentions_color_iterable@abstract_color_iterable": {
+    "$color_prefix": "mentions",
+    "$tgl_type_text": "chat.settings.mentionsColor"
+  },
+
+  "abstract_color_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
+    "collection_name": "font_colors",
+    "type": "stack_panel",
+    "size": [150, 20],
+    "$opt_enabled_bdg_nm": "('#' + $color_prefix + '_color_dropdown_enabled')",
+    "controls": [
+      { "0@iterable_toggle_jexp.iterable_tgl": {
+          "collection_index": 0,
+          "$this_action": "('#' + $color_prefix + '_0'",
+          "$next_action": "('#' + $color_prefix + '_1'"
+        }
+      },
+      { "0@iterable_toggle_jexp.iterable_tgl": {
+          "collection_index": 1,
+          "$this_action": "('#' + $color_prefix + '_1'",
+          "$next_action": "('#' + $color_prefix + '_2'"
+        }
+      },
+      { "0@iterable_toggle_jexp.iterable_tgl": {
+          "collection_index": 2,
+          "$this_action": "('#' + $color_prefix + '_2'",
+          "$next_action": "('#' + $color_prefix + '_3'"
+        }
+      },
+      { "0@iterable_toggle_jexp.iterable_tgl": {
+          "collection_index": 3,
+          "$this_action": "('#' + $color_prefix + '_3'",
+          "$next_action": "('#' + $color_prefix + '_4'"
+        }
+      },
+      { "0@iterable_toggle_jexp.iterable_tgl": {
+          "collection_index": 4,
+          "$this_action": "('#' + $color_prefix + '_4'",
+          "$next_action": "('#' + $color_prefix + '_5'"
+        }
+      },
+      { "0@iterable_toggle_jexp.iterable_tgl": {
+          "collection_index": 5,
+          "$this_action": "('#' + $color_prefix + '_5'",
+          "$next_action": "('#' + $color_prefix + '_6'"
+        }
+      },
+      { "0@iterable_toggle_jexp.iterable_tgl": {
+          "collection_index": 6,
+          "$this_action": "('#' + $color_prefix + '_6'",
+          "$next_action": "('#' + $color_prefix + '_0'"
+        }
+      }
+    ],
+    "$color_collt_nm": "font_colors",
+    "$tgl_text": "#font_color_label",
+    "$text_color": "#font_color",
+    "$tgl_text_bdgs": [
+      { "binding_name": "$tgl_text",
+        "binding_collection_name": "$color_collt_nm",
+        "binding_type": "collection"
+      },
+      { "binding_name": "$text_color",
+        "binding_collection_name": "$color_collt_nm",
+        "binding_name_override": "#color",
+        "binding_type": "collection"
+      }
+    ]
+  },
+
+  "font_size_slider@option_slider_jexp.option_slider": {
+    "$sldr_text": "#chat_font_size_custom_label",
+    "$sldr_nm": "chat_font_size",
+    "$sldr_value_bdg_nm": "#chat_font_size",
+    "$opt_enabled_bdg_nm": "#chat_font_size_enabled",
+    "$sldr_steps_bdg_nm": "#chat_font_size_steps",
+    "$sldr_tts_text_value": "#chat_font_size_text_value",
+    "$sldr_text_bdgs": [
+      { "binding_name": "$sldr_text",
+        "binding_condition": "visible"
+      },
+      { "binding_name": "$sldr_tts_text_value" }
+    ],
+    "bindings": [
+      { "binding_type": "global",
+        "binding_name": "#chat_typeface_visible",
+        "binding_name_override": "#enabled",
+        "binding_condition": "once"
+      }
+    ]
+  },
+
+  "reset_button@button_jexp.button": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.reset_chat_settings",
+    "$btn_text": "options.resetSettings"
+  }
+}

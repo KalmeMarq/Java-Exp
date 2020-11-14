@@ -1,0 +1,177 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "furnace_jexp",
+
+  "abstract_screen_content@container_jexp.container_panel": {
+    "$container_bg": "furnace_jexp.furnace_bg",
+    /* "variables": {
+      "requires": "$show_furnace_recipe_book",
+      "$root_panel": "furnace_jexp.furnace_with_recipe_book"
+    }, */
+    "$container_cont": "furnace_jexp.content_panel"
+  },
+
+  /* "furnace_with_recipe_book": {
+    "type": "stack_panel",
+    "size": [325, 166],
+    "orientation": "horizontal",
+    "$root_ctrls": [
+      { "fill@screen_jexp.res_txr": {} },
+      {
+        "recipe_book@furnace_recipe_book_ui.furnace_recipe_book": {
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "($furnace_type + '_view')",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "with_rb": {
+          "type": "panel",
+          "size": [2, 0],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "($furnace_type + '_view')",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "furnace_root@common.root_panel": {
+          "size": [176, 166],
+          "controls": [
+            { "bg@$container_bg": {} },
+            { "inventory@$specified_content": {} },
+            { "selected_item_button@container_jexp.selected_item_button": {} }
+          ]
+        }
+      },
+      { "fill@screen_jexp.res_txr": {} }
+    ]
+  }, */
+
+  "furnace_screen_content@furnace_jexp.abstract_screen_content": { "$furnace_type": "furnace" },
+  "blast_furnace_screen_content@furnace_jexp.abstract_screen_content": { "$furnace_type": "blast_furnace" },
+  "smoker_screen_content@furnace_jexp.abstract_screen_content": { "$furnace_type": "smoker" },
+
+  "content_panel": {
+    "type": "panel",
+    "$tanchor": "top_middle",
+    "controls": [
+      { "title@container_jexp.title": { "offset": [0, 5] } },
+      // { "recipe_book_button@furnace_recipe_book_ui.furnace_recipe_book_button": {} },
+      { "ingredient@furnace_jexp.ingredient_slot": {} },
+      { "arrow@furnace_jexp.full_arrow": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [79, 34],
+          "clip_direction": "left",
+          "bindings": [
+            { "binding_name": "#furnace_arrow_ratio",
+              "binding_name_override": "#clip_ratio",
+              "binding_condition": "always"
+            }
+          ]
+        }
+      },
+      { "fuel@furnace_jexp.fuel_slot": {} },
+      { "flame@furnace_jexp.full_flame": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [56, 36],
+          "clip_direction": "down",
+          "bindings": [
+            { "binding_name": "#furnace_flame_ratio",
+              "binding_name_override": "#clip_ratio",
+              "binding_condition": "always"
+            }
+          ]
+        }
+      },
+      { "output@furnace_jexp.output_slot": {} },
+      { "inventory@container_jexp.player_inventory": {} },
+      { "hotbar@container_jexp.player_hotbar": {} }
+    ]
+  },
+
+  "furnace_bg@screen_jexp.res_txr": {
+    "texture": "('assets/minecraft/textures/gui/container/' + $furnace_type)",
+    "size": [176, 166],
+    "$uv_sz": [176, 166],
+    "variables": [
+      { "requires": "($furnace_res = 512x)", "$uv_sz": [352, 332] },
+      { "requires": "($furnace_res = 1024x)", "$uv_sz": [704, 664] },
+      { "requires": "($furnace_res = 2048x)", "$uv_sz": [1408, 1328] },
+      { "requires": "($furnace_res = 4096x)", "$uv_sz": [2816, 2656] }
+    ]
+  },
+
+  "full_arrow@furnace_jexp.furnace_bg": {
+    "size": [24, 17],
+    "$uv": [176, 14],
+    "$uv_sz": [24, 17],
+    "variables": [
+      { "requires": "($furnace_res = 512x)", "$uv": [352, 28], "$uv_sz": [48, 34] },
+      { "requires": "($furnace_res = 1024x)", "$uv": [704, 56], "$uv_sz": [96, 68] },
+      { "requires": "($furnace_res = 2048x)", "$uv": [1408, 112], "$uv_sz": [192, 136] },
+      { "requires": "($furnace_res = 4096x)", "$uv": [2816, 224], "$uv_sz": [384, 272] }
+    ]
+  },
+
+  "full_flame@furnace_jexp.furnace_bg": {
+    "size": [14, 14],
+    "$uv": [176, 0],
+    "$uv_sz": [14, 14],
+    "variables": [
+      { "requires": "($furnace_res = 512x)", "$uv": [352, 0], "$uv_sz": [28, 28] },
+      { "requires": "($furnace_res = 1024x)", "$uv": [704, 0], "$uv_sz": [56, 56] },
+      { "requires": "($furnace_res = 2048x)", "$uv": [1408, 0], "$uv_sz": [112, 112] },
+      { "requires": "($furnace_res = 4096x)", "$uv": [2816, 0], "$uv_sz": [224, 224] }
+    ]
+  },
+
+  "furnace_slot@container_jexp.slot": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+
+  "ingredient_slot@furnace_jexp.furnace_slot": {
+    "offset": [55, 16],
+    "$item_collt_nm": "furnace_ingredient_items",
+    "$focus_id": "furnace_ingredient_item",
+    "$focus_ovrd_left": "FOCUS_OVERRIDE_STOP",
+    "$focus_ovrd_left_bdg_type": "none",
+    "$focus_ovrd_up": "FOCUS_OVERRIDE_STOP",
+    "$focus_ovrd_up_bdg_type": "none"
+  },
+
+  "fuel_slot@furnace_jexp.furnace_slot": {
+    "offset": [55, 52],
+    "$item_collt_nm": "furnace_fuel_items",
+    "$focus_id": "furnace_fuel_item",
+    "$focus_ovrd_right": "furnace_output_item",
+    "$focus_ovrd_right_bdg_type": "none",
+    "$focus_ovrd_left": "FOCUS_OVERRIDE_STOP",
+    "$focus_ovrd_left_bdg_type": "none"
+  },
+
+  "output_slot@furnace_jexp.furnace_slot": {
+    "offset": [115, 34],
+    "$item_collt_nm": "furnace_output_items",
+    "$focus_id": "furnace_output_item",
+    "$focus_ovrd_right_bdg_type": "none",
+    "$focus_ovrd_right": "FOCUS_OVERRIDE_STOP",
+    "$focus_ovrd_left_bdg_type": "none",
+    "$focus_ovrd_left": "furnace_fuel_item"
+  }
+}

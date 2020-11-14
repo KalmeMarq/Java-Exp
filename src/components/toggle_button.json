@@ -1,0 +1,25 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "toggle_button_jexp",
+
+  "toggle_button": {
+    "type": "panel",
+    "size": [150, 20],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$tgl_text|default": "",
+    "$tgl_group": true,
+    "$tgl_ctrl_nm|default": "this_toggle",
+    "$tgl_cont": "toggle_button_jexp.tgl_btn_label",
+    "controls": [ { "$tgl_ctrl_nm@toggle_jexp.toggle": {} } ]
+  },
+
+  "tgl_btn_label@button_jexp.button_label": {
+    "text": "$tgl_text",
+    "bindings": "$tgl_text_bdgs",
+    "$tgl_text_bdgs|default": []
+  }
+}

@@ -1,0 +1,99 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "mouse_settings_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "text": "controls.title", "offset": ["50% - 50%x", 7.5] } },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "size": ["100%", "100% - 64px"],
+          "$scroll_cont": "dirt@mouse_settings_jexp.scroll_cont"
+        }
+      },
+      { "back@options_jexp.back_tgl_btn": {
+         "offset": ["50% - 100px", "100% - 29px"],
+          "$tgl_nm": "mouse_settings",
+          "$tgl_idx": 0
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "mouse_settings_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "panel",
+    "size": ["100%", "100%cm"],
+    "controls": [
+      { "sensitivity@sensitivity_sldr": { "offset": ["50% - 155px", 4] } },
+      { "vr_sensitivity@vr_sensitivity_sldr": { "offset": ["50% + 5px", 4] } },
+      { "invert_y_axis@invert_y_axis_tgl": { "offset": "$ivrt_y_offset" } },
+      { "full_kbd_gplay@full_kbd_gplay_tgl": { "offset": "$full_kbd_offset" } },
+      { "hide_kbd_tooltips@hide_kbd_tooltips_tgl": { "offset": "$hide_kbd_tools_offset" } }
+    ],
+    "$ivrt_y_offset|default": ["50% + 5px", 4],
+    "$full_kbd_offset|default": ["50% - 155px", 28],
+    "$hide_kbd_tools_offset|default": ["50% + 5px", 28],
+    "variables": {
+      "requires": "$is_holographic",
+      "$ivrt_y_offset": ["50% - 155px", 28],
+      "$full_kbd_offset": ["50% + 5px", 28],
+      "$hide_kbd_tools_offset": ["50% - 155px", 52]
+    }
+  },
+
+  "sensitivity_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#keyboard_mouse_sensitivity_slider_label",
+    "$sldr_nm": "keyboard_mouse_sensitivity",
+    "$sldr_value_bdg_nm": "#keyboard_mouse_sensitivity",
+    "$sldr_tts_text_value": "#keyboard_mouse_sensitivity_text_value",
+    "$opt_enabled_bdg_nm": "#keyboard_mouse_sensitivity_enabled",
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ]
+  },
+
+  "vr_sensitivity_sldr@option_slider_jexp.option_slider": {
+    "ignored": "(not $is_holographic)",
+    "$sldr_text": "#vr_ui_mouse_sensitivity_slider_label",
+    "$sldr_nm": "vr_ui_mouse_sensitivity",
+    "$sldr_value_bdg_nm": "#vr_ui_mouse_sensitivity",
+    "$sldr_tts_text_value": "#vr_ui_mouse_sensitivity_text_value",
+    "$opt_enabled_bdg_nm": "#vr_ui_mouse_sensitivity_enabled",
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ]
+  },
+
+  "invert_y_axis_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.invertYAxis",
+    "$opt_enabled_bdg_nm": "#keyboard_mouse_invert_y_axis_enabled",
+    "$tgl_nm": "keyboard_mouse_invert_y_axis"
+  },
+
+  "full_kbd_gplay_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.fullKeyboardGameplay",
+    "$opt_enabled_bdg_nm": "#keyboard_show_full_keyboard_options_enabled",
+    "$tgl_nm": "keyboard_show_full_keyboard_options"
+  },
+
+  "hide_kbd_tooltips_tgl@option_toggle_jexp.option_toggle": {
+    "ignored": "(not $education_edition)",
+    "$tgl_text": "options.hideKeyboardTooltips",
+    "$opt_enabled_bdg_nm": "#hide_keyboard_tooltips_enabled",
+    "$tgl_nm": "hide_keyboard_tooltips"
+  },
+
+  "toggle_crouch_tgl@option_toggle_jexp.option_toggle": {
+    "ignored": true,
+    "$tgl_text": "options.toggleCrouch",
+    "$opt_enabled_bdg_nm": "#keyboard_mouse_toggle_crouch_enabled",
+    "$tgl_nm": "keyboard_mouse_toggle_crouch"
+  }
+}

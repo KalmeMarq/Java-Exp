@@ -1,0 +1,12 @@
+{
+  "account_transfer_error_screen@screen_jexp.screen": {
+		"button_mappings": [
+		  { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+		  }
+		],
+    "$scrn_cont": "account_transfer_error_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.dirt_background"
+	}
+}

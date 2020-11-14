@@ -1,0 +1,104 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "option_toggle_jexp",
+
+  "option_toggle@screen_jexp.abstract_option": {
+    "$ctrl_ref": "option_toggle_jexp.opt_tgl_ctrl"
+  },
+
+  "opt_tgl_ctrl@toggle_jexp.toggle": {
+    "size": ["100%", "100%"],
+    "$opt_bdg_nm|default": "('#' + $tgl_nm)",
+    "$tgl_state_bdg_nm|default": "$opt_bdg_nm",
+    "$tgl_enabled_bdg_nm|default": "$opt_enabled_bdg_nm",
+    "$tgl_enabled_bdg_type|default": "global",
+    "$binding_type": "global",
+    "$binding_condition": "once",
+    "$enable_directional_toggling": false,
+    "enabled": "$enabled",
+    "layer": 2,
+    "variables": [
+      { "requires": "(not $opt_enabled_bdg_nm or not $enabled)",
+        "$tgl_enabled_bdg_nm": "#not_data_bound",
+        "$tgl_enabled_bdg_type": "none"
+      }
+    ]
+  },
+
+  "tgl_text": {
+    "$show_comma|default": true,
+    "$comma_text|default": ": ",
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", 10],
+    "offset": [1, 0],
+    "variables": {
+      "requires": "($tgl_text = '')",
+      "$show_comma": false
+    },
+    "controls": [
+      { "tgl_label@button_jexp.button_label": {
+          "$tgl_text_bdgs|default": [],
+          "text": "$tgl_text",
+          "bindings": "$tgl_text_bdgs",
+          "visible": "$show_comma"
+        }
+      },
+      { "space": {
+          "type": "label",
+          "text": "$comma_text",
+          "color": "$text_color",
+          "visible": "$show_comma",
+          "shadow": true,
+          "layer": 10
+        }
+      },
+      { "tgl_state@button_jexp.button_label": {
+          "$tgl_state_text_bdgs|default": [],
+          "text": "$tgl_state_text",
+          "bindings": "$tgl_state_text_bdgs",
+          "variables": [
+            { "requires": "($tgl_state = unchecked or $tgl_state = uncheckedhov or $tgl_state = uncheckedlkd)",
+              "$tgl_state_text|default": "$tgl_unchecked_text"
+            },
+            { "requires": "($tgl_state = checked or $tgl_state = checkedhov or $tgl_state = checkedlkd)",
+              "$tgl_state_text|default": "$tgl_checked_text"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "weird_idk_tgl_text": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", 10],
+    "offset": [1, 0],
+    "controls": [
+      { "tgl_label@button_jexp.button_label": {
+          "$tgl_text_bdgs|default": [],
+          "text": "$tgl_text",
+          "bindings": "$tgl_text_bdgs"
+        }
+      },
+      { "space": {
+          "type": "label",
+          "text": ": ",
+          "color": "$text_color",
+          "shadow": true,
+          "layer": 10
+        }
+      },
+      { "tgl_state@button_jexp.button_label": {
+          "$tgl_state_text_bdgs|default": [],
+          "text": "$tgl_state_text",
+          "bindings": "$tgl_state_text_bdgs"
+        }
+      }
+    ]
+  }
+}

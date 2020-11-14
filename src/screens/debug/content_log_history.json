@@ -1,0 +1,112 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "content_log_history_jexp",
+  
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": {
+          "text": "contentlog.history.title",
+          "offset": ["50% - 50%x", 16],
+          "bindings": [
+            { "binding_type": "none",
+              "binding_condition": "none",
+              "binding_name": "contentlog.history.title",
+              "binding_name_override": "contentlog.history.title"
+            },
+            { "binding_type": "global",
+              "binding_condition": "once",
+              "binding_name": "#tts_dialog_title"
+            }
+          ],
+          "property_bag": { "#tts_dialog_title": "contentlog.history.title" }
+        }
+      },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "size": ["100%", "100% - 64px"],
+          "$scroll_bar_offset": ["40% + 2px", 0],
+          "$jump_to_bottom_on_update": true,
+          "$always_handle_scrolling": true,
+          "$scroll_cont": "dirt@content_log_history_jexp.scroll_cont"
+        }
+      },
+      { "clipboard_button@button_jexp.button": {
+          "offset": ["50% - 155px", "100% - 27px"],
+          "size": [150, 20],
+          "enabled": "$supports_clipboard",
+          "$prsd_btn_nm": "button.copy_to_clipboard",
+          "$btn_text": "contentlog.history.copyToClipboard"
+        }
+      },
+      { "exit@button_jexp.button": {
+          "offset": ["50% + 5px", "100% - 27px"],
+          "size": [150, 20],
+          "$prsd_btn_nm": "button.menu_exit",
+          "$btn_text": "gui.cancel"
+        }
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": ["80%", "100%c"],
+    "controls": [
+      { "tspace@screen_jexp.v4px": {} },
+      { "msg@messages_stack_panel": {} },
+      { "bspace@screen_jexp.v2px": {} }
+    ]
+  },
+
+  "messages_stack_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "collection_name": "content_log_message",
+    "size": ["100%", "default"],
+    "factory": {
+      "name": "messages_factory",
+      "control_name": "content_log_message@content_log_history_jexp.content_log_message_panel"
+    },
+    "bindings": [
+      { "binding_name": "#messages_size",
+        "binding_type": "global",
+        "binding_name_override": "#collection_length"
+      }
+    ]
+  },
+
+  "content_log_message_panel": {
+    "type": "panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      { "content_log_message_panel": {
+          "type": "panel",
+          "size": ["100%", "100%c"],
+          "controls": [
+            { "content_log_message": {
+                "type": "label",
+                "color": "$chat_text_color",
+                "localize": false,
+                "size": ["100%", "default"],
+                "text": "#text",
+                "layer": 10,
+                "line_padding": 1,
+                "bindings": [
+                  { "binding_type": "collection",
+                    "binding_name": "#content_log_text",
+                    "binding_name_override": "#text",
+                    "binding_collection_name": "content_log_message"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

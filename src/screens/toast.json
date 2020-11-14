@@ -1,0 +1,190 @@
+/***********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+*************************************/
+{
+  "namespace": "toast_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "clips_children": true,
+    "factory": {
+      "name": "toast_factory",
+      "control_ids": { "popup": "popup@toast_jexp.popup",
+        "splitscreen_join_popup": "splitscreen_join_popup@toast_jexp.splitscreen_join_popup"
+      }
+    },
+    "controls": [
+      { "content_log@content_log_jexp.screen_content": {} },
+      { "perf_turtle_panel@perf_turtle_jexp.screen_content": {} }
+    ]
+  },
+
+  "toast_gray@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/toasts",
+    "size": [160, 32],
+    "$uv_sz": [160, 32],
+    "variables": [
+      { "requires": "($toasts_res = 512x)", "$uv_sz": [320, 64] },
+      { "requires": "($toasts_res = 1024x)","$uv_sz": [640, 128] },
+      { "requires": "($toasts_res = 2048x)", "$uv_sz": [1280, 256] },
+      { "requires": "($toasts_res = 4096x)", "$uv_sz": [2560, 512] }
+    ]
+  },
+
+  "popup@common.input_panel": {
+    "$toast_offset|default": [ 0, 0 ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": [160, 32],
+    "offset": "@toast_jexp.popup_anim_start",
+    "$alpha_anims": [],
+    "controls": [
+      { "background@resources0.toast_gray": {} },
+      { "popup_content": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%", "100%" ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [ 6, 0 ],
+          "layer": 1,
+          "controls": [
+            { "icon_padding": {
+                "layer": 1,
+                "type": "stack_panel",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "size": [ "100%c", "100%" ],
+                "factory": {
+                  "name": "toast_image_factory",
+                  "control_ids": {
+                    "xbox_icon": "@toast_screen.xbox_icon",
+                    "third_party_achievement_icon": "@toast_screen.third_party_achievement_icon",
+                    "third_party_invite_icon": "@toast_screen.third_party_invite_icon",
+                    "icon_resource_pack": "@toast_screen.resource_pack_icon",
+                    "key_art_image": "@toast_screen.key_art_image",
+                    "persona_icon": "@toast_screen.persona_icon"
+                  },
+                  "factory_variables": [ "$hide_xbox_live_icon" ]
+                },
+                "bindings": [
+                  { "binding_type": "global",
+                    "binding_name": "#toast_icon_section_content",
+                    "binding_name_override": "#collection_length"
+                  }
+                ]
+              }
+            },
+            { "text_padding": {
+                "type": "panel",
+                "size": [ 2, "100%" ],
+                "bindings": [
+                  { "binding_name": "#text_padding_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            { "text_panel": {
+                "type": "panel",
+                "size": [ "fill", "100%" ],
+                "controls": [ { "text_stack_panel@toast_jexp.text_stack_panel": {} } ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "text_stack_panel": {
+    "type": "stack_panel",
+    "size": [ "100%", 20 ],
+    "$toast_text_offset|default": [0, 1],
+    "offset": "$toast_text_offset",
+    "controls": [
+      { "title@toast_screen.toast_label": {
+          "text": "#toast_title",
+          "color": "$toast_text_color",
+          "size": ["100% - 10px", "fill"],
+          "layer": 2,
+          "bindings": [ { "binding_name": "#toast_title" } ]
+        }
+      },
+      { "subtitle": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%-10px", "100%cm" ],
+          "controls": [
+            { "icon_padding": {
+                "type": "panel",
+                "size": [9, 7],
+                "bindings": [
+                  { "binding_name": "#is_achievement",
+                    "binding_name_override": "#visible"
+                  }
+                ],
+                "controls": [
+                  { "gamer_score_icon@toast_screen.gamer_score_icon": {
+                      "layer": 1,
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle"
+                    }
+                  }
+                ]
+              }
+            },
+            { "subtext_offset@common.empty_panel": {
+                "size": [ "fill", 10 ],
+                "controls": [
+                  { "subtext@toast_screen.toast_label": {
+                      "size": [ "100%", "100%" ],
+                      "offset": [ 0, -2 ],
+                      "text": "#toast_subtitle",
+                      "$toast_font_type": "normal",
+                      "bindings": [
+                        { "binding_name": "#toast_subtitle" },
+                        {
+                          "binding_name": "#toast_subtitle_visible",
+                          "binding_name_override": "#visible"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "popup_anim_start": {
+    "anim_type": "offset",
+    "easing": "linear",
+    "from": [0, -33],
+    "to": [0, 0],
+    "duration": 0.70,
+    "next": "@toast_jexp.popup_anim_wait"
+  },
+
+  "popup_anim_wait": {
+    "anim_type": "wait",
+    "duration": "$display_time",
+    "next": "@toast_jexp.popup_anim_end"
+  },
+
+  "popup_anim_end": {
+    "anim_type": "offset",
+    "easing": "linear",
+    "to": [0, -33],
+    "from": [0, 0],
+    "duration": 0.70,
+    "destroy_at_end": "popup",
+    "end_event": "toast_end"
+  },
+
+  "splitscreen_join_popup@toast_screen.splitscreen_join_popup": {}
+}

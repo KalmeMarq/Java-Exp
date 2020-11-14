@@ -1,0 +1,21 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "book_jexp_test",
+
+  "prev_tgl_btn@toggle_button_jexp.toggle_button": {
+    "size": [23, 13],
+    "$tgl_index": 1,
+    "$tgl_nm": "change_page",
+    "$tgl_ctrl_nm": ""
+  },
+
+  "next_tgl_btn@toggle_button_jexp.toggle_button": {
+    "size": [23, 13],
+    "$tgl_index": 0,
+    "$tgl_nm": "change_page",
+    "$tgl_ctrl_nm": ""
+  }
+}

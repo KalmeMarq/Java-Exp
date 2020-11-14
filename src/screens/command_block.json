@@ -1,0 +1,350 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "command_block_jexp",
+  
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "text": "advMode.setCommand", "offset": ["50% - 50%x", 20] } },
+      { "console_title@command_block_jexp.base_label": { "text": "advMode.command", "offset": ["50% - 150px", 39] } },
+      { "menu": {
+          "type": "panel",
+          "controls": [
+            { "console@command_block_jexp.command_block_console": { "offset": ["50% - 150px", 50] } },
+            { "plus@command_block_jexp.plus_button": { "offset": ["50% + 154px", 50] } },
+            { "result_title@command_block_jexp.base_label": {
+                "text": "advMode.previousOutput",
+                "offset": ["50% - 150px", 124],
+                "bindings": [
+                  { "binding_name": "#track_output_binding",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            { "result@command_block_jexp.command_result": { "offset": ["50% - 150px", 135] } },
+            { "track_output@command_block_jexp.track_output_toggle": { "offset": ["50% + 150px - 20px", 135] } },
+            { "block_type@command_block_jexp.block_type_iterable": { "offset": ["50% - 50px - 100px - 4px", 165] } },
+            { "condition@command_block_jexp.condition_iterable": { "offset": ["50% - 50px", 165] } },
+            { "redstone_signal@command_block_jexp.redstone_iterable": { "offset": ["50% + 50px + 4px", 165] } }
+          ],
+          "bindings": [
+            { "binding_name": "(not #maximized_input_visible)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "advanced_menu": {
+          "type": "panel",
+          "controls": [
+            { "console@command_block_jexp.maximized_command_block_console": { "offset": ["50% - 150px", 50] } },
+            { "minimize@command_block_jexp.minimze_button": { "offset": ["50% + 154px", 50] } },
+            { "note@command_block_jexp.hover_note": { "offset": ["50% - 150px", 135] } },
+            { "tick_delay@command_block_jexp.tick_delay_text": { "offset": ["50% - 150px", 165] } },
+            { "execute_on_first_tick@command_block_jexp.execute_on_first_tick_toggle": { "offset": ["50% + 4px", 165] } }
+          ],
+          "bindings": [
+            { "binding_name": "#maximized_input_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "done@command_block_jexp.exit_button": {} },
+      { "cancel@command_block_jexp.cancel_button": {} }
+    ]
+  },
+
+  "title_text@screen_jexp.title": {
+    "offset": ["50% - 50%x", 19],
+    "text": "advMode.setCommand"
+  },
+
+  "base_label@screen_jexp.title": { "color": [0.62, 0.62, 0.62] },
+
+  "plus_button@button_jexp.button": {
+    "size": [20, 20],
+    "$btn_text": "gui.plus",
+    "$focus_id": "plus_btn",
+    "$focus_ovrd_left": "console_field",
+    "$prsd_btn_nm": "command_block.input_maximize"
+  },
+
+  "minimze_button@button_jexp.button": {
+    "size": [20, 20],
+    "$btn_text": "gui.minus",
+    "$focus_id": "minus_btn",
+    "$focus_ovrd_left": "max_console_field",
+    "$prsd_btn_nm": "command_block.input_minimize"
+  },
+
+  "command_block_multiline_textbox@text_box_jexp.multiline_text_box": {
+    "$text_color": [0.658, 0.658, 0.658],
+    "$cancel_button_id|default": "button.menu_cancel",
+    "$text_indent_size": ["100% - 6px", "100% - 2px"],
+    "$text_indent_offset": [1, 1],
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.menu_select",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "$cancel_button_id",
+        "handle_select": false,
+        "handle_deselect": true,
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_autocomplete",
+        "to_button_id": "button.chat_autocomplete",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_autocomplete_back",
+        "to_button_id": "button.chat_autocomplete_back",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "global"
+      }
+    ],
+    "enabled_newline": false,
+    "bindings": [
+      { "binding_name": "#maximized_input_visible",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "command_block_textbox@text_box_jexp.text_box": {
+    "$text_color": [0.658, 0.658, 0.658],
+    "$text_indent_offset": [2, 0],
+    "$cancel_button_id|default": "button.menu_cancel",
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.menu_select",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "$cancel_button_id",
+        "handle_select": false,
+        "handle_deselect": true,
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_autocomplete",
+        "to_button_id": "button.chat_autocomplete",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_autocomplete_back",
+        "to_button_id": "button.chat_autocomplete_back",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "global"
+      }
+    ],
+    "bindings": [
+      { "binding_name": "(not #maximized_input_visible)",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "command_block_console@command_block_jexp.command_block_textbox": {
+    "$focus_id": "console_field",
+    "$focus_change_right": "plus_btn",
+    "size": [300, 20],
+    "max_length": 32500,
+    "$text_box_name": "command_block.command_text",
+    "$text_edit_box_cont_bdg_nm": "#command_text_edit"
+  },
+
+  "maximized_command_block_console@command_block_jexp.command_block_multiline_textbox": {
+    "size": [300, 78],
+    "max_length": 32500,
+    "$focus_id": "max_console_field",
+    "$focus_change_right": "minus_btn",
+    "$focus_change_down": "hover_note_text",
+    "$text_box_name": "command_block.command_text",
+    "$text_edit_box_cont_bdg_nm": "#command_text_edit",
+    "$cancel_button_id": "command_block.input_minimize"
+  },
+
+  "command_result@text_box_jexp.text_box": {
+    "size": [276, 20],
+    "focus_enabled": false,
+    "$text_color": [0.658, 0.658, 0.658],
+    "$text_box_name": "command_block.output_text",
+    "max_length": 32500,
+    "$text_indent_offset": [2, 0],
+    "$text_edit_box_cont_bdg_nm": "#command_output_text",
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "handle_select": false,
+        "handle_deselect": false,
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.menu_ok",
+        "handle_select": false,
+        "handle_deselect": false,
+        "mapping_type": "focused"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_cancel",
+        "handle_select": false,
+        "handle_deselect": false,
+        "mapping_type": "global"
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#track_output_binding",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "track_output_toggle@option_toggle_jexp.option_toggle": {
+    "$tgl_checked_text": "X",
+    "$tgl_unchecked_text": "O",
+    "size": [20, 20],
+    "$tgl_text": "",
+    "$focus_id": "track_output_toggle",
+    "$opt_bdg_nm": "#track_output_binding",
+    "$opt_enabled_bdg_nm": "#close_button_visible_binding_name",
+    "$tgl_nm": "track_output"
+  },
+
+  "block_type_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
+    "size": [100, 20],
+    "$opt_enabled_bdg_nm": "#block_type_dropdown_enabled",
+    "$tgls": [
+      { "redstone@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "advMode.mode.redstone",
+          "$this_action": "#command_impulse_mode",
+          "$next_action": "#command_repeat_mode"
+        }
+      },
+      { "auto@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "advMode.mode.auto",
+          "$this_action": "#command_repeat_mode",
+          "$next_action": "#command_chain_mode"
+        }
+      },
+      { "chain@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "advMode.mode.sequence",
+          "$this_action": "#command_chain_mode",
+          "$next_action": "#command_impulse_mode"
+        }
+      }
+    ]
+  },
+  
+  "condition_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
+    "size": [100, 20],
+    "offset": ["50% - 50px", 165],
+    "$opt_enabled_bdg_nm": "#condition_dropdown_enabled",
+    "$tgls": [
+      { "cond@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "advMode.mode.conditional",
+          "$this_action": "#command_conditional_mode",
+          "$next_action": "#command_unconditional_mode"
+        }
+      },
+      { "uncond@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "advMode.mode.unconditional",
+          "$this_action": "#command_unconditional_mode",
+          "$next_action": "#command_conditional_mode"
+        }
+      }
+    ]
+  },
+
+  "redstone_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
+    "size": [100, 20],
+    "offset": ["50% + 50px + 4px", 165],
+    "$opt_enabled_bdg_nm": "#redstone_dropdown_enabled",
+    "$tgls": [
+      { "always_on@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "advMode.mode.redstoneTriggered",
+          "$this_action": "#command_needs_redstone_mode",
+          "$next_action": "#command_always_on_mode"
+        }
+      },
+      { "needs_red@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "advMode.mode.autoexec.bat",
+          "$this_action": "#command_always_on_mode",
+          "$next_action": "#command_needs_redstone_mode"
+        }
+      }
+    ]
+  },
+
+  "hover_note@text_box_jexp.text_box": {
+    "size": [300, 20],
+    "$focus_id": "hover_note_text",
+    "$text_indent_offset": [2, 0],
+    "$text_color": [0.658, 0.658, 0.658],
+    "max_length": 15,
+    "$text_box_name": "command_block.hover_note_textbox",
+    "$text_edit_box_cont_bdg_nm": "#command_hover_note",
+    "$phr_text": "commandBlockScreen.hoverNote"
+  },
+
+  "tick_delay_text@text_box_jexp.text_box": {
+    "size": [150, 20],
+    "$text_color": [0.658, 0.658, 0.658],
+    "$focus_id": "tick_delay_text",
+    "max_length": 5,
+    "$text_box_text_type": "NumberChars",
+    "$text_box_name": "command_block.tick_delay_textbox",
+    "$text_edit_box_cont_bdg_nm": "#command_tick_delay"
+  },
+
+  "execute_on_first_tick_toggle@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "advMode.execOnFirstTick",
+    "$opt_enabled_bdg_nm": "#execute_on_first_tick_enabled",
+    "$tgl_nm": "execute_on_first_tick",
+    "$tgl_bdg_cond": "visible"
+  },
+
+  "exit_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.menu_exit",
+    "size": [150, 20],
+    "$btn_text": "gui.done",
+    "offset": ["50% - 4px - 150px", "25% + 120px + 12px"]
+  },
+
+  "cancel_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.menu_leave_screen",
+    "size": [150, 20],
+    "$btn_text": "gui.cancel",
+    "offset": ["50% + 4px", "25% + 120px + 12px"],
+    "bindings": [
+      { "binding_name": "#close_button_visible_binding_name",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  }
+}

@@ -1,0 +1,118 @@
+/***********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+*************************************/
+{
+  "namespace": "mob_effects_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "size": [310, "100% - 40px - 96px"],
+          "offset": ["50% - 150px", 32],
+          "$scrollbar_offset": [120, 0],
+          "$scroll_cont": "scroll@mob_effects_jexp.mob_effect_grid_panel",
+          "$always_handle_scrolling": true
+        }
+      },
+      { "exit@button_jexp.button": {
+          "$btn_text": "gui.done",
+          "$prsd_btn_nm": "button.menu_continue",
+          "offset": ["50% - 100px", "100% - 116px"]
+        }
+      }
+    ]
+  },
+
+  "mob_effect_grid_panel": {
+    "type": "panel",
+    "size": [310, "100%c"],
+    "controls": [ { "mob_effect_grid@mob_effects_jexp.mob_effect_grid": {} } ]
+  },
+
+  "mob_effect_grid": {
+    "type": "grid",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": [310, "default"],
+    "grid_item_template": "mob_effects_jexp.mob_effect_grid_item",
+    "grid_dimension_binding": "#mob_effect_grid_size",
+    "collection_name": "mob_effects_collection",
+    "bindings": [ { "binding_name": "#mob_effect_grid_size" } ]
+  },
+
+  "mob_effect_grid_item": {
+    "type": "panel",
+    "size": [310, 31],
+    "controls": [
+      { "inner_content": {
+          "type": "panel",
+          "size": [120, 32],
+          "controls": [
+            { "bg@mob_effects_jexp.effect_gray_background": {} },
+            { "name@mob_effects_jexp.effect_name": { "layer": 1 } },
+            { "timer@mob_effects_jexp.effect_timer": { "layer": 1 } },
+            { "icon@mob_effects_jexp.effect_icon": { "layer": 1 } }
+          ]
+        }
+      }
+    ]
+  },
+
+  "effect_gray_background@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/inventory",
+    "size": [120, 32],
+    "$uv": [0, 166],
+    "$uv_sz": [120, 32],
+    "variables": [
+      { "requires": "($inventory_res = 512x)", "$uv": [0, 332], "$uv_sz": [240, 64] },
+      { "requires": "($inventory_res = 1024x)", "$uv": [0, 664], "$uv_sz": [480, 128] },
+      { "requires": "($inventory_res = 2048x)", "$uv": [0, 1328], "$uv_sz": [960, 256] },
+      { "requires": "($inventory_res = 4096x)", "$uv": [0, 2652], "$uv_sz": [1920, 512] }
+    ]
+  },
+
+  "base_label": {
+    "type": "label",
+    "text_alignment": "left",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "text": "$text_bdg_nm",
+    "bindings": [
+      { "binding_type": "collection",
+        "binding_name": "$text_bdg_nm",
+        "binding_collection_name": "mob_effects_collection",
+        "binding_condition": "always_when_visible"
+      }
+    ]
+  },
+
+  "effect_name@base_label": {
+    "shadow": true,
+    "offset": [28, 6],
+    "$text_bdg_nm": "#mob_effect_name"
+  },
+
+  "effect_timer@base_label": {
+    "offset": [28, 16],
+    "$text_bdg_nm": "#mob_effect_timer",
+    "color": "$dark_button_secondary_default_text_color"   
+  },
+
+  "effect_icon": {
+    "type": "image",
+    "size": [18, 18],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [6, 7],
+    "texture": "#texture",
+    "bindings": [
+      { "binding_type": "collection",
+        "binding_name": "#texture",
+        "binding_collection_name": "mob_effects_collection",
+        "binding_condition": "visible"
+      }
+    ]
+  }
+}

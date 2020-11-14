@@ -1,0 +1,656 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "debug_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "popup_dialog_factory@screen_jexp.popup_dialog_factory": {} },
+      { "title@screen_jexp.title": { "text": "options.debug", "offset": ["50% - 50%x", 15] } },
+      { "debug_settings_scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "size": ["100%", "100% - 95px"],
+          "$scroll_cont": "dirt@debug_jexp.scroll_cont"
+        }
+      },
+      { "back@options_jexp.back_tgl_btn": { "offset": ["50% + 5px", "100% - 29px"], "size": [150, 20] } }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "debug_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "stack_item": {
+    "type": "panel",
+    "size": [310, 24],
+    "controls": [ { "@screen_jexp.stack_item": {} } ]
+  },
+
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": ["310px", "100%c"],
+    "controls": [
+      { "stack0@stack_item": {
+          "$lt": "debug_jexp.enable_debug_ui_tgl",
+          "$rt": "debug_jexp.default_font_overrides_tgl"
+        }
+      },
+      { "stack0@stack_item": {
+          "$lt": "debug_jexp.render_bounding_box_tgl",
+          "$rt": "debug_jexp.dev_find_mobs_tgl"
+        }
+      },
+      { "stack1@stack_item": {
+          "$lt": "debug_jexp.dev_render_attach_pos_sldr",
+          "$rt": "debug_jexp.dev_render_paths_tgl"
+        }
+      },
+      { "stack2@stack_item": {
+          "$lt": "debug_jexp.dev_render_goal_state_tgl",
+          "$rt": "debug_jexp.dev_reset_client_id_tgl"
+        }
+      },
+      { "stack3@stack_item": {
+          "$lt": "debug_jexp.dev_show_chunk_map_tgl",
+          "$rt": "debug_jexp.dev_render_mob_info_state_tgl"
+        }
+      },
+      { "stack4@stack_item": {
+          "$lt": "debug_jexp.dev_show_server_chunk_map_tgl",
+          "$rt": "debug_jexp.dev_disable_render_terrain_tgl"
+        }
+      },
+      { "stack5@stack_item": {
+          "$lt": "debug_jexp.dev_disable_render_entities_tgl",
+          "$rt": "debug_jexp.dev_disable_render_blockentities_tgl"
+        }
+      },
+      { "stack6@stack_item": {
+          "$lt": "debug_jexp.dev_disable_render_particles_tgl",
+          "$rt": "debug_jexp.dev_disable_render_sky_tgl"
+        }
+      },
+      { "stack7@stack_item": {
+          "$lt": "debug_jexp.dev_disable_render_weather_tgl",
+          "$rt": "debug_jexp.dev_disable_render_hud_tgl"
+        }
+      },
+      { "stack8@stack_item": {
+          "$lt": "debug_jexp.dev_disable_render_item_in_hand_tgl",
+          "$rt": "debug_jexp.dev_show_build_info_tgl"
+        }
+      },
+      /* { "stack9@stack_item": {
+          "$lt": "debug_jexp.dev_disable_render_item_in_hand_tgl",
+          "$rt": "debug_jexp.0000000000"
+        }
+      }, */
+      { "stack10@stack_item": {
+          "$lt": "debug_jexp.dev_assertions_debug_break_tgl",
+          "$rt": "debug_jexp.dev_assertions_show_dialog_tgl"
+        }
+      },
+      { "stack11@stack_item": {
+          "$lt": "debug_jexp.perf_turtle_tgl",
+          "$rt": "debug_jexp.dev_show_dev_console_button_tgl"
+        }
+      },
+      { "stack12@stack_item": {
+          "ignored": "(not $education_edition)",
+          "$lt": "debug_jexp.dev_edu_demo_tgl",
+          "$rt": "debug_jexp.ad_token_refresh_threshold"
+        }
+      },
+      { "stack13@stack_item": {
+          "$lt": "debug_jexp.option_toggle_ad_debug_panel",
+          "$rt": "debug_jexp.dev_game_tip_tgl"
+        }
+      },
+      { "stack14@stack_item": {
+          "$lt": "debug_jexp.dev_enable_mixer_interactive_tgl",
+          "$rt": "debug_jexp.dev_show_tcui_replacement_tgl"
+        }
+      },
+      { "stack15@stack_item": {
+          "$lt": "debug_jexp.dev_enable_profiler_tgl",
+          "$rt": "debug_jexp.dev_newParticleSystem_tgl"
+        }
+      },
+      { "stack16@stack_item": {
+          "$lt": "debug_jexp.dev_achievements_always_enabled_tgl",
+          "$rt": "debug_jexp.dev_use_ipv6_only_tgl"
+        }
+      },
+      { "stack17@stack_item": {
+          "$lt": "debug_jexp.dev_disable_client_blob_cache_tgl",
+          "$rt": "debug_jexp.dev_force_client_blob_cache_tgl"
+        }
+      },
+      { "stack18@stack_item": {
+          "$lt": "debug_jexp.dev_connection_quality_iterable_tgl"
+        }
+      },
+      { "stack19@stack_item": {
+          "$lt": "debug_jexp.dev_debug_hud_iterable_tgl",
+          "$rt": "debug_jexp.dev_show_latency_graph_tgl"
+        }
+      },
+      { "stack20@stack_item": {
+          "enabled": "(not $is_publish)",
+          "$lt": "debug_jexp.display_override_xbox_sandbox_toggle_windows",
+          "$rt": "debug_jexp.display_override_xbox_sandbox_tgl"
+        }
+      },
+      { "stack21@stack_item": {
+          "ignored": "$is_publish",
+          "$lt": "debug_jexp.dev_xbox_environment_iterable_tgl",
+          "bindings": [
+            { "binding_name": "#override_xbox_sandbox_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  /* Enable when the debug UI option is added */
+  "enable_debug_ui_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_enableDebugUI",
+    "$opt_enabled_bdg_nm": "#dev_enable_debug_ui_enabled",
+    "$tgl_nm": "dev_enable_debug_ui"
+  },
+
+  "default_font_overrides_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_toggle_default_font_overrides",
+    "$tgl_nm": "dev_toggle_default_font_overrides",
+    "bindings": [
+      { "binding_name": "#dev_toggle_default_font_overrides_visible",
+        "binding_condition": "always",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "render_bounding_box_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_renderBoundingBox",
+    "$opt_enabled_bdg_nm": "#dev_render_bounding_box_enabled",
+    "$tgl_nm": "dev_render_bounding_box"
+  },
+
+  /* "dev_debug_hud_iterable_tgl@iterable_toggle.iterable_tgl_panel": {
+    "$tgl_text": "options.dev_enableDebugHudOverlay",
+    "$opt_enabled_bdg_nm": "#dev_debug_hud_dropdown_enabled",
+    "$tgls": [
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_off",
+          "$next_action": "#debug_hud_radio_basic",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.off"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_basic",
+          "$next_action": "#debug_hud_radio_imgui",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.basic"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_imgui",
+          "$next_action": "#debug_hud_radio_workerthreads",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.imgui"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_workerthreads",
+          "$next_action": "#debug_hud_radio_renderchunks",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.workerthreads"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_renderchunks",
+          "$next_action": "#debug_hud_radio_profiler",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.renderchunks"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_profiler",
+          "$next_action": "#debug_hud_radio_debugblocks",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.profiler"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_debugblocks",
+          "$next_action": "#debug_hud_radio_texturememory",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.debugBlocks"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_texturememory",
+          "$next_action": "#debug_hud_radio_imagememory",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.texturememory"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_imagememory",
+          "$next_action": "#debug_hud_radio_perimagememory",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.imagememory"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_perimagememory",
+          "$next_action": "#debug_hud_radio_buffer_memory",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.perimagememory"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_buffer_memory",
+          "$next_action": "#debug_hud_radio_camera",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.buffermemory"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_camera",
+          "$next_action": "#debug_hud_radio_audio",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.camera"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_audio",
+          "$next_action": "#debug_hud_radio_client_network",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.audio"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_client_network",
+          "$next_action": "#debug_hud_radio_server_network",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.client_network"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_server_network",
+          "$next_action": "#debug_hud_radio_lock_contention",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.server_network"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_lock_contention",
+          "$next_action": "#debug_hud_radio_hbui",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.lock_contention"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#debug_hud_radio_hbui",
+          "$next_action": "#debug_hud_radio_off",
+          "$tgl_text": "options.dev_enableDebugHudOverlay.hbui"
+        }
+      }
+    ]
+  }, */
+
+  "dev_find_mobs_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "find mobs",
+    "$opt_enabled_bdg_nm": "#dev_find_mobs_enabled",
+    "$tgl_nm": "dev_find_mobs"
+  },
+
+  "dev_render_attach_pos_sldr@option_slider_jexp.option_slider": {
+    "$sldr_text": "#dev_render_attach_pos_slider_label",
+    "$sldr_nm": "dev_render_attach_pos",
+    "$sldr_value_bdg_nm": "#dev_render_attach_pos",
+    "$sldr_tts_text_value": "#dev_render_attach_pos_text_value",
+    "$opt_enabled_bdg_nm": "#dev_render_attach_pos_enabled",
+    "$sldr_steps_bdg_nm": "#dev_render_attach_pos_steps",
+    "$sldr_text_bindings": [ { "binding_name": "$sldr_text" } ]
+  },
+
+  "dev_render_paths_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_renderPaths",
+    "$opt_enabled_bdg_nm": "#dev_render_paths_enabled",
+    "$tgl_nm": "dev_render_paths"
+  },
+
+  "dev_render_goal_state_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_renderGoalState",
+    "$opt_enabled_bdg_nm": "#dev_render_goal_state_enabled",
+    "$tgl_nm": "dev_render_goal_state"
+  },
+
+  "dev_reset_client_id_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_resetClientId",
+    "$opt_enabled_bdg_nm": "#dev_reset_client_id_enabled",
+    "$tgl_nm": "dev_reset_client_id"
+  },
+
+  "dev_show_chunk_map_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_showChunkMap",
+    "$opt_enabled_bdg_nm": "#dev_show_chunk_map_enabled",
+    "$tgl_nm": "dev_show_chunk_map"
+  },
+
+  "dev_render_mob_info_state_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_renderMobInfoState",
+    "$opt_enabled_bdg_nm": "#dev_render_mob_info_state_enabled",
+    "$tgl_nm": "dev_render_mob_info_state"
+  },
+
+  "dev_show_server_chunk_map_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_showServerChunkMap",
+    "$opt_enabled_bdg_nm": "#dev_show_server_chunk_map_enabled",
+    "$tgl_nm": "dev_show_server_chunk_map"
+  },
+
+  "dev_disable_render_terrain_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_disableRenderTerrain",
+    "$opt_enabled_bdg_nm": "#dev_disable_render_terrain_enabled",
+    "$tgl_nm": "dev_disable_render_terrain"
+  },
+
+  "dev_disable_render_entities_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_disableRenderEntities",
+    "$opt_enabled_bdg_nm": "#dev_disable_render_entities_enabled",
+    "$tgl_nm": "dev_disable_render_entities"
+  },
+
+  "dev_disable_render_blockentities_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_disableRenderBlockEntities",
+    "$opt_enabled_bdg_nm": "#dev_disable_render_blockentities_enabled",
+    "$tgl_nm": "dev_disable_render_blockentities"
+  },
+
+  "dev_disable_render_particles_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_disableRenderParticles",
+    "$opt_enabled_bdg_nm": "#dev_disable_render_particles_enabled",
+    "$tgl_nm": "dev_disable_render_particles"
+  },
+
+  "dev_disable_render_sky_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_disableRenderSky",
+    "$opt_enabled_bdg_nm": "#dev_disable_render_sky_enabled",
+    "$tgl_nm": "dev_disable_render_sky"
+  },
+
+  "dev_disable_render_weather_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_disableRenderWeather",
+    "$opt_enabled_bdg_nm": "#dev_disable_render_weather_enabled",
+    "$tgl_nm": "dev_disable_render_weather"
+  },
+
+  "dev_disable_render_hud_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_disableRenderHud",
+    "$opt_enabled_bdg_nm": "#dev_disable_render_hud_enabled",
+    "$tgl_nm": "dev_disable_render_hud"
+  },
+
+  "dev_disable_render_item_in_hand_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_disableRenderItemInHand",
+    "$opt_enabled_bdg_nm": "#dev_disable_render_item_in_hand_enabled",
+    "$tgl_nm": "dev_disable_render_item_in_hand"
+  },
+
+  "dev_show_build_info_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_showBuildInfo",
+    "$opt_enabled_bdg_nm": "#dev_show_build_info_enabled",
+    "$tgl_nm": "dev_show_build_info"
+  },
+
+  "dev_assertions_debug_break_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_assertions_debug_break",
+    "$opt_enabled_bdg_nm": "#dev_assertions_debug_break_enabled",
+    "$tgl_nm": "dev_assertions_debug_break"
+  },
+
+  "dev_assertions_show_dialog_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_assertions_show_dialog",
+    "$opt_enabled_bdg_nm": "#dev_assertions_show_dialog_enabled",
+    "$tgl_nm": "dev_assertions_show_dialog"
+  },
+
+  "perf_turtle_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.perf_turtle",
+    "$opt_enabled_bdg_nm": "#perf_turtle_enabled",
+    "$tgl_nm": "perf_turtle"
+  },
+
+  "dev_show_dev_console_button_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_showDevConsoleButton",
+    "$opt_enabled_bdg_nm": "#dev_show_dev_console_button_enabled",
+    "$tgl_nm": "dev_show_dev_console_button"
+  },
+
+  "dev_edu_demo_tgl@option_toggle_jexp.option_toggle": {
+    "ignored": "(not $education_edition)",
+    "$tgl_text": "options.dev_eduDemo",
+    "$opt_enabled_bdg_nm": "#dev_edu_demo_enabled",
+    "$tgl_nm": "dev_edu_demo"
+  },
+
+  "option_toggle_ad_debug_panel@option_toggle_jexp.option_toggle": {
+    "enabled": "$education_edition",
+    "$tgl_text": "options.dev_ad_show_debug_panel",
+    "$opt_enabled_bdg_nm": "#show_ad_debug_panel_button_enabled",
+    "$tgl_nm": "show_ad_debug_panel_button"
+  },
+
+  "ad_token_refresh_threshold@option_slider_jexp.option_slider": {
+    "ignored": "(not $education_edition)",
+    "$sldr_text": "#ad_token_refresh_threshold_slider_label",
+    "$sldr_nm": "ad_token_refresh_threshold",
+    "$sldr_value_bdg_nm": "#ad_token_refresh_threshold",
+    "$sldr_tts_text_value": "#ad_token_refresh_threshold_text_value",
+    "$opt_enabled_bdg_nm": "#ad_token_refresh_threshold_enabled",
+    "$sldr_steps_bdg_nm": "#ad_token_refresh_threshold_steps",
+    "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ]
+  },
+
+  "dev_game_tip_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_game_tip",
+    "enabled": "($is_pregame)",
+    "$opt_enabled_bdg_nm": "#dev_game_tip_enabled",
+    "$tgl_nm": "dev_game_tip"
+  },
+
+  "dev_enable_mixer_interactive_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_enableMixerInteractive",
+    "$opt_enabled_bdg_nm": "#dev_enable_mixer_interactive_enabled",
+    "$tgl_nm": "dev_enable_mixer_interactive"
+  },
+
+  "dev_show_tcui_replacement_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_show_tcui_replacement",
+    "$opt_enabled_bdg_nm": "#dev_show_tcui_replacement_enabled",
+    "$tgl_nm": "dev_show_tcui_replacement"
+  },
+
+  "dev_enable_profiler_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_enableProfiler",
+    "$opt_enabled_bdg_nm": "#dev_enable_profiler_enabled",
+    "$tgl_nm": "dev_enable_profiler"
+  },
+
+  "dev_newParticleSystem_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_newParticleSystem",
+    "$opt_enabled_bdg_nm": "#dev_newParticleSystem_enabled",
+    "$tgl_nm": "dev_newParticleSystem"
+  },
+
+  "dev_achievements_always_enabled_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_achievementsAlwaysEnabled",
+    "$opt_enabled_bdg_nm": "#dev_achievements_always_enabled_enabled",
+    "$tgl_nm": "dev_achievements_always_enabled"
+  },
+
+  "dev_use_ipv6_only_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_useIPv6Only",
+    "$opt_enabled_bdg_nm": "#dev_use_ipv6_only_enabled",
+    "$tgl_nm": "dev_use_ipv6_only"
+  },
+
+  "dev_disable_client_blob_cache_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_disable_client_blob_cache",
+    "$opt_enabled_bdg_nm": "#dev_disable_client_blob_cache_enabled",
+    "$tgl_nm": "dev_disable_client_blob_cache"
+  },
+
+  "dev_force_client_blob_cache_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_force_client_blob_cache",
+    "$opt_enabled_bdg_nm": "#dev_force_client_blob_cache_enabled",
+    "$tgl_nm": "dev_force_client_blob_cache"
+  },
+
+  "dev_connection_quality_iterable_tgl@iterable_toggle.iterable_tgl_panel": {
+    "size": [310, 20],
+    "$tgl_type_text": "options.dev_connection_quality",
+    "$opt_enabled_bdg_nm": "#dev_connection_quality_enabled",
+    "$tgls": [
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#dev_connection_off",
+          "$next_action": "#dev_connection_nolimit",
+          "$tgl_text": "options.dev_connection_off",
+          "variables": {
+            "requires": "$is_publish",
+            "$tgl_text": "-"
+          }
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#dev_connection_nolimit",
+          "$next_action": "#dev_connection_4g",
+          "$tgl_text": "options.dev_connection_nolimit",
+          "variables": {
+            "requires": "$is_publish",
+            "$tgl_text": "-"
+          }
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#dev_connection_4g",
+          "$next_action": "#dev_connection_3g",
+          "$tgl_text": "options.dev_connection_4g",
+          "variables": {
+            "requires": "$is_publish",
+            "$tgl_text": "-"
+          }
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#dev_connection_3g",
+          "$next_action": "#dev_connection_slow",
+          "$tgl_text": "options.dev_connection_3g",
+          "variables": {
+            "requires": "$is_publish",
+            "$tgl_text": "-"
+          }
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#dev_connection_slow",
+          "$next_action": "#dev_connection_veryslow",
+          "$tgl_text": "options.dev_connection_slow",
+          "variables": {
+            "requires": "$is_publish",
+            "$tgl_text": "-"
+          }
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#dev_connection_veryslow",
+          "$next_action": "#dev_connection_off",
+          "$tgl_text": "options.dev_connection_veryslow",
+          "variables": {
+            "requires": "$is_publish",
+            "$tgl_text": "-"
+          }
+        }
+      }
+    ]
+  },
+
+  "dev_show_latency_graph_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_show_latency_graph",
+    "$opt_enabled_bdg_nm": "#dev_show_latency_graph_enabled",
+    "$tgl_nm": "dev_show_latency_graph"
+  },
+
+  /* #region Xbox Sandbox */
+  "display_override_xbox_sandbox_toggle_windows@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_overrideXboxEnvironmentWindows",
+    "$opt_enabled_bdg_nm": "#dev_override_xbox_sandbox_enabled",
+    "$tgl_nm": "dev_override_xbox_sandbox",
+    "bindings": [
+      { "binding_name": "#override_xbox_sandbox_on_windows",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "display_override_xbox_sandbox_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.dev_overrideXboxEnvironment",
+    "$opt_enabled_bdg_nm": "#dev_override_xbox_sandbox_enabled",
+    "$tgl_nm": "dev_override_xbox_sandbox",
+    "bindings": [
+      {
+        "binding_name": "(not #override_xbox_sandbox_on_windows)",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "dev_xbox_environment_iterable_tgl@iterable_toggle.iterable_tgl_panel": {
+    "size": [310, 20],
+    "$tgl_text": "options.dev_xboxEnvironment",
+    "$opt_enabled_bdg_nm": "#dev_xbox_environment_dropdown_enabled",
+    "$tgls": [
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#dev_xbox_environment_radio_retail",
+          "$this_next": "#dev_xbox_environment_radio_dev",
+          "$tgl_text": "options.dev_xbox_environment.retail"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#dev_xbox_environment_radio_dev",
+          "$this_next": "#dev_xbox_environment_radio_dev_achievement",
+          "$tgl_text": "options.dev_xbox_environment.dev"
+        }
+      },
+      {
+        "@iterable_toggle.iterable_tgl": {
+          "$this_action": "#dev_xbox_environment_radio_dev_achievement",
+          "$this_next": "#dev_xbox_environment_radio_retail",
+          "$tgl_text": "options.dev_xbox_environment.dev_achievement"
+        }
+      }
+    ]
+  }
+}

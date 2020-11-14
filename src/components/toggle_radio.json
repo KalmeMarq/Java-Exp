@@ -1,0 +1,45 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "radio_toggle_jexp",
+
+  "radio_toggle@screen_jexp.abstract_option": {
+    "size": [270, 18],
+    "$ctrl_ref": "radio_toggle_jexp.radio_tgl_ctrl",
+    "$checked_tgl_bg": "radio_toggle_jexp.box_default",
+    "$unchecked_tgl_bg": "screen_jexp.empty_panel",
+    "$checkedhov_tgl_bg": "radio_toggle_jexp.box_hover",
+    "$uncheckedhov_tgl_bg": "radio_toggle_jexp.box_hover",
+    "$checkedlkd_tgl_bg": "radio_toggle_jexp.box_default",
+    "$uncheckedlkd_tgl_bg": "screen_jexp.empty_panel",
+    "$text_offset": [0, -2]
+  },
+
+  "radio_tgl_ctrl@toggle_jexp.toggle": {
+    "size": ["100%", "100%"],
+    "$tgl_group": true,
+    "$tgl_cont": "toggle_jexp.tgl_label",
+    "$tgl_nm|default": "$tgl_state_bdg_nm",
+    "$tgl_enabled_bdg_nm": "$opt_enabled_bdg_nm",
+    "enabled": "$enabled",
+    "$tgl_enabled_bdg_type": "global",
+    "variables": [
+      { "requires": "(not $opt_enabled_bdg_nm or not $enabled)",
+        "$tgl_enabled_bdg_nm": "#not_data_bound",
+        "$tgl_enabled_bdg_type": "none"
+      }
+    ]
+  },
+  
+  "box_default": {
+    "type": "image",
+    "texture": "src/assets/box"
+  },
+
+  "box_hover": {
+    "type": "image",
+    "texture": "src/assets/box_hover"
+  }
+}

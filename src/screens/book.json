@@ -1,0 +1,382 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "book_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "signing_cont@book_jexp.signing_content": {} },
+      { "book_and_buttons_panel@book_jexp.book_and_buttons_panel": {} },
+      { "pick_panel@book.pick_panel": {
+          "bindings": [
+            { "binding_name": "#picking",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "export_progress@progress.modal_progress_panel_no_cancel": {
+          "$modal_screen_size": [204, 140],
+          "bindings": [ { "binding_name": "#exporting", "binding_name_override": "#visible" } ]
+        }
+      },
+      { "gamepad_helper_a@common.gamepad_helper_a": { "anchor_from": "bottom_left", "anchor_to": "bottom_left" } },
+      { "gamepad_helper_b@common.gamepad_helper_b": { "anchor_from": "bottom_right", "anchor_to": "bottom_right" } }
+    ]
+  },
+
+  "book_bg@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/book",
+    "size": [146, 180],
+    "$uv": [20, 1],
+    "$uv_sz": [146, 180],
+    "variables": [
+      { "requires": "($book_res = 512x)", "$uv": [40, 2], "$uv_sz": [292, 360] },
+      { "requires": "($book_res = 1024x)", "$uv": [80, 4], "$uv_sz": [584, 720] },
+      { "requires": "($book_res = 2048x)", "$uv": [160, 8], "$uv_sz": [1168, 1440] },
+      { "requires": "($book_res = 4096x)", "$uv": [320, 16], "$uv_sz": [2336, 2880] }
+    ]
+  },
+
+  "prev_button_default@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/book",
+    "size": [18, 10],
+    "$uv": [3, 207],
+    "$uv_sz": [18, 10],
+    "variables": [
+      { "requires": "($book_res = 512x)", "$uv": [6, 414], "$uv_sz": [36, 20] },
+      { "requires": "($book_res = 1024x)", "$uv": [12, 828], "$uv_sz": [72, 40] },
+      { "requires": "($book_res = 2048x)", "$uv": [24, 1656], "$uv_sz": [144, 80] },
+      { "requires": "($book_res = 4096x)", "$uv": [48, 3312], "$uv_sz": [288, 160] }
+    ]
+  },
+
+  "prev_button_hover@book_jexp.prev_button_default": {
+    "$uv": [26, 207],
+    "variables": [
+      { "requires": "($book_res = 512x)", "$uv": [52, 414], "$uv_sz": [36, 20] },
+      { "requires": "($book_res = 1024x)", "$uv": [104, 828], "$uv_sz": [72, 40] },
+      { "requires": "($book_res = 2048x)", "$uv": [208, 1656], "$uv_sz": [144, 80] },
+      { "requires": "($book_res = 4096x)", "$uv": [416, 3312], "$uv_sz": [288, 160] }
+    ]
+  },
+
+  "next_button_default@book_jexp.prev_button_default": {
+    "$uv": [3, 194],
+    "variables": [
+      { "requires": "($book_res = 512x)", "$uv": [6, 388], "$uv_sz": [36, 20] },
+      { "requires": "($book_res = 1024x)", "$uv": [12, 776], "$uv_sz": [72, 40] },
+      { "requires": "($book_res = 2048x)", "$uv": [24, 1552], "$uv_sz": [144, 80] },
+      { "requires": "($book_res = 4096x)", "$uv": [48, 3104], "$uv_sz": [288, 160] }
+    ]
+  },
+
+  "next_button_hover@book_jexp.prev_button_default": {
+    "$uv": [26, 194],
+    "variables": [
+      { "requires": "($book_res = 512x)", "$uv": [52, 388], "$uv_sz": [36, 20] },
+      { "requires": "($book_res = 1024x)", "$uv": [104, 776], "$uv_sz": [72, 40] },
+      { "requires": "($book_res = 2048x)", "$uv": [208, 1552], "$uv_sz": [144, 80] },
+      { "requires": "($book_res = 4096x)", "$uv": [416, 3104], "$uv_sz": [288, 160] }
+    ]
+  },
+
+  /* Sign Book */
+  
+  "signing_content": {
+    "type": "panel",
+    "controls": [
+      { "title_label@book_jexp.title_label": { "offset": ["50% - 50%x", 34] } },
+      { "title_text_box@book_jexp.title_text_box": { "offset": ["50% - 50%x", 44] } },
+      { "author_text_box@book_jexp.author_label": {} },
+      { "author_text_box@book_jexp.author_text_box": { "offset": ["50% - 50%x", 67] } },
+      { "warning_label@book_jexp.warning_label": {} },
+      { "bg@book_jexp.book_bg": { "offset": ["50% - 50%x", 3] } },
+      { "sign_book_button@button_jexp.button": {
+          "offset": ["50% - 100px", 196],
+          "$prsd_btn_nm": "button.finalize",
+          "$btn_text": "book.finalizeButton",
+          "size": [98, 20],
+          "bindings": [
+            { "binding_name": "#finalize_button_enabled",
+              "binding_name_override": "#enabled"
+            }
+          ]
+        }
+      },
+      { "cancel_sign_button@button_jexp.button": {
+          "size": [98, 20],
+          "offset": ["50% + 2px", 196],
+          "$prsd_btn_nm": "button.book_exit",
+          "$btn_text": "gui.cancel"
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#signing",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+  
+  "title_label@screen_jexp.title": {
+    "shadow": false,
+    "text": "book.editTitle",
+    "color": "$book_title_color",
+    "bindings": [
+      { "binding_name": "#editable",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "base_text_box@text_box_jexp.text_box": {
+    "$text_alignment": "center",
+    "$dflt_box_bg": "screen_jexp.empty_panel",
+    "$hov_box_bg": "screen_jexp.empty_panel",
+    "$enable_profanity_filter": true
+  },
+
+  "title_text_box@book_jexp.base_text_box": {
+    "size": [120, 12],
+    "max_length": "$max_title_length",
+    "$phr_text": "_",
+    "$text_color": "$book_title_color",
+    "$phr_color": "gray",
+    "$text_box_name": "#title_text_box",
+    "$text_box_enabled_bdg_nm": "#editable",
+    "$text_edit_box_cont_bdg_nm": "#title_text_box_item_name"
+  },
+
+  "author_label@screen_jexp.title": {
+    "shadow": false,
+    "offset": ["50% - 50%x", 56],
+    "text": "book.byAuthor",
+    "color": "$book_author_color"
+  },
+
+  "author_text_box@book_jexp.base_text_box": {
+    "size": ["100%", 12],
+    "constrain_to_rect": true,
+    "$text_color": "$book_author_color",
+    "$text_box_name": "#author_text_box",
+    "$text_box_enabled_bdg_nm": "#author_editable",
+    "$text_edit_box_cont_bdg_nm": "#author_text_box_item_name",
+    "layer": 3
+  },
+
+  "warning_label@screen_jexp.title": {
+    "shadow": false,
+    "offset": ["50% - 73px + 18px", 82],
+    "size": [100, "100%"],
+    "text": "book.finalizeWarning",
+    "color": "$book_warning_color",
+    "bindings": [
+      { "binding_name": "#editable",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  /* Edit Book */
+  "panel": {
+    "type": "panel",
+    "size": [200, 20],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": ["50% - 50%x", 196],
+    "bindings": [
+      { "binding_name": "$vis_bdg_nm",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "book_and_buttons_panel": {
+    "type": "panel",
+    "controls": [
+      { "book_grid@book_jexp.book_grid": { "offset": ["50% - 50%x", 3] } },
+      { "prev_button@book_jexp.prev_button": { "offset": ["50% - 146px + 26px", 159] } },
+      { "next_button@book_jexp.next_button": { "offset": ["50% + 146px - 100%x - 29px", 159] } },
+      { "editable@book_jexp.panel": {
+          "$vis_bdg_nm": "#editable",
+          "controls": [
+            { "sign_button@button_jexp.button": {
+                "$prsd_btn_nm": "button.sign_book",
+                "$btn_text": "book.signButton",
+                "size": [98, 20]
+              }
+            },
+            { "exit@book_jexp.exit_button": { "size": [98, 20], "offset": ["100% - 98px", 0] } }
+          ]
+        }
+      },
+      { "not_editable_exit@book_jexp.exit_button": {
+          "ignored": "$education_edition",
+          "offset": ["50% - 50%x", 196],
+          "bindings": [
+            { "binding_name": "(not #editable)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "not_editable_edu@book_jexp.panel": {
+          "$vis_bdg_nm": "(not #editable)",
+          "ignored": "(not $education_edition)",
+          "controls": [
+            { "export_button@button_jexp.button": {
+                "$prsd_btn_nm": "button.export_book",
+                "$btn_text": "book.export",
+                "size": [98, 20]
+              }
+            },
+            { "exit@book_jexp.exit_button": { "size": [98, 20], "offset": ["100% - 98px", 0] } }
+          ]
+        }
+      },
+      { "im_content_button@button_jexp.button": {
+          "ignored": "(not $education_edition)",
+          "$btn_text": "key.immersivereader",
+          "$prsd_btn_nm": "button.immersive_reader",
+          "offset": ["50% - 50%x", "196px + 24px"]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#viewing",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "book_grid": {
+    "type": "grid",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [292, 180],
+    "collection_name": "book_pages",
+    "grid_dimensions": [2, 1],
+    "controls": [
+      { "left@book_jexp.page_panel": { "grid_position": [0, 0] } },
+      { "right@book_jexp.page_panel": { "grid_position": [1, 0] } }
+    ]
+  },
+
+  "page_panel": {
+    "type": "panel",
+    "size": [146, 180],
+    "controls": [
+      { "page_content_panel@book_jexp.page_content": {} },
+      { "bg@book_jexp.book_bg": {} }
+    ]
+  },
+
+  "page_content": {
+    "type": "panel",
+    "controls": [
+      { "page_text@book_jexp.page_text": { "offset": [16, 30] } },
+      { "page_photo@book.page_photo": {} },
+      { "page_number_label@book_jexp.page_number_label": {} }
+    ],
+    "bindings": [
+      { "binding_name": "#page_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "book_pages"
+      }
+    ]
+  },
+
+  "page_number_label@screen_jexp.title": {
+    "offset": ["100% - 100%x - 19px", 15],
+    "color": "$book_page_number_color",
+    "shadow": false,
+    "localize": false,
+    "text": "#page_number",
+    "bindings": [
+      { "binding_name": "#page_number",
+        "binding_type": "collection",
+        "binding_collection_name": "book_pages"
+      },
+      { "binding_type": "collection_details",
+        "binding_collection_name": "book_pages"
+      }
+    ]
+  },
+
+  "page_text_edit@text_box_jexp.multiline_text_box": {
+    "$text_color": "$book_page_color",
+    "constrain_to_rect": true,
+    "$text_edit_box_cont_bdg_type": "collection",
+    "$text_edit_box_grid_collt_nm": "book_pages",
+    "$text_box_enabled_bdg_nm": "#editable",
+    "$text_box_name": "#page_text_box",
+    "$text_edit_box_cont_bdg_nm": "#text_box_item_name",
+    "$dflt_box_bg": "screen_jexp.empty_panel",
+    "$hov_box_bg": "screen_jexp.empty_panel",
+    "$text_edit_box_focusable_bdg_nm": "#editable",
+    "$enable_profanity_filter": true,
+    "layer": 4
+  },
+
+  "page_text@book_jexp.page_text_edit": {
+    "size": [113, 124],
+    "max_length": "$max_page_length",
+    "$text_edit_box_focusable_bdg_nm": "#editable",
+    "$text_edit_vis_bdg_nm": "#is_text_page",
+    "$text_edit_vis_bdg_collt_nm": "book_pages",
+    "$text_edit_vis_bdg_type|default": "collection",
+    "$enable_profanity_filter": true
+  },
+
+  "base_button@common.button": {
+    "layer": 15,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [23, 13],
+    "sound_name": "item.book.page_turn",
+    "sound_volume": 4,
+    "sound_pitch": 1,
+    "$btn_bd_type": "global",
+    "bindings": [
+      { "binding_name": "$btn_active",
+        "binding_name_override": "#visible",
+        "binding_type": "$btn_bd_type",
+        "binding_collection_name": "book_pages"
+      },
+      { "binding_type": "collection_details",
+        "binding_collection_name": "book_pages"
+      }
+    ],
+    "controls": [
+      { "default@$dflt_btn_bg": {} },
+      { "hover@$hov_btn_bg": {} },
+      { "pressed@$hov_btn_bg": {} }
+    ]
+  },
+
+  "prev_button@book_jexp.base_button": {
+    "$pressed_button_name": "button.prev_page",
+    "$btn_active": "#prev_page_button_active",
+    "$dflt_btn_bg": "book_jexp.prev_button_default",
+    "$hov_btn_bg": "book_jexp.prev_button_hover"
+  },
+
+  "next_button@book_jexp.base_button": {
+    "$pressed_button_name": "button.next_page",
+    "$btn_active": "#next_page_button_active",
+    "$dflt_btn_bg": "book_jexp.next_button_default",
+    "$hov_btn_bg": "book_jexp.next_button_hover"
+  },
+
+  "exit_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.menu_exit",
+    "$btn_text": "gui.done"
+  }
+
+  /* Photo - TODO*/
+}

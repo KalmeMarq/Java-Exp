@@ -1,0 +1,31 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Java UI",
+    "description": "Credits: @FMarquesPTO",
+    "uuid": "eab9ca19-1b08-4fa2-bbed-c520154532d0",
+    "version": [4, 0, 0],
+    "min_engine_version": [1, 14, 0]
+  },
+  "modules": [
+    { "type": "resources",
+      "description": "Credits: @FMarquesPTO",
+      "uuid": "245aed87-d4fa-4af7-8648-fa7a70ee7722",
+      "version": [3, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["FMarquesPTO"],
+    "url": "https://www.twitter.com/FMarquesPTO"
+  },
+  "subpacks": [
+    { "folder_name": "default",
+      "name": "default",
+      "memory_tier": 1
+    },
+    { "folder_name": "default2",
+      "name": "default2",
+      "memory_tier": 2
+    }
+  ]
+}

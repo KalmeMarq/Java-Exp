@@ -1,0 +1,108 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "death_screen_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@death_screen_jexp.title_text": {} },
+      { "score@death_screen_jexp.score_text_panel": {} },
+      { "menu@death_screen_jexp.menu_panel": {} },
+      { "locked_menu@death_screen_jexp.locked_menu_panel": {} },
+      { "controller_a@sleep_in_bed_jexp.a_button_panel": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "offset": [0, -12]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "(not #loading_message_visible)",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "menu_panel": {
+    "type": "panel",
+    "controls": [
+      { "respawn@death_screen_jexp.respawn_button": { "offset": ["50% - 100px", "25% + 72px"] } },
+      { "title_screen@death_screen_jexp.title_screen_button": { "offset": ["50% - 100px", "25% + 96px"] } }
+    ],
+    "bindings": [
+      { "binding_name": "#buttons_and_deathmessage_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "locked_menu_panel@menu_panel": {
+    "enabled": false,
+    "bindings": [
+      { "binding_name": "(not #buttons_and_deathmessage_visible)",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "title_text@screen_jexp.title": {
+    "offset": ["50% - 50%x", 58],
+    "text": "deathScreen.title",
+    "font_size": "large"
+  },
+
+  "score_text_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "offset": [0, 100],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "size": ["100%c", "100%cm"],
+    "controls": [
+      { "score_text@screen_jexp.title": { "text": "deathScreen.score" } },
+      { "rest_text@screen_jexp.title": { "text": ": " } },
+      { "value_text@screen_jexp.title": { "color": "yellow", "text": "0" } }
+    ]
+  },
+
+  "background_gradient": {
+    "type": "custom",
+    "renderer": "gradient_renderer",
+    "size": ["100%", "100%"],
+    "color1": [1.0, 0.0, 0.0, 0.3],
+    "color2": [0.6, 0.2, 0.2, 0.5],
+    "ignored": "$is_holographic",
+    "bindings": [
+      { "binding_name": "(not #loading_message_visible)",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "respawn_button@button_jexp.button": {
+    "$btn_text": "deathScreen.respawn",
+    "$prsd_btn_nm": "button.respawn_button",
+    "bindings": [
+      { "binding_name": "#respawn_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "title_screen_button@button_jexp.button": {
+    "$btn_text": "deathScreen.titleScreen",
+    "$prsd_btn_nm": "button.main_menu_button",
+    "variables": {
+      "requires": "$is_secondary_client",
+      "$btn_text": "deathScreen.quit.secondaryClient"
+    },
+    "bindings": [
+      { "binding_name": "#quit_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  }
+}

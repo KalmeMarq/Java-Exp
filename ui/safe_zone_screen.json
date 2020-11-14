@@ -1,0 +1,43 @@
+{
+  "safe_zone_screen@screen_jexp.screen": {
+    "controls": [
+      { "safe_zone_bounds_markers": {
+          "type": "panel",
+          "controls": [
+            { "top_left_marker@corner_tl": {} },
+            { "top_right_marker@corner_tr": {} },
+            { "bottom_left_marker@corner_bl": {} },
+            { "bottom_right_marker@corner_br": {} }
+          ]
+        }
+      },
+      { "scrn_cont@safe_zone_jexp.screen_content": {} }
+    ],
+    "button_mappings": [
+      { "from_button_id": "button.menu_up",
+        "to_button_id": "button.menu_up",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      { "from_button_id": "button.menu_down",
+        "to_button_id": "button.menu_down",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      { "from_button_id": "button.menu_left",
+        "to_button_id": "button.menu_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      { "from_button_id": "button.menu_right",
+        "to_button_id": "button.menu_right",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ]    
+  }
+}

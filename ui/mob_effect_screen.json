@@ -1,0 +1,17 @@
+{
+  "mob_effect_screen@screen_jexp.screen": {
+    "button_mappings": [
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_continue",
+        "mapping_type": "global"
+      },
+	    { "from_button_id": "button.mobeffects",
+		    "to_button_id": "button.menu_continue",
+		    "mapping_type": "global"
+	    }
+    ],
+    "close_on_player_hurt": "$force_container_close_on_player_hurt",
+    "$scrn_cont": "mob_effects_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.screen_background"
+  }
+}

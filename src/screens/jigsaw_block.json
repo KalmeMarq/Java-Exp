@@ -1,0 +1,133 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "jigsaw_block_jexp",
+  
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "target_pool_title_and_edit@jigsaw_block_jexp.data_item_title_and_edit_box": {
+          "offset": [0, 9],
+          "$data_title": "jigsaw.title.target_pool",
+          "$data_text_box_name": "text_box.target_pool_text_box",
+          "$data_text_box_value": "#target_pool_text_box_value"
+        }
+      },
+      { "name_title_and_edit@jigsaw_block_jexp.data_item_title_and_edit_box": {
+          "offset": [0, 44],
+          "$data_title": "jigsaw.title.name",
+          "$data_text_box_name": "text_box.name_text_box",
+          "$data_text_box_value": "#name_text_box_value"
+        }
+      },
+      { "target_title_and_edit@jigsaw_block_jexp.data_item_title_and_edit_box": {
+          "offset": [0, 79],
+          "$data_title": "jigsaw.title.target",
+          "$data_text_box_name": "text_box.target_text_box",
+          "$data_text_box_value": "#target_text_box_value"
+        }
+      },
+      { "final_block_title_and_edit@jigsaw_block_jexp.data_item_title_and_edit_box": {
+          "offset": [0, 114],
+          "$data_title": "jigsaw.title.final_block",
+          "$data_text_box_name": "text_box.final_block_text_box",
+          "$data_text_box_value": "#final_block_text_box_value"
+        }
+      },
+      { "joing_type_title_and_toggle@jigsaw_block_jexp.data_item_title_and_toggle": {
+          "offset": [0, 150],
+          "$data_title": "jigsaw.title.joint_type",
+          "$toggle_name": "toggle.joint_type_toggle,",
+          "$toggle_state_binding_name": "#joint_type_toggle_state"
+        }
+      },
+      { "done_button@jigsaw_block_jexp.done_button": { "offset": ["50% - 50%x - 77px", 180] } },
+      { "cancel_button@jigsaw_block_jexp.cancel_button": { "offset": ["50% - 50%x + 81px", 180] } }
+    ]
+  },
+
+  "data_item_title_and_edit_box": {
+    "type": "panel",
+    "size": [302, 32],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      { "data_title@jigsaw_block_jexp.base_label": { "text": "$data_title", "color": [0.62, 0.62, 0.62] } },
+      { "data_text_edit@jigsaw_block_jexp.text_edit_box": {
+          "$text_box_name": "$data_text_box_name",
+          "$text_edit_box_cont_bdg_nm": "$data_text_box_value"
+        }
+      }
+    ]
+  },
+
+  "data_item_title_and_toggle": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [302, "100%cm"],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      { "title_holder": {
+          "type": "panel",
+          "size": ["100%c", 0],
+          "inherit_max_sibling_height": true,
+          "controls": [
+            { "data_title@jigsaw_block_jexp.base_label": {
+                "text": "$data_title",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle"
+              }
+            }
+          ]
+        }
+      },
+      { "buffer_1@jigsaw_editor.horizontal_buffer": {} },
+      { "data_toggle@option_toggle_jexp.option_toggle": {
+          "size": ["fill", 20],
+          "$tgl_text": "#joint_type_toggle_text",
+          "$show_state": false,
+          "$tgl_text_bdgs": [
+            { "binding_type": "global",
+              "binding_condition": "none",
+              "binding_name": "$tgl_text",
+              "binding_name_override": "$tgl_text"
+            }
+          ],
+          "$tgl_nm": "toggle.joint_type_toggle",
+          "$tgl_bdg_type": "global",
+          "$tgl_state_bdg_nm": "#joint_type_toggle_state"
+        }
+      }
+    ]
+  },
+
+  "base_label": {
+    "type": "label",
+    "shadow": true,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "layer": 1
+  },
+
+  "text_edit_box@text_box_jexp.text_box": {
+    "size": [300, 20],
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "max_length": 40
+  },
+
+  "done_button@button_jexp.button": {
+    "size": [150, 20],
+    "$btn_text": "jigsaw.exit.done",
+    "$prsd_btn_nm": "button.exit_done"
+  },
+
+  "cancel_button@button_jexp.button": {
+    "size": [150, 20],
+    "$btn_text": "jigsaw.exit.cancel",
+    "$prsd_btn_nm": "button.menu_exit"
+  }
+}

@@ -1,0 +1,102 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "education_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "offset": ["50% - 50%x", 19], "text": "$title" } },
+      /* Options */
+      { "perfect_weather@perfect_weather": { "offset": ["50% - 155px", 100] } },
+      { "allow_mobs@allow_mobs": { "offset": ["50% + 5px", 100] } },
+      { "allow_destructive_items@allow_destructive_items": { "offset": ["50% - 155px", 124] } },
+      { "player_damage@player_damage": { "offset": ["50% + 5px", 124] } },
+      { "immutable_world@immutable_world": { "offset": ["50% - 155px", 148] } },
+      { "pvp_damage@pvp_damage": { "offset": ["50% + 5px", 148] } },
+      { "back@world_create_jexp.back_tgl_btn": { "offset": ["50% + 5px", 185], "$tgl_nm": "education_settings", "size": [150, 20] } },
+      /* Bottom */
+      { "edu_host@world_create_jexp.edu_host_button": { "offset": ["50% - 155px", "100% - 52px"] } },
+      { "edu_play@world_create_jexp.edu_play_button": { "offset": ["50% - 155px", "100% - 28px"] } },
+      { "create_world@world_create_jexp.create_world_button": { "offset": ["50% - 155px", "100% - 28px"] } },
+      { "cancel@world_create_jexp.cancel_button": { "offset": ["50% + 5px", "100% - 28px"] } }
+    ],
+    "$title|default": "selectWorld.create",
+    "variables": {
+      "requires": "(not $is_world_create)",
+      "$title": "selectWorld.edit"
+    },
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "education_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  "classroom_toggle@option_toggle_jexp.option_toggle": {
+    "ignored": "(not $education_edition)",
+    "bindings": [
+      { "binding_name": "#classroom_settings_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "perfect_weather@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$tgl_text": "createWorldScreen.perfectweather",
+    "$opt_bdg_nm": "#perfect_weather",
+    "$opt_enabled_bdg_nm": "#perfect_weather_enabled",
+    "$tgl_nm": "perfect_weather",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "allow_mobs@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$tgl_text": "createWorldScreen.allowmobs",
+    "$opt_bdg_nm": "#allow_mobs",
+    "$opt_enabled_bdg_nm": "#allow_mobs_enabled",
+    "$tgl_nm": "allow_mobs",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "allow_destructive_items@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$tgl_text": "createWorldScreen.allowdestructiveitems",
+    "$opt_bdg_nm": "#allow_destructive_items",
+    "$opt_enabled_bdg_nm": "#allow_destructive_items_enabled",
+    "$tgl_nm": "allow_destructive_items",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "player_damage@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$tgl_text": "createWorldScreen.playerdamage",
+    "$opt_bdg_nm": "#player_damage",
+    "$opt_enabled_bdg_nm": "#player_damage_enabled",
+    "$tgl_nm": "player_damage",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "immutable_world@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$tgl_text": "createWorldScreen.immutableworld",
+    "$opt_bdg_nm": "#immutable_world",
+    "$opt_enabled_bdg_nm": "#immutable_world_enabled",
+    "$tgl_nm": "immutable_world",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "pvp_damage@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$tgl_text": "createWorldScreen.pvpdamage",
+    "$opt_bdg_nm": "#pvp_damage",
+    "$opt_enabled_bdg_nm": "#pvp_damage_enabled",
+    "$tgl_nm": "pvp_damage",
+    "$tgl_bdg_cond": "always_when_visible"
+  }
+}
