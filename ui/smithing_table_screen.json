@@ -1,7 +1,0 @@
-{
-  "smithing_table_screen@screen_jexp.inventory_screen": {     
-    "close_on_player_hurt": "$force_container_close_on_player_hurt",
-    "$scrn_cont": "smithing_table_jexp.screen_content",
-    "$scrn_bg": "screen_jexp.screen_background"
-  }
-}
