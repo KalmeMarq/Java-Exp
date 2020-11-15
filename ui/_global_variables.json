@@ -2,7 +2,8 @@
   /**********************************
     UI Customization
   ***********************************/
-  "$development_version_visible": "(not $is_publish)",
+  "$development_version_visible": "(not $is_publish)", // Default: "(not $is_publish)"
+  "$enable_safe_zone_advanced_sliders": "(not $is_publish)", // Default: "(not $is_publish)"
 
   "$remove_beta_info_text": true, // Default: true | Removes the debug beta text on the top middle screen. 
 
@@ -12,6 +13,8 @@
   "$show_playername_on_bottom_panel": false, // Default: false, | Shows gamertag after the version.
   "$show_player_skin_on_main_menu": false, // Default: false | Show the Paper Doll on the "$player_skin_position".
     "$player_skin_position": "right", // Default: right (Values: right and left)
+
+  "$show_loading_screen_tips": false, // Default: false
 
   "$show_item_stack_number_on_creative_mode": true, // Default: true
 
@@ -130,6 +133,9 @@
   /**********************************
     Resolutions | Default: "256x"
   ***********************************/
+  "$social_interactions_res": "256x", // "assets/minecraft/textures/gui/social_interactions.png",
+  "$checkbox_res": "256x", // "assets/minecraft/textures/gui/checkbox.png",
+
   "$title_res": "256x", // "assets/minecraft/textures/gui/title/minecraft.png",
   "$edition_res": "256x", // "assets/minecraft/textures/gui/title/edition.png",
   "$options_bg_res": "256x", // "assets/minecraft/textures/gui/options_background.png",

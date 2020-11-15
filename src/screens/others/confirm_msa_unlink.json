@@ -1,0 +1,19 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "confirm_msa_unlink_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    /* TODO */
+    "controls": [ { "cont@confirm_msa_unlink.confirm_msa_unlink_screen_content": {} } ]
+  }/* ,
+
+  "content_panel@popup_jexp.modal_with_buttons": {
+    "$title": "confirm_msa_unlink_jexp.title",
+    "$msg": "confirm_msa_unlink_jexp.description",
+    "$btn_panel": "confirm_msa_unlink_jexp.buttons_panel"
+  } */
+}

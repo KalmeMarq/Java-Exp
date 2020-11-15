@@ -11,13 +11,13 @@
       { "title@screen_jexp.title": { "offset": ["50% - 50%x", 40], "text": "sign.edit" } },
       { "input_panel": {
           "type": "input_panel",
-          "layer": 2,
           "size": ["100%c", "100%c"],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "offset": [0, 69.5],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": ["50% - 50%x", 69.5],
           "focus_enabled": false,
-          "$virtual_keyboard_buffer_control": "text_edit",
+          "$virtual_kb_buffer_ctrl": "text_edit",
+          "layer": 2,
           "controls": [ { "text_edit@edit_sign_jexp.sign_text_multiline": {} } ]
         }
       },
@@ -31,9 +31,7 @@
     ]
   },
 
-  "sign_text_multiline@common.multiline_text_edit_box": {
-    "anchor_from": "top_middle",
-    "anchor_to": "top_middle",
+  "sign_text_multiline@text_box_jexp.multiline_text_box": {
     "size": [93.5, 44],
     "$text_alignment": "center",
     "constrain_to_rect": false,
@@ -42,9 +40,8 @@
     "focus_enabled": true,
     "$text_box_name": "#sign_text_multi",
     "max_length": 32500,
-    "$text_color_binding_type": "global",
-    "$text_background_default": "",
-    "$text_background_hover": ""
+    "$text_color_bdg_type": "global",
+    "$dflt_box_bg": "", "$hov_box_bg": "", "$lkd_box_bg": ""
   },
 
   "sign_background": {

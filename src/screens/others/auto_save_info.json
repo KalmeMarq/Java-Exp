@@ -1,0 +1,62 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "auto_save_info_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "cont@content_panel": {} },
+      { "gamepad_helpers@auto_save_info.gamepad_helpers": {} }
+    ]
+  },
+
+  "content_panel@popup_jexp.modal_with_buttons": {
+    "$title": "auto_save_info_jexp.title",
+    "$msg": "auto_save_info_jexp.description",
+    "$btn_panel": "auto_save_info_jexp.buttons_panel"
+  },
+
+  "title@screen_jexp.title": {
+    "text": "autosave.title",
+    "size": ["100%", "default"],
+    "offset": ["50% - 50%x", 0],
+    "text_alignment": "center"
+  },
+
+  "description@title": {
+    "size": ["default", "default"],
+    "max_size": ["80%", "default"],
+    "$info_msg|default": "autosave.info.general",
+    "text": "$info_msg",
+    "variables": [
+      { "requires": "$nx_os", "$info_msg": "autosave.info.nx" },
+      { "requires": "$xbox_one", "$info_msg": "autosave.info.xbox" },
+      { "requires": "$is_desktop", "$info_msg": "autosave.info.desktop" },
+      { "requires": "$is_berwick", "$info_msg": "autosave.info.berwick" }
+    ]
+  },
+
+  "buttons_panel": {
+    "type": "stack_panel",
+    "size": ["100%", 20],
+    "controls": [
+      { "accept_button@accept_button": { "offset": ["50% - 155px", 0] } },
+      { "right@button_jexp.button": {
+          "offset": ["50% + 5px", 0],
+          "$prsd_btn_nm": "button.menu_exit",
+          "$btn_text": "gui.cancel",
+          "size": [150, 20]
+        }
+      }
+    ]
+  },
+
+  "accept_button@button_jexp.button": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.info_accept",
+    "$btn_text": "gui.ok"
+  }
+}

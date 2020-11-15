@@ -1,0 +1,6 @@
+{
+  "braze_screen@screen_jexp.screen": {
+    "$scrn_cont": "braze_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.dirt_background"
+	}
+}

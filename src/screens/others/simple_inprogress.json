@@ -1,0 +1,53 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "simple_inprogress_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@simple_inprogress_jexp.title": {} },
+      { "main@simple_inprogress_jexp.main_content": {} },
+      /* TODO */
+      { "progress_loading_bars@play.progress_loading_bars": {
+          "offset": [0, 30],
+          "anchor_from": "center",
+          "anchor_to": "center"
+        }
+      }
+    ]
+  },
+
+  "title@simple_inprogress.title_text": {
+    "offset": [0, 70],
+    "size": ["80%", "default"],
+    "anchor_to": "top_middle",
+    "text_alignment": "center",
+    "anchor_from": "top_middle",
+    "color": "white",
+    "shadow": true,
+    "text": "#in_progress_title",
+    "bindings": [ { "binding_name": "#in_progress_title" } ]
+  },
+
+  "main_content": {
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "text_alignment": "center",
+    "size": [ "80%", "default" ],
+    "offset": [0, 100],
+    "type": "label",
+    "layer": 1,
+    "$in_progress_text_binding": "#in_progress_text_binding",
+    "text": "$in_progress_text_binding",
+    "color": "white",
+    "shadow": true,
+    "bindings": [
+      { "binding_name": "$in_progress_text_binding",
+        "binding_condition": "once"
+      }
+    ]
+  }
+}

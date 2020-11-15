@@ -1,0 +1,44 @@
+{
+  "disconnect_screen@screen_jexp.screen": {
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_leave_screen",
+        "mapping_type": "global"
+      }
+    ],
+    "$scrn_cont": "disconnect_jexp.disconnect_screen_content",
+    "$scrn_bg": "screen_jexp.dirt_background"
+  },
+
+  "realms_disconnect_screen@disconnect.disconnect_screen": {
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_leave_screen",
+        "mapping_type": "global"
+      }
+    ],
+    "$scrn_cont": "disconnect_jexp.realms_disconnect_screen_content"
+  },
+
+  "realms_warning_screen@disconnect.disconnect_screen": {
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_leave_screen",
+        "mapping_type": "global"
+      }
+    ],
+    "$scrn_cont": "disconnect_jexp.realms_warning_screen_content"
+  }
+}

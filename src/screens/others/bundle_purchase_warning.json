@@ -1,0 +1,170 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "bundle_purchase_warning_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@title": {} },
+      { "owned@scrollpane_jexp.scrollpane": {
+          "size": [200, "100% - 83px"],
+          "$text": "store.purchase.bundle.owned",
+          "$scroll_cont": "dirt@bundle_purchase_warning_jexp.scroll_cont",
+          "offset": ["50% - 4px - 200px", 32]
+        }
+      },
+      { "unowned@scrollpane_jexp.scrollpane": {
+          "size": [200, "100% - 83px"],
+          "$text": "store.purchase.bundle.unowned",
+          "$scroll_cont": "dirt@bundle_purchase_warning_jexp.scroll_cont",
+          "offset": ["50% + 4px", 32]
+        }
+      },
+      { "purchase_button_panel@button_jexp.button": {
+          "offset": ["50% - 155px", "100% - 27px"],
+          "size": [150, 20],
+          "$prsd_btn_nm": "button.confirm_bundle_purchase",
+          "$btn_text": "#bundle_purchase_confirm",
+          "$btn_text_bdg_type": "global",
+          "$focus_id": "purchase_button",
+          "$focus_override_up": "owned_list_2"
+        }
+      },
+      { "exit@button_jexp.button": {
+          "offset": ["50% + 5px", "100% - 27px"],
+          "$prsd_btn_nm": "button.menu_exit",
+          "$btn_text": "gui.cancel",
+          "size": [150, 20]
+        }
+      }
+    ]
+  },
+
+  "title@account_banned_jexp.title": {
+    "text": "#body_text",
+    "size": ["default", "default"],
+    "offset": [0, 10],
+    "anchor_to": "top_middle",
+    "anchor_from": "top_middle",
+    "property_bag": { "#tts_dialog_title": "#body_text" },
+    "bindings": [
+      { "binding_type": "global",
+        "binding_condition": "none",
+        "binding_name": "#body_text",
+        "binding_name_override": "#body_text"
+      },
+      { "binding_type": "global",
+        "binding_condition": "once",
+        "binding_name": "#tts_dialog_title"
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": [200, "100%c" ],
+    "layer": 2,
+    "controls": [
+      { "list_header_panel@packs_jexp.list_header_panel": {} },
+      { "bundle@bundle_purchase_warning_jexp.bundle_grid": {} }
+    ]
+  },
+
+  "bundle_grid": {
+    "type": "grid",
+    "size": [ "100%", "default" ],
+    "layer": 1,
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "grid_item_template": "bundle_purchase_warning_jexp.bundle_grid_item_panel",
+    "grid_dimension_binding": "$bundle_grid_dimension",
+    "collection_name": "$bundle_collection_name",
+    "bindings": [ { "binding_name": "$bundle_grid_dimension" } ]
+  },
+
+  "bundle_grid_item": {
+    "type": "panel",
+    "size": ["100%", 36],
+    "controls": [
+      { "content@bundle_purchase_warning_jexp.grid_item_content": {} },
+      { "gamepad_focus_border@bundle_purchase_warning.focus_border_button": {
+          "bindings": [
+            { "binding_type": "collection_details",
+              "binding_collection_name": "$bundle_collection_name"
+            },
+            { "binding_name": "#focus_override_up",
+              "binding_type": "collection",
+              "binding_collection_name": "$bundle_collection_name",
+              "binding_name_override": "#focus_change_up"
+            },
+            { "binding_name": "#focus_override_down",
+              "binding_type": "collection",
+              "binding_collection_name": "$bundle_collection_name",
+              "binding_name_override": "#focus_change_down"
+            },
+            { "binding_name": "#focus_id_override",
+              "binding_type": "collection",
+              "binding_collection_name": "$bundle_collection_name",
+              "binding_name_override": "#focus_identifier"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "grid_item_content": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100% - 4px", "100% - 4px"],
+    "layer": 2,
+    "controls": [
+      { "bundle_thumbnail": {
+          "type": "image",
+          "size": [32, 32],
+          "bilinear": true,
+          "fill": true,
+          "layer": 2,
+          "bindings": [
+            { "binding_type": "collection",
+              "binding_collection_name": "$bundle_collection_name",
+              "binding_name": "#keyart_path",
+              "binding_name_override": "#texture"
+            },
+            { "binding_type": "collection",
+              "binding_collection_name": "$bundle_collection_name",
+              "binding_name": "#keyart_texture_file_system",
+              "binding_name_override": "#texture_file_system"
+            }
+          ]
+        }
+      },
+      { "space@screen_jexp.h2px": {} },
+      { "bundle_title_panel": {
+          "type": "panel",
+          "size": ["fill", "100%"],
+          "controls": [
+            { "bundle_title": {
+                "type": "label",
+                "size": ["100%", 10],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "text": "#offer_title",
+                "layer": 3,
+                "bindings": [
+                  { "binding_type": "collection",
+                    "binding_collection_name": "$bundle_collection_name",
+                    "binding_name": "#offer_title"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

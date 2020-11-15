@@ -57,7 +57,7 @@
           "color": "$scoreboard_list_bg_color",
           "alpha": "$scoreboard_list_bg_alpha",
           "inherit_max_sibling_width": true,
-          "size": ["100%c + 8px", "100%cm"],
+          "size": ["100%cm + 8px", "100%cm"],
           "controls": [
             { "players": {
                 "type": "stack_panel",

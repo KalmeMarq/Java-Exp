@@ -10,7 +10,7 @@
     "controls": [
       { "trial_time@ingame_menu_jexp.trial_time": {} },
       { "cont@ingame_menu_jexp.content_panel": {} },
-      // { "players_scrn@players_jexp.screen_content": {} }
+      { "players_scrn@players_jexp.screen_content": { "visible": false } },
       /* Helpers */
       { "gamepad_helpers@pause.gamepad_helpers": {} },
       { "keyboard_helpers@pause.keyboard_helpers": {} }
@@ -39,6 +39,13 @@
     "controls": [
       { "title@screen_jexp.title": { "text": "menu.game", "offset": ["50% - 50%x", 40] } },
       { "menu@ingame_menu_jexp.menu_panel": {} }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "players_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      }
     ]
   },
 
@@ -63,7 +70,7 @@
       { "feedback@ingame_menu_jexp.feedback_button": { "offset": ["50% - 102px", "25% + 72px + -16px"] } },
       { "take_screenshot@ingame_menu_jexp.take_screenshot_button": { "offset": ["50% + 4px", "25% + 72px + -16px"] } },
       { "settings@ingame_menu_jexp.settings_button": { "offset": ["50% - 102px", "25% + 96px + -16px"] } },
-      { "player_list@ingame_menu_jexp.player_list_button": { "offset": ["50% + 4px", "25% + 96px + -16px"] } },
+      { "player_list@ingame_menu_jexp.player_list_button1": { "offset": ["50% + 4px", "25% + 96px + -16px"] } },
       { "return_to_menu@ingame_menu_jexp.return_to_menu_button": { "offset": ["50% - 102px", "25% + 120px + -16px"] } }
     ],
     "bindings": [
@@ -83,7 +90,7 @@
       { "server_store@ingame_menu_jexp.server_store_button": { "offset": ["50% + 4px", "25% + 72px + -16px"] } },
       { "take_screenshot@ingame_menu_jexp.take_screenshot_button": { "offset": ["50% - 102px", "25% + 96px + -16px"], "size": [204, 20] } },
       { "settings@ingame_menu_jexp.settings_button": { "offset": ["50% - 102px", "25% + 120px + -16px"] } },
-      { "player_list@ingame_menu_jexp.player_list_button": { "offset": ["50% + 4px", "25% + 120px + -16px"] } },
+      { "player_list@ingame_menu_jexp.player_list_button2": { "offset": ["50% + 4px", "25% + 120px + - 16px"] } },
       { "return_to_menu@ingame_menu_jexp.return_to_menu_button": { "offset": ["50% - 102px", "25% + 144px + -16px"] } }
     ],
     "bindings": [
@@ -98,10 +105,10 @@
     "type": "panel",
     "controls": [
       { "feedback@ingame_menu_jexp.feedback_button": { "offset": ["50% - 102px", "25% + 72px + -16px"] } },
-      { "feed@ingame_menu_jexp.feed_button": { "offset": ["50% + 4px", "25% + 72px + -16px"] } },
+      { "feed@ingame_menu_jexp.feed_button": { "offset": ["50% + 4px", "25% + 72px + - 16px"] } },
       { "take_screenshot@ingame_menu_jexp.take_screenshot_button": { "offset": ["50% - 102px", "25% + 96px + -16px"], "size": [204, 20] } },
       { "settings@ingame_menu_jexp.settings_button": { "offset": ["50% - 102px", "25% + 120px + -16px"] } },
-      { "player_list@ingame_menu_jexp.player_list_button": { "offset": ["50% + 4px", "25% + 120px + -16px"] } },
+      { "player_list@ingame_menu_jexp.player_list_button3": { "offset": ["50% + 4px", "25% + 120px + - 16px"] } },
       { "return_to_menu@ingame_menu_jexp.return_to_menu_button": { "offset": ["50% - 102px", "25% + 144px + -16px"] } }
     ],
     "bindings": [
@@ -253,7 +260,7 @@
     "size": [98, 20],
     "enabled": "(not $is_secondary_client)",
     "$prsd_btn_nm": "button.menu_server_store",
-    "$btn_text": "$server_store_btn_text"
+    "$btn_text": "$server_store_button_text"
   },
   
   "take_screenshot_button@button_jexp.button": {
@@ -271,12 +278,25 @@
     "size": [98, 20]
   },
 
-  "player_list_button@toggle_button_jexp.toggle_button": {
-    "enabled": false,
+  "player_list_button1@toggle_button_jexp.toggle_button": {
+    "$tgl_idx": 1,
     "size": [98, 20],
-    "$tgl_index": 1,
-    "$tgl_btn_text": "menu.playersMenu",
-    "$tgl_ctrl_nam": "player_list_view",
+    "$tgl_text": "menu.playersMenu",
+    "$tgl_ctrl_nm": "players_view1",
+    "$tgl_nm": "pause_menu"
+  },
+  "player_list_button2@toggle_button_jexp.toggle_button": {
+    "$tgl_idx": 2,
+    "size": [98, 20],
+    "$tgl_text": "menu.playersMenu",
+    "$tgl_ctrl_nm": "players_view2",
+    "$tgl_nm": "pause_menu"
+  },
+  "player_list_button3@toggle_button_jexp.toggle_button": {
+    "$tgl_idx": 3,
+    "size": [98, 20],
+    "$tgl_text": "menu.playersMenu",
+    "$tgl_ctrl_nm": "players_view3",
     "$tgl_nm": "pause_menu"
   },
 
@@ -284,7 +304,7 @@
     "$prsd_btn_nm": "button.menu_invite_players",
     "$btn_text": "pauseScreen.invite",
     "focus_change_down": "FOCUS_OVERRIDE_STOP",
-    "size": [150, 20],
+    "size": [146, 20],
     "bindings": [
       { "binding_name": "#invite_button_visible",
         "binding_name_override": "#enabled",
@@ -297,9 +317,9 @@
   },
 
   "pause_menu_button@toggle_button_jexp.toggle_button": {
-    "$tgl_index": 0,
-    "size":[150, 20],
-    "$tgl_btn_text": "gui.done",
+    "$tgl_idx": 0,
+    "size": [72, 20],
+    "$tgl_text": "gui.done",
     "$tgl_nm": "pause_menu",
     "$cancel_mapg": true
   },

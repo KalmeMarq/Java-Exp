@@ -1,0 +1,87 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "screenshot_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "screenshot_flash@screenshot_jexp.screenshot_flash": {} },
+      { "title@screen_jexp.title": { "text": "screenshot.title", "offset": ["50% - 50%x", 12] } },
+      { "gamepad_helpers@feed_common.gamepad_helpers": {} },
+      { "cont@screenshot_jexp.content_panel": {} },
+      { "exit@button_jexp.button": {
+          "$prsd_btn_nm": "button.menu_exit",
+          "offset": ["50% - 100px", "95% - 20px"],
+          "$btn_text": "gui.cancel",
+          "bindings": [
+            { "binding_name": "(not #is_using_gamepad)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "anim_screenshot_flash": {
+    "anim_type": "alpha",
+    "easing": "in_expo",
+    "duration": 0.55,
+    "from": 0.8,
+    "to": 0
+  },
+
+  "screenshot_flash": {
+    "type": "image",
+    "size": ["100%", "100%"],
+    "layer": 69,
+    "texture": "src/assets/white",
+    "alpha": "@screenshot_jexp.anim_screenshot_flash"
+  },
+
+  "content_panel": {
+    "type": "panel",
+    "size": [300, 225],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [0, 32],
+    "controls": [
+      { "new_post_share_post@screenshot_jexp.new_post_share_post": { "size": ["100%", 22], "offset": [0, "90%"] } },
+      { "screenshot_image@screenshot.screenshot_image": {
+          "size": ["100%", "75%"],
+          "offset": [0, 0],
+          "layer": 10,
+          "controls": [ { "indentbox_bg@text_box_jexp.box_default": { "size": ["100% + 4px", "100% + 4px"], "layer": -5 } } ]
+        }
+      }
+    ]
+  },
+
+  "new_post_share_post": {
+    "type": "panel",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "size": ["100% + 2px", 20],
+    "controls": [
+      { "share_text_box@text_box_jexp.text_box": {
+          "size": [200, 20],
+          "max_length": 350,
+          "$phr_text": "feed.whatup",
+          "$text_box_name": "#caption_text_box",
+          "bindings": [ { "binding_name": "#caption_text_box" } ]
+        }
+      },
+      {
+        "share_button@button_jexp.button": {
+          "$prsd_btn_nm": "button.share_screenshot",
+          "size": [80, 20],
+          "offset": ["100% - 80px", 0],
+          "$btn_text": "screenshot.post"
+        }
+      }
+    ]
+  }
+}

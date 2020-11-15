@@ -1,0 +1,498 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "players_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "focus_container": true,
+    "use_last_focus": true,
+    "focus_nagivation_mode_right": "contained",
+    "controls": [
+      { "title@screen_jexp.title": {
+          "ignored": "$education_edition",
+          "text": "#worldname",
+          "offset": ["50% - 110px", 34],
+          "bindings": [ { "binding_name": "#worldname" } ]
+        }
+      },
+      { "invite_players@ingame_menu_jexp.invite_players_button": { "offset": ["50% - 118px + 8px", 45], "layer": 20 } },
+      { "back@ingame_menu_jexp.pause_menu_button": { "offset": ["50% - 118px + 82px + 74px", 45], "layer": 20 } },
+      { "players_list@players_jexp.players_list_panel": { "offset": ["50% - 118px", 64] } }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "players_view1",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "players_view2",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "players_view3",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  // "disconnected_from_multiplayer_label_panel": {
+  //   "type": "stack_panel",
+  //   "size": [ "100%", "100%c" ],
+  //   "controls": [
+  //     {
+  //       "disconnected_from_xbox_live_label@players_jexp.disconnected_label": {
+  //         "text": "pauseScreen.xboxLiveDisconnect",
+  //         "bindings": [
+  //           {
+  //             "binding_name": "#disconnected_from_xbox_live_label_visible",
+  //             "binding_name_override": "#visible",
+  //             "binding_type": "global"
+  //           }
+  //         ]
+  //       }
+  //     },
+  //     {
+  //       "disconnected_from_third_party_label@players_jexp.disconnected_label": {
+  //         "text": "pauseScreen.thirdPartyConsoleDisconnect",
+  //         "bindings": [
+  //           {
+  //             "binding_name": "#disconnected_from_third_party_label_visible",
+  //             "binding_name_override": "#visible",
+  //             "binding_type": "global"
+  //           }
+  //         ]
+  //       }
+  //     },
+  //     {
+  //       "disconnected_from_adhoc_label@players_jexp.disconnected_label": {
+  //         "text": "pauseScreen.thirdPartyConsoleAdhocDisconnect",
+  //         "bindings": [
+  //           {
+  //             "binding_name": "#disconnected_from_adhoc_label_visible",
+  //             "binding_name_override": "#visible",
+  //             "binding_type": "global"
+  //           }
+  //         ]
+  //       }
+  //     },
+  //     {
+  //       "disconnected_from_crossplatform_multiplayer@players_jexp.disconnected_label": {
+  //         "text": "options.crossPlatformMultiplayerDisabled",
+  //         "bindings": [
+  //           {
+  //             "binding_name": "#disconnected_from_crossplatform_multiplayer",
+  //             "binding_name_override": "#visible",
+  //             "binding_type": "global"
+  //           }
+  //         ]
+  //       }
+  //     },
+  //     {
+  //       "disconnected_from_multiplayer@players_jexp.disconnected_label": {
+  //         "text": "options.multiplayerDisabled",
+  //         "bindings": [
+  //           {
+  //             "binding_name": "#disconnected_from_multiplayer",
+  //             "binding_name_override": "#visible",
+  //             "binding_type": "global"
+  //           }
+  //         ]
+  //       }
+  //     }
+  //   ]
+  // },
+
+  "social_interactions_bg@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/social_interactions",
+    "size": [236, "60%"],
+    "$uv": [1, 1],
+    "$uv_sz": [236, 34],
+    "nineslice_size": [118, 17, 118, 17],
+    "variables": [
+      { "requires": "($social_interactions_res = 512x)", "$uv": [1, 1], "$uv_sz": [236, 34] },
+      { "requires": "($social_interactions_res = 1024x)", "$uv": [2, 2], "$uv_sz": [472, 68] },
+      { "requires": "($social_interactions_res = 2048x)", "$uv": [4, 4], "$uv_sz": [944, 136] },
+      { "requires": "($social_interactions_res = 4096x)", "$uv": [8, 8], "$uv_sz": [1888, 272] }
+    ]
+  },
+
+  "players_list_panel@players_jexp.social_interactions_bg": {
+    "controls": [
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "size": ["100% + 40px", "100% - 16px"],
+          "offset": [-20, 8],
+          "$scrollbar_offset": ["100% - 100%x", 0],
+          "$scroll_cont": "scroll@players_jexp.scroll_cont"
+        }
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": ["236px - 16px", "100%c"],
+    "controls": [
+      { "players_list": {
+          "type": "panel",
+          "size": ["100%", "100%c"],
+          "controls": [ { "grid@players_jexp.players_grid": {} } ]/* ,
+          "bindings": [
+            { "binding_name": "(not #list_has_display_objective)",
+              "binding_name_override": "#visible"
+            }
+          ] */
+        }
+     /*  },
+      { "scoreboard_list": {
+          "type": "panel",
+          "size": ["100%", "100%c"],
+          "controls": [ { "list@players_jexp.scoreboard_player_list": {} } ],
+          "bindings": [
+            { "binding_name": "#list_has_display_objective",
+              "binding_name_override": "#visible"
+            }
+          ]
+        } */
+      }
+    ]
+  },
+
+  "players_grid": {
+    "type": "grid",
+    "size": ["100%", "default"],
+    "grid_item_template": "players_jexp.player_grid_item",
+    "grid_dimension_binding": "#players_grid_dimension",
+    "collection_name": "players_collection",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "bindings": [
+      {
+        "binding_name": "#players_grid_dimension",
+        /* Necessary do to a bug with grid item bindings not refreshing when the grid is inside a stack panel */
+        "binding_condition": "always"
+      }
+    ]
+  },
+
+  "player_grid_item": {
+    "type": "panel",
+    "size": ["100%", "32px + 4px"],
+    "controls": [
+      { "inner_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100%", 32],
+          "offset": [0, 3],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "controls": [
+            { "banner_button": {
+                "type": "stack_panel",
+                "size": ["fill", "100%"],
+                "controls": [
+                  { "button@player_button": {} },
+                  { "banner@player_banner": {} }
+                ]
+              }
+            },
+            { "player_permission_button_panel": {
+                "type": "panel",
+                "size": [28, "100%"],
+                "layer": 5,
+                "controls": [ { "player_permission_button@players_jexp.player_permission_button": { "offset": [4, 6] } } ],
+                "bindings": [
+                  { "binding_name": "#permissions_button_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "player_banner_img": {
+    "type": "image",
+    "texture": "src/assets/white",
+    "alpha": 0.1,
+    "size": [220, 32],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "layer": 1
+  },
+
+  "player_banner@players_jexp.player_banner_img": {
+    "controls": [
+      { "player_cont@players_jexp.player_btn_cont": {} },
+      { "focus_border_button@focus_border_button": {} }
+    ],
+    "bindings": [
+      { "binding_name": "#button_disabled",
+        "binding_type": "collection",
+        "binding_collection_name": "players_collection",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "focus_border_button@button_jexp.base_button": {
+    "size": [220, "100%"],
+    "sound_volume": 0.0,
+    "$prsd_btn_nm": "button.pause_focus_filler",
+    "$btn_tts_nm": "",
+    "tts_inherit_siblings": true,
+    "layer": 5,
+    "controls": [
+      { "default@screen_jexp.empty_panel": {} },
+      { "hover@pause.focus_border": {} },
+      { "pressed@pause.focus_border": {} }
+    ]
+  },
+
+  "player_banner_hov@player_banner_img": {
+    "controls": [
+      { "hover@pause.focus_border": {} },
+      { "pressed@pause.focus_border": {} }
+    ]
+  },
+
+  "player_button@button_jexp.button": {
+    "size": ["100%", 32],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$dflt_btn_bg": "players_jexp.player_banner_img",
+    "$hov_btn_bg": "players_jexp.player_banner_hov",
+    "$lkd_btn_bg": "players_jexp.player_banner_img",
+    "$btn_cont": "players_jexp.player_btn_cont",
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.player_profile_card",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.player_profile_card",
+        "mapping_type": "focused"
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#button_enabled",
+        "binding_type": "collection",
+        "binding_collection_name": "players_collection",
+        "binding_name_override": "#visible"
+      },
+      { "binding_type": "collection_details",
+        "binding_collection_name": "players_collection"
+      }
+    ]
+  },
+
+  "player_permission_button@button_jexp.button": {
+    "size": [20, 20],
+    "$btn_cont": "players_jexp.player_permission_btn_cont",
+    "$btn_tts_hdr": "accessibility.pause.permissions",
+    "layer": 5,
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_permission",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.menu_permission",
+        "mapping_type": "focused"
+      }
+    ],
+    "bindings": [
+      { "binding_type": "collection_details",
+        "binding_collection_name": "players_collection"
+      }
+    ]
+  },
+
+  "player_permission_btn_cont": {
+    "type": "panel",
+    "size": [20, 20],
+    "controls": [
+      { "permission_icon_image": {
+          "type": "image",
+          "texture": "#player_permission_level_icon_texture",
+          "size": [13, 13],
+          "offset": [1, 0],
+          "bindings": [
+            { "binding_name": "#player_permission_level_icon_texture",
+              "binding_name_override": "#texture",
+              "binding_type": "collection",
+              "binding_collection_name": "players_collection"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "player_btn_cont": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "size": ["100% - 8px", "100%"],
+    "layer": 3,
+    "controls": [
+      { "player_pic_panel@players_jexp.player_pic_panel": { "layer": 1 } },
+      { "player_gamertag@players_jexp.gametag_wrapper": {} }
+    ]
+  },
+
+  "player_pic_panel": {
+    "type": "panel",
+    "size": [24, "100%"],
+    "ignored": "$education_edition",
+    "controls": [
+      { "gamer_pic@players_jexp.player_gamer_pic": {} },
+      { "local_icon@players_jexp.player_local_icon": {} }
+    ]
+  },
+
+  "player_local_icon": {
+    "type": "image",
+    "texture": "textures/ui/lan_icon",
+    "size": [24, 24],
+    "layer": 1,
+    "bindings": [
+      { "binding_name": "#local_icon_visible",
+        "binding_type": "collection",
+        "binding_collection_name": "players_collection",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "player_gamer_pic": {
+    "type": "image",
+    "texture": "#texture",
+    "size": [24, 24],
+    "texture_file_system": "#texture_source",
+    "layer": 1,
+    "bindings": [
+      { "binding_name": "#texture",
+        "binding_type": "collection",
+        "binding_collection_name": "players_collection"
+      },
+      { "binding_name": "#texture_source",
+        "binding_name_override": "#texture_file_system",
+        "binding_type": "collection",
+        "binding_collection_name": "players_collection"
+      },
+      { "binding_name": "#gamerpic_visible",
+        "binding_type": "collection",
+        "binding_collection_name": "players_collection",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "gametag_wrapper": {
+    "type": "panel",
+    "size": ["fill", "100%"],
+    "layer": 1,
+    "controls": [
+      { "player_gamertag": {
+          "type": "label",
+          "text": "#gamertag",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": ["100%", 10],
+          "offset": [4, 10],
+          "layer": 5,
+          "bindings": [
+            { "binding_name": "#gamertag",
+              "binding_type": "collection",
+              "binding_collection_name": "players_collection"
+            }
+          ]
+        }
+      }
+    ]
+  }
+
+  /* Scoreboard */
+  /* "scoreboard_player_list": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", "100%c" ],
+    "focus_container": true,
+    "use_last_focus": true,
+    "focus_nagivation_mode_right": "contained",
+    "controls": [
+      {
+        "vertical_padding_0@pause.vertical_padding": {
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "permissions_button@common_buttons.dark_text_button": {
+          "ignored": "$education_edition",
+          "size": [ "100%", 24 ],
+          "$button_text": "permissions.title",
+          "$pressed_button_name": "button.menu_permission"
+        }
+      },
+      {
+        "vertical_padding_1@pause.vertical_padding": {
+          "ignored": "$education_edition",
+          "size": [ "100%", 4 ]
+        }
+      },
+      { "players_label@scoreboard.list_objective_label": {} },
+      {
+        "vertical_padding_2@pause.vertical_padding": {
+          "size": [ "100%", 4 ]
+        }
+      },
+      { "scored_players_grid_panel@scoreboard.players_scored_grid_list": {} },
+      {
+        "vertical_padding_3@pause.vertical_padding": {
+          "size": [ "100%", 5 ],
+          "bindings": [
+            {
+              "binding_name": "#list_scores_not_empty",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "unscored_players_grid_panel@scoreboard.players_unscored_grid_list": {} },
+      {
+        "vertical_padding_4@pause.vertical_padding": {
+          "size": [ "100%", 5 ],
+          "bindings": [
+            {
+              "binding_name": "#unscored_not_empty",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "invite_players_button_panel@pause.invite_players_button_panel": {} },
+      {
+        "vertical_padding_5@pause.vertical_padding": {
+          "size": [ "100%", 4 ]
+        }
+      },
+      { "disconnected_from_multiplayer_label_panel@pause.disconnected_from_multiplayer_label_panel": {} },
+      {
+        "vertical_padding_6@pause.vertical_padding": {
+          "size": [ "100%", 4 ]
+        }
+      }
+    ]
+  } */
+}

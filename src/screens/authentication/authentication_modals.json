@@ -1,0 +1,76 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "authentication_modals_jexp",
+  
+  "screen_content": {
+    "type": "panel",
+    "$title_text": "#title_text",
+    "$title_bdg_cond": "once",
+    "$title_bdg_type": "global",
+    "controls": [ { "cont@content_panel": {} } ]
+  },
+
+  "content_panel@popup_jexp.modal_with_buttons": {
+    "$title": "authentication_modals_jexp.title",
+    "$msg": "authentication_modals_jexp.description",
+    "$btn_panel": "authentication_modals_jexp.buttons_panel"
+  },
+
+  "title@account_banned_jexp.title": {
+    "property_bag": {},
+    "$title_text|default": "#none",
+    "$title_bdg_cond|default": "none",
+    "$title_bdg_type|default": "none",
+    "text": "$title",
+    "bindings": [
+      { "binding_name": "$title_text",
+        "binding_condition": "$title_bdg_cond",
+        "binding_type": "$title_bdg_type"
+      }
+    ]
+  },
+
+  "description@account_banned_jexp.description": {
+    "localize": false,
+    "text": "#body_text",
+    "bindings": [
+      { "binding_name": "#body_text",
+        "binding_condition": "once"
+      }
+    ]
+  },
+
+  "buttons_panel": {
+    "type": "panel",
+    "size": ["100%", 44],
+    "controls": [
+      { "left_button@button_jexp.button": {
+          "size": [150, 20],
+          "offset": ["50% - 155px"],
+          "$prsd_btn_nm": "button.confirm",
+          "$btn_text": "#left_button_text",
+          "$btn_text_bdg_type": "global",
+          "$btn_bdg_cond": "once"
+        }
+      },
+      { "right_button@button_jexp.button": {
+          "offset": ["50% + 5px"],
+          "size": [150, 20],
+          "$prsd_btn_nm": "button.cancel",
+          "$btn_text": "#right_button_text",
+          "$btn_text_bdg_type": "global",
+          "$btn_bdg_cond": "once"
+        }
+      },
+      { "cancel@button_jexp.button": {
+          "offset": ["50% - 100px", 24],
+          "$prsd_btn_nm": "button.menu_exit",
+          "$btn_text": "gui.cancel"
+        }
+      }
+    ]
+  }
+}

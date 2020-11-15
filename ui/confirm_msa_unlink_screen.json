@@ -1,0 +1,12 @@
+{
+  "confirm_msa_unlink_screen@screen_jexp.screen": {
+    "button_mappings": [
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.cancel",
+        "mapping_type": "global"
+      }
+    ],
+    "$scrn_cont": "confirm_msa_unlink_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.screen_background"
+  }
+}

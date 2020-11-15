@@ -1,0 +1,97 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "patch_notes_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "text": "options.patchNotes", "offset": ["50% - 50%x", 12] } },
+      { "content_panel@patch_notes_jexp.content_panel": {} },
+      { "continue_button@continue_button": { "offset": ["50% - 100px", "100% - 27px"] } }
+    ]
+  },
+
+  "content_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100% - 80px", "100% - 83px"],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [0, 32],
+    "layer": 20,
+    "controls": [
+      { "right_panel@patch_notes_jexp.right_panel": {} },
+      { "space@screen_jexp.h2px": { "size": [8, 0] } },
+      { "selection@scrollpane_jexp.scrollpane": {
+          "size": ["fill", "100%"],
+          "$scroll_cont": "dirt@patch_notes_jexp.scroll_cont",
+          "$scrollbar_offset": ["50% - 6px", 0]
+        }
+      }
+    ]
+  },
+
+  "right_panel": {
+    "type": "panel",
+    "size": [222, "100%"],
+    "controls": [
+      { "patch_main_image": {
+          "type": "image",
+          "size": ["100% - 2px", "56.25%x"],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "bindings": [
+            { "binding_name": "#main_image_texture",
+              "binding_name_override": "#texture",
+              "binding_type": "global"
+            },
+            { "binding_name": "#main_image_texture_source",
+              "binding_name_override": "#texture_file_system",
+              "binding_type": "global"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": ["100% - 8px", "100%c + 8px"],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      { "patch_notes_text": {
+          "type": "label",
+          "color": "$body_text_color",
+          "size": ["100% - 6px", "default"],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [0, 4],
+          "shadow": true,
+          "text": "#patch_description",
+          "layer": 2,
+          "bindings": [
+            { "binding_name": "#patch_description",
+              "binding_type": "global"
+            },
+            { "binding_type": "global",
+              "binding_condition": "once",
+              "binding_name": "#tts_dialog_body"
+            }
+          ],
+          "property_bag": { "#tts_dialog_body": "#patch_description" }
+        }
+      }
+    ]
+  },
+
+  "continue_button@button_jexp.button": {
+    "$btn_text": "patchNotes.continue",
+    "$prsd_btn_nm": "button.menu_exit",
+    "$btn_focus_prcdc": 1
+  }
+}

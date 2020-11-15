@@ -14,8 +14,7 @@
       { "extra@$extra_cont": {} },
       { "invisible_exit_bg@container_jexp.invisible_exit_bg": {} },
       { "selected_item_button@container_jexp.selected_item_button": {} },
-      {
-        "root_panel@$root_panel": {
+      { "root_panel@$root_panel": {
           "size": "$container_size",
           "controls": "$root_ctrls",
           "$root_ctrls|default": [

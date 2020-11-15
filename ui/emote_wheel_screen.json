@@ -1,0 +1,28 @@
+{
+  "emote_wheel_screen@screen_jexp.screen": {
+    "button_mappings": [
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_autocomplete",
+        "to_button_id": "button.rebind_mode",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.emote_selected",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.dressing_room",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "key.emote",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ],
+    "$scrn_cont": "emote_wheel_jexp.screen_content",
+    "gamepad_cursor_deflection_mode": true
+  }
+}

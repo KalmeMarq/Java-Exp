@@ -1,0 +1,53 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "braze_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [ { "cont@content_panel": {} }  ]
+  },
+
+  "content_panel@popup_jexp.modal_with_buttons": {
+    "$title": "braze_jexp.title",
+    "$msg": "screen_jexp.v2px",
+    "$btn_panel": "braze_jexp.buttons_panel"
+  },
+
+  "title@account_banned_jexp.title": {
+    "text": "#body_text",
+    "property_bag": {},
+    "bindings": [ { "binding_name": "#body_text" } ]
+  },
+
+  "buttons_panel": {
+    "type": "panel",
+    "size": [310, 44],
+    "controls": [
+      { "left_button@left_button": {} },
+      { "right_button@right_button": { "offset": ["100% - 150px"] } },
+      { "cancel@button_jexp.button": {
+          "offset": ["50% - 100px", 24],
+          "$prsd_btn_nm": "button.menu_exit",
+          "$btn_text": "gui.cancel"
+        }
+      }
+    ]
+  },
+
+  "left_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.left_button",
+    "$btn_text": "#leftButton_text",
+    "size": [150, 20],
+    "$btn_text_bdg_type": "global"
+  },
+
+  "right_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.right_button",
+    "$btn_text": "#rightButton_text",
+    "size": [150, 20],
+    "$btn_text_bdg_type": "global"
+  }
+}

@@ -3,7 +3,7 @@
   All rights reserved.
 ***********************************/
 {
-  "namespace": "content_log_ui",
+  "namespace": "content_log_jexp",
 
   "content_log_screen_content_panel": {
     "type": "panel",
@@ -20,8 +20,7 @@
     "size": ["100%", "100%c"],
     "max_size": ["100%", "75%"],
     "controls": [
-      {
-        "stack_panel": {
+      { "stack_panel": {
           "type": "stack_panel",
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left",
@@ -29,7 +28,7 @@
             "name": "content_log_item_factory",
             "max_children_size": 50,
             "control_ids": {
-              "content_log_item": "content_log_item@content_log_ui.content_log_grid_item"
+              "content_log_item": "content_log_item@content_log_jexp.content_log_grid_item"
             }
           }
         }
@@ -59,7 +58,7 @@
           "alpha": 0.5,
           "size": [ "100%", "100%c" ],
           "anims": [
-            "@content_log_ui.anim_content_log_bg_wait"
+            "@content_log_jexp.anim_content_log_bg_wait"
           ],
           "controls": [
             {
@@ -86,7 +85,7 @@
   "anim_content_log_txt_wait": {
     "anim_type": "wait",
     "duration": 5,
-    "next": "@content_log_ui.anim_content_log_txt_alpha"
+    "next": "@content_log_jexp.anim_content_log_txt_alpha"
   },
 
   "anim_content_log_bg_alpha": {
@@ -101,7 +100,7 @@
   "anim_content_log_bg_wait": {
     "anim_type": "wait",
     "duration": 5,
-    "next": "@content_log_ui.anim_content_log_bg_alpha"
+    "next": "@content_log_jexp.anim_content_log_bg_alpha"
   },
 
   "content_log_label": {
@@ -113,7 +112,7 @@
     "localize": false,
     "font_scale_factor": 0.5,
     "color": "$chat_text_color",
-    "anims": [ "@content_log_ui.anim_content_log_txt_wait" ],
+    "anims": [ "@content_log_jexp.anim_content_log_txt_wait" ],
     "bindings": [
       {
         "binding_name": "#content_log_text",

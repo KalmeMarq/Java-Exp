@@ -1,0 +1,56 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "adhoc_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "cont@adhoc_content": {} },
+      { "gamepad_helpers@adhoc.gamepad_helpers": {} }
+    ]
+  },
+
+  "content_panel@popup_jexp.modal_with_buttons": {
+    "$title": "adhoc_jexp.title",
+    "$msg": "adhoc_jexp.description",
+    "$btn_panel": "adhoc_jexp.buttons_panel"
+  },
+
+  "title@account_banned_jexp.title": {
+    "text": "thirdPartyConsole.adhoc.title",
+    "property_bag": {},
+    "bindings": []
+  },
+
+  "description@account_banned_jexp.description": { "text": "thirdPartyConsole.adhoc.desc" },
+
+  "buttons_panel": {
+    "type": "panel",
+    "size": [310, 44],
+    "controls": [
+      { "online@online_button": {} },
+      { "local@local_button": { "offset": ["100% - 150px"] } },
+      { "cancel@button_jexp.button": {
+          "offset": ["50% - 100px", 24],
+          "$prsd_btn_nm": "button.menu_exit",
+          "$btn_text": "gui.cancel"
+        }
+      }
+    ]
+  },
+
+  "online_button@button_jexp.button": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.online_button",
+    "$btn_text": "thirdPartyConsole.adhoc.onlineNetwork"
+  },
+
+  "local_button@button_jexp.button": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.local_button",
+    "$btn_text": "thirdPartyConsole.adhoc.localNetwork"
+  }
+}

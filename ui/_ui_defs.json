@@ -27,13 +27,18 @@
     "src/screens/jigsaw_block.json",
     "src/screens/main_menu.json",
     "src/screens/mob_effects.json",
+    "src/screens/online_safety.json",
     "src/screens/options.json",
+    "src/screens/players.json",
     "src/screens/popup.json",
+    "src/screens/progress.json",
     "src/screens/scoreboard.json",
     "src/screens/sleep_in_bed.json",
     /* Screens - Account */
     "src/screens/account/account_banned.json",
     "src/screens/account/account_transfer_error.json",
+    /* Screens - Authentication */
+    "src/screens/authentication/authentication_modals.json",
     /* Screens - Chat */
     "src/screens/chat/chat_settings.json",
     "src/screens/chat/chat.json",
@@ -64,11 +69,29 @@
     "src/screens/debug/content_log.json",
     "src/screens/debug/perf_turtle.json",
     "src/screens/debug/safe_zone.json",
+    /* Screens - Education */
+    "src/screens/education/chalkboard.json",
+    /* Screens - Others */
+    "src/screens/others/adhoc_inprogress.json",
+    "src/screens/others/adhoc.json",
+    "src/screens/others/auto_save_info.json",
+    "src/screens/others/braze.json",
+    "src/screens/others/bundle_purchase_warning.json",
+    "src/screens/others/confirm_msa_unlink.json",
+    "src/screens/others/credits.json",
+    "src/screens/others/disconnect.json",
+    "src/screens/others/emote_wheel.json",
+    "src/screens/others/global_pause.json",
+    "src/screens/others/patch_notes.json",
+    "src/screens/others/screenshot.json",
+    "src/screens/others/server_form.json",
+    "src/screens/others/simple_inprogress.json",
     /* Screens - Realms Sections */
-    "src/screens/realms/world_backups.json",
+    "src/screens/realms/choose_realm.json",
     "src/screens/realms/players.json",
     "src/screens/realms/realms_settings.json",
     "src/screens/realms/subscriptions.json",
+    "src/screens/realms/world_backups.json",
     "src/screens/realms/world_options.json",
     /* Screens - Settings Sections */
     "src/screens/settings/controls/controller_settings.json",
@@ -99,6 +122,7 @@
     "src/screens/world_create/multiplayer.json",
     /* Test */
     "src/test/book.json",
+    "src/test/container.json",
     "src/test/ingame_hud.json",
     "src/test/mob_effects.json"
   ]

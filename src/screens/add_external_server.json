@@ -13,7 +13,6 @@
       { "name_label@label": { "text": "addServer.title", "offset": ["50% - 100px", 53] } },
       { "name@text_box": {
           "offset": ["50% - 100px", 66],
-          "$text_type": "ExtendedASCII",
           "$text_box_name": "#name_text_box",
           "$cont_bdg_nm": "#name_text_box_content",
           "$max_length": 32,
@@ -23,7 +22,6 @@
       { "ip_label@label": { "text": "addServer.enterIp", "offset": ["50% - 100px", 94]  } },
       { "ip@text_box": {
           "offset": ["50% - 100px", 106],
-          "$text_type": "ExtendedASCII",
           "$text_box_name": "#ip_text_box",
           "$cont_bdg_nm": "#ip_text_box_content",
           "$max_length": 64,
@@ -58,17 +56,18 @@
   "text_box@text_box_jexp.text_box": {
     "size": [200, 20],
     "max_length": "$max_length",
+    "$type|default": "",
     "$text_box_name": "$text_box_name",
     "$text_edit_box_cont_bdg_nm": "$cont_bdg_nm",
     "$text_box_tts_nm": "",
     "text_type": "$text_type",
+    "$text_type|default": "ExtendedASCII",
     "$text_edit_box_bdg_cond": "once"
   },
 
   "play_button@button_jexp.button": {
     "$prsd_btn_nm": "button.play_button",
     "$btn_text": "menu.play",
-    "ignored": "$edit_mode",
     "bindings": [
       { "binding_name": "#play_button_enabled",
         "binding_name_override": "#enabled"

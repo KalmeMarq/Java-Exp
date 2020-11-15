@@ -57,7 +57,6 @@
     "color": "$title_color",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "offset": [0, 12],
     "layer": 12
   },
 
@@ -181,10 +180,10 @@
     "$tiled": [2, 2],
     "layer": 0,
     "variables": [
-      { "requires": "($options_bg_res = 512)", "$tiled": [1, 1] },
-      { "requires": "($options_bg_res = 1024)", "$tiled": [0.5, 0.5] },
-      { "requires": "($options_bg_res = 2048)", "$tiled": [0.25, 0.25] },
-      { "requires": "($options_bg_res = 4096)", "$tiled": [0.125, 0.125] }
+      { "requires": "($options_bg_res = 512x)", "$tiled": [1, 1] },
+      { "requires": "($options_bg_res = 1024x)", "$tiled": [0.5, 0.5] },
+      { "requires": "($options_bg_res = 2048x)", "$tiled": [0.25, 0.25] },
+      { "requires": "($options_bg_res = 4096x)", "$tiled": [0.125, 0.125] }
     ]
   },
 
@@ -262,8 +261,7 @@
           ],
           "controls": [
             { "scrn_bg@$scrn_bg": { "layer": 0 } },
-            { "scrn_cont@$scrn_cont": { "layer": 10 } },
-            { "popup_dialog_factory@$popup_factory": { "layer": 5 } }
+            { "scrn_with_safe_zone@screen_jexp.sz_outer_matrix": { "layer": 10 } }
           ]
         }
       }
@@ -345,5 +343,55 @@
       "storage_dependency_popup": "@storage_management_popup.storage_dependency_modal",
       "storage_sharing_popup": "@storage_management_popup.sharing_popup_content"
     }
+  },
+
+  /* Safe Zone / Screen Content */
+  "sz_buffer": {
+    "type": "panel",
+    "bindings": [
+      { "binding_name": "$buffer_bdg_nm",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "top_sz_vert_buffer@screen_jexp.sz_buffer": { "size": "$top_vertical_safezone_size" },
+  "btm_sz_vert_buffer@screen_jexp.sz_buffer": { "size": "$bottom_vertical_safezone_size" },
+  "lt_sz_horiz_buffer@screen_jexp.sz_buffer": { "size": "$left_horizontal_safezone_size" },
+  "rt_sz_horiz_buffer@screen_jexp.sz_buffer": { "size": "$right_horizontal_safezone_size" },
+
+  "sz_outer_matrix": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%", "100%"],
+    "controls": [
+      { "outer_left@screen_jexp.lt_sz_horiz_buffer": { "$buffer_bdg_nm": "#safezone_outer_left" } },
+      { "inner_left@screen_jexp.lt_sz_horiz_buffer": { "$buffer_bdg_nm": "#safezone_inner_left" } },
+      { "inner_matrix@screen_jexp.sz_inner_matrix": {} },
+      { "inner_right@screen_jexp.rt_sz_horiz_buffer": { "$buffer_bdg_nm": "#safezone_inner_right" } },
+      { "outer_right@screen_jexp.rt_sz_horiz_buffer": { "$buffer_bdg_nm": "#safezone_outer_right" } }
+    ]
+  },
+
+  "sz_inner_matrix": {
+    "type": "stack_panel",
+    "size": ["fill", "100%"],
+    "orientation": "vertical",
+    "controls": [
+      { "outer_top@screen_jexp.top_sz_vert_buffer": { "$buffer_bdg_nm": "#safezone_outer_top" } },
+      { "inner_top@screen_jexp.top_sz_vert_buffer": { "$buffer_bdg_nm": "#safezone_inner_top" } },
+      { "safezone_screen_panel@screen_jexp.screen_panel": {} },
+      { "inner_bottom@screen_jexp.btm_sz_vert_buffer": { "$buffer_bdg_nm": "#safezone_inner_bottom" } },
+      { "outer_bottom@screen_jexp.btm_sz_vert_buffer": { "$buffer_bdg_nm": "#safezone_outer_bottom" } }
+    ]
+  },
+
+  "screen_panel": {
+    "type": "panel",
+    "size": ["100%", "fill"],
+    "controls": [
+      { "root_screen_panel@$scrn_cont": {} },
+      { "popup_dialog_factory@$popup_factory": {} }
+    ]
   }
 }

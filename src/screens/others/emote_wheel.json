@@ -1,0 +1,158 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "emote_wheel_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "text": "emotes.header_text", "offset": ["50% - 50%x", 12] } },
+      { "emote_name@screen_jexp.title": {
+          "ignored": "(not #visible)",
+          "offset": ["50% - 50%x", "50% - 109px - 10px"],
+          "text": "#emote_name",
+          "bindings": [
+            { "binding_name": "#emote_name",
+              "binding_condition": "always"
+            }
+          ]
+        }
+      },
+      { "emote_wheel@emote_wheel_jexp.emote_wheel": {} },
+      { "gamepad_helper@gamepad_helper_panel": {} },
+      { "dressing_room@dressing_room_button_panel": {} }
+    ]
+  },
+
+  /* Wheel */
+  "emote_wheel_slot_cont": {
+    "type": "panel",
+    "controls": [
+      { "$emote_slot_nm@emote_wheel_jexp.wheel_state": {} },
+      { "image_0@persona.emote_image": {
+          "offset": "$emote_image_offset",
+          "$property_bag": { "#index": "($emote_slot_nm - 'emote_slot_')" }
+        }
+      },
+      { "touch_label_0@persona.touch_name_label": {
+          "offset": "$emote_touch_label_offset",
+          "text_alignment": "right",
+          "property_bag": { "#index": "($emote_slot_nm - 'emote_slot_')" }
+        }
+      }
+    ]
+  },
+
+  "wheel_state": {
+    "type": "image",
+    "texture": "$wheel_state_texture",
+    "$wheel_state_texture|default": "('textures/ui/emote_wheel_select_' + $emote_slot_nm - 'emote_slot_')",
+    "layer": 1
+  },
+  
+  "emote_wheel@persona.selection_wheel": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": ["50% - 50%x", "50% - 109px + 35px - 15px"],
+    "size": [ 185, 172],
+    "inner_radius": 0.35,
+    "outer_radius": 1.0,
+    "$slice_count": 6,
+    "$button_name": "button.emote_selected",
+    "$button_focus_precedence": 10,
+    "focus_identifier": "emote_wheel",
+    "focus_change_left": "FOCUS_OVERRIDE_STOP",
+    "focus_change_right": "FOCUS_OVERRIDE_STOP",
+    "focus_change_up": "FOCUS_OVERRIDE_STOP",
+    "controls": [
+      { "default_state@persona.wheel_state": { "texture": "textures/ui/emote_wheel_base" } },
+      { "emote_slot_0_content@emote_wheel_jexp.emote_wheel_slot_cont": {
+          "$emote_slot_nm": "emote_slot_0",
+          "$emote_image_offset": [-31, -52],
+          "$emote_touch_label_offset": [-102, -54]
+        }
+      },
+      { "emote_slot_1_content@emote_wheel_jexp.emote_wheel_slot_cont": {
+          "$emote_slot_nm": "emote_slot_1",
+          "$emote_image_offset": [31, -52],
+          "$emote_touch_label_offset": [102, -54]
+        }
+      },
+      { "emote_slot_2_content@emote_wheel_jexp.emote_wheel_slot_cont": {
+          "$emote_slot_nm": "emote_slot_2",
+          "$emote_image_offset": [62, 0],
+          "$emote_touch_label_offset": [133, 0]
+        }
+      },
+      { "emote_slot_3_content@emote_wheel_jexp.emote_wheel_slot_cont": {
+          "$emote_slot_nm": "emote_slot_3",
+          "$emote_image_offset": [31, 52],
+          "$emote_touch_label_offset": [102, 54]
+        }
+      },
+      { "emote_slot_4_content@emote_wheel_jexp.emote_wheel_slot_cont": {
+          "$emote_slot_nm": "emote_slot_4",
+          "$emote_image_offset": [-31, 52],
+          "$emote_touch_label_offset": [-103, 54]
+        }
+      },
+      { "emote_slot_5_content@emote_wheel_jexp.emote_wheel_slot_cont": {
+          "$emote_slot_nm": "emote_slot_5",
+          "$emote_image_offset": [-62, 0],
+          "$emote_touch_label_offset": [-132, 0]
+        }
+      }
+    ],
+    "state_controls": ["default_state", "emote_slot_0", "emote_slot_1", "emote_slot_2", "emote_slot_3", "emote_slot_4", "emote_slot_5"]
+  },
+
+  "gamepad_helper_panel": {
+    "type": "panel",
+    "size": ["100%", "100%c"],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [0,  "50% - 109px + 35px + 172px + 24px"],
+    "controls": [
+      { "padding@screen_jexp.v4px": {} },
+      { "gamepad_helpers@common.empty_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%c", "100%cm" ],
+          "controls": [
+            { "gamepad_y@common.gamepad_helper_y": {} },
+            { "gamepad_b@common.gamepad_helper_b": {} },
+            { "gamepad_ls@common.gamepad_helper_thumbstick_left": {} },
+            { "gamepad_a@common.gamepad_helper_a": {} }
+          ]
+        }
+      }
+    ]
+  },
+
+  "dressing_room_button_panel": {
+    "type": "panel",
+    "size": [100, "100%c"],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [0, "50% - 109px + 35px + 172px"],
+    "bindings": [
+      { "binding_name": "(not #is_using_gamepad)",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+      { "padding@screen_jexp.v4px": {} },
+      { "dressing_room_button@button_jexp.button": {
+          "$prsd_btn_nm": "button.dressing_room",
+          "size": [100, 20],
+          "$btn_text": "emotes.change_emotes",
+          "focus_change_down": "FOCUS_OVERRIDE_STOP",
+          "focus_change_left": "emote_wheel",
+          "focus_change_right": "emote_wheel"
+        }
+      }
+    ]
+  }
+}

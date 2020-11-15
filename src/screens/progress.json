@@ -1,0 +1,289 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "progress_jexp",
+
+  "world_screen_content": {
+    "type": "panel",
+    "controls": [
+      { "cont@progress_jexp.world_content_panel": {} },
+      { "popup_dialog_factory@progress_jexp.popup_dialog_factory": {} }
+    ]
+  },
+
+  "world_save_screen_content@progress_jexp.world_screen_content": { "$is_saving": true },
+  "dimension_screen_content@progress_jexp.world_screen_content": { "$is_dimension": true },
+
+  "world_convert_screen_content@progress_jexp.world_screen_content": {},
+  "delete_screen_content@progress_jexp.world_screen_content": {},
+  "modal_screen_content@progress_jexp.world_screen_content": {},
+  "modal_screen_content_panel": { "type": "panel" },
+
+  "progress_title@screen_jexp.title": {
+    "offset": ["50% - 50%x", 70],
+    "text": "$text",
+    "bindings": [ { "binding_name": "$text" } ]
+  },
+
+  "world_content_panel": {
+    "type": "panel",
+    "$is_dimension|default": false,
+    "$is_saving|default": false,
+    "$text|default": "#title_text",
+    "variables": [
+      { "requires": "$is_dimension",
+        "$text": "multiplayer.downloadingTerrain"
+      },
+      { "requires": "$is_saving",
+        "$text": "menu.saving"
+      }
+    ],
+    "controls": [
+      { "title@progress_jexp.progress_title": {} },
+      { "world_load@progress_jexp.world_load": { "ignored": "($is_dimension or $is_saving)" } },
+      { "tips@progress_jexp.progress_tips": { "ignored": "($is_dimension or $is_saving)" } },
+      { "cancel@progress_jexp.cancel_button": { "ignored": "$is_saving" } }
+    ]
+  },
+
+  "progress_tips@progress_title": {
+    "max_size": ["75%", "default"],
+    "text": "#progress_text",
+    "offset": ["50% - 50%x", "50% + 30px + 4px"],
+    "visible": "$show_loading_screen_tips",
+    "shadow": true,
+    "bindings": [ { "binding_name": "#progress_text" } ]
+  },
+
+  "world_load": {
+    "type": "panel",
+    "size": [90, 90],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": ["50% - 45px", "50% + 30px - 90px"],
+    "controls": [
+      { "full@progress_jexp.full_world_load": { "layer": 4 } },
+      { "empty@empty_world_load": {} }
+    ],
+    "bindings": [
+      { "binding_name": "#loading_bar_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "cancel_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.menu_exit",
+    "$btn_text": "gui.cancel",
+    "offset": ["50% - 100px", "25% + 120px + 12px"],
+    "bindings": [
+      { "binding_name": "#cancel_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "empty_world_load": {
+    "type": "image",
+    "texture": "src/assets/white",
+    "color": "black"
+  },
+
+  "full_world_load": {
+    "type": "image",
+    "texture": "src/assets/world_loading",
+    "size": ["100%", "100%"],
+    "uv": "@progress_jexp.anim_world_progress",
+    "uv_size": [45, 45]
+  },
+
+  "anim_world_progress": {
+    "anim_type": "flip_book",
+    "initial_uv": [0, 0],
+    "frame_count": 50,
+    "frame_step": 1,
+    "fps": 15,
+    "reversible": false
+  },
+
+  "popup_dialog_factory": {
+    "type": "factory",
+    "control_ids": {
+      "test": "dialog@progress.popup_dialog_base",
+      "add_on_only": "add_on_only@progress_jexp.add_on_only",
+      "add_on_confirmation": "add_on_only@progress_jexp.add_on_confirmation",
+      "add_on_with_optional_texture_pack": "add_on_only@progress_jexp.add_on_with_optional_texture_pack",
+      "add_on_with_texture_pack": "add_on_only@progress_jexp.add_on_with_texture_pack",
+      "texture_pack_optional": "add_on_only@progress_jexp.texture_pack_optional",
+      "texture_pack_required": "add_on_only@progress_jexp.texture_pack_required"
+    }
+  },
+
+  /* Popups */
+  "simple_popup_base@popup_dialog.popup_dialog": {
+    "size": ["100%", "100%"],
+    "layer": 100,
+    "button_mappings": [
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "modal.escape",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_up",
+        "to_button_id": "button.menu_up",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      { "from_button_id": "button.menu_down",
+        "to_button_id": "button.menu_down",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      { "from_button_id": "button.menu_left",
+        "to_button_id": "button.menu_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      { "from_button_id": "button.menu_right",
+        "to_button_id": "button.menu_right",
+        "mapping_type": "global",
+        "scope": "view"
+      }
+    ],
+    "$use_top_btn|default": false,
+    "$top_btn_press|default": "",
+    "$top_btn_text|default": "",
+    "controls": [
+      { "bg@screen_jexp.dirt_background": {} },
+      { "modal@popup_jexp.modal_with_buttons": {
+          "$title": "progress_jexp.simple_popup_title",
+          "$msg": "progress_jexp.simple_popup_description",
+          "$btn_panel": "progress_jexp.simple_popup_two_buttons_panel",
+          "variables": [
+            { "requires": "$use_top_btn",
+              "$btn_panel": "progress_jexp.simple_popup_three_buttons_panel"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "simple_popup_title@screen_jexp.title": {
+    "size": ["100%", "default"],
+    "text": "$title_text",
+    "offset": [0, 0]
+  },
+
+  "simple_popup_description@progress_jexp.simple_popup_title": {
+    "size": ["default", "default"],
+    "max_size": ["80%", "default"],
+    "text": "$msg_text"  
+  },
+
+  "add_on_only@progress_jexp.simple_popup_base": {
+    "$title_text": "progressScreen.dialog.title.onlyBehavior",
+    "$msg_text": "progressScreen.dialog.message.onlyBehavior",
+    "$top_btn_text": "#empty_binding",
+    "$mid_btn_press": "button.join_and_download_all",
+    "$mid_btn_text": "#join_and_download",
+    "$btm_btn_press": "button.leave",
+    "$btm_btn_text": "progressScreen.dialog.button.leave"
+  },
+
+  "add_on_confirmation@progress_jexp.add_on_only": {
+    "$title_text": "progressScreen.dialog.title.scriptConfirm",
+    "$msg_text": "progressScreen.dialog.message.scriptConfirm",
+    "$mid_btn_press": "button.join"
+  },
+
+  "add_on_with_texture_pack@progress_jexp.simple_popup_base": {
+    "$title_text": "progressScreen.dialog.title.behaviorAndResourcePack",
+    "$msg_text": "progressScreen.dialog.message.behaviorAndResourcePack",
+    "$top_btn_text": "#empty_binding",
+    "$mid_btn_press": "button.join_and_download_all",
+    "$mid_btn_text": "#join_and_download",
+    "$btm_btn_press": "button.leave",
+    "$btm_btn_text": "progressScreen.dialog.button.leave"
+  },
+
+  "add_on_with_optional_texture_pack@progress_jexp.add_on_with_texture_pack": {
+    "$use_top_btn": true,
+    "$top_btn_press": "button.join_and_download_all",
+    "$top_btn_text": "#join_and_download_everything",
+    "$mid_btn_press": "button.join_and_download_needed",
+    "$mid_btn_text": "#join_and_download_only_add_on"
+  },
+
+  "texture_pack_optional@progress_jexp.simple_popup_base": {
+    "$title_text": "progressScreen.dialog.title.resourcePack",
+    "$msg_text": "progressScreen.dialog.message.resourcePackOptional",
+    "$top_btn_text": "#empty_binding",
+    "$mid_btn_press": "button.join_and_download_all",
+    "$mid_btn_text": "#join_and_download",
+    "$btm_btn_press": "button.join",
+    "$btm_btn_text": "progressScreen.dialog.button.join"
+  },
+
+  "texture_pack_required@progress_jexp.texture_pack_optional": {
+    "$msg_text": "progressScreen.dialog.message.resourcePackRequired",
+    "$btm_btn_press": "button.join",
+    "$btm_btn_text": "progressScreen.dialog.button.join"
+  },
+
+  "simple_popup_two_buttons_panel": {
+    "type": "panel",
+    "size": ["100%", 20],
+    "controls": [
+      { "left@button_jexp.button": {
+          "size": [150, 20],
+          "offset": ["50% - 155px", 0],
+          "$prsd_btn_nm": "$mid_btn_press",
+          "$btn_bdg_cond": "once",
+          "$btn_text_bdg_type": "global",
+          "$btn_text": "$mid_btn_text"
+        }
+      },
+      { "right@button_jexp.button": {
+          "size": [150, 20],
+          "offset": ["50% + 5px", 0],
+          "$prsd_btn_nm": "$btm_btn_press",
+          "$btn_text": "$btm_btn_text"
+        }
+      }
+    ]
+  },
+
+  "simple_popup_three_buttons_panel": {
+    "type": "panel",
+    "size": ["100%", 44],
+    "controls": [
+      { "left@button_jexp.button": {
+          "size": [150, 20],
+          "offset": ["50% - 155px", 0],
+          "$prsd_btn_nm": "$top_btn_press",
+          "$btn_bdg_cond": "once",
+          "$btn_text_bdg_type": "global",
+          "$btn_text": "$top_btn_text"
+        }
+      },
+      { "right@button_jexp.button": {
+          "size": [150, 20],
+          "offset": ["50% + 5px", 0],
+          "$prsd_btn_nm": "$mid_btn_press",
+          "$btn_bdg_cond": "once",
+          "$btn_text_bdg_type": "global",
+          "$btn_text": "$mid_btn_text"
+        }
+      },
+      { "bottom@button_jexp.button": {
+          "size": [200, 20],
+          "offset": ["50% - 100px", 24],
+          "$prsd_btn_nm": "$btm_btn_press",
+          "$btn_text": "$btm_btn_text"
+        }
+      }
+    ]
+  }
+}

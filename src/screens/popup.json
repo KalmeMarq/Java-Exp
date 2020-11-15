@@ -67,9 +67,9 @@
     "$title|default": "popup_jexp.modal_title_text",
     "$msg|default": "popup_jexp.modal_label_panel",
     "$top_space|default": [0, 10],
-    "$bottom_space|default": [0, 40],
+    "$btm_space|default": [0, 40],
     "$top_ctrls|default": [],
-    "$bottom_ctrls|default": [],
+    "$btm_ctrls|default": [],
     "$visib_src_ctrl_nm|default": "modal_bg_buttons",
     "layer": 2,
     "controls": [
@@ -79,14 +79,14 @@
           "controls": [ { "$title@$title": {} } ]
         }
       },
-      { "space_0@screen_jexp.empty_panel": { "size": "$top_space", "controls": "$top_ctrls" } },
+      { "space0@screen_jexp.empty_panel": { "size": "$top_space", "controls": "$top_ctrls" } },
       { "desc": {
           "type": "panel",
           "size": ["100%", "100%c"],
           "controls": [ { "$msg@$msg": {} } ]
         }
       },
-      { "space_1@screen_jexp.empty_panel": { "size": "$bottom_space", "controls": "$bottom_ctrls" } },
+      { "space1@screen_jexp.empty_panel": { "size": "$btm_space", "controls": "$btm_ctrls" } },
       { "buttons": {
           "type": "panel",
           "size": ["100%", "100%c"],

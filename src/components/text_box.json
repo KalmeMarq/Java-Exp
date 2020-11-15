@@ -122,11 +122,11 @@
     "text_box_name": "$text_box_name",
     "text_edit_box_grid_collection_name": "$text_edit_box_grid_collt_nm",
     "$text_edit_box_text_type|default": "ExtendedASCII",
-    "$virtual_keyboard_buffer_control|default": "",
+    "$virtual_kb_buffer_ctrl|default": "",
     "$text_edit_text_control|default": "display_text",
     "max_length": 14,
     "text_type": "$text_edit_box_text_type",
-    "virtual_keyboard_buffer_control": "$virtual_keyboard_buffer_control",
+    "virtual_keyboard_buffer_control": "$virtual_kb_buffer_ctrl",
     "text_control": "$text_edit_text_control",
     "place_holder_control": "place_holder_control"
   },

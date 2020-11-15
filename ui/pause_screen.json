@@ -36,6 +36,7 @@
         "$scrn_cont": "ingame_menu_jexp.screen_content",
         "$scrn_bg": "screen_jexp.screen_background"
       },
+      /* TODO */
       { "requires": "(not $ignore_edu_pause)",
         "$scrn_cont": "edu_pause.pause_screen_content",
         "$scrn_bg": "screen_jexp.screen_background"

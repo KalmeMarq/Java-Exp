@@ -1,0 +1,442 @@
+/* Version: 2.0.0 */
+/* By @FMarquesPTO. All rights reserved. */
+{
+  "namespace": "authentication_ui",
+
+  "authentication_screen_content_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "sign_in@popup_ui.modal_with_buttons": {
+          "$dialog_title_text": "#sign_in_modal_title",
+          "$dialog_title_text_binding_type": "global",
+          "$title": "authentication_modals_ui.title",
+          "$top_space": ["100%", "100%c"],
+          "$top_controls": [ { "title@title": {} } ],
+          "$description": "content.v2px",
+          "$button_panel": "authentication_ui.sign_in_buttons_panel",
+          "bindings": [
+            {
+              "binding_name": "#sign_in_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "sign_in_ios@popup_ui.modal_with_buttons": {
+          "$dialog_title_text": "#sign_in_modal_title",
+          "$dialog_title_text_binding_type": "global",
+          "$title": "authentication_modals_ui.title",
+          "$top_space": ["100%", "100%c"],
+          "$top_controls": [ { "title@title": {} } ],
+          "$description": "authentication_ui.sign_in_ios_description",
+          "$button_panel": "authentication_ui.sign_in_ios_buttons_panel",
+          "bindings": [
+            {
+              "binding_name": "#sign_in_ios_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "demo@edu_signin.screen_content": {
+          "bindings": [
+            {
+              "binding_name": "#demo_choice_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "eula@authentication_ui.eula_modal": {
+          "bindings": [
+            {
+              "binding_name": "#eula_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "purchase_panel@authentication_ui.purchase_content_panel": {
+          "bindings": [
+            {
+              "binding_name": "#edu_store_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "popup_dialog_factory": {
+          "type": "factory",
+          "control_ids": {
+            "trial_info": "@authentication.popup_dialog_trial_info",
+            "trial_info_ios": "@authentication.popup_dialog_trial_info_ios",
+            "generic_welcome": "@authentication.popup_dialog_generic_welcome"
+          }
+        }
+      }
+    ]
+  },
+
+  "title": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "title_label_wrapper@common.tts_label_focus_wrapper": {
+          "$tts_label_panel": "authentication_ui.title_label",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle"
+        }
+      }
+    ]
+  },
+
+  "title_label": {
+    "text": "#text",
+    "type": "label",
+    "size": ["100%", "default"],
+    "text_alignment": "center",
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "shadow": true,
+    "color": "white",
+    "layer": 10,
+    "$text_binding_name|default": "#authentication_message",
+    "bindings": [
+      {
+        "binding_name": "$text_binding_name",
+        "binding_name_override": "#text"
+      }
+    ]
+  },
+
+  "sign_in_buttons_panel": {
+    "type": "panel",
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "size": [200, 20],
+    "controls": [
+      { "sign_in@sign_in_button": {} }
+    ]
+  },
+
+  "sign_in_ios_description@account_banned_ui.description": {
+    "text": "authentication.educationOnly"
+  },
+
+  "sign_in_ios_buttons_panel@split_button_panel": {
+    "$button_a": "authentication_ui.sign_in_ios_button",
+    "$button_b": "authentication_ui.to_app_store",
+    "bindings": [
+      {
+        "binding_name": "#sign_in_ios_buttons_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "split_button_panel": {
+    "type": "stack_panel",
+    "size": [310, 20],
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "orientation": "horizontal",
+    "$button_a|default": "content.hfill",
+    "$button_b|default": "content.hfill",
+    "controls": [
+      { "a@$button_a": { "size": [150, 20] } },
+      { "fill@content.hfill": {} },
+      { "b@$button_b": { "size": [150, 20] } }
+    ]
+  },
+
+  "sign_in_button@button_ui.button": {
+    "$pressed_button_name": "button.signIn",
+    "$button_text": "#sign_in_button_text",
+    "$button_text_binding_type": "global",
+    "bindings": [
+      {
+        "binding_name": "#sign_in_button_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "sign_in_ios_button@button_ui.button": {
+    "$pressed_button_name": "button.signIn",
+    "$button_text": "authentication.signIn"
+  },
+
+  "to_app_store@button_ui.link_button": {
+    "$button_text": "authentication.minecraftInstead",
+    "$link": "https://itunes.apple.com/us/app/minecraft/id479516143?mt=8"
+  },
+
+  "eula_modal@popup_ui.modal_with_buttons": {
+    "$title": "authentication_modals_ui.title",
+    "$dialog_title_text": "eula.title",
+    "$description": "authentication_ui.eula_description",
+    "$button_panel": "authentication_ui.eula_buttons_panel"
+  },
+
+  "eula_description@account_banned_ui.description": {
+    "text": "eula.intro"
+  },
+
+  "eula_buttons_panel": {
+    "type": "stack_panel",
+    "size": [310, 20],
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "orientation": "horizontal",
+    "controls": [
+      { "eula_hyperlink@eula_hyperlink": { "size": [150, 20] } },
+      { "space@content.hfill": {} },
+      { "accept_eula@accept_eula_button": { "size": [150, 20] } }
+    ]
+  },
+
+  "eula_hyperlink@button_ui.link_button": {
+    "$button_text": "eula.view",
+    "$link": "https://education.minecraft.net/eula"
+  },
+
+  "accept_eula_button@button_ui.button": {
+    "$pressed_button_name": "button.acceptEula",
+    "$button_text": "eula.acceptButton"
+  },
+
+  "purchase_content_panel": {
+    "type": "panel",
+    "size": [ "100%c", "100%c" ],
+    "$close_button_to_button_id": "button.cancel_purchase",
+    "controls": [
+      {
+        "prompt@authentication_ui.purchase_prompt_content": {
+          "bindings": [
+            {
+              "binding_name": "#asking_to_buy_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "confirm@authentication_ui.purchase_confirm_content": {
+          "bindings": [
+            {
+              "binding_name": "#confirming_purchase_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "purchase_prompt_content@popup_ui.modal_with_buttons": {
+    "$title": "authentication_modals_ui.title",
+    "$dialog_title_text": "authentication.trialEndedTitle",
+    "$description": "authentication_ui.purchase_prompt_description",
+    "$button_panel": "authentication_ui.purchase_prompt_buttons_panel"
+  },
+
+  "purchase_prompt_description@account_banned_ui.description": {
+    "text": "authentication.store.intro"
+  },
+
+  "purchase_prompt_buttons_panel": {
+    "type": "stack_panel",
+    "size": [310, 20],
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "orientation": "horizontal",
+    "controls": [
+      {
+        "purchase@button_ui.button": {
+          "$pressed_button_name": "button.buy",
+          "size": [150, 20],
+          "$button_text": "#edu_store_purchase_button_text",
+          "$button_text_binding_type": "global",
+          "$button_binding_condition": "once"
+        }
+      },
+      { "space@content.hfill": {} },
+      {
+        "signout@button_ui.button": {
+          "$pressed_button_name": "button.cancel_purchase_show_demo_choice",
+          "size": [150, 20],
+          "$button_text": "xbox.signout"
+        }
+      }
+    ]
+  },
+
+  "purchase_confirm_content@popup_ui.modal_with_buttons": {
+    "$title": "authentication_modals_ui.title",
+    "$dialog_title_text": "authentication.store.confirmPurchase",
+    "$description": "authentication_ui.purchase_confirm_description",
+    "$button_panel": "authentication_ui.purchase_confirm_buttons_panel"
+  },
+
+  "purchase_confirm_description@account_banned_ui.description": {
+    "text": "#text",
+    "bindings": [
+      {
+        "binding_name": "#edu_store_purchase_info",
+        "binding_name_override": "#text"
+      }
+    ]
+  },
+
+  "purchase_confirm_buttons_panel": {
+    "type": "stack_panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      {
+        "agree": {
+          "type": "panel",
+          "size": ["100%", 20],
+          "controls": [
+            { "agree@agree_checkbox": {} }
+          ]
+        }
+      },
+      { "space@content.4px": {} },
+      {
+        "purchase_prompt_buttons_panel": {
+          "type": "stack_panel",
+          "size": ["100%", 20],
+          "orientation": "horizontal",
+          "$pressed_button_name_terms_conditions": "button.tos_hyperlink",
+          "$pressed_button_name_privacy_policy": "button.privpol_hyperlink",
+          "controls": [
+            { "fill@content.hfill": {} },
+            { "view_terms_button@view_terms_button": { "size": [150, 20] } },
+            { "space@content.h10px": {} },
+            { "signout@privacy_policy_button": { "size": [150, 20] } },
+            { "fill@content.hfill": {} }
+          ]
+        }
+      },
+      { "space@content.4px": {} },
+      {
+        "confirm_panel": {
+          "type": "panel",
+          "size": ["100%", 20],
+          "controls": [
+            { "confirm@confirm_button": {} }
+          ]
+        }
+      }
+    ]
+  },
+
+  "view_terms_button@button_ui.link_button": {
+    "$button_text": "authentication.store.viewTermsAndConditions",
+    "property_bag": { "#hyperlink": "https://aka.ms/meeterms" }
+  },
+
+  "privacy_policy_button@button_ui.link_button": {
+    "$button_text": "authentication.store.viewPrivacyPolicy",
+    "property_bag": { "#hyperlink": "https://aka.ms/privacy" }
+  },
+
+  "confirm_button@button_ui.button": {
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "$pressed_button_name": "button.confirm",
+    "$button_text": "authentication.store.confirm.button",
+    "bindings": [
+      {
+        "binding_name": "#confirm_button_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "agree_checkbox": {
+    "type": "panel",
+    "size": ["100%", 20],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      {
+        "agree_checkbox@common.toggle": {
+          "size": ["100%c", 20],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$toggle_name": "#agree_terms_and_conditions",
+          "focus_change_up": "2users",
+          "focus_identifier": "checkbox_control",
+          "controls": [
+            { "unchecked@authentication_ui.agree_checkbox_state_panel": { "$checkbox_bg": "resources0.checkbox_unchecked" } },
+            { "checked@authentication_ui.agree_checkbox_state_panel": { "$checkbox_bg": "resources0.checkbox_checked" } },
+            { "unchecked_hover@authentication_ui.agree_checkbox_state_panel": { "$checkbox_bg": "resources0.checkbox_unchecked_hover" } },
+            { "checked_hover@authentication_ui.agree_checkbox_state_panel": { "$checkbox_bg": "resources0.checkbox_checked_hover" } },
+            { "unchecked_locked@authentication_ui.agree_checkbox_state_panel": { "$checkbox_bg": "resources0.checkbox_unchecked" } },
+            { "checked_locked@authentication_ui.agree_checkbox_state_panel": { "$checkbox_bg": "resources0.checkbox_checked" } },
+            { "unchecked_locked_hover@authentication_ui.agree_checkbox_state_panel": { "$checkbox_bg": "resources0.checkbox_unchecked" } },
+            { "checked_locked_hover@authentication_ui.agree_checkbox_state_panel": { "$checkbox_bg": "resources0.checkbox_checked" } }
+          ]
+        }
+      }
+    ]
+  },
+
+  "agree_checkbox_state_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", 20],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      { "checkbox_visuals@$checkbox_bg": { "size": [20, 20] } },
+      { "space@content.h4px": {} },
+      {
+        "buffer_panel": {
+          "type": "panel",
+          "layer": 3,
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            {
+              "label": {
+                "type": "label",
+                "color": "white",
+                "text": "realmsCreateScreen.termsAndConditionsAgree",
+                "shadow": true
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "client_version": {
+    "type": "panel",
+    "size": ["100% - 4px", 9],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "offset": [0, -2],
+    "controls": [
+      { "fill@content.hfill": {} },
+      { "version@version": {} }
+    ]
+  },
+
+  "version": {
+    "type": "label",
+    "color": "white",
+    "shadow": true,
+    "text": "$version",
+    "size": [ "default", 10 ],
+    "max_size": ["100%", "100%"]
+  }
+}

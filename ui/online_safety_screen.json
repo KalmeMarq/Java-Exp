@@ -1,0 +1,13 @@
+{
+  "online_safety_screen@screen_jexp.screen": {
+    "force_render_below": false,
+    "button_mappings": [
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ],
+    "$scrn_cont": "online_safety_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.dirt_background"
+  }
+}

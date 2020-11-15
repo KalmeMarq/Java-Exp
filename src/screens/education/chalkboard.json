@@ -1,0 +1,173 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "chalkboard_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "cont@content_panel": {} },
+      { "gamepad_helpers@chalkboard.gamepad_helpers": {} }
+    ]
+  },
+
+  "content_panel": {
+    "type": "stack_panel",
+    "size": ["80%", "100%c"],
+    "anchor_to": "top_middle",
+    "anchor_from": "center",
+    "offset": [0, "-36%"],
+    "controls": [
+      { "title": {
+          "type": "stack_panel",
+          "size": ["100%", "100%c"],
+          "controls": [ { "title@chalkboard_jexp.title": {} } ]
+        }
+      },
+      { "space_0@screen_jexp.v10px": {} },
+      { "middle": {
+          "type": "panel",
+          "size": ["100%", "100%c"],
+          "controls": [ { "middle@chalkboard_jexp.middle_content": {} } ]
+        }
+      },
+      { "space_1@screen_jexp.space": { "size": [0, 40] } },
+      { "buttons": {
+          "type": "panel",
+          "size": ["100%", "100%c"],
+          "min_size": ["100%", 0],
+          "controls": [ { "button_panel@button_panel": {} } ]
+        }
+      }
+    ]
+  },
+
+  "title@screen_jexp.title": {
+    "size": ["100%", "default"],
+    "text_alignment": "center",
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "text": "$chalkboard_name",
+    "property_bag": { "#tts_dialog_title": "$chalkboard_name" },
+    "bindings": [
+      { "binding_type": "none",
+        "binding_condition": "none",
+        "binding_name": "$chalkboard_name",
+        "binding_name_override": "$chalkboard_name"
+      },
+      { "binding_type": "global",
+        "binding_condition": "once",
+        "binding_name": "#tts_dialog_title"
+      }
+    ]
+  },
+
+  "middle_content": {
+    "type": "panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      { "edit_box@chalkboard_jexp.text_edit_control": {
+          "size": "$text_box_size",
+          "max_length": "$max_input_length"
+        }
+      }
+    ]
+  },
+
+  "text_edit_control@text_box_jexp.multiline_text_box": {
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "constrain_to_rect": false,
+    "layer": 5,
+    "$text_edit_bdg_nm": "#text_box_item_name",
+    "property_bag": { "#property_field": "#item_name" }
+  },
+
+  "button_panel": {
+    "type": "stack_panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      { "locked_toggle@chalkboard_jexp.lock_control": {} },
+      { "space@screen_jexp.v4px": {} },
+      { "exit": {
+          "type": "panel",
+          "size": ["100%", 20],
+          "controls": [
+            { "exit@screen_jexp.button": {
+                "$btn_text": "gui.done",
+                "$prsd_btn_nm": "button.menu_exit"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "lock_control": {
+    "type": "panel",
+    "size": ["100%", 20],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      { "locked_toggle@edu_common.slider_toggle": {
+          "size": ["100%c", 20],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$toggle_state_binding_name": "#locked",
+          "$toggle_enabled_binding_name": "#lock_visible",
+          "$toggle_name": "locked_toggle",
+          "controls": [
+            { "unchecked@chalkboard_jexp.locked_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_unchecked" } },
+            { "checked@chalkboard_jexp.locked_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_checked" } },
+            { "unchecked_hover@chalkboard_jexp.locked_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_uncheckedhov" } },
+            { "checked_hover@chalkboard_jexp.locked_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_checkedhov" } },
+            { "unchecked_locked@chalkboard_jexp.locked_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_unchecked" } },
+            { "checked_locked@chalkboard_jexp.locked_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_checked" } },
+            { "unchecked_locked_hover@chalkboard_jexp.locked_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_unchecked" } },
+            { "checked_locked_hover@chalkboard_jexp.locked_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_checked" } }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#lock_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "locked_checkbox_state": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", 20],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      { "checkbox_visuals@$checkbox_bg": { "size": [20, 20] } },
+      { "space@screen_jexp.h4px": {} },
+      { "buffer_panel": {
+          "type": "panel",
+          "layer": 3,
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            { "label": {
+                "type": "label",
+                "color": "white",
+                "text": "#text",
+                "shadow": true,
+                "bindings": [
+                  { "binding_name": "#lock_label_text",
+                    "binding_name_override": "#text"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

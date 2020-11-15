@@ -16,30 +16,12 @@
 
   "leave_bed_button@button_jexp.button": {
     "$btn_text": "multiplayer.stopSleeping",
-    "button_mappings": [
-      { "from_button_id": "button.menu_select",
-        "to_button_id": "button.wake_up_button",
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.menu_ok",
-        "to_button_id": "button.wake_up_button",
-        "mapping_type": "pressed"
-      }
-    ]
+    "$prsd_btn_nm": "button.wake_up_button"
   },
 
   "open_chat_button@button_jexp.button": {
     "$btn_text": "multiplayer.inBedOpenChat",
-    "button_mappings": [
-      { "from_button_id": "button.menu_select",
-        "to_button_id": "button.chat",
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.menu_ok",
-        "to_button_id": "button.chat",
-        "mapping_type": "pressed"
-      }
-    ]
+    "$prsd_btn_nm": "button.chat"
   },
   
   "a_button_panel": {

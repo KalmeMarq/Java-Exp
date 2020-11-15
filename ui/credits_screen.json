@@ -1,0 +1,6 @@
+{
+  "credits_screen@screen_jexp.screen": {
+    "$scrn_cont": "credits_jexp.screen_content",
+    "$scrn_bg": "credits_jexp.background"
+  }
+}

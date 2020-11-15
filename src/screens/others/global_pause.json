@@ -1,0 +1,33 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "global_pause_jexp",
+
+  "global_pause_content_panel@popup_jexp.modal_with_buttons": {
+    "$title": "screen_jexp.v2px",
+    "$msg": "global_pause_jexp.description",
+    "$btn_panel": "global_pause_jexp.buttons_panel"
+  },
+
+  "description@screen_jexp.title": {
+    "max_size": ["80%", "default"],
+    "text_alignment": "center",
+    "offset": ["50% - 50%x", 0],
+    "text": "globalPauseScreen.message"
+  },
+
+  "buttons_panel": {
+    "type": "panel",
+    "size": [200, 20],
+    "controls": [ { "quit@global_pause_jexp.quit_button": {} } ]
+  },
+
+  "quit_button@button_jexp.button": {
+    "size": [200, 20],
+    "$prsd_btn_nm": "button.menu_quit",
+    "$btn_text": "globalPauseScreen.quit",
+    "layer": 2
+  }
+}

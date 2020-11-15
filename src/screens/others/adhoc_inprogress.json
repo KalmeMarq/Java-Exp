@@ -1,0 +1,28 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "adhoc_inprogress_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [ { "cont@content_panel": {} } ]
+  },
+
+  "content_panel@popup_jexp.modal_with_buttons": {
+    "$title": "adhoc_inprogress_jexp.title",
+    "$msg": "adhoc_inprogress_jexp.description",
+    /* TODO */
+    "$btn_panel": "play.progress_loading_bars"
+  },
+
+  "title@screen_jexp.title": {
+    "offset": ["50% - 50%x", 0],
+    "size": ["100%", 15],
+    "text": "#adhoc_title",
+    "bindings": [ { "binding_name": "#adhoc_title" } ]
+  },
+
+  "description@account_banned_jexp.description": { "text": "thirdPartyConsole.adhoc.inprogress" }
+}

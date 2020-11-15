@@ -1,0 +1,400 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "choose_realm_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": {
+          "text": "#window_title_text",
+          "offset": ["50% - 50%x", 16],
+          "bindings": [
+            { "binding_type": "global",
+              "binding_condition": "none",
+              "binding_name": "#window_title_text",
+              "binding_name_override": "#window_title_text"
+            },
+            { "binding_type": "global",
+              "binding_condition": "once",
+              "binding_name": "#tts_dialog_title"
+            }
+          ],
+          "property_bag": { "#tts_dialog_title": "#window_title_text" }
+        }
+      },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "size": ["100%", "100% - 64px"],
+          "$scroll_bar_offset": ["40% + 2px", 0],
+          "$jump_to_bottom_on_update": true,
+          "$always_handle_scrolling": true,
+          "$scroll_cont": "dirt@content_log_history_jexp.scroll_cont"
+        }
+      },
+      { "exit@button_jexp.button": {
+          "offset": ["50% - 100px", "100% - 27px"],
+          "$prsd_btn_nm": "button.menu_exit",
+          "$btn_text": "gui.cancel"
+        }
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "input_panel",
+    "size": [310, "100%c"],
+    "focus_container": true,
+    "use_last_focus": true,
+    "focus_nagivation_mode_down": "contained",
+    "focus_nagivation_mode_up": "contained",
+    "focus_nagivation_mode_right": "contained",
+    "focus_nagivation_mode_left": "contained",
+    "controls": [
+      { "cont": {
+          "type": "stack_panel",
+          "size": [310, "100%c"],
+          "controls": [
+            { "tspace@screen_jexp.v4px": {} },
+            { "realms_world_item_grid@choose_realm.realms_world_item_grid": {} },
+            { "buttons_panel": {
+                "type": "stack_panel",
+                "size": [310, 20],
+                "orientation": "horizontal",
+                "controls": [
+                  { "ten_player_button@ten_player_button": {} },
+                  { "fill@screen_jexp.hfill": {} },
+                  { "two_player_button@two_player_button": {} }
+                ]
+              }
+            },
+            { "bspace@screen_jexp.v2px": {} }
+          ]
+        }
+      }      
+    ]
+  },
+
+  "realms_world_item_grid": {
+    "type": "grid",
+    "size": [ "100%", "default" ],
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "grid_item_template": "choose_realm_jexp.realms_world_item_panel",
+    "grid_dimension_binding": "#realms_grid_dimension",
+    "collection_name": "realms_collection",
+    "layer": 1,
+    "bindings": [ { "binding_name": "#realms_grid_dimension" } ]
+  },
+
+  "realms_world_item": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "layer": 1,
+    "size": ["100%", 36],
+    "controls": [
+      { "realms_world_item_button@choose_realm_jexp.realms_world_item_button": {
+          "size": ["100%", "100%" ],
+          "layer": 1
+        }
+      },
+      { "realm_screenshot@choose_realm_jexp.realm_screenshot": {} },
+      { "item_text_panel@choose_realm_jexp.item_text_panel": {} }
+    ]
+  },
+
+  "realm_screenshot": {
+    "type": "panel",
+    "size": [36, 36],
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "layer": 1,
+    "controls": [
+      { "picture": {
+          "type": "image",
+          "layer": 1,
+          "fill": true,
+          "texture": "textures/ui/RealmDemoScreen",
+          "size": [32, 32]
+        }
+      }
+    ]
+  },
+
+  "realms_world_item_button@common.button": {
+    "$prsd_btn_nm": "button.menu_choose_realm",
+    "bindings": [
+      { "binding_type": "collection_details",
+        "binding_collection_name": "realms_collection"
+      },
+      { "binding_type": "collection",
+        "binding_name": "#world_button_focus_identifier",
+        "binding_name_override": "#focus_identifier",
+        "binding_collection_name": "realms_collection"
+      }
+    ]
+  },
+
+  "ten_player_button@button_jexp.button_action": {
+    "size": [150, 20],
+    "$btn_text": "chooseRealmScreen.realmsplusbuttontext",
+    "default_focus_precedence": 2,
+    "$prsd_btn_nm": "button.ten_player",
+    "bindings": [
+      { "binding_name": "#ten_player_button_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "two_player_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.two_player",
+    "$btn_text": "chooseRealmScreen.realmsbuttontext",
+    "size": [150, 20],
+    "bindings": [
+      { "binding_name": "#two_player_button_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "item_text_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [36, 2],
+    "size": ["100% - 38px", "100% - 4px"],
+    "layer": 15,
+    "controls": [
+      { "name_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100%", "10px" ],
+          "controls": [
+            { "realms_world_header": {
+                "type": "label",
+                "color": "white",
+                "text": "$text",
+                "$text": "#realms_world_header",
+                "size": [ "fill", 10 ],
+                "bindings": [
+                  { "binding_name": "$text",
+                    "binding_type": "collection",
+                    "binding_collection_name": "realms_collection"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "space@screen_jexp.v2px": {} },
+      { "full_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100%", "fill"],
+          "controls": [
+            { "description_panel": {
+                "layer": 4,
+                "type": "stack_panel",
+                "size": ["fill", 21],
+                "orientation": "vertical",
+                "controls": [
+                  { "top_panel": {
+                      "layer": 4,
+                      "type": "stack_panel",
+                      "size": ["100%", 10],
+                      "$is_realms_plus|default": false,
+                      "orientation": "horizontal",
+                      "controls": [
+                        { "realms_world_player_count@play.realms_world_player_count": {
+                            "text": "#realms_world_player_count",
+                            "size": [ "default", "default" ],
+                            "shadow": false,
+                            "type": "label",
+                            "color": [0.5, 0.5, 0.5],
+                            "bindings": [
+                              {
+                                "binding_name": "#realms_world_player_count",
+                                "binding_type": "collection",
+                                "binding_collection_name": "realms_collection"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  { "fill@screen_jexp.vfill": {} }
+                ]
+              }
+            },
+            { "description1_panel": {
+                "layer": 4,
+                "type": "panel",
+                "size": [12, "100%"],
+                "controls": [
+                  { "game_online_icon@choose_realm_jexp.ping_level5": {
+                      "anchor_from": "top_right",
+                      "anchor_to": "top_right",
+                      "bindings": [
+                        {
+                          "binding_name": "#realms_game_online",
+                          "binding_name_override": "#visible",
+                          "binding_type": "collection",
+                          "binding_collection_name": "realms_collection"
+                        }
+                      ]
+                    }
+                  },
+                  { "game_unavailable_icon@choose_realm_jexp.ping_offline": {
+                      "anchor_from": "top_right",
+                      "anchor_to": "top_right",
+                      "bindings": [
+                        { "binding_name": "#realms_game_unavailable",
+                          "binding_name_override": "#visible",
+                          "binding_type": "collection",
+                          "binding_collection_name": "realms_collection"
+                        }
+                      ]
+                    }
+                  },
+                  { "game_offline_icon@choose_realm_jexp.ping_offline": {
+                      "anchor_from": "top_right",
+                      "anchor_to": "top_right",
+                      "bindings": [
+                        { "binding_name": "#realms_game_offline",
+                          "binding_name_override": "#visible",
+                          "binding_type": "collection",
+                          "binding_collection_name": "realms_collection"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  /* Pings */
+  "ping_level5@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/icons",
+    "size": [10, 8],
+    "$uv": [0, 176],
+    "$uv_size": [10, 5],
+    "variables": [
+      { "requires": "($icons_res = 512x)", "$uv": [0, 352], "$uv_size": [20, 10] },
+      { "requires": "($icons_res = 1024x)", "$uv": [0, 704], "$uv_size": [40, 20] },
+      { "requires": "($icons_res = 2048x)", "$uv": [0, 1408], "$uv_size": [80, 40] },
+      { "requires": "($icons_res = 4096x)", "$uv": [0, 2816], "$uv_size": [160, 80] }
+    ]
+  },
+
+  "loading_ping_level5@choose_realm_jexp.ping_level5": {
+    "$uv": [10, 176],
+    "variables": [
+      { "requires": "($icons_res = 512x)", "$uv": [20, 352], "$uv_size": [20, 10] },
+      { "requires": "($icons_res = 1024x)", "$uv": [40, 704], "$uv_size": [40, 20] },
+      { "requires": "($icons_res = 2048x)", "$uv": [80, 1408], "$uv_size": [80, 40] },
+      { "requires": "($icons_res = 4096x)", "$uv": [160, 2816], "$uv_size": [160, 80] }
+    ]
+  },
+
+  "ping_level4@choose_realm_jexp.ping_level5": {
+    "$uv": [0, 184],
+    "variables": [
+      { "requires": "($icons_res = 512x)", "$uv": [0, 368], "$uv_size": [20, 10] },
+      { "requires": "($icons_res = 1024x)", "$uv": [0, 736], "$uv_size": [40, 20] },
+      { "requires": "($icons_res = 2048x)", "$uv": [0, 1472], "$uv_size": [80, 40] },
+      { "requires": "($icons_res = 4096x)", "$uv": [0, 2944], "$uv_size": [160, 80] }
+    ]
+  },
+
+  "loading_ping_level4@choose_realm_jexp.ping_level5": {
+    "$uv": [10, 184],
+    "variables": [
+      { "requires": "($icons_res = 512x)", "$uv": [20, 368], "$uv_size": [20, 10] },
+      { "requires": "($icons_res = 1024x)", "$uv": [40, 736], "$uv_size": [40, 20] },
+      { "requires": "($icons_res = 2048x)", "$uv": [80, 1472], "$uv_size": [80, 40] },
+      { "requires": "($icons_res = 4096x)", "$uv": [160, 2944], "$uv_size": [160, 80] }
+    ]
+  },
+
+  "ping_level3@choose_realm_jexp.ping_level5": {
+    "$uv": [0, 192],
+    "variables": [
+      { "requires": "($icons_res = 512x)", "$uv": [0, 384], "$uv_size": [20, 10] },
+      { "requires": "($icons_res = 1024x)", "$uv": [0, 768], "$uv_size": [40, 20] },
+      { "requires": "($icons_res = 2048x)", "$uv": [0, 1536], "$uv_size": [80, 40] },
+      { "requires": "($icons_res = 4096x)", "$uv": [0, 3072], "$uv_size": [160, 80] }
+    ]
+  },
+
+  "loading_ping_level3@choose_realm_jexp.ping_level5": {
+    "$uv": [10, 192],
+    "variables": [
+      { "requires": "($icons_res = 512x)", "$uv": [20, 384], "$uv_size": [20, 10] },
+      { "requires": "($icons_res = 1024x)", "$uv": [40, 768], "$uv_size": [40, 20] },
+      { "requires": "($icons_res = 2048x)", "$uv": [80, 1536], "$uv_size": [80, 40] },
+      { "requires": "($icons_res = 4096x)", "$uv": [160, 3072], "$uv_size": [160, 80] }
+    ]
+  },
+
+  "ping_level2@choose_realm_jexp.ping_level5": {
+    "$uv": [0, 200],
+    "variables": [
+      { "requires": "($icons_res = 512x)", "$uv": [0, 400], "$uv_size": [20, 10] },
+      { "requires": "($icons_res = 1024x)", "$uv": [0, 800], "$uv_size": [40, 20] },
+      { "requires": "($icons_res = 2048x)", "$uv": [0, 1600], "$uv_size": [80, 40] },
+      { "requires": "($icons_res = 4096x)", "$uv": [0, 3200], "$uv_size": [160, 80] }
+    ]
+  },
+
+  "loading_ping_level2@choose_realm_jexp.ping_level5": {
+    "$uv": [10, 200],
+    "variables": [
+      { "requires": "($icons_res = 512x)", "$uv": [20, 400], "$uv_size": [20, 10] },
+      { "requires": "($icons_res = 1024x)", "$uv": [40, 800], "$uv_size": [40, 20] },
+      { "requires": "($icons_res = 2048x)", "$uv": [80, 1600], "$uv_size": [80, 40] },
+      { "requires": "($icons_res = 4096x)", "$uv": [160, 3200], "$uv_size": [160, 80] }
+    ]
+  },
+
+  "ping_level1@choose_realm_jexp.ping_level5": {
+    "$uv": [0, 208],
+    "variables": [
+      { "requires": "($icons_res = 512x)", "$uv": [0, 416], "$uv_size": [20, 10] },
+      { "requires": "($icons_res = 1024x)", "$uv": [0, 832], "$uv_size": [40, 20] },
+      { "requires": "($icons_res = 2048x)", "$uv": [0, 1664], "$uv_size": [80, 40] },
+      { "requires": "($icons_res = 4096x)", "$uv": [0, 3328], "$uv_size": [160, 80] }
+    ]
+  },
+
+  "loading_ping_level1@choose_realm_jexp.ping_level5": {
+    "$uv": [10, 208],
+    "variables": [
+      { "requires": "($icons_res = 512x)", "$uv": [20, 416], "$uv_size": [20, 10] },
+      { "requires": "($icons_res = 1024x)", "$uv": [40, 832], "$uv_size": [40, 20] },
+      { "requires": "($icons_res = 2048x)", "$uv": [80, 1664], "$uv_size": [80, 40] },
+      { "requires": "($icons_res = 4096x)", "$uv": [160, 3328], "$uv_size": [160, 80] }
+    ]
+  },
+
+  "ping_offline@choose_realm_jexp.ping_level5": {
+    "$uv": [0, 216],
+    "variables": [
+      { "requires": "($icons_res = 512x)", "$uv": [0, 432], "$uv_size": [20, 10] },
+      { "requires": "($icons_res = 1024x)", "$uv": [0, 864], "$uv_size": [40, 20] },
+      { "requires": "($icons_res = 2048x)", "$uv": [0, 1728], "$uv_size": [80, 40] },
+      { "requires": "($icons_res = 4096x)", "$uv": [0, 3456], "$uv_size": [160, 80] }
+    ]
+  }
+}

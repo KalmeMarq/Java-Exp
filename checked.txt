@@ -58,3 +58,8 @@ toggle_collection (added)
 Text Box (added)
 Option components (hov tooltip)
 Container (lkd slots)
+
+safe zone (compact)
+progress
+
+online safety

@@ -1,0 +1,12 @@
+{
+  "patch_notes_screen@screen_jexp.screen": {
+    "$scrn_cont": "patch_notes_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.dirt_background"
+  },
+
+  "sunsetting_screen@common.base_screen": {
+    /* TODO */
+    "$scrn_cont": "patch_notes.sunsetting_dialog",
+    "$scrn_bg": "screen_jexp.dirt_background"
+  }
+}
