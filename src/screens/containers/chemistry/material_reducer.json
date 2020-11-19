@@ -26,18 +26,9 @@
     ]
   },
 
-  "material_reducer_bg@screen_jexp.res_txr": {
-    "texture": "src/assets/container/material_reducer",
-    "size": [176, 195],
-    "$uv_sz": [176, 195],
-    "variables": [
-      { "requires": "($material_reducer_res = 512x)", "$uv_sz": [352, 390] },
-      { "requires": "($material_reducer_res = 1024x)", "$uv_sz": [704, 780] },
-      { "requires": "($material_reducer_res = 2048x)", "$uv_sz": [1408, 1560] },
-      { "requires": "($material_reducer_res = 4096x)", "$uv_sz": [2816, 3120] }
-    ]
-  },
-
+  /***********************************
+  * Slots
+  ***********************************/
   "input_slot": {
     "type": "panel",
     "size": [18, 18],
@@ -159,6 +150,21 @@
       { "g@material_reducer_jexp.output_slot": { "$grid_pos": [1, 1], "$offset": [13, 0] } },
       { "h@material_reducer_jexp.output_slot": { "$grid_pos": [2, 1], "$offset": [13, 0] } },
       { "i@material_reducer_jexp.output_slot": { "$grid_pos": [3, 1], "$offset": [14, 0] } }
+    ]
+  },
+
+  /***********************************
+  * Textures
+  ***********************************/
+  "material_reducer_bg@screen_jexp.res_txr": {
+    "texture": "src/assets/container/material_reducer",
+    "size": [176, 195],
+    "$uv_sz": [176, 195],
+    "variables": [
+      { "requires": "($material_reducer_res = 512x)", "$uv_sz": [352, 390] },
+      { "requires": "($material_reducer_res = 1024x)", "$uv_sz": [704, 780] },
+      { "requires": "($material_reducer_res = 2048x)", "$uv_sz": [1408, 1560] },
+      { "requires": "($material_reducer_res = 4096x)", "$uv_sz": [2816, 3120] }
     ]
   }
 }

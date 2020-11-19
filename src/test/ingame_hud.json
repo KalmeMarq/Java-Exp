@@ -11,26 +11,22 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "controls": [
-      {
-        "x": {
+      { "x": {
           "type": "stack_panel",
           "orientation": "horizontal",
           "size": ["100%c", 10],
           "controls": [
-            {
-              "x": {
+            { "x": {
                 "type": "label",
                 "text": "X: "
               }
             },
-            {
-              "value": {
+            { "value": {
                 "type": "panel",
                 "size": ["33.3333%c - 20px", 10],
                 // "clips_children": true,
                 "controls": [
-                  {
-                    "x@ingame_hud_jexp_test.player_position_text": {
+                  { "x@ingame_hud_jexp_test.player_position_text": {
                       "offset": [-24, 0]
                     }
                   }
@@ -40,26 +36,22 @@
           ]
         }
       },
-      {
-        "Z": {
+      { "Z": {
           "type": "stack_panel",
           "orientation": "horizontal",
           "size": ["100%c", 10],
           "controls": [
-            {
-              "Z": {
+            { "Z": {
                 "type": "label",
                 "text": "Z: "
               }
             },
-            {
-              "value": {
+            { "value": {
                 "type": "panel",
                 "size": ["33.3333%c - 20px", 10],
                 // "clips_children": true,
                 "controls": [
-                  {
-                    "z@ingame_hud_jexp_test.player_position_text": {
+                  { "z@ingame_hud_jexp_test.player_position_text": {
                       "anchor_from": "top_right",
                       "anchor_to": "top_right",
                       "offset": ["0px", 0]

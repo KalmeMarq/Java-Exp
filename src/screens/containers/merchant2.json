@@ -12,18 +12,6 @@
     "$extra_cont": "merchant2_jexp.container_gamepad_helpers"
   },
 
-  "merchant2_bg@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/container/villager2",
-    "size": [276, 166],
-    "$uv_sz": [276, 166],
-    "variables": [
-      { "requires": "($villager2_res = 512x)", "$uv_sz": [552, 332] },
-      { "requires": "($villager2_res = 1024x)", "$uv_sz": [1104, 664] },
-      { "requires": "($villager2_res = 2048x)", "$uv_sz": [2208, 1328] },
-      { "requires": "($villager2_res = 4096x)", "$uv_sz": [4416, 2656] }
-    ]
-  },
-
   "container_gamepad_helpers@common.container_gamepad_helpers": {
     "$helper_x_control": "trade2.gamepad_helper_x",
     "$helper_y_control": "trade2.gamepad_helper_y"
@@ -38,9 +26,6 @@
     ]
   },
 
-  /**********************************
-   Merchant Content
-  ***********************************/
   "content_panel@common.root_panel": {
     "size": [176, 166],
     "anchor_from": "top_right",
@@ -71,6 +56,9 @@
     ]
   },
 
+  /***********************************
+  * Villager Level Progress bar
+  ***********************************/
   "exp_progress_bar": {
     "type": "panel",
     "size": [102, 5],
@@ -80,64 +68,38 @@
     "bindings": [ { "binding_name": "#exp_bar_visible", "binding_name_override": "#visible" } ],
     "controls": [
       { "empty_bar@merchant2_jexp.progress_empty_bar": { "layer": 1 } },
-      { "full_bar@merchant2_jexp.progress_full_bar": {} },
-      { "white_bar@merchant2_jexp.progress_white_bar": {} }
-    ]
-  },
-
-  "progress_empty_bar@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/container/villager2",
-    "size": [102, 5],
-    "$uv": [0, 186],
-    "$uv_sz": [102, 5],
-    "variables":[
-      { "requires": "($villager2_res = 512x)", "$uv": [0, 372], "$uv_sz": [204, 10] },
-      { "requires": "($villager2_res = 1024x)", "$uv": [0, 744], "$uv_sz": [408, 20] },
-      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1488], "$uv_sz": [816, 40] },
-      { "requires": "($villager2_res = 4096x)", "$uv": [0, 2976], "$uv_sz": [1632, 80] }
-    ]
-  },
-
-  "progress_full_bar@progress_empty_bar": {
-    "$uv": [0, 191],
-    "variables": [
-      { "requires": "($villager2_res = 512x)", "$uv": [0, 382], "$uv_sz": [204, 10] },
-      { "requires": "($villager2_res = 1024x)", "$uv": [0, 764], "$uv_sz": [408, 20] },
-      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1528], "$uv_sz": [816, 40] },
-      { "requires": "($villager2_res = 4096x)", "$uv": [0, 3056], "$uv_sz": [1632, 80] }
-    ],
-    "clip_direction": "left",
-    "clip_pixelperfect": true,
-    "layer": 3,
-    "bindings": [
-      { "binding_name": "#exp_progress",
-        "binding_name_override": "#clip_ratio",
-        "binding_type": "global",
-        "binding_condition": "always_when_visible"
+      { "full_bar@merchant2_jexp.progress_full_bar": {
+          "clip_direction": "left",
+          "clip_pixelperfect": true,
+          "layer": 3,
+          "bindings": [
+            { "binding_name": "#exp_progress",
+              "binding_name_override": "#clip_ratio",
+              "binding_type": "global",
+              "binding_condition": "always_when_visible"
+            }
+          ]
+        }
+      },
+      { "white_bar@merchant2_jexp.progress_white_bar": {
+          "clip_direction": "left",
+          "clip_pixelperfect": true,
+          "layer": 2,
+          "bindings": [
+            { "binding_name": "#exp_possible_progress",
+              "binding_name_override": "#clip_ratio",
+              "binding_type": "global",
+              "binding_condition": "always_when_visible"
+            }
+          ]
+        }
       }
     ]
   },
 
-  "progress_white_bar@progress_empty_bar": {
-    "$uv": [0, 181],
-    "variables": [
-      { "requires": "($villager2_res = 512x)", "$uv": [0, 362], "$uv_sz": [204, 10] },
-      { "requires": "($villager2_res = 1024x)", "$uv": [0, 724], "$uv_sz": [408, 20] },
-      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1448], "$uv_sz": [816, 40] },
-      { "requires": "($villager2_res = 4096x)", "$uv": [0, 2896], "$uv_sz": [1632, 80] }
-    ],
-    "clip_direction": "left",
-    "clip_pixelperfect": true,
-    "layer": 2,
-    "bindings": [
-      { "binding_name": "#exp_possible_progress",
-        "binding_name_override": "#clip_ratio",
-        "binding_type": "global",
-        "binding_condition": "always_when_visible"
-      }
-    ]
-  },
-
+  /***********************************
+  * Slots
+  ***********************************/
   "merchant_slot_panel": {
     "type": "panel",
     "size": [18, 18],
@@ -246,7 +208,7 @@
   },
 
   /**********************************
-   Merchant Trades Content
+  * ScrollPane
   ***********************************/
   "trades_content_panel": {
     "type": "panel",
@@ -279,20 +241,6 @@
     ]
   },
 
-  "scrollbox_lkd@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/container/villager2",
-    "size": [6, 27],
-    "offset": [94, 18],
-    "$uv": [6, 199],
-    "$uv_sz": [6, 27],
-    "variables": [
-      { "requires": "($villager2_res = 512x)", "$uv": [12, 398], "$uv_sz": [12, 54] },
-      { "requires": "($villager2_res = 1024x)", "$uv": [24, 796], "$uv_sz": [24, 108] },
-      { "requires": "($villager2_res = 2048x)", "$uv": [48, 1592], "$uv_sz": [48, 216] },
-      { "requires": "($villager2_res = 4096x)", "$uv": [96, 3184], "$uv_sz": [96, 432] }
-    ]
-  },
-
   "trades_scroll@container_jexp.container_scrollpane": {
     "size": [96, 140],
     "anchor_to": "top_left",
@@ -305,49 +253,6 @@
     "$scrollbar_offset": ["50% + 42.5px", 0],
     "$scroll_box_image": "merchant2_jexp.scroll_box",
     "$scroll_track_image": "merchant2_jexp.scroll_track"
-  },
-
-  "scroll_track@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/container/villager2",
-    "size": [6, 140],
-    "$uv": [94, 18],
-    "$uv_sz": [6, 140],
-    "variables": [
-      { "requires": "($villager2_res = 512x)", "$uv": [188, 36], "$uv_sz": [12, 280] },
-      { "requires": "($villager2_res = 1024x)", "$uv": [376, 72], "$uv_sz": [24, 560] },
-      { "requires": "($villager2_res = 2048x)", "$uv": [752, 144], "$uv_sz": [48, 1120] },
-      { "requires": "($villager2_res = 4096x)", "$uv": [1505, 288], "$uv_sz": [96, 2240] }
-    ]
-  },
-
-  "merchant2_scroll_box@screen_jexp.res_txr": { "texture": "assets/minecraft/textures/gui/container/villager2" },
-
-  "scroll_box@container_jexp.scroll_box": {
-    "$scrollbox_base": "merchant2_jexp.merchant2_scroll_box",
-    "$top_sz": [6, 2],
-    "$middle_sz": [6, "100% - 4px"],
-    "$bottom_sz": [6, 3],
-    "$top_vars": [
-      { "requires": "($villager2_res = 256x)", "$uv": [0, 199], "$uv_sz": [6, 2] },
-      { "requires": "($villager2_res = 512x)", "$uv": [0, 398], "$uv_sz": [12, 4] },
-      { "requires": "($villager2_res = 1024x)", "$uv": [0, 796], "$uv_sz": [24, 8] },
-      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1592], "$uv_sz": [48, 16] },
-      { "requires": "($villager2_res = 4096x)", "$uv": [0, 3184], "$uv_sz": [96, 32] }
-    ],
-    "$middle_vars": [
-      { "requires": "($villager2_res = 256x)", "$uv": [0, 203], "$uv_sz": [6, 20] },
-      { "requires": "($villager2_res = 512x)", "$uv": [0, 406], "$uv_sz": [12, 40] },
-      { "requires": "($villager2_res = 1024x)", "$uv": [0, 812], "$uv_sz": [24, 80] },
-      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1624], "$uv_sz": [48, 160] },
-      { "requires": "($villager2_res = 4096x)", "$uv": [0, 3248], "$uv_sz": [96, 320] }
-    ],
-    "$bottom_vars": [
-      { "requires": "($villager2_res = 256x)", "$uv": [0, 223], "$uv_sz": [6, 3] },
-      { "requires": "($villager2_res = 512x)", "$uv": [0, 446], "$uv_sz": [12, 6] },
-      { "requires": "($villager2_res = 1024x)", "$uv": [0, 892], "$uv_sz": [24, 12] },
-      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1784], "$uv_sz": [48, 24] },
-      { "requires": "($villager2_res = 4096x)", "$uv": [0, 3568], "$uv_sz": [96, 48] }
-    ]
   },
 
   "scroll_input_panel@common.root_panel": {
@@ -381,6 +286,9 @@
     ]
   },
 
+  /***********************************
+  * Trades Toggle
+  ***********************************/
   "trade_tplt_toggle@toggle_jexp.toggle": {
     "focus_wrap_enabled": true,
     "focus_magnet_enabled": true,
@@ -619,8 +527,108 @@
     ]
   },
 
-  "red_slash@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/container/villager2",
+  /***********************************
+  * Textures
+  ***********************************/
+  "base_txr@screen_jexp.res_txr": { "texture": "assets/minecraft/textures/gui/container/villager2" },
+
+  "merchant2_bg@base_txr": {
+    "size": [276, 166],
+    "$uv_sz": [276, 166],
+    "variables": [
+      { "requires": "($villager2_res = 512x)", "$uv_sz": [552, 332] },
+      { "requires": "($villager2_res = 1024x)", "$uv_sz": [1104, 664] },
+      { "requires": "($villager2_res = 2048x)", "$uv_sz": [2208, 1328] },
+      { "requires": "($villager2_res = 4096x)", "$uv_sz": [4416, 2656] }
+    ]
+  },
+
+  "progress_empty_bar@base_txr": {
+    "size": [102, 5],
+    "$uv": [0, 186],
+    "$uv_sz": [102, 5],
+    "variables":[
+      { "requires": "($villager2_res = 512x)", "$uv": [0, 372], "$uv_sz": [204, 10] },
+      { "requires": "($villager2_res = 1024x)", "$uv": [0, 744], "$uv_sz": [408, 20] },
+      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1488], "$uv_sz": [816, 40] },
+      { "requires": "($villager2_res = 4096x)", "$uv": [0, 2976], "$uv_sz": [1632, 80] }
+    ]
+  },
+
+  "progress_full_bar@progress_empty_bar": {
+    "$uv": [0, 191],
+    "variables": [
+      { "requires": "($villager2_res = 512x)", "$uv": [0, 382], "$uv_sz": [204, 10] },
+      { "requires": "($villager2_res = 1024x)", "$uv": [0, 764], "$uv_sz": [408, 20] },
+      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1528], "$uv_sz": [816, 40] },
+      { "requires": "($villager2_res = 4096x)", "$uv": [0, 3056], "$uv_sz": [1632, 80] }
+    ]
+  },
+
+  "progress_white_bar@progress_empty_bar": {
+    "$uv": [0, 181],
+    "variables": [
+      { "requires": "($villager2_res = 512x)", "$uv": [0, 362], "$uv_sz": [204, 10] },
+      { "requires": "($villager2_res = 1024x)", "$uv": [0, 724], "$uv_sz": [408, 20] },
+      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1448], "$uv_sz": [816, 40] },
+      { "requires": "($villager2_res = 4096x)", "$uv": [0, 2896], "$uv_sz": [1632, 80] }
+    ]
+  },
+
+  "scroll_track@base_txr": {
+    "size": [6, 140],
+    "$uv": [94, 18],
+    "$uv_sz": [6, 140],
+    "variables": [
+      { "requires": "($villager2_res = 512x)", "$uv": [188, 36], "$uv_sz": [12, 280] },
+      { "requires": "($villager2_res = 1024x)", "$uv": [376, 72], "$uv_sz": [24, 560] },
+      { "requires": "($villager2_res = 2048x)", "$uv": [752, 144], "$uv_sz": [48, 1120] },
+      { "requires": "($villager2_res = 4096x)", "$uv": [1505, 288], "$uv_sz": [96, 2240] }
+    ]
+  },
+
+  "scrollbox_lkd@base_txr": {
+    "size": [6, 27],
+    "offset": [94, 18],
+    "$uv": [6, 199],
+    "$uv_sz": [6, 27],
+    "variables": [
+      { "requires": "($villager2_res = 512x)", "$uv": [12, 398], "$uv_sz": [12, 54] },
+      { "requires": "($villager2_res = 1024x)", "$uv": [24, 796], "$uv_sz": [24, 108] },
+      { "requires": "($villager2_res = 2048x)", "$uv": [48, 1592], "$uv_sz": [48, 216] },
+      { "requires": "($villager2_res = 4096x)", "$uv": [96, 3184], "$uv_sz": [96, 432] }
+    ]
+  },
+
+  "scroll_box@container_jexp.scroll_box": {
+    "$scrollbox_base": "merchant2_jexp.base_txr",
+    "$top_sz": [6, 2],
+    "$middle_sz": [6, "100% - 4px"],
+    "$bottom_sz": [6, 3],
+    "$top_vars": [
+      { "requires": "($villager2_res = 256x)", "$uv": [0, 199], "$uv_sz": [6, 2] },
+      { "requires": "($villager2_res = 512x)", "$uv": [0, 398], "$uv_sz": [12, 4] },
+      { "requires": "($villager2_res = 1024x)", "$uv": [0, 796], "$uv_sz": [24, 8] },
+      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1592], "$uv_sz": [48, 16] },
+      { "requires": "($villager2_res = 4096x)", "$uv": [0, 3184], "$uv_sz": [96, 32] }
+    ],
+    "$middle_vars": [
+      { "requires": "($villager2_res = 256x)", "$uv": [0, 203], "$uv_sz": [6, 20] },
+      { "requires": "($villager2_res = 512x)", "$uv": [0, 406], "$uv_sz": [12, 40] },
+      { "requires": "($villager2_res = 1024x)", "$uv": [0, 812], "$uv_sz": [24, 80] },
+      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1624], "$uv_sz": [48, 160] },
+      { "requires": "($villager2_res = 4096x)", "$uv": [0, 3248], "$uv_sz": [96, 320] }
+    ],
+    "$bottom_vars": [
+      { "requires": "($villager2_res = 256x)", "$uv": [0, 223], "$uv_sz": [6, 3] },
+      { "requires": "($villager2_res = 512x)", "$uv": [0, 446], "$uv_sz": [12, 6] },
+      { "requires": "($villager2_res = 1024x)", "$uv": [0, 892], "$uv_sz": [24, 12] },
+      { "requires": "($villager2_res = 2048x)", "$uv": [0, 1784], "$uv_sz": [48, 24] },
+      { "requires": "($villager2_res = 4096x)", "$uv": [0, 3568], "$uv_sz": [96, 48] }
+    ]
+  },
+
+  "red_slash@base_txr": {
     "$uv": [0, 176],
     "$uv_sz": [9, 2],
     "size": [9, 2],

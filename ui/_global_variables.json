@@ -10,7 +10,7 @@
   "$show_wrongly_spelled_mc_title": true, // Default: false | Show "Mineceraft" instead of "Minecraft". 
   "$show_edition_below_title": true, // Default: true | Show edition texture below the "Minecraft" title.
     "$edition_name": "java", // Default: cpp | Which edition texture show below the "Minecraft". Values: "java", "cpp"/"c++", "bedrock",  or leave blank for none.
-  "$show_playername_on_bottom_panel": false, // Default: false, | Shows gamertag after the version.
+  "$show_playername_on_bottom_panel": true, // Default: false, | Shows gamertag after the version.
   "$show_player_skin_on_main_menu": false, // Default: false | Show the Paper Doll on the "$player_skin_position".
     "$player_skin_position": "right", // Default: right (Values: right and left)
 
@@ -28,8 +28,8 @@
   "$chat_anchor": "bottom_left", // Default: "bottom_left" | Recommend for touch: "top_left"
   "$chat_lines_spacing": 0, // Default: 0
 
-  "$show_chat_auto_complete_buttons": false, // Default: false
-  "$show_chat_prev_next_msg_sent_buttons": false, // Default: false
+  "$show_chat_auto_complete_buttons": true, // Default: false
+  "$show_chat_prev_next_msg_sent_buttons": true, // Default: false
 
   "$scoreboard_position": "right_middle", // Default: "right_middle"
   "$scoreboard_ignore_numbers": false, // Default: false
@@ -40,7 +40,7 @@
   "$faster_mouse_keymappings": true, // Default: true | Display the keymappings items without categories.
   // Disable it to get the full Java experience but screen will take longer to load.
 
-  "$faster_controller_keymappings": true, // Default: true | Display the keymappings items without categories.
+  "$faster_controller_keymappings": false, // Default: true | Display the keymappings items without categories.
         // Disable it to get the full Java experience but screen will take longer to load.
 
   // "$show_furnace_recipe_book": false, // Default: false | Not working on 1.16.100 betas

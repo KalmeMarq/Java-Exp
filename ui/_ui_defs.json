@@ -120,6 +120,7 @@
     "src/screens/world_create/gamerules.json",
     "src/screens/world_create/more_options.json",
     "src/screens/world_create/multiplayer.json",
+    "src/screens/world_create/seed_picker.json",
     /* Test */
     "src/test/book.json",
     "src/test/container.json",

@@ -35,8 +35,7 @@
       }
     ],
     "bindings": [
-      {
-        "binding_type": "view",
+      { "binding_type": "view",
         "source_control_name": "show_log_view",
         "source_property_name": "#toggle_state",
         "target_property_name": "#visible"
@@ -114,8 +113,7 @@
     "color": "$chat_text_color",
     "anims": [ "@content_log_jexp.anim_content_log_txt_wait" ],
     "bindings": [
-      {
-        "binding_name": "#content_log_text",
+      { "binding_name": "#content_log_text",
         "binding_name_override": "#text",
         "binding_type": "collection",
         "binding_collection_name": "content_log_text_grid",

@@ -140,7 +140,7 @@ popup.resetSettings.audio=Are you sure yo want to reset the sounds settings?
 popup.resetSettings.video=Are you sure yo want to reset the video settings?
 popup.resetSettings.mouse=Are you sure yo want to reset the mouse settings?
 popup.resetSettings.controller=Are you sure yo want to reset the controller settings?
-popup.resetSettings.touch=Dre you sure yo want to reset the touch settings?.unassigned= 
+popup.resetSettings.touch=Dre you sure yo want to reset the touch settings?
 
 ##Create New World & Edit World
 accessibility.play.editWorld=Welt bearbeiten

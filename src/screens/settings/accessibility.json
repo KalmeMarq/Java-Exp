@@ -9,26 +9,21 @@
     "type": "panel",
     "controls": [
       { "popup_dialog_factory@popup_dialog_factory": {} },
-      { "title@screen_jexp.title": { "text": "options.accessibility.title", "offset": ["50% - 50%x", 20.5] } },
-      { "text_to_speech@text_to_speech_toggle": { "offset": ["50% - 155px", "16.666666667% + 0px"] } },
-      { "ui_text_to_speech@ui_text_to_speech_toggle": { "offset": ["50% + 5px", "16.666666667% + 0px"] } },
-      { "chat_text_to_speech@chat_text_to_speech_toggle": { "offset": ["50% - 155px", "16.666666667% + 24px"] } },
-      { "open_chat_message@open_chat_message_toggle": { "offset": ["50% + 5px", "16.666666667% + 24px"] } },
-      { "text_bg_opacity@text_background_opacity_slider": { "offset": ["50% - 155px", "16.666666667% + 48px"] } },
-      { "camera_shake@camera_shake_tgl": { "offset": ["50% + 5px", "16.666666667% + 48px"] } },
-      { "how_to_play@how_to_play_btn": { "offset": ["50% - 155px", "16.666666667% + 72px"] } },
+      { "title@screen_jexp.title": { "text": "options.accessibility.title", "offset": ["50% - 50%x", 20] } },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "size": ["100%", "100% - 64px"],
+          "$scroll_cont": "dirt@accessibility_jexp.scroll_cont"
+        }
+      },
       { "reset@options_jexp.reset_btn": {
-          "offset": ["50% - 75px", "16.666666667% + 96px"],
+          "ignored": false,
+          "offset": ["50% - 155px", "100% - 27px"],
           "property_bag": { "reset_group": "accessibility" }
         }
       },
-      { "back@options_jexp.back_tgl_btn": { "offset": "$back_btn_offset" } }
+      { "back@options_jexp.back_tgl_btn": { "offset": ["50% + 5px", "100% - 27px"], "size": [150, 20] } }
     ],
-    "$back_btn_offset|default": ["50% - 100px", "16.666666667% + 144px"],
-    "variables": {
-      "requires": "(not $is_pregame)",
-      "$back_btn_offset": ["50% - 100px", "16.666666667% + 144px"]
-    },
     "bindings": [
       { "binding_type": "view",
         "source_control_name": "accessibility_view",
@@ -38,15 +33,42 @@
     ]
   },
 
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": [310, "100%c"],
+    "controls": [
+      { "tspace@screen_jexp.v2px": {} },
+      { "stack0@debug_jexp.stack_item": {
+          "ignored": "(not $text_to_speech_supported)",
+          "$lt": "accessibility_jexp.text_to_speech_toggle",
+          "$rt": "accessibility_jexp.ui_text_to_speech_toggle"
+        }
+      },
+      { "stack1@debug_jexp.stack_item": {
+          "$lt": "accessibility_jexp.chat_text_to_speech_toggle",
+          "$rt": "accessibility_jexp.open_chat_message_toggle"
+        }
+      },
+      { "stack2@debug_jexp.stack_item": {
+          "$lt": "accessibility_jexp.text_background_opacity_slider",
+          "$rt": "accessibility_jexp.camera_shake_tgl"
+        }
+      },
+      { "stack3@debug_jexp.stack_item": {
+          "$lt": "accessibility_jexp.how_to_play_btn"
+        }
+      }
+    ]
+  },
+
   "text_to_speech_toggle@option_toggle_jexp.option_toggle": {
-    "enabled": "($text_to_speech_supported or $platform_tts_exists)",
+    "enabled": "$platform_tts_exists",
     "$tgl_text": "options.enableAutoPlatformTextToSpeech",
     "$opt_enabled_bdg_nm": "#enable_auto_text_to_speech_enabled",
     "$tgl_nm": "enable_auto_text_to_speech"
   },
 
   "ui_text_to_speech_toggle@option_toggle_jexp.option_toggle": {
-    "enabled": "$text_to_speech_supported",
     "$tgl_text": "options.enableUITextToSpeech",
     "$opt_enabled_bdg_nm": "#enable_ui_text_to_speech_enabled",
     "$tgl_nm": "enable_ui_text_to_speech"

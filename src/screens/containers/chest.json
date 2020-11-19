@@ -52,6 +52,9 @@
     ]
   },
 
+  /***********************************
+  * Chest Inventory
+  ***********************************/
   "chest_grid": {
     "type": "grid",
     "anchor_from": "top_left",
@@ -63,6 +66,9 @@
     "$item_collt_nm": "container_items"
   },
 
+  /***********************************
+  * Textures
+  ***********************************/
   "generic_bg": {
     "type": "stack_panel",
     "size": [176, "100%c"],

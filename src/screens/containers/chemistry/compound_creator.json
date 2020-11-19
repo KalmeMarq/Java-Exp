@@ -11,18 +11,6 @@
     "$container_cont": "compound_creator_jexp.content_panel"
   },
 
-  "compound_creator_bg@screen_jexp.res_txr": {
-    "texture": "src/assets/container/compound_creator",
-    "size": [176, 184],
-    "$uv_sz": [176, 184],
-    "variables": [
-      { "requires": "($compound_creator_res = 512x)", "$uv_sz": [352, 368] },
-      { "requires": "($compound_creator_res = 1024x)", "$uv_sz": [704, 736] },
-      { "requires": "($compound_creator_res = 2048x)", "$uv_sz": [1408, 1472] },
-      { "requires": "($compound_creator_res = 4096x)", "$uv_sz": [2816, 2944] }
-    ]
-  },
-
   "content_panel": {
     "type": "panel",
     "controls": [
@@ -38,6 +26,9 @@
     ]
   },
 
+  /***********************************
+  * Slots
+  ***********************************/
   "input_grid": {
     "type": "grid",
     "size": [54, 54],
@@ -103,6 +94,21 @@
       { "to_button_id": "button.container_slot_hovered",
         "mapping_type": "pressed"
       }
+    ]
+  },
+
+  /***********************************
+  * Textures
+  ***********************************/
+  "compound_creator_bg@screen_jexp.res_txr": {
+    "texture": "src/assets/container/compound_creator",
+    "size": [176, 184],
+    "$uv_sz": [176, 184],
+    "variables": [
+      { "requires": "($compound_creator_res = 512x)", "$uv_sz": [352, 368] },
+      { "requires": "($compound_creator_res = 1024x)", "$uv_sz": [704, 736] },
+      { "requires": "($compound_creator_res = 2048x)", "$uv_sz": [1408, 1472] },
+      { "requires": "($compound_creator_res = 4096x)", "$uv_sz": [2816, 2944] }
     ]
   }
 }

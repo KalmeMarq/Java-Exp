@@ -11,18 +11,6 @@
     "$container_cont": "element_constructor_jexp.content_panel"
   },
 
-  "element_constructor_bg@screen_jexp.res_txr": {
-    "texture": "src/assets/container/element_constructor",
-    "size": [256, 220],
-    "$uv_sz": [256, 220],
-    "variables": [
-      { "requires": "($element_constructor_res = 512x)", "$uv_sz": [460, 392] },
-      { "requires": "($element_constructor_res = 1024x)", "$uv_sz": [920, 784] },
-      { "requires": "($element_constructor_res = 2048x)", "$uv_sz": [1840, 1568] },
-      { "requires": "($element_constructor_res = 4096x)", "$uv_sz": [2816, 3036] }
-    ]
-  },
-
   "content_panel": {
     "type": "panel",
     "controls": [
@@ -39,6 +27,34 @@
     ]
   },
 
+  "bohr_model": {
+    "type": "panel",
+    "size": [105, 105],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [87, 16],
+    "controls": [
+      { "model": {
+          "type": "custom",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 2,
+          "offset": [2, 2],
+          "size": [ "100% - 4px", "100% - 4px" ],
+          "renderer": "bohr_model_renderer",
+          "bindings": [
+            { "binding_type": "global",
+              "binding_name": "#bohr_model_update"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  /***********************************
+  * Particles
+  ***********************************/
   "particle_panel": {
     "type": "stack_panel",
     "orientation": "horizontal",
@@ -164,8 +180,8 @@
                 "$slider_track_button": "$sldr_nm"
               }
             },
-            { "slider_bar_default@element_constructor_jexp.slider_bar_default": {} },
-            { "slider_bar_hover@element_constructor_jexp.slider_bar_hover": { "visible": false } }
+            { "slider_bar_default@element_constructor_jexp.slider_bar": {} },
+            { "slider_bar_hover@element_constructor_jexp.slider_bar": { "visible": false } }
           ]
         }
       }
@@ -189,43 +205,15 @@
     ]
   },
 
-  "slider_bar_default": {
+  "slider_bar": {
     "type": "panel",
     "size": [ "100%", "100% + 8px" ],
     "controls": [ { "bg@element_constructor_jexp.slider_bg": {} } ]
   },
 
-  "slider_bar_hover": {
-    "type": "panel",
-    "size": [ "100%", "100% + 8px" ],
-    "controls": [ { "bg@element_constructor_jexp.slider_bg": {} } ]
-  },
-
-  "bohr_model": {
-    "type": "panel",
-    "size": [105, 105],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "offset": [87, 16],
-    "controls": [
-      { "model": {
-          "type": "custom",
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
-          "layer": 2,
-          "offset": [2, 2],
-          "size": [ "100% - 4px", "100% - 4px" ],
-          "renderer": "bohr_model_renderer",
-          "bindings": [
-            { "binding_type": "global",
-              "binding_name": "#bohr_model_update"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  
+  /***********************************
+  * Slots
+  ***********************************/
   "output_slot@container_jexp.slot": {
     "$item_collt_nm": "elemconstruct_output",
     "offset": [214, 89],
@@ -235,8 +223,23 @@
     "layer": 2
   },
 
-  "button_default@screen_jexp.res_txr": {
-    "texture": "src/assets/container/element_constructor",
+  /***********************************
+  * Textures
+  ***********************************/
+  "base_txr@screen_jexp.res_txr": { "texture": "src/assets/container/element_constructor" },
+
+  "element_constructor_bg@base_txr": {
+    "size": [256, 220],
+    "$uv_sz": [256, 220],
+    "variables": [
+      { "requires": "($element_constructor_res = 512x)", "$uv_sz": [460, 392] },
+      { "requires": "($element_constructor_res = 1024x)", "$uv_sz": [920, 784] },
+      { "requires": "($element_constructor_res = 2048x)", "$uv_sz": [1840, 1568] },
+      { "requires": "($element_constructor_res = 4096x)", "$uv_sz": [2816, 3036] }
+    ]
+  },
+
+  "button_default@base_txr": {
     "size": [18, 18],
     "$uv": [257, 0],
     "$uv_sz": [18, 18],
@@ -268,8 +271,7 @@
     ]
   },
 
-  "sliderbtn_default@screen_jexp.res_txr": {
-    "texture": "src/assets/container/element_constructor",
+  "sliderbtn_default@base_txr": {
     "size": [16, 8],
     "$uv": [257, 54],
     "$uv_sz": [16, 8],
@@ -281,8 +283,7 @@
     ]
   },
 
-  "sliderbtn_hover@screen_jexp.res_txr": {
-    "texture": "src/assets/container/element_constructor",
+  "sliderbtn_hover@base_txr": {
     "size": [16, 8],
     "$uv": [257, 62],
     "$uv_sz": [16, 8],
@@ -294,8 +295,7 @@
     ]
   },
 
-  "slider_bg@screen_jexp.res_txr": {
-    "texture": "src/assets/container/element_constructor",
+  "slider_bg@base_txr": {
     "size": [16, 125],
     "$uv": [276, 0],
     "$uv_sz": [16, 125],

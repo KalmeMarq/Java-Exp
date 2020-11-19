@@ -11,18 +11,6 @@
     "$container_cont": "lab_table_jexp.content_panel"
   },
 
-  "lab_table_bg@screen_jexp.res_txr": {
-    "texture": "src/assets/container/lab_table",
-    "size": [176, 194],
-    "$uv_sz": [176, 194],
-    "variables": [
-      { "requires": "($lab_table_res = 512x)", "$uv_sz": [352, 388] },
-      { "requires": "($lab_table_res = 1024x)", "$uv_sz": [704, 776] },
-      { "requires": "($lab_table_res = 2048x)", "$uv_sz": [1408, 1552] },
-      { "requires": "($lab_table_res = 4096x)", "$uv_sz": [2816, 3104] }
-    ]
-  },
-
   "content_panel": {
     "type": "panel",
     "controls": [
@@ -76,8 +64,23 @@
     ]
   },
 
-  "lab_btn_dflt@screen_jexp.res_txr": {
-    "texture": "src/assets/container/lab_table",
+  /***********************************
+  * Textures
+  ***********************************/
+  "base_txr@screen_jexp.res_txr": { "texture": "src/assets/container/lab_table" },
+
+  "lab_table_bg@base_txr": {
+    "size": [176, 194],
+    "$uv_sz": [176, 194],
+    "variables": [
+      { "requires": "($lab_table_res = 512x)", "$uv_sz": [352, 388] },
+      { "requires": "($lab_table_res = 1024x)", "$uv_sz": [704, 776] },
+      { "requires": "($lab_table_res = 2048x)", "$uv_sz": [1408, 1552] },
+      { "requires": "($lab_table_res = 4096x)", "$uv_sz": [2816, 3104] }
+    ]
+  },
+
+  "lab_btn_dflt@base_txr": {
     "size": [86, 16],
     "$uv": [0, 196],
     "$uv_sz": [86, 16],

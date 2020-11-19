@@ -10,18 +10,6 @@
     "$container_cont": "loom_jexp.content_panel"
   },
 
-  "loom_bg@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/container/loom",
-    "size": [176, 166],
-    "$uv_sz": [176, 166],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv_sz": [352, 332] },
-      { "requires": "($loom_res = 1024x)", "$uv_sz": [704, 664] },
-      { "requires": "($loom_res = 2048x)", "$uv_sz": [1408, 1328] },
-      { "requires": "($loom_res = 4096x)", "$uv_sz": [2816, 2656] }
-    ]
-  },
-
   "content_panel": {
     "type": "panel",
     "$container_title": "container.loom",
@@ -74,65 +62,9 @@
     ]
   },
 
-  "lkd_scrollbox@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/container/loom",
-    "size": [12, 15],
-    "offset": [119, 13],
-    "$uv": [244, 0],
-    "$uv_sz": [12,15],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [488, 0], "$uv_sz": [24, 30] },
-      { "requires": "($loom_res = 1024x)", "$uv": [976, 0], "$uv_sz": [48, 60] },
-      { "requires": "($loom_res = 2048x)", "$uv": [1952, 0], "$uv_sz": [96, 20] },
-      { "requires": "($loom_res = 4096x)", "$uv": [3904, 0], "$uv_sz": [192, 240] }
-    ]
-  },
-
-  "empty_slot@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/container/loom",
-    "size": [16, 16],
-    "anchor_to": "center",
-    "anchor_from": "center",
-    "$uv_sz": [16, 16],
-    "bindings": [
-      { "binding_name": "#empty_image_visible",
-        "binding_name_override": "#visible",
-        "binding_type": "collection",
-        "binding_collection_name": "$item_collt_nm"
-      }
-    ]
-  },
-
-  "banner_empty_slot@loom_jexp.empty_slot": {
-    "$uv": [176, 0],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [352, 0], "$uv_sz": [32, 32] },
-      { "requires": "($loom_res = 1024x)", "$uv": [704, 0], "$uv_sz": [64, 64] },
-      { "requires": "($loom_res = 2048x)", "$uv": [1408, 0], "$uv_sz": [128, 128] },
-      { "requires": "($loom_res = 4096x)", "$uv": [2816, 0], "$uv_sz": [256, 256] }
-    ]
-  },
-
-  "dye_empty_slot@loom_jexp.empty_slot": {
-    "$uv": [192, 0],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [384, 0], "$uv_sz": [32, 32] },
-      { "requires": "($loom_res = 1024x)", "$uv": [768, 0], "$uv_sz": [64, 64] },
-      { "requires": "($loom_res = 2048x)", "$uv": [1536, 0], "$uv_sz": [128, 128] },
-      { "requires": "($loom_res = 4096x)", "$uv": [3072, 0], "$uv_sz": [256, 356] }
-    ]
-  },
-    
-  "pattern_item_empty_slot@loom_jexp.empty_slot": {
-    "$uv": [208, 0],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [416, 0], "$uv_sz": [32, 32] },
-      { "requires": "($loom_res = 1024x)", "$uv": [832, 0], "$uv_sz": [64, 64] },
-      { "requires": "($loom_res = 2048x)", "$uv": [1664, 0], "$uv_sz": [128, 128] },
-      { "requires": "($loom_res = 4096x)", "$uv": [3328, 0], "$uv_sz": [256, 256] }
-    ]
-  },
-
+  /***********************************
+  * Slots
+  ***********************************/
   "loom_slot@container_jexp.slot": {
     "anchor_from": "top_left",
     "anchor_to": "top_left"
@@ -204,6 +136,9 @@
     ]
   },
 
+  /***********************************
+  * ScrollPane
+  ***********************************/
   "result_banner_renderer@loom.result_banner_renderer": {
     "size": [20, 40],
     "offset": [141, 8],
@@ -211,43 +146,7 @@
     "anchor_to": "top_left",
     "layer": 4
   },
-
-  /* Scroll */
-  "slot_bg@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/container/loom",
-    "size": [14, 14],
-    "layer": 1,
-    "$uv": [0, 166],
-    "$uv_sz": [14, 14],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [0, 332], "$uv_sz": [28, 28] },
-      { "requires": "($loom_res = 1024x)", "$uv": [0, 664], "$uv_sz": [56, 56] },
-      { "requires": "($loom_res = 2048x)", "$uv": [0, 1328], "$uv_sz": [112, 112] },
-      { "requires": "($loom_res = 4096x)", "$uv": [0, 2656], "$uv_sz": [224, 224] }
-    ]
-  },
   
-  "hover_slot_bg@loom_jexp.slot_bg": {
-    "layer": 2,
-    "$uv": [0, 194],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [0, 388], "$uv_sz": [28, 28] },
-      { "requires": "($loom_res = 1024x)", "$uv": [0, 776], "$uv_sz": [56, 56] },
-      { "requires": "($loom_res = 2048x)", "$uv": [0, 1552], "$uv_sz": [112, 112] },
-      { "requires": "($loom_res = 4096x)", "$uv": [0, 3104], "$uv_sz": [224, 224] }
-    ]
-  },
-  
-  "selected_slot_bg@loom_jexp.slot_bg": {
-    "$uv": [0, 180],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [0, 360], "$uv_sz": [28, 28] },
-      { "requires": "($loom_res = 1024x)", "$uv": [0, 720], "$uv_sz": [56, 56] },
-      { "requires": "($loom_res = 2048x)", "$uv": [0, 1440], "$uv_sz": [112, 112] },
-      { "requires": "($loom_res = 4096x)", "$uv": [0, 2880], "$uv_sz": [224, 224] }
-    ]
-  },
-
   "scroll_grid_panel@common.root_panel": {
     "type": "input_panel",
     "size": ["100%", "100%c"],
@@ -346,11 +245,82 @@
       { "focus@screen_jexp.focus_border_img": {} }
     ]
   },
-  
-  "loom_scroll_box@screen_jexp.res_txr": { "texture": "assets/minecraft/textures/gui/container/loom" },
+
+  /***********************************
+  * Textures
+  ***********************************/
+  "base_txr@screen_jexp.res_txr": { "texture": "assets/minecraft/textures/gui/container/loom" },
+
+  "loom_bg@base_txr": {
+    "size": [176, 166],
+    "$uv_sz": [176, 166],
+    "variables": [
+      { "requires": "($loom_res = 512x)", "$uv_sz": [352, 332] },
+      { "requires": "($loom_res = 1024x)", "$uv_sz": [704, 664] },
+      { "requires": "($loom_res = 2048x)", "$uv_sz": [1408, 1328] },
+      { "requires": "($loom_res = 4096x)", "$uv_sz": [2816, 2656] }
+    ]
+  },
+
+  "lkd_scrollbox@base_txr": {
+    "size": [12, 15],
+    "offset": [119, 13],
+    "$uv": [244, 0],
+    "$uv_sz": [12,15],
+    "variables": [
+      { "requires": "($loom_res = 512x)", "$uv": [488, 0], "$uv_sz": [24, 30] },
+      { "requires": "($loom_res = 1024x)", "$uv": [976, 0], "$uv_sz": [48, 60] },
+      { "requires": "($loom_res = 2048x)", "$uv": [1952, 0], "$uv_sz": [96, 20] },
+      { "requires": "($loom_res = 4096x)", "$uv": [3904, 0], "$uv_sz": [192, 240] }
+    ]
+  },
+
+  "empty_slot@base_txr": {
+    "size": [16, 16],
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "$uv_sz": [16, 16],
+    "bindings": [
+      { "binding_name": "#empty_image_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collt_nm"
+      }
+    ]
+  },
+
+  "banner_empty_slot@loom_jexp.empty_slot": {
+    "$uv": [176, 0],
+    "variables": [
+      { "requires": "($loom_res = 512x)", "$uv": [352, 0], "$uv_sz": [32, 32] },
+      { "requires": "($loom_res = 1024x)", "$uv": [704, 0], "$uv_sz": [64, 64] },
+      { "requires": "($loom_res = 2048x)", "$uv": [1408, 0], "$uv_sz": [128, 128] },
+      { "requires": "($loom_res = 4096x)", "$uv": [2816, 0], "$uv_sz": [256, 256] }
+    ]
+  },
+
+  "dye_empty_slot@loom_jexp.empty_slot": {
+    "$uv": [192, 0],
+    "variables": [
+      { "requires": "($loom_res = 512x)", "$uv": [384, 0], "$uv_sz": [32, 32] },
+      { "requires": "($loom_res = 1024x)", "$uv": [768, 0], "$uv_sz": [64, 64] },
+      { "requires": "($loom_res = 2048x)", "$uv": [1536, 0], "$uv_sz": [128, 128] },
+      { "requires": "($loom_res = 4096x)", "$uv": [3072, 0], "$uv_sz": [256, 356] }
+    ]
+  },
+    
+  "pattern_item_empty_slot@loom_jexp.empty_slot": {
+    "$uv": [208, 0],
+    "variables": [
+      { "requires": "($loom_res = 512x)", "$uv": [416, 0], "$uv_sz": [32, 32] },
+      { "requires": "($loom_res = 1024x)", "$uv": [832, 0], "$uv_sz": [64, 64] },
+      { "requires": "($loom_res = 2048x)", "$uv": [1664, 0], "$uv_sz": [128, 128] },
+      { "requires": "($loom_res = 4096x)", "$uv": [3328, 0], "$uv_sz": [256, 256] }
+    ]
+  },
 
   "scroll_box@container_jexp.scroll_box": {
-    "$scrollbox_base": "loom_jexp.loom_scroll_box",
+    "$scrollbox_base": "loom_jexp.base_txr",
     "$top_vars": [
       { "requires": "($loom_res = 256x)", "$uv": [232, 0], "$uv_sz": [12, 2] },
       { "requires": "($loom_res = 512x)", "$uv": [464, 0], "$uv_sz": [24, 4] },
@@ -374,8 +344,7 @@
     ]
   },
 
-  "scroll_track@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/container/loom",
+  "scroll_track@base_txr": {
     "size": [12, 56],
     "$uv": [119, 13],
     "$uv_sz": [12, 56],
@@ -384,6 +353,40 @@
       { "requires": "($loom_res = 1024x)", "$uv": [476, 52], "$uv_sz": [48, 224] },
       { "requires": "($loom_res = 2048x)", "$uv": [952, 104], "$uv_sz": [96, 448] },
       { "requires": "($loom_res = 4096x)", "$uv": [1104, 208], "$uv_sz": [192, 896] }
+    ]
+  },
+
+  "slot_bg@base_txr": {
+    "size": [14, 14],
+    "layer": 1,
+    "$uv": [0, 166],
+    "$uv_sz": [14, 14],
+    "variables": [
+      { "requires": "($loom_res = 512x)", "$uv": [0, 332], "$uv_sz": [28, 28] },
+      { "requires": "($loom_res = 1024x)", "$uv": [0, 664], "$uv_sz": [56, 56] },
+      { "requires": "($loom_res = 2048x)", "$uv": [0, 1328], "$uv_sz": [112, 112] },
+      { "requires": "($loom_res = 4096x)", "$uv": [0, 2656], "$uv_sz": [224, 224] }
+    ]
+  },
+  
+  "hover_slot_bg@loom_jexp.slot_bg": {
+    "layer": 2,
+    "$uv": [0, 194],
+    "variables": [
+      { "requires": "($loom_res = 512x)", "$uv": [0, 388], "$uv_sz": [28, 28] },
+      { "requires": "($loom_res = 1024x)", "$uv": [0, 776], "$uv_sz": [56, 56] },
+      { "requires": "($loom_res = 2048x)", "$uv": [0, 1552], "$uv_sz": [112, 112] },
+      { "requires": "($loom_res = 4096x)", "$uv": [0, 3104], "$uv_sz": [224, 224] }
+    ]
+  },
+  
+  "selected_slot_bg@loom_jexp.slot_bg": {
+    "$uv": [0, 180],
+    "variables": [
+      { "requires": "($loom_res = 512x)", "$uv": [0, 360], "$uv_sz": [28, 28] },
+      { "requires": "($loom_res = 1024x)", "$uv": [0, 720], "$uv_sz": [56, 56] },
+      { "requires": "($loom_res = 2048x)", "$uv": [0, 1440], "$uv_sz": [112, 112] },
+      { "requires": "($loom_res = 4096x)", "$uv": [0, 2880], "$uv_sz": [224, 224] }
     ]
   }
 }

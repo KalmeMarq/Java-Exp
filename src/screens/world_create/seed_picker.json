@@ -1,0 +1,54 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "seed_picker_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "offset": ["50% - 50%x", 5], "text": "seedPicker.title" } },
+      { "search_box@seed_picker_jexp.search_box": {} },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 44],
+          "size": ["100%", "100% - 76px"],
+          "$scroll_cont": "dirt@seed_picker_jexp.scroll_cont"
+        }
+      },
+      { "exit@button_jexp.button": {
+          "$btn_text": "gui.cancel",
+          "$prsd_btn_nm": "button.menu_exit",
+          "offset": ["50% + 5px", "100% - 27px"],
+          "size": [150, 20]
+        }
+      }
+    ]
+  },
+
+  "search_box@text_box_jexp.text_box": {
+    "offset": ["50% - 50%x", 19],
+    "$text_edit_box_cont_bdg_nm": "#search_box_binding",
+    "$text_box_name": "#search_box_name",
+    "$phr_text": "seedPicker.search"
+  },
+
+  "scroll_cont": {
+    "type": "panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      { "tspace@screen_jexp.v4px": {} },
+      { "selection": {
+          "type": "stack_panel",
+          "size": ["100%", "100%c"],
+          "clips_children": true,
+          "controls": [
+            { "selection@seed_picker_jexp.seeds_selection": {} },
+            { "grid@seed_picker_jexp.seeds_grid": {} }
+          ]
+        }
+      },
+      { "bspace@screen_jexp.v2px": {} }
+    ]
+  }
+}
