@@ -1,6 +1,8 @@
+##Java-Exp by @FMarquesPTO
+##Chinese(Simplified) by @hui2007
 options.fov.label=视野	#
 options.fov=0	#
-options.fov.format=%s
+options.fov.format=%s	#
 
 ##entity.wither.name.new=凋灵	#
 ##entity.wither.name=0	#
@@ -13,203 +15,203 @@ options.fov.format=%s
 ##raid.name=2	#
 ##raid.progress=3	#
 
-##Others
-map.position.agent=Agent XYZ: %s / %s / %s
-map.position=XYZ: %s / %s / %s
+##其他
+map.position.agent=朝向坐标 ：%s / %s / %s
+map.position=坐标: %s / %s / %s
 
-##Recipe Book
-gui.recipebook.search_hint=§oSearch...
-gui.recipebook.toggleRecipes.all=Showing all
-gui.recipebook.toggleRecipes.reset=Reset
-gui.recipebook.toggleRecipes.craftable=Showing craftable
+##配方书
+gui.recipebook.search_hint=§o搜索...
+gui.recipebook.toggleRecipes.all=展示全部
+gui.recipebook.toggleRecipes.reset=重置
+gui.recipebook.toggleRecipes.craftable=仅显示可合成
 
-craftingScreen.tab.search=All
-craftingScreen.tab.survival=Inventory
+craftingScreen.tab.search=搜索物品
+craftingScreen.tab.survival=生存模式物品栏
 
-##Containers
-merchant.trades=Trades
+##容器
+merchant.trades=交易
 
-##Menu
-menu.options=Options...
-menu.quit=Quit Game
-menu.playersMenu=Players
-menu.sendFeedback=Give Feedback
-menu.returnToMenu=Save and Quit to Title
-progressScreen.message.resourceLoading=Reading World Data
+##菜单
+menu.options=选项…
+menu.quit=退出游戏
+menu.playersMenu=玩家
+menu.sendFeedback=提供反馈
+menu.returnToMenu=保存并退回到标题画面
+progressScreen.message.resourceLoading=正在读取世界数据……
 
-##Command Block
-advMode.command=Console Command
-advMode.mode.sequence=Chain
-advMode.mode.auto=Repeat
-advMode.mode.redstone=Impulse
-advMode.mode.conditional=Conditional
-advMode.mode.unconditional=Unconditional
-advMode.mode.redstoneTriggered=Needs Redstone
-advMode.mode.autoexec.bat=Always Active
-advMode.execOnFirstTick=Execute on First Tick
+##命令方块
+advMode.command=控制台命令
+advMode.mode.sequence=连锁
+advMode.mode.auto=循环
+advMode.mode.redstone=脉冲
+advMode.mode.conditional=条件制约
+advMode.mode.unconditional=不受制约
+advMode.mode.redstoneTriggered=红石控制
+advMode.mode.autoexec.bat=保持开启
+advMode.execOnFirstTick=首选项延迟
 
-##Structure Block
-structure_block.position=Relative Position
-structure_block.size=Structure Size
-structure_block.show=Show Structure
-structure_block.hide=Hide Structure
-structure_block.detect_size=Detect structure size and position:
+##结构方块
+structure_block.position=相对坐标
+structure_block.size=结构大小
+structure_block.show=显示边界盒
+structure_block.hide=隐藏边界盒
+structure_block.detect_size=探测结构大小和位置：
 
-##Settings
+##设置
 options.fov.format=%s
-options.fov.toggle=Dynamic FOV
+options.fov.toggle=动态视角
 
-options.accessibility=Accessibility Settings...
-options.accessibility.title=Accessibility Settings
-options.perspective=Perspective
-options.perspective.firstPerson=First Person
-options.perspective.thirdBack=Third Per. Back
-options.perspective.thirdFront=Third Per. Front
-options.enableChatTextToSpeech=Narrator For Chat
-options.enableAutoPlatformTextToSpeech=Narrator For Text
-options.enableUITextToSpeech=Narrator For System
-options.enableOpenChatMessage=Can Chat Message
+options.accessibility=辅助功能设置…
+options.accessibility.title=辅助功能设置
+options.perspective=视角
+options.perspective.firstPerson=第一人称
+options.perspective.thirdBack=第三人称背面
+options.perspective.thirdFront=第三人称正面
+options.enableChatTextToSpeech=复述聊天信息
+options.enableAutoPlatformTextToSpeech=复述文本
+options.enableUITextToSpeech=复述系统消息
+options.enableOpenChatMessage=聊天信息
 
-options.mouse=Mouse...
-options.touch=Touch...
-options.hotbarOnlyTouch=Only Affect Hotbar
-options.mouse_settings=Mouse Settings...
-options.mouse_settings.title=Mouse Settings
-options.controller=Controller...
-options.controller_settings=Controller Settings...
-options.controller_settings.title=Controller Settings
-options.gamepadcursorsensitivity=Cursor Sensitivity
-options.graphics.fancy.tooltip="Fancy" graphics balances performance and quality for the majority of machines.
-options.graphics.fast.tooltip="Fast" graphics reduces the amount of visible rain and snow. Transparency effects are disabled for various blocks such as tree-leaves.
-options.autoJump=Auto-Jump
-controls.reset=Reset
-controls.resetAll=Reset Keys
+options.mouse=鼠标…
+options.touch=触摸…
+options.hotbarOnlyTouch=触摸只影响热键
+options.mouse_settings=鼠标设置…
+options.mouse_settings.title=鼠标设置
+options.controller=控制器…
+options.controller_settings=控制器设置…
+options.controller_settings.title=控制器设置
+options.gamepadcursorsensitivity=鼠标灵敏度
+options.graphics.fancy.tooltip=高品质画质会为大多数设备平衡性能和质量。%n天气、云和粒子可能不会在半透明方块或水的后面显示。
+options.graphics.fast.tooltip=流畅画质将减少可见的雨雪数量。%n树叶等方块的透明效果将被禁用。
+options.autoJump=自动跳跃
+controls.reset=重置
+controls.resetAll=重置按键
 
-options.resourcePacks=Resource Packs...
-options.behaviorPacks=Behavior Packs
-options.resourcePacks.title=Select Resource Pack
-options.behaviorPacks.title=Select Behavior Pack
-resourcePacks.dropInfo=Drag and drop files into 'resource_packs' folder to add packs
-behaviorPacks.dropInfo=Drag and drop files into 'behavior_packs' folder to add packs
-resourcePack.available.title=§lAvailable
-resourcePack.selected.title=§lSelected
-pack.source.builtin=built-in
+options.resourcePacks=资源包…
+options.behaviorPacks=行为包…
+options.resourcePacks.title=选择资源包
+options.behaviorPacks.title=选择行为包
+resourcePacks.dropInfo=将文件拖放到“resource_packs”文件夹来添加资源包
+behaviorPacks.dropInfo=将文件拖放到"behavior_packs"文件夹来添加行为包
+resourcePack.available.title=§l可用
+resourcePack.selected.title=§l已选
+pack.source.builtin=内置
 
-options.language=Language...
-options.languageWarning=Language translations may not be 100%% accurate
+options.language=语言…
+options.languageWarning=语言翻译不一定100%准确
 
-options.sounds=Music & Sounds...
-options.sounds.title=Music & Sound Options
-options.sound=Volume
-options.music=Music
+options.sounds=音乐和声音…
+options.sounds.title=音乐和声音选项
+options.sound=音量
+options.music=音乐
 
-options.storage=Storage Managment...
-storageManager.selection.single=Single Selection
-storageManager.selection.multi=Multi Selection
+options.storage=存储管理…
+storageManager.selection.single=单选
+storageManager.selection.multi=多选
 
-options.user_profile=Profile...
-options.autoUpdate=Auto Update
+options.user_profile=个人资料...
+options.autoUpdate=自动更新
 
-options.video=Video Settings...
-options.video.advanced=Advanced
-options.graphics=Graphics
-options.transparentleaves=Leaves
-options.transparentleaves.fancy=Fancy
-options.transparentleaves.fast=Fast
-options.box_selection=Selection
-options.box_selection.outline=Outline
-options.box_selection.highlight=Highlight
-options.renderclouds=Clouds
-options.fancyskies=Sky
-options.fancyskies.fancy=Fancy
-options.fancyskies.fast=Fast
-options.bubbleparticles=Bubbles Particles
-options.bubbleparticles.fancy=Fancy
-options.bubbleparticles.fast=Fast
-options.maxFramerate=Max Framerate
+options.video=视频设置…
+options.video.advanced=高级
+options.graphics=图像品质
+options.transparentleaves=树叶
+options.transparentleaves.fancy=高品质
+options.transparentleaves.fast=流畅
+options.box_selection=轮廓选择
+options.box_selection.outline=轮廓
+options.box_selection.highlight=高亮
+options.renderclouds=云
+options.fancyskies=天空
+options.fancyskies.fancy=高品质
+options.fancyskies.fast=流畅
+options.bubbleparticles=气泡
+options.bubbleparticles.fancy=高品质
+options.bubbleparticles.fast=流畅
+options.maxFramerate=最大帧率
 
-key.categories.additional=Additional
+key.categories.additional=额外的
 
 controllerLayoutScreen.unassigned= 
 
 ##Popups
-popup.quitGame.question=Are you sure you want to quit?
-popup.deathConfirm.question=Are you sure you want to quit?
+popup.quitGame.question=你真的想要退出吗？
+popup.deathConfirm.question=你真的想要退出吗？
 popup.feedback.question=Do you want to give some suggestions, feedback or report bugs?
-popup.resetSettings.accessibility=Are you sure yo want to reset the accessibility settings?
-popup.resetSettings.audio=Are you sure yo want to reset the sounds settings?
-popup.resetSettings.video=Are you sure yo want to reset the video settings?
-popup.resetSettings.mouse=Are you sure yo want to reset the mouse settings?
-popup.resetSettings.controller=Are you sure yo want to reset the controller settings?
-popup.resetSettings.touch=Dre you sure yo want to reset the touch settings?.unassigned= 
+popup.resetSettings.accessibility=你真的想要重置辅助功能设置吗？
+popup.resetSettings.audio=你真的想要重置声音设置吗？
+popup.resetSettings.video=你真的想要重置视频设置吗？
+popup.resetSettings.mouse=你真的想要重置鼠标设置吗？
+popup.resetSettings.controller=你真的想要重置控制器设置吗？
+popup.resetSettings.touch=你真的想要重置触摸设置吗？
 
-##Create New World & Edit World
-accessibility.play.editWorld=Edit World
-selectWorld.settings=Game Settings
-selectWorld.resultFolder=Will be saved with:
-selectWorld.gameModePlayer=Personal GMode
-selectWorld.enterSeed=Seed for the world generator
-selectWorld.allowCommands=Allow Cheats
-createWorldScreen.experimentalgameplay=Experimental Gameplay
-selectWorld.experimentalGameplay.info=Test out new features comming to Minecraft
-selectWorld.forceUser.info=Force users to use this resources
-selectWorld.bonusItems=Bonus Chest
-generator.flat=Superflat
+##创建新世界&编辑世界
+accessibility.play.editWorld=编辑世界
+selectWorld.settings=游戏选项
+selectWorld.resultFolder=将会保存于：
+selectWorld.gameModePlayer=个人游戏模式
+selectWorld.enterSeed=世界生成器的种子
+selectWorld.allowCommands=允许作弊
+createWorldScreen.experimentalgameplay=使用实验玩法
+selectWorld.experimentalGameplay.info=尝试即将来到Minecraft的新玩法
+selectWorld.forceUser.info=强制使用此资源包
+selectWorld.bonusItems=奖励箱
+generator.flat=超平坦
 
-##Gamerules/Resource/Behavior
-selectWorld.gameRules=Game Rules
-editGamerule.title=Edit game rules
-gamerule.category.chat=§lChat
-gamerule.category.spawning=§lSpawning
-gamerule.category.updates=§lWorld updates
-gamerule.category.drops=§lDrops
-gamerule.category.mobs=§lMobs
-gamerule.category.player=§lPlayer
-gamerule.category.misc=§lMiscellaneous
-editGamerule.default.on=Default: true
-editGamerule.default.off=Default: false
-editGamerule.default.spawnRadius=Default: 5
-editGamerule.default.randomTickSpeed=Default: 1
-gamerule.doImmediateRespawn=Respawn immediately
-gamerule.naturalRegeneration=Regenerate health
-gamerule.doMobSpawning=Spawn mobs
-gamerule.mobGriefing=Allow destructive mob actions
-gamerule.keepInventory=Keep inventory after death
-gamerule.doMobLoot=Drop mob loot
-gamerule.doEntityDrops=Drop entity equipment
-gamerule.doTileDrops=Drop blocks
-gamerule.doDaylightCycle=Advance in-game time
-gamerule.alwaysDay=Always Day
-gamerule.doFireTick=Update fire
-gamerule.tntExplodes=TNT Explodes
-gamerule.doWeatherCycle=Update weather
-gamerule.commandBlockEnabled=Command Blocks
-gamerule.spawnRadius=Respawn location radius
-gamerule.randomTickSpeed=Random tick speed rate
-gamerule.pvp=Allow PVP
-gamerule.showCoordinates=Show Coordinates
-gamerule.doMobLoot.description=Controls resource drops, including experience orbs
-gamerule.doEntityDrops.description=Controls drops from minecarts (including inventories), item frames, boats, etc.
-gamerule.doMobSpawning.description=Some entities might have separate rules
-gamerule.doTileDrops.description=Controls resource drops, including experience orbs
+##游戏规则/材质/行为
+selectWorld.gameRules=游戏规则
+editGamerule.title=编辑游戏规则
+gamerule.category.chat=§l聊天
+gamerule.category.spawning=§l生成
+gamerule.category.updates=§l世界更新
+gamerule.category.drops=§l掉落
+gamerule.category.mobs=§l生物
+gamerule.category.player=§l玩家
+gamerule.category.misc=§l杂项
+editGamerule.default.on=默认：是
+editGamerule.default.off=默认：否
+editGamerule.default.spawnRadius=默认：5
+editGamerule.default.randomTickSpeed=默认：1
+gamerule.doImmediateRespawn=立即重生
+gamerule.naturalRegeneration=生命值自然恢复
+gamerule.doMobSpawning=生成生物
+gamerule.mobGriefing=允许破坏性生物行为
+gamerule.keepInventory=死亡后保留物品栏
+gamerule.doMobLoot=生物战利品掉落
+gamerule.doEntityDrops=非生物实体掉落
+gamerule.doTileDrops=方块掉落
+gamerule.doDaylightCycle=游戏内时间流逝
+gamerule.alwaysDay=终为白日
+gamerule.doFireTick=火焰蔓延
+gamerule.tntExplodes=TNT爆炸
+gamerule.doWeatherCycle=天气更替
+gamerule.commandBlockEnabled=命令方块
+gamerule.spawnRadius=重生点半径
+gamerule.randomTickSpeed=随机刻速率
+gamerule.pvp=允许PVP
+gamerule.showCoordinates=显示坐标
+gamerule.doMobLoot.description=控制生物死亡后是否掉落资源，包括经验球
+gamerule.doEntityDrops.description=控制矿车（包括内容物）、物品展示框、船等的物品掉落
+gamerule.doMobSpawning.description=一些实体可能有其特定的规则
+gamerule.doTileDrops.description=控制破坏方块后是否掉落资源，包括经验球
 
-##Create World Upsell
-createWorldUpsell.newWorld=New World
-createWorldUpsell.newRealm=New Realm
+##创建世界
+createWorldUpsell.newWorld=新的世界
+createWorldUpsell.newRealm=新的领域
 
-##World Templates
-worldTemplates.title=Templates
-worldTemplates.world=World
-worldTemplates.realm=Realms
-worldTemplates.help=Help
+##世界模版
+worldTemplates.title=模板
+worldTemplates.world=世界
+worldTemplates.realm=领域
+worldTemplates.help=帮助
 
-createWorldScreen.gameMode.adventure=Adventure Mode
-createWorldScreen.gameMode.creative=Creative Mode
-createWorldScreen.gameMode.survival=Survival Mode
+createWorldScreen.gameMode.adventure=冒险模式
+createWorldScreen.gameMode.creative=创造模式
+createWorldScreen.gameMode.survival=生存模式
 
-selectWorld.import=Import
-selectWorld.edit=Edit
-selectWorld.versionWarning=Backup this world because loading it in the beta can cause corruption!
+selectWorld.import=导入
+selectWorld.edit=编辑
+selectWorld.versionWarning=备份此世界因为上次是在Beta版本中游玩的，在此版本中加载可能会导致数据损坏！
 
-##Loadings
-multiplayer.downloadingTerrain=Loading terrain...
+##加载
+multiplayer.downloadingTerrain=加载地形中…
