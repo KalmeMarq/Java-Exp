@@ -5,9 +5,49 @@
 {
   "namespace": "mob_effects_jexp_test",
 
+  "effect_icons": {
+    "type": "panel",
+    "size": [18, 18],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [6, 7],
+    "controls": [
+      { "speed@mob_effects_jexp_test.speed": {} },
+      { "absorption@mob_effects_jexp_test.absorption": {} },
+      { "bad_omen@mob_effects_jexp_test.bad_omen": {} },
+      { "blindness@mob_effects_jexp_test.blindness": {} },
+      { "conduit_power@mob_effects_jexp_test.conduit_power": {} },
+      { "dolphins_grace@mob_effects_jexp_test.dolphins_grace": {} },
+      { "fire_resistance@mob_effects_jexp_test.fire_resistance": {} },
+      { "haste@mob_effects_jexp_test.haste": {} },
+      { "health_boost@mob_effects_jexp_test.health_boost": {} },
+      { "hero_of_the_village@mob_effects_jexp_test.hero_of_the_village": {} },
+      { "hunger@mob_effects_jexp_test.hunger": {} },
+      { "instant_damage@mob_effects_jexp_test.instant_damage": {} },
+      { "instant_health@mob_effects_jexp_test.instant_health": {} },
+      { "invisibility@mob_effects_jexp_test.invisibility": {} },
+      { "jump_boost@mob_effects_jexp_test.jump_boost": {} },
+      { "levitation@mob_effects_jexp_test.levitation": {} },
+      { "water_breathing@mob_effects_jexp_test.water_breathing": {} },
+      { "mining_fatigue@mob_effects_jexp_test.mining_fatigue": {} },
+      { "nausea@mob_effects_jexp_test.nausea": {} },
+      { "night_vision@mob_effects_jexp_test.night_vision": {} },
+      { "poison@mob_effects_jexp_test.poison": {} },
+      { "regeneration@mob_effects_jexp_test.regeneration": {} },
+      { "resistance@mob_effects_jexp_test.resistance": {} },
+      { "saturation@mob_effects_jexp_test.saturation": {} },
+      { "slow_falling@mob_effects_jexp_test.slow_falling": {} },
+      { "strength@mob_effects_jexp_test.strength": {} },
+      { "slowness@mob_effects_jexp_test.slowness": {} },
+      { "weakness@mob_effects_jexp_test.weakness": {} },
+      { "wither@mob_effects_jexp_test.wither": {} }
+    ]
+  },
+
   "effect_icon": {
     "type": "image",
     "size": [18, 18],
+    "texture": "('assets/minecraft/textures/mob_effect/' + $txr)",
     "bindings": [
       { "binding_type": "collection",
         "binding_name": "$txr_bdg",
@@ -17,8 +57,33 @@
     ]
   },
 
-  "speed@effect_icon": {
-    "$txr_bdg": "(#texture = 'textures/ui/speed_effect')",
-    "texture": "assets/minecraft/textures/mob_effect/speed"
-  }
+  "speed@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/speed_effect')", "$txr": "speed" },
+  "absorption@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/absorption_effect')", "$txr": "absorption" },
+  "bad_omen@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/bad_omen_effect')", "$txr": "bad_omen" },
+  "blindness@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/blindness_effect')", "$txr": "blindness" },
+  "conduit_power@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/conduit_power_effect')", "$txr": "conduit_power" },
+  "dolphins_grace@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/dolphins_grace_effect')", "$txr": "dolphins_grace" },
+  "fire_resistance@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/fire_resistance_effect')", "$txr": "fire_resistance" },
+  "haste@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/haste_effect')", "$txr": "haste" },
+  "health_boost@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/health_boost_effect')", "$txr": "health_boost" },
+  "hero_of_the_village@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/village_hero_effect')", "$txr": "hero_of_the_village" },
+  "hunger@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/hunger_effect')", "$txr": "hunger" },
+  "instant_damage@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/instant_damage_effect')", "$txr": "instant_damage" },
+  "instant_health@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/instant_health_effect')", "$txr": "instant_health" },
+  "invisibility@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/invisibility_effect')", "$txr": "invisibility" },
+  "jump_boost@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/jump_boost_effect')", "$txr": "jump_boost" },
+  "levitation@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/levitation_effect')", "$txr": "levitation" },
+  "water_breathing@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/water_breathing_effect')", "$txr": "water_breathing" },
+  "mining_fatigue@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/mining_fatigue_effect')", "$txr": "mining_fatigue" },
+  "nausea@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/nausea_effect')", "$txr": "nausea" },
+  "night_vision@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/night_vision_effect')", "$txr": "night_vision" },
+  "poison@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/poison_effect')", "$txr": "poison" },
+  "regeneration@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/regeneration_effect')", "$txr": "regeneration" },
+  "resistance@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/resistance_effect')", "$txr": "resistance" },
+  "saturation@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/saturation_effect')", "$txr": "saturation" },
+  "slow_falling@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/slow_falling_effect')", "$txr": "slow_falling" },
+  "slowness@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/slowness_effect')", "$txr": "slowness" },
+  "strength@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/strength_effect')", "$txr": "strength" },
+  "weakness@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/weakness_effect')", "$txr": "weakness" },
+  "wither@mob_effects_jexp_test.effect_icon": { "$txr_bdg": "(#texture = 'textures/ui/wither_effect')", "$txr": "wither" }
 }

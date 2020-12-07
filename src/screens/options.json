@@ -34,8 +34,7 @@
             { "ingame_world_options_scrn@ingame_world_options_jexp.screen_content": { "visible": false, "ignored": "$is_pregame" } },
             { "behavior_packs_scrn@packs_jexp.addon_screen_content": { "visible": false, "ignored": "$is_pregame" } },
             { "gamerules_scrn@gamerules_jexp.screen_content": { "visible": false, "ignored": "$is_pregame" } },
-            { "multiplayer_scrn@multiplayer_jexp.screen_content": { "visible": false, "ignored": "$is_pregame" } },
-            { "experimental_scrn@experimental_jexp.screen_content": { "visible": false, "ignored": "$is_pregame" } },
+            { "advanced_scrn@advanced_jexp.screen_content": { "visible": false, "ignored": "$is_pregame" } },
             { "resource_packs_scrn@packs_jexp.level_screen_content": { "visible": false, "ignored": "$is_pregame" } },
             { "global_resource_packs_scrn@packs_jexp.global_screen_content": { "visible": false, "ignored": "($ignore_global_resources_section or not $is_pregame)" } },
             { "accessibility_scrn@accessibility_jexp.screen_content": { "visible": false } }
@@ -514,6 +513,12 @@
             { "ignored": "$is_pregame",
               "binding_type": "view",
               "source_control_name": "gamerules_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            },
+            { "ignored": "$is_pregame",
+              "binding_type": "view",
+              "source_control_name": "advanced_scrn",
               "source_property_name": "(not #visible)",
               "target_property_name": "#visible"
             },

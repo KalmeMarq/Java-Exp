@@ -3,5 +3,66 @@
   All rights reserved.
 ***********************************/
 {
-  "namespace": "xbl_friend_finder_jexp"
+  "namespace": "xbl_friend_finder_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "text": "$title", "offset": ["50% - 50%x", 12] } },
+      { "search_title@screen_jexp.title": { "text": "xbox.friendfinder.findFriends", "offset": ["50% - 101px", 53], "color": "$info_color" } },
+      { "gamertag_search@xbl_friend_finder_jexp.gamertag_search_text_box": { "offset": ["50% - 50%x", 66] } },
+      { "exit@button_jexp.button": {
+          "offset": ["50% - 50%x", 196],
+          "$btn_tts_nm": "",
+          "tts_control_header": "accessibility.button.close",
+          "$btn_text": "gui.cancel",
+          "$prsd_btn_nm": "button.menu_exit",
+          "bindings": [
+            { "binding_name": "#tts_enabled",
+              "binding_name_override": "#focus_enabled"
+            }
+          ]
+        }
+      },
+      { "gamepad_helpers@xbl_friend_finder.gamepad_helpers": {} }
+    ],
+    "$title|default": "xbox.profile.addFriend",
+    "variables": {
+      "requires": "($nx_os or $is_ps4)",
+      "$title": "networkWorld.find_cross_platform_friends"
+    }
+  },
+
+  "gamertag_search_text_box@text_box_jexp.text_box": {
+    "$text_box_name": "gamertag_search_box",
+    "$phr_text": "xbox.friendfinder.enterGamertag",
+    "max_length": 16,
+    "property_bag": { "#property_field": "#gamertag" },
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.menu_select",
+        "handle_select": true,
+        "handle_deselect": true,
+        "mapping_type": "focused"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.search",
+        "handle_select": false,
+        "handle_deselect": true,
+        "mapping_type": "focused"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_cancel",
+        "handle_select": false,
+        "handle_deselect": true,
+        "mapping_type": "global"
+      }
+    ]
+  }
 }

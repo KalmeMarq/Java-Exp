@@ -262,42 +262,82 @@
     "$tooltip_label_color|default": [1, 1, 1],
     "controls": [
       { "build_id_label@tooltip_jexp.tooltip_label": {
-          "bindings": [ { "binding_name": "#build_id" } ]
+          "bindings": [
+            { "binding_name": "#build_id" },
+            { "binding_name": "(not #build_id = '')",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
       { "protocol_version_label@tooltip_jexp.tooltip_label": {
           "text": "#protocol_version",
-          "bindings": [ { "binding_name": "#protocol_version" } ]
+          "bindings": [
+            { "binding_name": "#protocol_version" },
+            { "binding_name": "(not #protocol_version = '')",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
       { "device_id_label@tooltip_jexp.tooltip_label": {
           "text": "#device_id",
-          "bindings": [ { "binding_name": "#device_id" } ]
+          "bindings": [
+            { "binding_name": "#device_id" },
+            { "binding_name": "(not #device_id = '')",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
       { "MinecraftAccount_id_label@tooltip_jexp.tooltip_label": {
           "text": "#MinecraftAccount_id",
-          "bindings": [ { "binding_name": "#MinecraftAccount_id" } ]
+          "bindings": [
+            { "binding_name": "#MinecraftAccount_id" },
+            { "binding_name": "(not #MinecraftAccount_id = '')",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
       { "commerce_id_label@tooltip_jexp.tooltip_label": {
           "text": "#commerce_id",
-          "bindings": [ { "binding_name": "#commerce_id" } ]
+          "bindings": [
+            { "binding_name": "#commerce_id" },
+            { "binding_name": "(not #commerce_id = '')",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
       { "account_transfer_status_label@tooltip_jexp.tooltip_label": {
           "text": "#account_transfer_status",
-          "bindings": [ { "binding_name": "#account_transfer_status" } ]
+          "bindings": [
+            { "binding_name": "#account_transfer_status" },
+            { "binding_name": "(not #account_transfer_status = '')",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
       { "build_date_label@tooltip_jexp.tooltip_label": {
           "text": "#build_date",
-          "bindings": [ { "binding_name": "#build_date" } ]
+          "bindings": [
+            { "binding_name": "#build_date" },
+            { "binding_name": "(not #build_date = '')",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
       { "world_converter_label@tooltip_jexp.tooltip_label": {
           "text": "#world_conversion_version",
-          "bindings": [ { "binding_name": "#world_conversion_version" } ]
+          "bindings": [
+            { "binding_name": "#world_conversion_version" },
+            { "binding_name": "(not #world_conversion_version = '')",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       }
     ]

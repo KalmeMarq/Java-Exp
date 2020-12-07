@@ -161,42 +161,25 @@
   },
   
   "two_buttons_panel": {
-    "type": "stack_panel",
+    "type": "panel",
     "size": [310, 20],
     "anchor_to": "center",
     "anchor_from": "center",
-    "orientation": "horizontal",
     "controls": [
       { "left@popup_jexp.modal_left_button": {} },
-      { "space@screen_jexp.hfill": {} },
-      { "right@popup_jexp.modal_cancel_button": {} }
+      { "right@popup_jexp.modal_cancel_button": { "offset": ["50% + 5px", 0] } }
     ]
   },
 
   "three_buttons_panel": {
-    "type": "stack_panel",
+    "type": "panel",
     "anchor_to": "center",
     "anchor_from": "center",
     "size": [310, 44],
     "controls": [
-      { "top_stack": {
-          "type": "stack_panel",
-          "size": [310, 20],
-          "orientation": "horizontal",
-          "controls": [
-            { "modal_left_button@modal_left_button": { "size": [150, 20] } },
-            { "space@screen_jexp.hfill": {} },
-            { "modal_right_button@modal_right_button": { "size": [150, 20] } }
-          ]
-        }
-      },
-      { "space@screen_jexp.vspace": {} },
-      { "bottom_stack": {
-          "type": "panel",
-          "size": [310, 20],
-          "controls": [ { "modal_cancel_button@modal_cancel_button": { "size": [200, 20] } } ]
-        }
-      }
+      { "modal_left_button@modal_left_button": { "size": [150, 20] } },
+      { "modal_right_button@modal_right_button": { "size": [150, 20], "offset": ["50% + 5px", 0] } },
+      { "modal_cancel_button@modal_cancel_button": { "size": [200, 20], "offset": ["50% - 100px", 24] } }
     ]
   },
 

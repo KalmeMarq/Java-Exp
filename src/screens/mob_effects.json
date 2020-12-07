@@ -11,7 +11,7 @@
       { "scroll@scrollpane_jexp.scrollpane": {
           "size": [310, "100% - 40px - 96px"],
           "offset": ["50% - 150px", 32],
-          "$scrollbar_offset": [120, 0],
+          "$scrollbar_offset": ["100% - 8px", 0],
           "$scroll_cont": "scroll@mob_effects_jexp.mob_effect_grid_panel",
           "$always_handle_scrolling": true
         }
@@ -19,7 +19,7 @@
       { "exit@button_jexp.button": {
           "$btn_text": "gui.done",
           "$prsd_btn_nm": "button.menu_continue",
-          "offset": ["50% - 100px", "100% - 116px"]
+          "offset": ["50% - 100px", "100% - 100px"]
         }
       }
     ]
@@ -56,7 +56,7 @@
             { "bg@mob_effects_jexp.effect_gray_background": {} },
             { "name@mob_effects_jexp.effect_name": { "layer": 1 } },
             { "timer@mob_effects_jexp.effect_timer": { "layer": 1 } },
-            { "icon@mob_effects_jexp.effect_icon": { "layer": 1 } }
+            { "icon@mob_effects_jexp.effect_icons": { "layer": 1 } }
           ]
         }
       }
@@ -90,6 +90,7 @@
     "color": "$dark_button_secondary_default_text_color"   
   },
 
+ /* Not used
   "effect_icon": {
     "type": "image",
     "size": [18, 18],
@@ -104,7 +105,9 @@
         "binding_condition": "visible"
       }
     ]
-  },
+  }, */
+
+  "effect_icons@mob_effects_jexp_test.effect_icons": {},
 
   /***********************************
   * Textures

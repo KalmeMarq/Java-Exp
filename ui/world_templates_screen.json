@@ -1,0 +1,17 @@
+{
+  
+  "world_templates_screen@screen_jexp.screen": {
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ],
+    "$scrn_cont": "world_templates_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.dirt_background"
+  }
+}

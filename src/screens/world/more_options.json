@@ -17,12 +17,18 @@
             { "world_seed@more_options_jexp.world_seed_box": { "offset": ["50% - 50%x", 59], "$header": "selectWorld.enterSeed" } },
             { "edu_world_seed@more_options_jexp.edu_world_seed_box": { "offset": ["50% - 50%x", 59], "$header": "selectWorld.enterSeed" } },
             { "seed_picker@option_text_box_jexp.button": {
-                "enabled": "$is_seeds_enabled",
-                "ignored": "($education_edition or not $is_pregame)",
+                "ignored": "($education_edition or not $is_pregame or not $is_seeds_enabled)",
                 "$prsd_btn_nm": "choose_ugc_level_seed",
                 "$btn_tts_hdr": "accessibility.settings.chooseSeed",
                 "$btn_text": ">",
-                "offset": ["50% + 103px", 60]
+                "offset": ["50% + 103px", 60],
+                "$text_edit_box_grid_collt_nm": "",
+                "bindings": [
+                  { "binding_type": "global",
+                    "binding_name": "#world_seed_enabled",
+                    "binding_name_override": "#visible"
+                  }
+                ]
               }
             },
             { "world_seed_info@world_create_jexp.info_label": { "text": "selectWorld.seedInfo", "offset": ["50% - 100px", 84] } },
@@ -31,7 +37,8 @@
             { "code_builder@advanced_jexp.code_builder_toggle": { "offset": ["50% - 155px", 120] } },
             { "world_type@more_options_jexp.world_type_iterable": { "offset": ["50% + 5px", 100] } },
             { "bonus_chest@more_options_jexp.bonus_chest_toggle": { "offset": ["50% - 155px", 151] } },
-            { "bonus_map@more_options_jexp.bonus_map_toggle": { "offset": ["50% + 5px", 151] } },
+            { "bonus_map@more_options_jexp.bonus_map_toggle": { "offset": ["50% - 155px", 131] } },
+            { "server_sim_distance@advanced_jexp.server_sim_distance_slider": { "offset": ["50% + 5px", 151] } },
             { "advanced@world_create_jexp.advanced_button": { "offset": ["50% - 155px", 185] } },
             { "back@world_create_jexp.back_tgl_btn": { "offset": ["50% + 5px", 185], "size": [150, 20] } },
             /* Bottom */

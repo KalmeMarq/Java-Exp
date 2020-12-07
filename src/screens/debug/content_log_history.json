@@ -28,7 +28,7 @@
       { "scroll@scrollpane_jexp.scrollpane": {
           "offset": [0, 32],
           "size": ["100%", "100% - 64px"],
-          "$scroll_bar_offset": ["40% + 2px", 0],
+          "$scrollbar_offset": ["90% + 4px", 0],
           "$jump_to_bottom_on_update": true,
           "$always_handle_scrolling": true,
           "$scroll_cont": "dirt@content_log_history_jexp.scroll_cont"

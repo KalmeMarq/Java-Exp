@@ -10,7 +10,7 @@
     "controls": [
       { "title@screen_jexp.title": { "text": "options.patchNotes", "offset": ["50% - 50%x", 12] } },
       { "content_panel@patch_notes_jexp.content_panel": {} },
-      { "continue_buttonbutton_jexp.button": {
+      { "continue_button@button_jexp.button": {
           "$btn_text": "patchNotes.continue",
           "$prsd_btn_nm": "button.menu_exit",
           "$btn_focus_prcdc": 1,

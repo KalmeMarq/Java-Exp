@@ -8,51 +8,25 @@
   "screen_content": {
     "type": "panel",
     "controls": [
-      { "content": {
-          "type": "panel",
-          "controls": [
-            { "title@screen_jexp.title": { "offset": ["50% - 50%x", 19], "text": "$title" } },
-            /* Options */
-            { "server_sim_distance@advanced_jexp.server_sim_distance_slider": { "offset": ["50% - 155px", 100] } },
-            { "education@more_options_jexp.education_toggle": { "offset": ["50% + 5px", 100] } },
-            { "experimental@world_create_jexp.experimental_button": { "offset": ["50% - 155px", 124] } },
-            { "multiplayer@world_create_jexp.multiplayer_button": { "offset": ["50% + 5px", 124] } },
-            { "classroom_settings@advanced_jexp.classroom_settings_toggle": { "offset": ["50% - 155px", 148] } },
-            { "code_builder_toggle@advanced_jexp.code_builder_toggle": { "offset": ["50% - 155px", 148] } },
-            { "education_button@world_create_jexp.education_button": { "offset": ["50% - 155px", 172] } },
-            { "back@world_create_jexp.back_tgl_btn": { "offset": ["50% + 5px", 185], "$tgl_nm": "advanced_settings", "size": [150, 20] } },
-            /* Bottom */
-            { "edu_host@world_create_jexp.edu_host_button": { "offset": ["50% - 155px", "100% - 52px"] } },
-            { "edu_play@world_create_jexp.edu_play_button": { "offset": ["50% - 155px", "100% - 28px"] } },
-            { "create_world@world_create_jexp.create_world_button": { "offset": ["50% - 155px", "100% - 28px"] } },
-            { "cancel@world_create_jexp.cancel_button": { "offset": ["50% + 5px", "100% - 28px"] } }
-          ],
-          "$title|default": "selectWorld.create",
-          "variables": {
-            "requires": "(not $is_world_create)",
-            "$title": "selectWorld.edit"
-          },
-          "bindings": [
-            { "binding_type": "view",
-              "source_control_name": "experimental_view",
-              "source_property_name": "(not #toggle_state)",
-              "target_property_name": "#visible"
-            },
-            { "binding_type": "view",
-              "source_control_name": "multiplayer_scrn",
-              "source_property_name": "(not #visible)",
-              "target_property_name": "#visible"
-            },
-            { "ignored": "(not $education_edition)",
-              "binding_type": "view",
-              "source_control_name": "education_scrn",
-              "source_property_name": "(not #visible)",
-              "target_property_name": "#visible"
-            }
-          ]
+      { "title@screen_jexp.title": { "text": "$title", "offset": ["50% - 50%x", 19] } },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 43],
+          "size": ["100%", "100% - 75px"],
+          "$scroll_cont": "dirt@advanced_jexp.scroll_cont"
+        }
+      },
+      { "back@world_create_jexp.back_tgl_btn": {
+          "$tgl_nm": "advanced_settings",
+          "offset": ["50% - 100px", "100% - 29px"],
+          "size": [200, 20]
         }
       }
     ],
+    "$title|default": "npcscreen.advancedsettings",
+    "variables": {
+      "requires": "(not $is_world_create)",
+      "$title": "selectWorld.edit"
+    },
     "bindings": [
       { "binding_type": "view",
         "source_control_name": "advanced_view",
@@ -62,9 +36,389 @@
     ]
   },
 
+  "scroll_cont@gamerules_jexp.scroll_cont": {
+    "controls": [
+      { "multiplayer_settings@gamerules_jexp.category": { "$category_text": "howtoplay.category.education", "ignored": "(not $education_edition)" } },
+      { "perfect_weather@advanced_jexp.perfect_weather": { "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "allow_mobs@advanced_jexp.allow_mobs": { "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "allow_destructive_items@advanced_jexp.allow_destructive_items": { "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "player_damage@advanced_jexp.player_damage": { "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "immutable_world@immutable_world": { "$tooltip_extra": "editGamerule.default.off" } },
+      { "pvp_damage@pvp_damage": { "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": { "ignored": "(not $education_edition)" } },
+      { "classroom_settings_toggle@advanced_jexp.classroom_settings_toggle": {} },
+      { "space@screen_jexp.v4px": { "ignored": "(not $education_edition)" } },
+      { "code_builder_toggle@advanced_jexp.code_builder_toggle": {} },
+      { "multiplayer_settings@gamerules_jexp.category": { "$category_text": "createWorldScreen.multiplayer.settings" } },
+      { "multiplayer_game@advanced_jexp.multiplayer_game_toggle": { "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+      { "server_visible@advanced_jexp.server_visible_toggle": { "$tooltip_extra": "editGamerule.default.on" } },
+      { "space@screen_jexp.v4px": {} },
+    /*{ "platform_settings@advanced_jexp.platform_settings_iterable": { "offset": ["50% + 5px", 124] } },
+      { "xbl_settings@advanced_jexp.xbl_settings_iterable": { "offset": "$xbl_offset" } }, */
+      { "open_uri@advanced_jexp.open_uri_button": {} },
+      { "experimental@gamerules_jexp.category": { "$category_text": "options.group.graphics.experimental" } },
+      { "experimental_tgls@advanced_jexp.experimental_toggles": {} }
+    ]
+  },
+
   /***********************************
   * Options
   ************************************/
+  "advanced_option": {
+    "type": "panel",
+    "size": [220, 20],
+    "$ctrl|default": "option_toggle_jexp.option_toggle",
+    "$btn_text|default": "",
+    "$tgl_text": "",
+    "$tooltip_text": "$opt_text",
+    "controls": [
+      { "focus_button@common.button": {
+          "size": ["100% - 42px", 20],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "button_mappings": [],
+          "focus_enabled": false,
+          "controls": [
+            { "label@button_jexp.button_label": {
+                "text": "$opt_text",
+                "shadow": false,
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "color": "white",
+                "bindings": "$opt_text_bdgs",
+                "$opt_text_bdgs|default": []
+              }
+            },
+            { "hover@tooltip_jexp.tooltip": { "ignored": "(not $btn_text = '')" } },
+            { "pressed@tooltip_jexp.tooltip": { "ignored": "(not $btn_text = '')" } }
+          ]
+        }
+      },
+      { "$ctrl@$ctrl": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "size": "$ctrl_size",
+          "$ctrl_size|default": [44, 20]
+        }
+      }
+    ]
+  },
+
+  "classroom_toggle@advanced_jexp.advanced_option": {
+    "ignored": "(not $education_edition)",
+    "bindings": [
+      { "binding_name": "#classroom_settings_visible",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "perfect_weather@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$opt_text": "createWorldScreen.perfectweather",
+    "$opt_bdg_nm": "#perfect_weather",
+    "$opt_enabled_bdg_nm": "#perfect_weather_enabled",
+    "$tgl_nm": "perfect_weather",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "allow_mobs@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$opt_text": "createWorldScreen.allowmobs",
+    "$opt_bdg_nm": "#allow_mobs",
+    "$opt_enabled_bdg_nm": "#allow_mobs_enabled",
+    "$tgl_nm": "allow_mobs",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "allow_destructive_items@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$opt_text": "createWorldScreen.allowdestructiveitems",
+    "$opt_bdg_nm": "#allow_destructive_items",
+    "$opt_enabled_bdg_nm": "#allow_destructive_items_enabled",
+    "$tgl_nm": "allow_destructive_items",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "player_damage@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$opt_text": "createWorldScreen.playerdamage",
+    "$opt_bdg_nm": "#player_damage",
+    "$opt_enabled_bdg_nm": "#player_damage_enabled",
+    "$tgl_nm": "player_damage",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "immutable_world@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$opt_text": "createWorldScreen.immutableworld",
+    "$opt_bdg_nm": "#immutable_world",
+    "$opt_enabled_bdg_nm": "#immutable_world_enabled",
+    "$tgl_nm": "immutable_world",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "pvp_damage@education_jexp.classroom_toggle": {
+    "$tts_section_header": "createWorldScreen.cheatSettings",
+    "$opt_text": "createWorldScreen.pvpdamage",
+    "$opt_bdg_nm": "#pvp_damage",
+    "$opt_enabled_bdg_nm": "#pvp_damage_enabled",
+    "$tgl_nm": "pvp_damage",
+    "$tgl_bdg_cond": "always_when_visible"
+  },
+
+  "multiplayer_game_toggle@advanced_jexp.advanced_option": {
+    "$opt_text": "options.multiplayergame",
+    "$opt_enabled_bdg_nm": "#multiplayer_game_enabled",
+    "$tgl_nm": "multiplayer_game"
+  },
+
+  "platform_settings_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
+    "ignored": "(not $nx_os and not $is_ps4)",
+    "$tgl_type_text": "options.thirdPartyConsoleVisible",
+    "$opt_enabled_bdg_nm": "#platform_show_broadcast_dropdown",
+    "$tgls": [
+      { "all_visible": {
+          "type": "panel",
+          "controls": [
+            { "invite_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_invite_only",
+                "$next_action": "#platform_broadcast_friends_only",
+                "$tgl_text": "options.xboxliveBroadcast.inviteOnly"
+              }
+            },
+            { "friends_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_only",
+                "$next_action": "#platform_broadcast_friends_of_friends",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOnly"
+              }
+            },
+            { "friends_of_friends_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_of_friends",
+                "$next_action": "#platform_broadcast_invite_only",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOfFriends"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "#platform_toggle_visible_friends_of_friends" },
+            { "binding_name": "#platform_toggle_visible_invite_only" },
+            { "binding_name": "(#platform_toggle_visible_friends_of_friends and #platform_toggle_visible_invite_only)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "invite_not_visible": {
+          "type": "panel",
+          "controls": [
+            { "friends_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_only",
+                "$next_action": "#platform_broadcast_friends_of_friends",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOnly"
+              }
+            },
+            { "friends_of_friends_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_of_friends",
+                "$next_action": "#platform_broadcast_friends_only",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOfFriends"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "(not #platform_toggle_visible_invite_only)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "friends_of_friends_not_visible": {
+          "type": "panel",
+          "controls": [
+            { "invite_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_invite_only",
+                "$next_action": "#platform_broadcast_friends_only",
+                "$tgl_text": "options.xboxliveBroadcast.inviteOnly"
+              }
+            },
+            { "friends_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_only",
+                "$next_action": "#platform_broadcast_invite_only",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOnly"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "(not #platform_toggle_visible_friends_of_friends)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "invite_only_n_fof_not_visible": {
+          "type": "panel",
+          "controls": [
+            { "friends_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+                "$this_action": "#platform_broadcast_friends_only",
+                "$next_action": "#platform_broadcast_invite_only",
+                "$tgl_text": "options.xboxliveBroadcast.friendsOnly"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "#platform_toggle_visible_friends_of_friends" },
+            { "binding_name": "#platform_toggle_visible_invite_only" },
+            { "binding_name": "(not (#platform_toggle_visible_friends_of_friends and #platform_toggle_visible_invite_only))",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [ 
+      { "binding_name": "#can_be_platform_network_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "xbl_settings_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
+    "ignored": "(not $is_xboxlive_enabled)",
+    "$tgl_type_text": "options.xboxliveBroadcastSettings",
+    "$opt_enabled_bdg_nm": "#xbl_show_broadcast_dropdown",
+    "variables": {
+      "requires": "($nx_os or $is_ps4)",
+      "$tgl_type_text": "options.xboxliveBroadcastSettingsForCrossplatform"
+    },
+    "$tgls": [
+      { "invite_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+          "$this_action": "#xbl_broadcast_invite_only",
+          "$next_action": "#xbl_broadcast_friends_only",
+          "$tgl_text": "options.xboxliveBroadcast.inviteOnly"
+        }
+      },
+      { "friends_only_toggle@iterable_toggle_jexp.iterable_tgl": {
+          "$this_action": "#xbl_broadcast_friends_only",
+          "$next_action": "#xbl_broadcast_friends_of_friends",
+          "$tgl_text": "options.xboxliveBroadcast.friendsOnly"
+        }
+      },
+      { "friends_of_friends_toggle@iterable_toggle_jexp.iterable_tgl": {
+          "$this_action": "#xbl_broadcast_friends_of_friends",
+          "$next_action": "#xbl_broadcast_invite_only",
+          "$tgl_text": "options.xboxliveBroadcast.friendsOfFriends"
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#can_be_xbl_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "server_visible_toggle@advanced_jexp.advanced_option": {
+    "$opt_text": "options.servervisible",
+    "$opt_enabled_bdg_nm": "#server_visibility_enabled",
+    "$tgl_nm": "server_visible",
+    "bindings": [
+      { "binding_name": "#can_be_server_visible",
+        "binding_name_override": "#enabled"
+      },
+      { "binding_name": "#can_be_server_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "open_uri_button@advanced_jexp.advanced_option": {
+    "$ctrl": "button_jexp.button_link",
+    "ignored": "$is_holographic",
+    "$opt_text": "permissions.open.account.help.button",
+    "$btn_text": "hudScreen.tooltip.open",
+    "$link": "https://aka.ms/MCMultiplayerHelp",
+    "$ctrl_size": [72, 20],
+    "bindings": [
+      { "binding_name": "#open_uri_button_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+  
+  "experimental_toggles": {
+    "ignored": "$education_edition",
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": ["100%", "100%c"],
+    "factory": {
+      "name": "experimental_toggle_factory",
+      "control_name": "advanced_jexp.experimental_toggle_holder"
+    },
+    "collection_name": "experimental_toggles",
+    "bindings": [
+      {
+        "binding_name": "#experimental_toggle_count",
+        "binding_name_override": "#collection_length"
+      }
+    ]
+  },
+
+  "experimental_toggle_holder": {
+    "type": "stack_panel",
+    "controls": [
+      { "experimental_toggle@experimental_toggle": {} },
+      { "space@screen_jexp.v4px": {} }
+    ]
+  },
+
+  "experimental_toggle@advanced_jexp.advanced_option": {
+    "ignored": "$education_edition",
+    "$tts_sect_hdr": "createWorldScreen.worldSettings",
+    "$tgl_tts_hdr_bdg_type": "collection",
+    "$tgl_tts_hdr_bdg_collt_nm": "experimental_toggles",
+    "$opt_text": "#text",
+    "$tooltip_text": "#text",
+    "$tooltip_extra": "editGamerule.default.off",
+    "$opt_bdg_nm": "#experimental_toggle_value",
+    "$opt_enabled_bdg_nm": "#experimental_toggle_enabled",
+    "$tgl_nm": "experimental_toggle",
+    "$tgl_grid_collt_nm": "experimental_toggles",
+    "$tgl_collt_details_type": "collection_details",
+    "$tgl_collt_detail_nm": "experimental_toggles",
+    "$tgl_bdg_type": "collection",
+    "bindings": [
+      { "binding_name": "#show_experimental_toggle",
+        "binding_name_override": "#visible"
+      },
+      { "binding_name": "#experimental_toggle_enabled",
+        "binding_type": "collection",
+        "binding_name_override": "#enabled",
+        "binding_collection_name": "experimental_toggles"
+      }
+    ],
+    "$opt_text_bdgs": [
+      { "binding_name": "#experimental_toggle_text",
+        "binding_name_override": "#text",
+        "binding_type": "collection",
+        "binding_collection_name": "experimental_toggles"
+      }
+    ],
+    "$tooltip_label_bdgs": [
+      { "binding_name": "#experimental_toggle_text",
+        "binding_name_override": "#text",
+        "binding_type": "collection",
+        "binding_collection_name": "experimental_toggles"
+      }
+    ]
+  },
+
   "server_sim_distance_slider@option_slider_jexp.option_slider": {
     "$tts_sect_hdr": "createWorldScreen.worldPreferences",
     "enabled": "(not $is_holographic)",
@@ -85,7 +439,7 @@
     "$is_world_settings|default": true,
 		"$is_in_realm|default": false,
     "$tgls": [
-      { "info@world_create_jexp.info_label": { "text": "$header", "offset": [4, 21] } },
+      { "info@world_create_jexp.info_label": { "text": "$header", "ignored": "(not $is_world_settings)", "offset": [4, 21] } },
       /* Visitor */
       {	"permission_level_radio_visitor@iterable_toggle_jexp.iterable_tgl": {
 					"ignored": "$is_world_settings",

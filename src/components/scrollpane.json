@@ -154,7 +154,7 @@
             { "$scroll_cont": {
                 "anchor_to": "top_middle",
                 "anchor_from": "top_middle",
-                "layer": 4
+                "layer": 6
               }
             }
           ]
@@ -173,7 +173,7 @@
     "$scrollbar_anchor|default": "top_left",
     "offset": "$scrollbar_offset",
     "visible": "$scrollbox_visible",
-    "layer": 20,
+    "layer": 25,
     "$scroll_track_image|default": "scrollpane_jexp.scroll_track_image",
     "$scroll_box_image|default": "scrollpane_jexp.scroll_box_image",
     "controls": [
@@ -230,7 +230,7 @@
     "color2": [0, 0, 0, 0.0],
     "anchor_to": "top_middle",
     "anchor_from": "top_middle",
-    "layer": 20
+    "layer": 24
   },
 
   "shadow_bottom@scrollpane_jexp.shadow_top": {

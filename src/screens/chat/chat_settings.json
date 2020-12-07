@@ -131,37 +131,37 @@
           "$next_action": "('#' + $color_prefix + '_1'"
         }
       },
-      { "0@iterable_toggle_jexp.iterable_tgl": {
+      { "1@iterable_toggle_jexp.iterable_tgl": {
           "collection_index": 1,
           "$this_action": "('#' + $color_prefix + '_1'",
           "$next_action": "('#' + $color_prefix + '_2'"
         }
       },
-      { "0@iterable_toggle_jexp.iterable_tgl": {
+      { "2@iterable_toggle_jexp.iterable_tgl": {
           "collection_index": 2,
           "$this_action": "('#' + $color_prefix + '_2'",
           "$next_action": "('#' + $color_prefix + '_3'"
         }
       },
-      { "0@iterable_toggle_jexp.iterable_tgl": {
+      { "3@iterable_toggle_jexp.iterable_tgl": {
           "collection_index": 3,
           "$this_action": "('#' + $color_prefix + '_3'",
           "$next_action": "('#' + $color_prefix + '_4'"
         }
       },
-      { "0@iterable_toggle_jexp.iterable_tgl": {
+      { "4@iterable_toggle_jexp.iterable_tgl": {
           "collection_index": 4,
           "$this_action": "('#' + $color_prefix + '_4'",
           "$next_action": "('#' + $color_prefix + '_5'"
         }
       },
-      { "0@iterable_toggle_jexp.iterable_tgl": {
+      { "5@iterable_toggle_jexp.iterable_tgl": {
           "collection_index": 5,
           "$this_action": "('#' + $color_prefix + '_5'",
           "$next_action": "('#' + $color_prefix + '_6'"
         }
       },
-      { "0@iterable_toggle_jexp.iterable_tgl": {
+      { "6@iterable_toggle_jexp.iterable_tgl": {
           "collection_index": 6,
           "$this_action": "('#' + $color_prefix + '_6'",
           "$next_action": "('#' + $color_prefix + '_0'"

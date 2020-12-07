@@ -1,0 +1,12 @@
+{
+  "xbl_friend_finder@screen_jexp.screen": {
+    "button_mappings": [
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ],
+    "$scrn_cont": "xbl_friend_finder_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.screen_background"
+  }
+}

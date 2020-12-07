@@ -1,0 +1,467 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "world_templates_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "$is_custom_tplts|default": false,
+    "controls": [
+      { "title@screen_jexp.title": { "text": "worldTemplates.title", "offset": ["50% - 50%x", 12], "ignored": "$is_custom_tplts" } },
+      { "title1@screen_jexp.title": {
+          "offset": ["50% - 50%x", 12],
+          "ignored": "(not $is_custom_tplts)",
+          "text": "#window_title_text",
+          "property_bag": { "#tts_dialog_title": "#window_title_text" },
+          "bindings": [
+            { "binding_type": "global",
+              "binding_condition": "none",
+              "binding_name": "#window_title_text",
+              "binding_name_override": "#window_title_text"
+            },
+            { "binding_type": "global",
+              "binding_condition": "once",
+              "binding_name": "#tts_dialog_title"
+            }
+          ]
+        }
+      },
+      { "more@world_templates_jexp.see_more_custom_templates_button": { "offset": ["100% - 100%x - 10px", 6] } },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "size": "$size",
+          "$size|default": ["100%", "100% - 32px - 64px"],
+          "$scroll_cont": "dirt@world_templates_jexp.scroll_cont",
+          "variables": {
+            "requires": "$is_custom_tplts",
+            "$size": ["100%", "100% - 64px"],
+            "$scroll_cont": "dirt@world_templates_jexp.custom_scroll_cont"
+          }
+        }
+      },
+      { "bottom": {
+          "type": "panel",
+          "ignored": "$is_custom_tplts",
+          "controls": [
+            { "new_world_toggle@world_templates_jexp.new_world_toggle": { "offset": ["50% - 154px", "100% - 52px"] } },
+            { "new_realm_toggle@world_templates_jexp.new_realm_toggle": { "offset": ["50% + 4px", "100% - 52px"] } },
+            { "generate_random_button@world_templates_jexp.generate_random_button": { "offset": ["50% - 154px", "100% - 28px"] } },
+            { "cancel_button@world_templates_jexp.cancel_button": { "offset": ["50% + 4px", "100% - 28px"] } },
+            { "help_button@world_templates_jexp.help_button": { "offset": ["50% + 82px", "100% - 28px"] } }
+          ]
+        }
+      },
+      { "cancel_button@world_templates_jexp.cancel_button": {
+          "ignored": "(not $is_custom_tplts)",
+          "offset": ["50% - 100px", "100% - 28px"],
+          "size": [200, 20]
+        }
+      }
+    ]
+  },
+
+  "see_more_custom_templates_button@button_jexp.button": {
+    "size": [100, 20],
+    "ignored": "$is_custom_tplts",
+    "$prsd_btn_nm": "button.more_custom_templates",
+    "$btn_text": "selectTemplate.seeMore",
+    "focus_change_right": "FOCUS_OVERRIDE_STOP",
+    "bindings": [
+      { "binding_name": "#custom_template_list_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      { "space_top@screen_jexp.v2px": {} },
+      { "realms_plus": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": ["100%", "100%c"],
+          "controls": [ { "grid@world_templates_jexp.realms_plus_template_grid": {} } ],
+          "bindings": [
+            { "binding_name": "#realms_plus_list_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "template@world_templates_jexp.world_template_grid": {} },
+      { "custom@world_templates_jexp.custom_world_template_grid": {} },
+      { "suggested": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": ["100%", "100%c"],
+          "bindings": [
+            { "binding_name": "#suggested_content_visible",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [ { "grid@world_templates_jexp.suggested_template_grid": {} } ]
+        }
+      },
+      { "space_bottom@screen_jexp.v2px": {} }
+    ]
+  },
+
+  "custom_scroll_cont@scroll_cont": {
+    "controls": [
+      { "space_top@screen_jexp.v2px": {} },
+      { "grid@world_templates_jexp.custom_templates_grid": {} },
+      { "space_bottom@screen_jexp.v2px": {} }
+    ]
+  },
+
+  "abstract_grid": {
+    "type": "grid",
+    "size": ["100%", "default"],
+    "layer": 1,
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "grid_item_template": "world_templates_jexp.world_tplt_grid_item",
+    "collection_name": "$collt_nm",
+    "$collt_pfx|default": "",
+    "grid_dimension_binding": "$grid_dim_bdg",
+    "bindings": [
+      { "binding_name": "$grid_dim_bdg" },
+      { "ignored": "$is_custom_tplts",
+        "binding_name": "$grid_vis_bdg",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "world_template_grid@abstract_grid": {
+    "$grid_dim_bdg": "#world_template_item_grid_dimension",
+    "$grid_vis_bdg": "#template_list_visible",
+    "$collt_nm": "world_templates",
+    "$prsd_btn_nm": "button.menu_world_template_clicked"
+  },
+
+  "custom_world_template_grid@abstract_grid": {
+    "$grid_dim_bdg": "#custom_world_template_item_grid_dimension",
+    "$grid_vis_bdg": "#custom_template_list_visible",
+    "$collt_nm": "custom_world_templates",
+    "$prsd_btn_nm": "button.menu_custom_world_template_clicked"
+  },
+
+  "custom_templates_grid@world_templates_jexp.abstract_grid": {
+    "$grid_dim_bdg": "#templates_grid_dimension",
+    "$collt_nm": "templates_collection",
+    "$prsd_btn_nm": "button.menu_custom_world_template_clicked",
+    "$world_tplt_download_bdg_nm": "selectTemplate.download",
+    "$world_tplt_version_bdg_nm": "#template_version",
+    "$world_tplt_desc_bdg_nm": "selectTemplate.templateDescription",
+    "$world_tplt_nm_bdg_nm": "#template_name",
+    "$tplt_btn_bdgs": [
+      { "binding_type": "collection_details",
+        "binding_collection_name": "templates_collection"
+      }
+    ]
+  },
+
+  "suggested_template_grid@abstract_grid": {
+    "$ignore_version": true,
+    "$grid_dim_bdg": "#suggested_offers_item_grid_dimension",
+    "$grid_vis_bdg": "(not #realms_info_visible)",
+    "$collt_nm": "#suggested_offers_collection",
+    "$collt_pfx": "offer",
+    "$prsd_btn_nm": "button.select_offer",
+    "$world_tplt_desc_bdg_nm": "#created_by_label",
+    "$world_tplt_nm_bdg_nm": "#title_label",
+    "$scsx_txr_nm": "#offer_texture_name",
+    "$scsx_file_sys": "#offer_texture_file_system",
+    "$scsx_zip_folder_bdg_type": "none"
+  },
+
+  "realms_plus_template_grid@suggested_template_grid": {
+    "$is_realms_plus": true,
+    "$grid_dim_bdg": "#realms_plus_template_item_grid_dimension",
+    "$grid_vis_bdg": "#realms_plus_list_visible",
+    "$collt_nm": "realms_plus_templates",
+    "$prsd_btn_nm": "button.menu_realms_plus_template_clicked"
+  },
+
+  "world_tplt_grid_item": {
+    "type": "panel",
+    "size": ["100%", 36],
+    "layer": 2,
+    "controls": [
+      { "item": {
+          "type": "panel",
+          "size": [266, "100% - 4px"],
+          "controls": [
+            { "scsx@world_templates_jexp.world_tplt_scsx": { "layer": 4} },
+            { "scsx_btn@world_templates_jexp.scsx_button": {} },
+            { "btn@world_templates_jexp.world_template_button": {}  },
+            { "text_panel": {
+                "type": "panel",
+                "size": ["100% - 34px", "100%"],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "offset": [34, 0],
+                "controls": [ { "text_panel@world_templates_jexp.world_template_item_text_panel": {} } ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "base_button@button_jexp.button_base": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "bindings": "$tplt_btn_bdgs",
+    "$tplt_btn_bdgs|default": [
+      { "binding_type": "collection_details",
+        "binding_collection_name": "$collt_nm",
+        "binding_collection_prefix": "$collt_pfx"
+      }
+    ]
+  },
+
+  "scsx_button@base_button": {
+    "size": [32, 32],
+    "layer": 5,
+    "controls": [
+       { "hover@world_templates_jexp.scsx_btn_state": {} },
+       { "pressed@world_templates_jexp.scsx_btn_state": {} }
+    ]
+  },
+
+  "scsx_btn_state": {
+    "type": "panel",
+    "controls": [
+      { "bg@text_box_jexp.box_default": {
+          "size": [270, 36],
+          "offset": [-2, -2],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": -6
+        }
+      },
+      { "overlay@packs_jexp.overlay": { "layer": 3 } },
+      { "select@seed_picker_jexp.selection_btn_hover": { "layer": 4 } }
+    ]
+  },
+
+  "world_template_button@base_button": {
+    "size": [234, 32],
+    "offset": [32, 0],
+    "$overlay_offset": [-32, 0],
+    "controls": [
+      { "hover@world_templates_jexp.world_tplt_btn_state": {} },
+      { "pressed@world_templates_jexp.world_tplt_btn_state": {} }
+    ]
+  },
+
+  "world_tplt_btn_state": {
+    "type": "panel",
+    "controls": [
+      { "bg@text_box_jexp.box_default": {
+          "size": [270, 36],
+          "offset": [-34, -2],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": -6
+        }
+      },
+      { "overlay@packs_jexp.overlay": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": "$overlay_offset",
+          "layer": 11
+        }
+      },
+      { "select@seed_picker_jexp.selection_btn_default": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": "$overlay_offset",
+          "layer": 12
+        }
+      }
+    ]
+  },
+
+  "world_tplt_scsx": {
+    "type": "image",
+    "size": [32, 32],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "force_texture_reload": true,
+    "texture": "#screenshot_texture",
+    "zip_folder": "#screenshot_zip_folder",
+    "texture_file_system": "#screenshot_file_system",
+    "fill": true,
+    "$scsx_txr_nm|default": "#screenshot_texture",
+    "$scsx_zip_folder|default": "#screenshot_zip_folder",
+    "$scsx_zip_folder_bdg_type|default": "collection",
+    "$scsx_file_sys|default": "#screenshot_file_system",
+    "bindings": [
+      { "binding_collection_name": "$collt_nm",
+        "binding_name": "$scsx_txr_nm",
+        "binding_name_override": "#texture",
+        "binding_type": "collection"
+      },
+      { "binding_collection_name": "$collt_nm",
+        "binding_name": "$scsx_zip_folder",
+        "binding_name_override": "#zip_folder",
+        "binding_type": "$scsx_zip_folder_bdg_type"
+      },
+      { "binding_collection_name": "$collt_nm",
+        "binding_name": "$scsx_file_sys",
+        "binding_name_override": "#texture_file_system",
+        "binding_type": "collection"
+      }
+    ]
+  },
+
+  "base_text": {
+    "type": "label",
+    "text": "$text_bdg_nm",
+    "color": [0.5, 0.5, 0.5],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "layer": 2,
+    "bindings": [
+      { "binding_name": "$text_bdg_nm",
+        "binding_type": "collection",
+        "binding_collection_name": "$collt_nm",
+        "binding_condition": "visible"
+      }
+    ]
+  },
+
+  "world_tplt_name@world_templates_jexp.base_text": { "$text_bdg_nm": "$world_tplt_nm_bdg_nm" },
+  "world_tplt_description@world_templates_jexp.base_text": { "$text_bdg_nm": "$world_tplt_desc_bdg_nm" },
+  "world_tplt_version@world_templates_jexp.base_text": { "$text_bdg_nm": "$world_tplt_version_bdg_nm" },
+
+  "world_tplt_download_text@world_templates_jexp.base_text": {
+    "text": "$world_tplt_download_bdg_nm",
+    "bindings": [
+      { "ignored": "$is_custom_tplts",
+        "binding_name": "$world_tplt_download_bdg_nm",
+        "binding_type": "collection",
+        "binding_collection_name": "$collt_nm",
+        "binding_condition": "visible"
+      },
+      { "binding_name": "#download_text_visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$collt_nm",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "hstack": {
+    "type": "stack_panel",
+    "size": ["100%", 10],
+    "orientation": "horizontal",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+
+  "world_template_item_text_panel": {
+    "type": "panel",
+    "size": ["100% - 34px", "100%"],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$world_tplt_nm_bdg_nm|default": "#world_template_name",
+    "$world_tplt_desc_bdg_nm|default": "#world_template_description",
+    "$world_tplt_version_bdg_nm|default": "#world_template_version",
+    "$world_tplt_download_bdg_nm|default": "#template_download_text",
+    "$collection_name": "$collt_nm",
+    "$is_realms_plus|default": false,
+    "$ignore_version|default": false,
+    "controls": [
+      { "name@world_templates_jexp.world_tplt_name": { "size": ["100%", 10], "color": "white" } },
+      { "desc@hstack": {
+          "offset": [0, 11],
+          "controls": [
+            { "realmsplus_icon@world_templates.realms_plus_banner": { "size": ["100%c", 10], "ignored": "(not $is_realms_plus)" } },
+            { "text@world_templates_jexp.world_tplt_description": {} }
+          ]
+        }
+      },
+      { "version@hstack": {
+          "offset": [0, 21],
+          "controls": [
+            { "version_text@world_templates_jexp.base_text": {
+                "ignored": "$ignore_version",
+                "text": "Version: ",
+                "bindings": []
+              }
+            },
+            { "text@world_templates_jexp.world_tplt_version": {} }
+          ],
+          "bindings": [
+            { "binding_name": "(not #lock_visible)",
+              "binding_type": "collection",
+              "binding_collection_name": "$collt_nm",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "download@world_templates_jexp.world_tplt_download_text": { "offset": ["100% - 100%x", "100% - 100%x"] } }
+    ]
+  },
+
+  "new_world_toggle@toggle_button_jexp.toggle_button": {
+    "size": [150, 20],
+    "$tgl_nm": "world_toggle",
+    "$tgl_text": "worldTemplates.world",
+    "$disabled": "$pre_release",
+    "$tgl_focus_prcdc": 1,
+    "$tgl_index": 0,
+    "$tgl_dflt_sel": "$default_tab",
+    "$tgl_tts_toggle_on_text": "",
+    "$tgl_tts_toggle_off_text": ""
+  },
+
+  "new_realm_toggle@toggle_button_jexp.toggle_button": {
+    "size": [150, 20],
+    "$tgl_nm": "world_toggle",
+    "$tgl_text": "worldTemplates.realm",
+    "enabled": "(not $pre_release)",
+    "$tgl_index": 1,
+    "$tgl_dflt_sel": "$default_tab",
+    "$tgl_tts_toggle_on_text": "",
+    "$tgl_tts_toggle_off_text": ""
+  },
+
+  "generate_random_button@button_jexp.button": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.generate_random",
+    "$btn_text": "#generate_random_button_text",
+    "$btn_text_bdg_type": "global",
+    "focus_change_left": "FOCUS_OVERRIDE_STOP",
+    "focus_change_right": "FOCUS_OVERRIDE_STOP",
+    "bindings": [
+      {"binding_name": "#generate_random_button_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "help_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.help",
+    "$btn_text": "worldTemplates.help",
+    "enabled": "(not $pre_release)",
+    "size": [72, 20],
+    "$btn_tts_hdr": "accessibility.worldTemplates.help"
+  },
+
+  "cancel_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.menu_exit",
+    "size": [72, 20],
+    "$btn_text": "gui.cancel"
+  }
+}

@@ -15,13 +15,10 @@
     "controls": [
       { "popups@world_create_jexp.popups": {} },
       { "create@world_create_jexp.content_panel": {} },
-      { "experimental_scrn@experimental_jexp.screen_content": { "visible": false } },
       { "behavior_packs_scrn@packs_jexp.addon_screen_content": { "visible": false } },
       { "advanced_scrn@advanced_jexp.screen_content": { "visible": false } },
-      { "education_scrn@education_jexp.screen_content": { "visible": false, "ignored": "(not $education_edition)" } },
       { "gamerules_scrn@gamerules_jexp.screen_content": { "visible": false } },
       { "more_options_scrn@more_options_jexp.screen_content": { "visible": false } },
-      { "multiplayer_scrn@multiplayer_jexp.screen_content": { "visible": false } },
       { "resource_packs_scrn@packs_jexp.level_screen_content": { "visible": false } }
     ]
   },
@@ -238,34 +235,6 @@
     "$tgl_nm": "advanced_settings",
     "$tgl_text": "npcscreen.advancedsettings",
     "$tgl_ctrl_nm": "advanced_view"
-  },
-
-  "multiplayer_button@world_create_jexp.open_tgl_btn": {
-    "$tgl_idx": 1,
-    "$tgl_nm": "multiplayer_settings",
-    "$tgl_text": "createWorldScreen.multiplayer.settings",
-    "$tgl_ctrl_nm": "multiplayer_view"
-  },
-
-  "experimental_button@world_create_jexp.open_tgl_btn": {
-    "$tgl_idx": 1,
-    "enabled": "(not $education_edition)",
-    "$tgl_nm": "experimental_settings",
-    "$tgl_text": "createWorldScreen.experimentalgameplay",
-    "$tgl_ctrl_nm": "experimental_view"
-  },
-
-  "education_button@world_create_jexp.open_tgl_btn": {
-    "$tgl_idx": 1,
-    "$tgl_nm": "education_settings",
-    "$tgl_text": "...",
-    "$tgl_ctrl_nm": "education_view",
-    "ignored": "(not $education_edition)",
-    "bindings": [
-      { "binding_name": "#classroom_settings_visible",
-        "binding_name_override": "#enabled"
-      }
-    ]
   },
 
   /***********************************
