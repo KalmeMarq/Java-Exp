@@ -88,7 +88,7 @@
         }
       },
       { "stack4@debug_jexp.stack_item": {
-          "$lt": "video_jexp.texel_anti_aliasing_tgl",
+          "$lt": "video_jexp.vsync_iterable_tgl",
           "$rt": "video_jexp.view_bobbing_tgl"
         }
       },
@@ -158,6 +158,10 @@
           "$rt": "video_jexp.upscaling_toggle"
         }
       },
+      { "stack14@debug_jexp.stack_item": {
+          "$lt": "video_jexp.debug_hud_iterable_tgl"
+        }
+      },
       { "stack15@debug_jexp.stack_item": {
           "ignored": "($is_holographic)",
           "$lt": "video_jexp.raytracing_toggle",
@@ -186,6 +190,9 @@
     "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
   /* "particle_render_distance_sldr@option_slider_jexp.option_slider": {
     "size": [310, 20],
     "ignored": "$is_holographic",
@@ -700,6 +707,49 @@
     "$tgl_nm": "vr_hands_visible"
   },
 
+  "vsync_iterable_tgl@iterable_toggle_jexp.iterable_tgl_panel": {
+    "size": [150, 20],
+    "$opt_enabled_bdg_nm": "#vsync_dropdown_enabled",
+    "$tgl_type_text": "options.vsync",
+    "$tgls": [
+      { "off@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.off",
+          "$this_action": "#vsync_off",
+          "$next_action": "#vsync_on"
+        }
+      },
+      { "on@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.on",
+          "$this_action": "#vsync_on",
+          "$next_action": "#vsync_off"
+        }
+      }
+    ]
+  },
+
+  "debug_hud_iterable_tgl@iterable_toggle_jexp.iterable_tgl_panel": {
+    "size": [150, 20],
+    "$opt_enabled_bdg_nm": "#dev_debug_hud_dropdown_enabled",
+    "$tgl_type_text": "Debug Hud",
+    "$tgls": [
+      { "off@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.off",
+          "$this_action": "#debug_hud_radio_off",
+          "$next_action": "#debug_hud_radio_basic"
+        }
+      },
+      { "on@iterable_toggle_jexp.iterable_tgl": {
+          "$tgl_text": "options.on",
+          "$this_action": "#debug_hud_radio_basic",
+          "$next_action": "#debug_hud_radio_off"
+        }
+      }
+    ]
+  },
+
+  /***********************************
+  * Custom Popup
+  ************************************/
   "popup_dialog_factory": {
     "type": "factory",
     "control_ids": { "modal_dialog_popup": "@video_jexp.reset_video_popup" }

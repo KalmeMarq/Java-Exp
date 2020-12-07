@@ -16,21 +16,9 @@
     ]
   },
 
-  "indentbox": {
-    "type": "image",
-    "texture": "textures/ui/screen_background",
-    "alpha": "$bgb_alpha",
-    "$bgb_alpha|default": 0.5
-  },
-
-  "indentboxhover": {
-    "type": "image",
-    "texture": "textures/ui/screen_background",
-    "alpha": "$bgb_alpha",
-    "$bgb_alpha|default": 0.5,
-    "controls": [ { "focus_border@screen_jexp.focus_border_img": { "bindings": [] } } ]
-  },
-
+  /***********************************
+  * Chat Panel
+  ************************************/
   "messages_scrolling_panel@common.scrolling_panel": {
     "type": "panel",
     "size": [326, 180],
@@ -208,6 +196,9 @@
     ]
   },
 
+  /***********************************
+  * Bottom Panel
+  ************************************/
   "bottom_content": {
     "type": "stack_panel",
     "orientation": "horizontal",
@@ -267,6 +258,9 @@
     ]
   },
 
+  /***********************************
+  * Buttons
+  ************************************/
   "chat_btn@button_jexp.button": {
     "$dflt_btn_bg": "chat_jexp.indentbox",
     "$hov_btn_bg": "chat_jexp.indentboxhover",
@@ -370,67 +364,9 @@
     ]
   },
 
-  "keyboard_image": {
-    "type": "image",
-    "size": [12, 12],
-    "texture": "src/assets/icon/keyboard"
-  },
-
-  "chatconf_image@keyboard_image": {
-    "offset": [-0.5, 0.5],
-    "texture": "src/assets/icon/chatconf"
-  },
-
-  "send_image@keyboard_image": { "texture": "src/assets/icon/send" },
-  "autocomplete_image@keyboard_image": { "texture": "src/assets/icon/autocomplete" },
-  "autocompleteback_image@keyboard_image": { "texture": "src/assets/icon/autocompleteback" },
-  "prev_msg_image@keyboard_image": { "texture": "src/assets/icon/prev_msg" },
-  "next_msg_image@keyboard_image": { "texture": "src/assets/icon/next_msg" },
-
- /*  "send_panel": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": ["100% - 2px", "100% - 2px"],
-    "controls": [
-      { "send_image_panel": {
-          "type": "panel",
-          "size": [ "fill", "100%c" ],
-          "controls": [
-            { "send_image@send_image": {} }
-          ]
-        }
-      },
-      { "gamepad_x_button": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "size": [ 23, "100%" ],
-          "controls": [
-            { "side_padding": {
-                "type": "panel",
-                "size": [ 2, "100%" ]
-              }
-            },
-            { "gamepad_x_button_image": {
-                "type": "panel",
-                "controls": [
-                  { "icon@common.gamepad_helper_x": {
-                      "$icon_description_bind_type": "none"
-                    }
-                  }
-                ]
-              }
-            }
-          ],
-          "bindings": [
-            { "binding_name": "#gamepad_helper_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      }
-    ]
-  }, */
-
+  /***********************************
+  * Chat Input Text
+  ************************************/
   "text_edit_box@text_box_jexp.text_box": {
     "size": ["fill", "100%"],
     "max_length": 512,
@@ -564,5 +500,40 @@
         "mapping_type": "focused"
       }
     ]
-  }
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
+  "indentbox": {
+    "type": "image",
+    "texture": "textures/ui/screen_background",
+    "alpha": "$bgb_alpha",
+    "$bgb_alpha|default": 0.5
+  },
+
+  "indentboxhover": {
+    "type": "image",
+    "texture": "textures/ui/screen_background",
+    "alpha": "$bgb_alpha",
+    "$bgb_alpha|default": 0.5,
+    "controls": [ { "focus_border@screen_jexp.focus_border_img": { "bindings": [] } } ]
+  },
+
+  "keyboard_image": {
+    "type": "image",
+    "size": [12, 12],
+    "texture": "src/assets/icon/keyboard"
+  },
+
+  "chatconf_image@keyboard_image": {
+    "offset": [-0.5, 0.5],
+    "texture": "src/assets/icon/chatconf"
+  },
+
+  "send_image@keyboard_image": { "texture": "src/assets/icon/send" },
+  "autocomplete_image@keyboard_image": { "texture": "src/assets/icon/autocomplete" },
+  "autocompleteback_image@keyboard_image": { "texture": "src/assets/icon/autocompleteback" },
+  "prev_msg_image@keyboard_image": { "texture": "src/assets/icon/prev_msg" },
+  "next_msg_image@keyboard_image": { "texture": "src/assets/icon/next_msg" }
 }

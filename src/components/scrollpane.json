@@ -62,6 +62,7 @@
     "$scrollbox_visible|default": true,
     "$viewport_size|default": ["100%", "100%"],
     "$viewport_offset|default": [0, 0],
+    "$clips_viewport|default": true,
     "variables": {
       "requires": "(not $scrollbox_visible)",
       "$scrollbar_contained": true
@@ -97,7 +98,7 @@
     "offset": "$viewport_offset",
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
-    "clips_children": true,
+    "clips_children": "$clips_viewport",
     "layer": 1,
     "$scroll_viewport_size|default": ["100%", "100%"],
     "$scroll_viewport_offset|default": [0, 0],
@@ -143,7 +144,7 @@
     "$scrollview_size|default": ["100%", "100%c"],
     "controls": [
       { "top_shadow@scrollpane_jexp.shadow_top": {} },
-      { "overlay@screen_jexp.screen_background": { "size": ["100% + 1px", "100%"], "alpha": 0.875, "color": "black", "layer": 2 } },
+      { "overlay@screen_jexp.screen_background": { "size": ["100% + 1px", "100% + 2px"], "alpha": 0.875, "color": "black", "layer": 2 } },
       { "scrolling_content@screen_jexp.dirt": {
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",

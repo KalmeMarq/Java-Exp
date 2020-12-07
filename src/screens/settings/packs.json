@@ -50,7 +50,6 @@
   /**********************************
     Packs Content
   ***********************************/
-
   "packs_content": {
     "type": "panel",
     "$type_pfx|default": "",
@@ -93,7 +92,9 @@
     "$tooltip_text": "selectWorld.forceUser.info"
   },
 
-  /* List Header */
+  /***********************************
+  * List Header
+  ************************************/
   "list_header_panel": {
     "type": "panel",
     "size": ["100%", 15],
@@ -112,6 +113,9 @@
     ]
   },
 
+  /***********************************
+  * Available/Selected Scrollpanes
+  ************************************/
   "available_packs_scroll": {
     "type": "stack_panel",
     "size": [200, "100%c" ],
@@ -136,7 +140,9 @@
     ]
   },
  
-  /* Grids */
+  /***********************************
+  * Grids
+  ************************************/
   "abstract_pack_grid": {
     "type": "stack_panel",
     "orientation": "vertical",
@@ -164,7 +170,9 @@
   "realms_packs_grid@packs_jexp.abstract_pack_grid": { "visible": false, "$pack_pfx": "realms" },
   "unowned_packs_grid@packs_jexp.abstract_pack_grid": { "visible": false, "$pack_pfx": "unowned" },
 
-  /* Common Pack Item Content */
+  /***********************************
+  * Common Pack Item Content
+  ************************************/
   "pack_content_panel": {
     "type": "panel",
     "size": [ "100%", 36 ],
@@ -232,7 +240,7 @@
           "layer": 1
         }
       },
-      { "box_hover@radio_toggle_jexp.box_default": {
+      { "box_hover@text_box_jexp.box_default": {
           "size": [ 196, 36 ],
           "ignored": "($pack_pfx = default or $pack_pfx = invalid)",
           "bindings": [
@@ -333,7 +341,9 @@
     "layer": 6
   },
 
-  /* Packs Icon Image */
+  /***********************************
+  * Packs Icon
+  ************************************/
   "icon_image": {
     "type": "image",
     "anchor_from": "top_left",
@@ -374,7 +384,9 @@
   "realms_icon_image@packs_jexp.icon_image_system": { "$icon_collt_nm": "('#realms_pack_items_' + $type_pfx)" },
   "unowned_icon_image@packs_jexp.icon_image_system": { "$icon_collt_nm": "('#unowned_pack_items_' + $type_pfx)" },
 
-  /* Packs Name */
+  /***********************************
+  * Packs Name
+  ************************************/
   "pack_name_label@packs_jexp.base_label": {
     "text": "#name",
     "size": ["fill", 10],
@@ -395,7 +407,9 @@
   "realms_pack_name_label@packs_jexp.pack_name_label": { "$nm_collt_nm": "('#realms_pack_items_' + $type_pfx)" },
   "unowned_pack_name_label@packs_jexp.pack_name_label": { "$nm_collt_nm": "('#unowned_pack_items_' + $type_pfx)" },
 
-  /* Packs Description */
+  /***********************************
+  * Packs Description
+  ************************************/
   "pack_description_label@packs_jexp.base_label": {
     "text": "#description",
     "color": "$info_color",
@@ -440,7 +454,9 @@
   "realms_pack_description_label@packs_jexp.pack_description_label": { "$desc_collt_nm": "('#realms_pack_items_' + $type_pfx)" },
   "unowned_pack_description_label@packs_jexp.pack_description_label": { "$desc_collt_nm": "('#unowned_pack_items_' + $type_pfx)" },
 
-  /* Input Button Panels */
+  /***********************************
+  * Buttons
+  ************************************/
   "input_button_panel": {
     "type": "input_panel",
     "modal": true,
@@ -567,9 +583,8 @@
     ]
   },
 
-  // Input Buttons
-  "move_pack_button@common.button": {
-    "$pressed_button_name": "('button.selected_pack_' + $type_pfx)",
+  "move_pack_button@button_jexp.button_base": {
+    "$prsd_btn_nm": "('button.selected_pack_' + $type_pfx)",
     "$vis_bdg_nm|default": "(not #is_selected)",
     "$vis_bdg_type|default": "collection",
     "$enabled_bdg_nm|default": "#is_selected",
@@ -584,9 +599,9 @@
     },
     "$button_state_panel|default": "packs_jexp.move_pack_button_content",
     "controls": [
-      { "default@$button_state_panel": { "$button_bg": "$default_button_bg" } },
-      { "hover@$button_state_panel": { "$button_bg": "$hover_button_bg" } },
-      { "pressed@$button_state_panel": { "$button_bg": "$hover_button_bg" } }
+      { "default@$button_state_panel": { "$btn_bg": "$dflt_btn_bg" } },
+      { "hover@$button_state_panel": { "$btn_bg": "$hov_btn_bg" } },
+      { "pressed@$button_state_panel": { "$btn_bg": "$hov_btn_bg" } }
     ],
     "bindings": [
       { "binding_collection_name": "('#' + $pack_pfx + _pack_items_ + $type_pfx)",
@@ -605,13 +620,13 @@
     ]
   },
 
-  "side_move_pack_button@common.button": {
+  "side_move_pack_button@button_jexp.button_base": {
     "$button_state_panel": "packs_jexp.side_move_pack_button_content",
     "layer": 5,
     "controls": [
-      { "default@$button_state_panel": { "$button_bg": "$default_button_bg" } },
-      { "hover@$button_state_panel": { "$button_bg": "$hover_button_bg" } },
-      { "pressed@$button_state_panel": { "$button_bg": "$hover_button_bg" } }
+      { "default@$button_state_panel": { "$btn_bg": "$dflt_btn_bg" } },
+      { "hover@$button_state_panel": { "$btn_bg": "$hov_btn_bg" } },
+      { "pressed@$button_state_panel": { "$btn_bg": "$hov_btn_bg" } }
     ]
   },
 
@@ -619,14 +634,14 @@
     "type": "panel",
     "controls": [
       { "overlay@packs_jexp.overlay": { "alpha": "$overlay_alpha" } },
-      { "bg@$button_bg": { "layer": 10 } }
+      { "bg@$btn_bg": { "layer": 10 } }
     ]
   },
 
   "side_move_pack_button_content": {
     "type": "panel",
     "controls": [
-      { "icon@$button_bg": {
+      { "icon@$btn_bg": {
           "size": "$bg_size",
           "$bg_size|default": [11, 11],
           "layer": 10
@@ -638,62 +653,62 @@
   "move_pack_right_button@packs_jexp.move_pack_button": {
     "size": [32, 32],
     "default_focus_precedence": 1,
-    "$pressed_button_name": "('button.move_left_' + $type_pfx)",
+    "$prsd_btn_nm": "('button.move_left_' + $type_pfx)",
     "$vis_bdg_nm": "#can_move",
     "$enabled_bdg_nm": "(not ('#platform_locked_' + $type_pfx))",
-    "$default_button_bg": "packs_jexp.move_left_default",
-    "$hover_button_bg": "packs_jexp.move_left_hover"
+    "$dflt_btn_bg": "packs_jexp.move_left_default",
+    "$hov_btn_bg": "packs_jexp.move_left_hover"
   },
 
   "move_pack_left_button@packs_jexp.move_pack_button": {
     "size": ["fill", 32],
     "default_focus_precedence": 1,
-    "$pressed_button_name": "('button.move_left_' + $type_pfx)",
+    "$prsd_btn_nm": "('button.move_left_' + $type_pfx)",
     "$vis_bdg_nm": "#can_move",
-    "$default_button_bg": "packs_jexp.move_right_default",
-    "$hover_button_bg": "packs_jexp.move_right_hover"
+    "$dflt_btn_bg": "packs_jexp.move_right_default",
+    "$hov_btn_bg": "packs_jexp.move_right_hover"
   },
 
   "move_pack_up@packs_jexp.move_pack_button": {
-    "$pressed_button_name": "('button.sort_up_' + $type_pfx)",
+    "$prsd_btn_nm": "('button.sort_up_' + $type_pfx)",
     "$vis_bdg_nm": "#can_sort_up",
     "size": [15, 14],
-    "$default_button_bg": "packs_jexp.move_up_default",
-    "$hover_button_bg": "packs_jexp.move_up_hover"
+    "$dflt_btn_bg": "packs_jexp.move_up_default",
+    "$hov_btn_bg": "packs_jexp.move_up_hover"
   },
 
   "move_pack_down@packs_jexp.move_pack_button": {
-    "$pressed_button_name": "('button.sort_down_' + $type_pfx)",
+    "$prsd_btn_nm": "('button.sort_down_' + $type_pfx)",
     "size": [15, 14],
     "$vis_bdg_nm": "#can_sort_down",
-    "$default_button_bg": "packs_jexp.move_down_default",
-    "$hover_button_bg": "packs_jexp.move_down_hover"
+    "$dflt_btn_bg": "packs_jexp.move_down_default",
+    "$hov_btn_bg": "packs_jexp.move_down_hover"
   },  
 
   "go_to_store_button1@resource_packs.side_move_pack_button": {
     "size": [16, 16],
     "$tooltip_text": "gui.store",
     "default_focus_precedence": 1,
-    "$pressed_button_name": "('button.store_' + $type_pfx)",
-    "$default_button_bg": "packs_jexp.pack_store_default",
-    "$hover_button_bg": "packs_jexp.pack_store_hover",
+    "$prsd_btn_nm": "('button.store_' + $type_pfx)",
+    "$dflt_btn_bg": "packs_jexp.pack_store_default",
+    "$hov_btn_bg": "packs_jexp.pack_store_hover",
     "$vis_bdg_nm": "#can_go_to_store"
   },
 
   "go_to_store_button@packs_jexp.move_pack_button": {
     "size": [32, 32],
     "default_focus_precedence": 1,
-    "$pressed_button_name": "('button.store_' + $type_pfx)",
-    "$default_button_bg": "packs_jexp.move_left_default",
-    "$hover_button_bg": "packs_jexp.move_left_hover",
+    "$prsd_btn_nm": "('button.store_' + $type_pfx)",
+    "$dflt_btn_bg": "packs_jexp.move_left_default",
+    "$hov_btn_bg": "packs_jexp.move_left_hover",
     "$vis_bdg_nm": "#can_go_to_store"
   },
 
   "pack_warning_button@packs_jexp.side_move_pack_button": {
-    "$pressed_button_name": "('button.report_errors_' + $type_pfx)",
+    "$prsd_btn_nm": "('button.report_errors_' + $type_pfx)",
     "size": [16, 16],
-    "$default_button_bg": "packs_jexp.pack_manif_default",
-    "$hover_button_bg": "packs_jexp.pack_manif_hover",
+    "$dflt_btn_bg": "packs_jexp.pack_manif_default",
+    "$hov_btn_bg": "packs_jexp.pack_manif_hover",
     "bindings": [
       { "binding_collection_name": "('#' + $pack_pfx + _pack_items_ + $type_pfx)",
         "binding_type": "collection_details"
@@ -713,9 +728,9 @@
 
   "pack_options_button@packs_jexp.side_move_pack_button": {
     "size": [16, 16],
-    "$pressed_button_name": "('button.pack_settings_' + $type_pfx)",
-    "$default_button_bg": "packs_jexp.pack_options_default",
-    "$hover_button_bg": "packs_jexp.pack_options_hover",
+    "$prsd_btn_nm": "('button.pack_settings_' + $type_pfx)",
+    "$dflt_btn_bg": "packs_jexp.pack_options_default",
+    "$hov_btn_bg": "packs_jexp.pack_options_hover",
     "bindings": [
       { "binding_type": "collection",
         "binding_collection_name": "('#' + $pack_pfx + _pack_items_ + $type_pfx)",
@@ -743,7 +758,9 @@
   // "$options_slider_name": "content_tier_slider_' + $type_pfx)",
 
  
-  /* Icons */
+  /***********************************
+  * Textures
+  ************************************/
   "move_right_default@screen_jexp.res_txr": {
     "texture": "assets/minecraft/textures/gui/resource_packs",
     "size": [32, 32],

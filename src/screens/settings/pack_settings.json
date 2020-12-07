@@ -120,6 +120,9 @@
     ]
   },
 
+  /***********************************
+  * Slider Option Text Content
+  ************************************/
   "slider_text_panel": {
     "type": "panel",
     "controls": [

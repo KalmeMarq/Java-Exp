@@ -1,0 +1,55 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "gfx_driver_outdated_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "modal@popup_jexp.modal_with_buttons": {
+          "$title": "gfx_driver_outdated_jexp.gfx_driver_outdated_title",
+          "$msg": "gfx_driver_outdated_jexp.gfx_driver_outdated_description",
+          "$btn_panel": "gfx_driver_outdated_jexp.gfx_driver_outdated_buttons_panel",
+          "anchor_to": "top_middle",
+          "anchor_from": "top_middle",
+          "offset": [0, 30],
+          "$top_space": [0, 30],
+          "$btm_space": ["100%", 40],
+          "$btm_ctrls": [
+            { "checkbox@online_safety_jexp.online_safety_checkbox": {
+                "$tgl_nm": "gfx_driver_outdated_do_not_show_again",
+                "$tgl_state_binding_name": "#gfx_driver_outdated_do_not_show_again",
+                "$donotshow_text": "gfxDriverOutdated.doNotShowAgain"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "#tts_dialog_body",
+              "binding_condition": "once"
+            }
+          ],
+          "property_bag": { "#tts_dialog_body": "gfxDriverOutdated.message" }
+        }
+      },
+      { "gamepad_helpers@gfx_driver_outdated.gamepad_helpers": {} }
+    ]
+  },
+
+  "gfx_driver_outdated_title@online_safety_jexp.online_safety_title": { "text": "gfxDriverOutdated.title" },
+  "gfx_driver_outdated_description@online_safety_jexp.online_safety_description": { "text": "gfxDriverOutdated.message" },
+
+  "gfx_driver_outdated_buttons_panel": {
+    "type": "panel",
+    "size": ["100%", 20],
+    "controls": [
+      { "exit@button_jexp.button": {
+          "$prsd_btn_nm": "button.close",
+          "$btn_text": "gfxDriverOutdated.close",
+          "offset": ["50% - 100px", 0]
+        }
+      }
+    ]
+  }
+}

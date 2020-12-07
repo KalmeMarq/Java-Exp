@@ -44,6 +44,9 @@
     "$dflt_box_bg": "", "$hov_box_bg": "", "$lkd_box_bg": ""
   },
 
+  /***********************************
+  * Textures
+  ************************************/
   "sign_background": {
     "type": "image",
     "texture": "$sign_txr",

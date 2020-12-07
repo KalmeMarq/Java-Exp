@@ -42,7 +42,7 @@
     /* States Control */
     "default_control": "slider_bar_default",
     "hover_control": "slider_bar_hover",
-    /* Not being used
+    /* Not needed
     "background_control": "slider_background",
     "background_hover_control": "slider_background_hover",
     "progress_control": "slider_progress",
@@ -70,10 +70,11 @@
     "layer": 1,
     /* Slider Steps */
     "$slider_step_factory_control_ids": {
+      /* Not needed 
       "slider_step": "@screen_jexp.empty_panel",
       "slider_step_hover": "@screen_jexp.empty_panel",
       "slider_step_progress": "@screen_jexp.empty_panel",
-      "slider_step_progress_hover": "@screen_jexp.empty_panel"
+      "slider_step_progress_hover": "@screen_jexp.empty_panel" */
     },
     "factory": {
       "name": "slider_step_factory",
@@ -255,14 +256,14 @@
     "controls": [
       { "sldr_state@slider_jexp.sldr_state": {} },
       { "$lkd_bg@$lkd_bg": {
-          "bindings": [
+          /* "bindings": [
             { "binding_type": "$sldr_enabled_bdg_type",
               "binding_condition": "$sldr_enabled_bdg_cond",
               "binding_collection_name": "$sldr_coll_nm",
               "binding_name": "(not $sldr_enabled_bdg_nm)",
               "binding_name_override": "#visible"
             }
-          ]
+          ] */
         }
       }
     ]

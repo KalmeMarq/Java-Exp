@@ -26,6 +26,46 @@
     ]
   },
 
+  "disconnect_screen_text": {
+    "type": "label",
+    "color": "$loading_text_color",
+    "max_size": ["100% - 20px", 50],
+    "offset": "$title_text_offset",
+    "$title_text_offset|default": [0, "-18%"],
+    "size": ["70%", 50],
+    "$title_text_anchor|default": "center",
+    "$title_text_alignment|default": "center",
+    "anchor_to": "$title_text_anchor",
+    "anchor_from": "$title_text_anchor",
+    "text_alignment": "$title_text_alignment",
+    "layer": 12,
+    "shadow": true
+  },
+
+  "disconnect_text@disconnect_jexp.disconnect_screen_text": {
+    "$title_text_offset": [0, "-18% + 28px"],
+    "text": "#disconnect_text",
+    "bindings": [
+      { "binding_name": "#disconnect_text" },
+      { "binding_name": "#tts_dialog_body",
+        "binding_condition": "once"
+      }
+    ],
+    "property_bag": { "#tts_dialog_body": "#disconnect_text" }
+  },
+
+  "disconnect_title_text@disconnect_jexp.disconnect_screen_text": {
+    "size": ["default", 10],
+    "text": "#title_text",
+    "bindings": [
+      { "binding_name": "#title_text" },
+      { "binding_name": "#tts_dialog_title",
+        "binding_condition": "once"
+      }
+    ],
+    "property_bag": { "#tts_dialog_title": "#title_text" }
+  },
+
   "disconnect_button_panel": {
     "type": "panel",
     "size": [310, 20],
@@ -88,46 +128,9 @@
     ]
   },
 
-  "disconnect_screen_text": {
-    "type": "label",
-    "color": "$loading_text_color",
-    "max_size": ["100% - 20px", 50],
-    "offset": "$title_text_offset",
-    "$title_text_offset|default": [0, "-18%"],
-    "size": ["70%", 50],
-    "$title_text_anchor|default": "center",
-    "$title_text_alignment|default": "center",
-    "anchor_to": "$title_text_anchor",
-    "anchor_from": "$title_text_anchor",
-    "text_alignment": "$title_text_alignment",
-    "layer": 12,
-    "shadow": true
-  },
-
-  "disconnect_text@disconnect_jexp.disconnect_screen_text": {
-    "$title_text_offset": [0, "-18% + 28px"],
-    "text": "#disconnect_text",
-    "bindings": [
-      { "binding_name": "#disconnect_text" },
-      { "binding_name": "#tts_dialog_body",
-        "binding_condition": "once"
-      }
-    ],
-    "property_bag": { "#tts_dialog_body": "#disconnect_text" }
-  },
-
-  "disconnect_title_text@disconnect_jexp.disconnect_screen_text": {
-    "size": ["default", 10],
-    "text": "#title_text",
-    "bindings": [
-      { "binding_name": "#title_text" },
-      { "binding_name": "#tts_dialog_title",
-        "binding_condition": "once"
-      }
-    ],
-    "property_bag": { "#tts_dialog_title": "#title_text" }
-  },
-
+  /***********************************
+  * Buttons
+  ************************************/
   "button_template@button_jexp.button": {
     "anchor_to": "center",
     "anchor_from": "center"

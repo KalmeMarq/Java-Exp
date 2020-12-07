@@ -245,18 +245,6 @@
     ]
   },
 
-  "box_default": {
-    "type": "image",
-    "size": ["100% + 2px", "100% + 2px"],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "texture": "src/assets/box"
-  },
-
-  "box_hover@box_default": {
-    "texture": "src/assets/box_hover"
-  },
-
   "text_content_panel": {
     "type": "panel",
     "size": "$text_indent_size",
@@ -378,5 +366,18 @@
         "binding_name": "$text_edit_box_phr_cont_bdg_nm"
       }
     ]
-  }
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
+  "box_default": {
+    "type": "image",
+    "size": ["100% + 2px", "100% + 2px"],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "texture": "src/assets/box"
+  },
+
+  "box_hover@box_default": { "texture": "src/assets/box_hover" }
 }

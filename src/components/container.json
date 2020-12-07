@@ -26,7 +26,7 @@
     ]
   },
 
-  // Exit container when clicked
+  /* Exit container when clicked */
   "invisible_exit_bg": {
     "type": "input_panel",
     "size": ["30%", "10% + 20px"],

@@ -62,6 +62,9 @@
     ]
   },
 
+  /***********************************
+  * Log Messages
+  ************************************/
   "messages_stack_panel": {
     "type": "stack_panel",
     "orientation": "vertical",

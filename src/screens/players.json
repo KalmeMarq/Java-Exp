@@ -108,20 +108,6 @@
   //   ]
   // },
 
-  "social_interactions_bg@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/social_interactions",
-    "size": [236, "60%"],
-    "$uv": [1, 1],
-    "$uv_sz": [236, 34],
-    "nineslice_size": [118, 17, 118, 17],
-    "variables": [
-      { "requires": "($social_interactions_res = 512x)", "$uv": [1, 1], "$uv_sz": [236, 34] },
-      { "requires": "($social_interactions_res = 1024x)", "$uv": [2, 2], "$uv_sz": [472, 68] },
-      { "requires": "($social_interactions_res = 2048x)", "$uv": [4, 4], "$uv_sz": [944, 136] },
-      { "requires": "($social_interactions_res = 4096x)", "$uv": [8, 8], "$uv_sz": [1888, 272] }
-    ]
-  },
-
   "players_list_panel@players_jexp.social_interactions_bg": {
     "controls": [
       { "scroll@scrollpane_jexp.scrollpane": {
@@ -163,6 +149,9 @@
     ]
   },
 
+  /***********************************
+  * Players Grid
+  ************************************/
   "players_grid": {
     "type": "grid",
     "size": ["100%", "default"],
@@ -420,9 +409,11 @@
         }
       }
     ]
-  }
+  },
 
-  /* Scoreboard */
+  /***********************************
+  * Players with Score Grid
+  ************************************/
   /* "scoreboard_player_list": {
     "type": "stack_panel",
     "anchor_from": "top_left",
@@ -495,4 +486,21 @@
       }
     ]
   } */
+
+  /***********************************
+  * Textures
+  ************************************/
+  "social_interactions_bg@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/social_interactions",
+    "size": [236, "60%"],
+    "$uv": [1, 1],
+    "$uv_sz": [236, 34],
+    "nineslice_size": [118, 17, 118, 17],
+    "variables": [
+      { "requires": "($social_interactions_res = 512x)", "$uv": [1, 1], "$uv_sz": [236, 34] },
+      { "requires": "($social_interactions_res = 1024x)", "$uv": [2, 2], "$uv_sz": [472, 68] },
+      { "requires": "($social_interactions_res = 2048x)", "$uv": [4, 4], "$uv_sz": [944, 136] },
+      { "requires": "($social_interactions_res = 4096x)", "$uv": [8, 8], "$uv_sz": [1888, 272] }
+    ]
+  }
 }

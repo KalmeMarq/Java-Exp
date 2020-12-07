@@ -37,6 +37,9 @@
     ]
   },
   
+  /***********************************
+  * Options
+  ************************************/
   "classroom_toggle@option_toggle_jexp.option_toggle": {
     "ignored": "(not $education_edition)",
     "bindings": [

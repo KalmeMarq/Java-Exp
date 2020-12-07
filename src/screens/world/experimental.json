@@ -36,6 +36,9 @@
     ]
   },
 
+  /***********************************
+  * Toggles
+  ************************************/
   "experimental_toggles": {
     "ignored": "$education_edition",
     "type": "stack_panel",

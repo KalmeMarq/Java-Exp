@@ -44,7 +44,9 @@
     "layer": 10
   },
 
-  /* Buttons */
+  /***********************************
+  * Buttons
+  ************************************/
   "button@button_jexp.button": {
     "$bto_text": ">",
     "size": [20, 20],
@@ -59,7 +61,9 @@
     "$btn_bdgs|default": []
   },
 
-  // Only view
+  /***********************************
+  * Not Iterable Text Box
+  ************************************/
   "text_box_view@option_text_box": {
     "size": ["100%", 10],
     "$enabled": false,
@@ -68,32 +72,5 @@
     "$lkd_box_bg": "screen_jexp.empty_panel",
     "$text_indent_size": ["100%", "100% + 2px"],
     "$text_indent_offset": [3, 0]
-
-   /*  "type": "panel",
-    "size": ["100%", 10],
-    "$phr_ctrl": "text_box_jexp.text_phdr_label",
-    "$text_color": "$info_color",
-    "$text_edit_box_cont_bg_nm": "$opt_bdg_nm",
-    "$text_edit_box_bdg_collt_nm": "$opt_bdg_nm",
-    "$text_edit_box_bdg_type": "global",
-    "$text_edit_text_control": "display_name",
-    "$text_box_enabled_bdg_nm|default": "#text_box_enabled",
-    "$text_edit_box_enabled_bdg_type|default": "global",
-    "$text_edit_box_grid_collt_nm|default": "",
-    "$deselectable_bdg_type|default": "none",
-    "$deselectable_bdg_nm|default": "#can_be_deselected",
-    "$text_edit_box_focusable_bdg_nm|default": "#text_edit_box_focusable",
-    "$text_edit_vis_bdg_nm|default": "#text_edit_box_visible",
-    "$text_edit_vis_bdg_collt_nm|default": "",
-    "$text_edit_vis_bdg_type|default": "none",
-    "bindings": [
-      { "binding_name": "$text_edit_vis_bdg_nm",
-        "binding_name_override": "#visible",
-        "binding_type": "$text_edit_vis_bdg_type",
-        "binding_collection_name": "$text_edit_vis_bdg_collt_nm"
-      }
-    ],
-    "$text_indent_offset": [4, 0],
-    "controls": [ { "@text_box_jexp.text_content_panel": {} } ] */
   }
 }

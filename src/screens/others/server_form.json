@@ -38,18 +38,9 @@
     ]
   },
 
-  "form_bg": {
-    "type": "image",
-    "size": [176, 133],
-    "texture": "src/assets/server_form"
-  },
-
-  "form_custom_bg": {
-    "type": "image",
-    "size": [176, 133],
-    "texture": "src/assets/server_form_custom"
-  },
-
+  /***********************************
+  * Long Form
+  ************************************/
   "long_form": {
     "type": "panel",
     "size": [176, 133],
@@ -77,8 +68,7 @@
     },
     "collection_name": "form_buttons",
     "bindings": [
-      {
-        "binding_name": "#form_button_length",
+      { "binding_name": "#form_button_length",
         "binding_name_override": "#collection_length"
       }
     ]
@@ -88,14 +78,9 @@
     "type": "panel",
     "size": [18, 18],
     "controls":[
-      { "image": {
-          "type": "image",
-          "layer": 0,
-          "texture": "textures/items/stick",
-          "size": [16, 16],
+      { "stick@server_form_jexp.stick": {
           "bindings": [
-            {
-              "binding_type": "view",
+            { "binding_type": "view",
               "source_control_name": "image",
               "resolve_sibling_scope": true,
               "source_property_name": "(#texture = '')",
@@ -108,8 +93,7 @@
           "type": "panel",
           "size": [18, 18],
           "bindings": [
-            {
-              "binding_type": "view",
+            { "binding_type": "view",
               "source_control_name": "image",
               "resolve_sibling_scope": true,
               "source_property_name": "(not (#texture = ''))",
@@ -156,73 +140,14 @@
           ]
         }
       },
-      {
-        "form_button@common.button": {
-          "$pressed_button_name": "button.form_button_click",
+      { "form_button@button_jexp.button_base": {
+          "$prsd_btn_nm": "button.form_button_click",
           "size": [18, 18],
           "$btn_text": "#form_button_text",
           "layer": 5,
           "controls": [
-            {
-              "hover": {
-                "type": "panel",
-                "size": [18, 18],
-                "controls": [
-                  {
-                    "tooltip@tooltip_jexp.tooltip": {
-                      "$tooltip_text": "$btn_text",
-                      "$tooltip_label_bdgs": [
-                        { "binding_type": "$btn_text_bdg_type",
-                          "binding_condition": "$btn_bdg_cond",
-                          "binding_collection_name": "$btn_text_grid_collt_nm",
-                          "binding_name": "$btn_text",
-                          "binding_name_override": "$btn_text"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "highlight_slot_image": {
-                      "type": "image",
-                      "texture": "src/assets/white",
-                      "size": [16, 16],
-                      "color": "$slot_highlight_color",
-                      "alpha": "$slot_highlight_alpha"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "pressed": {
-                "type": "panel",
-                "size": [18, 18],
-                "controls": [
-                  {
-                    "tooltip@tooltip_jexp.tooltip": {
-                      "$tooltip_text": "$button_text",
-                      "$tooltip_label_bdgs": [
-                        { "binding_type": "$btn_text_bdg_type",
-                          "binding_condition": "$btn_bdg_cond",
-                          "binding_collection_name": "$btn_text_grid_collt_nm",
-                          "binding_name": "$button_text",
-                          "binding_name_override": "$button_text"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "highlight_slot_image": {
-                      "type": "image",
-                      "texture": "src/assets/white",
-                      "size": [16, 16],
-                      "color": "$slot_highlight_color",
-                      "alpha": "$slot_highlight_alpha"
-                    }
-                  }
-                ]
-              }
-            }
+            { "hover@server_form_jexp.form_button_state": {} },
+            { "pressed@server_form_jexp.form_button_state": {} }
           ],
           "bindings": [
             {
@@ -235,6 +160,36 @@
     ]
   },
 
+  "form_button_state": {
+    "type": "panel",
+    "size": [18, 18],
+    "controls": [
+      { "tooltip@tooltip_jexp.tooltip": {
+          "$tooltip_text": "$button_text",
+          "$tooltip_label_bdgs": [
+            { "binding_type": "$btn_text_bdg_type",
+              "binding_condition": "$btn_bdg_cond",
+              "binding_collection_name": "$btn_text_grid_collt_nm",
+              "binding_name": "$button_text",
+              "binding_name_override": "$button_text"
+            }
+          ]
+        }
+      },
+      { "highlight_slot_image": {
+          "type": "image",
+          "texture": "src/assets/white",
+          "size": [16, 16],
+          "color": "$slot_highlight_color",
+          "alpha": "$slot_highlight_alpha"
+        }
+      }
+    ]
+  },
+
+  /***********************************
+  * Custom Form
+  ************************************/
   "custom_form": {
     "type": "panel",
     "size": [176, 133],
@@ -245,17 +200,13 @@
     "controls": [
       { "@title": {} },
       { "@form_custom_bg": {} },
-      {
-        "custom_form_panel@scrollpane_jexp.scrollpane" : {
+      { "custom_form_panel@scrollpane_jexp.scrollpane": {
           "offset": [0, 18],
           "anchor_to": "top_middle",
           "anchor_from": "top_middle",
-          "$show_background": false,
           "size": [160, 106],
           "$scroll_cont": "scroll@server_form_jexp.custom_form_scrolling_content",
-          "$scroll_size": [0, "100% - 4px" ],
-          "$scrolling_pane_size": [160, "100%"],
-          "$scrolling_pane_offset": [0, 0 ]
+          "$scroll_size": [0, "100% - 4px" ]
         }
       }
     ]
@@ -270,11 +221,8 @@
     "controls": [
       { "space@screen_jexp.v2px": { "size": [0, 0.5] } },
       { "generated_form@server_form_jexp.generated_contents": {} },
-      {
-        "submit_button@button_jexp.button": {
-          "$pressed_button_name": "button.submit_custom_form",
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
+      { "submit_button@button_jexp.button": {
+          "$prsd_btn_nm": "button.submit_custom_form",
           "size": ["100%", 20],
           "$button_text": "gui.submit",
           "bindings": [
@@ -296,8 +244,7 @@
     "anchor_to": "top_left",
     "factory":{
       "name": "buttons",
-      "control_ids": {
-        "label": "",
+      "control_ids": { "label": "",
         "toggle": "@server_form_jexp.custom_toggle",
         "slider": "@server_form_jexp.custom_slider",
         "step_slider": "@server_form_jexp.custom_step_slider",
@@ -307,8 +254,7 @@
     },
     "collection_name": "custom_form",
     "bindings": [
-      {
-        "binding_name": "#custom_form_length",
+      { "binding_name": "#custom_form_length",
         "binding_name_override": "#collection_length"
       }
     ]
@@ -316,21 +262,19 @@
 
   "custom_input@text_box_jexp.option_text_box": {
     "size": ["100%", 20],
-    // "$box_size": ["100%", 22],
     "$option_label": "#custom_text",
     "$placeholder_text": "#custom_placeholder_text",
-    "$text_edit_box_placeholder_content_binding_name": "$placeholder_text",
-    "$text_edit_box_placeholder_content_binding_type": "collection",
-    "$text_edit_box_grid_collection_name": "custom_form",
-    "$max_text_edit_length": 100,
-    "$text_edit_box_content_binding_type": "collection",
-    "$text_edit_box_content_binding_name": "#custom_input_text",
-    "$option_binding_name": "#custom_input_text",
-    "$text_box_enabled_binding_name": "#custom_input_enabled",
+    "$text_edit_box_phr_cont_bdg_nm": "$placeholder_text",
+    "$text_edit_box_phr_cont_bdg_type": "collection",
+    "$text_edit_box_grid_collt_nm": "custom_form",
+    "$max_text_length": 100,
+    "$text_edit_box_cont_bdg_type": "collection",
+    "$text_edit_box_cont_bdg_nm": "#custom_input_text",
+    "$opt_bdg_nm": "#custom_input_text",
+    "$text_box_enabled_bdg_nm": "#custom_input_enabled",
     "$text_box_name": "custom_input",
-    "$label_bindings": [
-      {
-        "binding_name": "#custom_text",
+    "$label_bdgs": [
+      { "binding_name": "#custom_text",
         "binding_type": "collection",
         "binding_collection_name": "custom_form"
       }
@@ -342,7 +286,7 @@
     "$tgl_text": "#custom_text",
     "$tgl_nm": "custom_toggle",
     "$tgl_state_bdg_nm": "#custom_toggle_state",
-    "$opti_bdg_nm": "#custom_toggle_state",
+    "$opt_bdg_nm": "#custom_toggle_state",
     "$tgl_bdg_type": "collection",
     "$tgl_enabled_bdg_nm": "#custom_toggle_enabled",
     "$tgl_enabled_bdg_type": "collection",
@@ -387,5 +331,27 @@
         "binding_collection_name": "custom_form"
       }
     ]
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
+  "form_bg": {
+    "type": "image",
+    "size": [176, 133],
+    "texture": "src/assets/server_form"
+  },
+
+  "form_custom_bg": {
+    "type": "image",
+    "size": [176, 133],
+    "texture": "src/assets/server_form_custom"
+  },
+
+  "stick": {
+    "type": "image",
+    "layer": 0,
+    "texture": "textures/items/stick",
+    "size": [16, 16]
   }
 }

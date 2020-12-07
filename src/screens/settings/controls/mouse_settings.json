@@ -52,6 +52,9 @@
     }
   },
 
+  /***********************************
+  * Options
+  ************************************/
   "sensitivity_sldr@option_slider_jexp.option_slider": {
     "$sldr_text": "#keyboard_mouse_sensitivity_slider_label",
     "$sldr_nm": "keyboard_mouse_sensitivity",

@@ -10,6 +10,7 @@
     "controls": [
       { "popup_dialog_factory@popup_dialog_factory": {} },
       { "title@screen_jexp.title": { "text": "options.sounds.title", "offset": ["50% - 50%x", 15] } },
+      /* Options */
       { "master@master_sldr": { "offset": ["50% - 155px", "16.666666667% - 12px"] } },
       { "music@music_sldr": { "offset": ["50% - 155px", "16.666666667% + 12px"] } },
       { "record@record_sldr": { "offset": ["50% + 5px", "16.666666667% + 12px"] } },
@@ -38,6 +39,9 @@
     ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
   "master_sldr@option_slider_jexp.option_slider": {
     "size": [310, 20],
     "$sldr_text": "#main_volume_slider_label",
@@ -119,6 +123,9 @@
     "$sldr_enabled_bdg_nm": "#sound_volume_enabled"
   },
   
+  /***********************************
+  * Custom Popup
+  ************************************/
   "popup_dialog_factory": {
     "type": "factory",
     "control_ids": { "modal_dialog_popup": "@music_n_sound_jexp.reset_sound_popup" }

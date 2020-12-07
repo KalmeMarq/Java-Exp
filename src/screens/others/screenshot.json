@@ -26,22 +26,6 @@
     ]
   },
 
-  "anim_screenshot_flash": {
-    "anim_type": "alpha",
-    "easing": "in_expo",
-    "duration": 0.55,
-    "from": 0.8,
-    "to": 0
-  },
-
-  "screenshot_flash": {
-    "type": "image",
-    "size": ["100%", "100%"],
-    "layer": 69,
-    "texture": "src/assets/white",
-    "alpha": "@screenshot_jexp.anim_screenshot_flash"
-  },
-
   "content_panel": {
     "type": "panel",
     "size": [300, 225],
@@ -83,5 +67,24 @@
         }
       }
     ]
+  },
+
+  /***********************************
+  * Anims
+  ************************************/
+  "anim_screenshot_flash": {
+    "anim_type": "alpha",
+    "easing": "in_expo",
+    "duration": 0.55,
+    "from": 0.8,
+    "to": 0
+  },
+
+  "screenshot_flash": {
+    "type": "image",
+    "size": ["100%", "100%"],
+    "layer": 69,
+    "texture": "src/assets/white",
+    "alpha": "@screenshot_jexp.anim_screenshot_flash"
   }
 }

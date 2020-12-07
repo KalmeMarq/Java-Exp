@@ -337,17 +337,17 @@
           ],
           "layer": 20,
           "controls": [
-            { "checked@radio_toggle_jexp.box_default": {
+            { "checked@text_box_jexp.box_default": {
                 "layer": 4,
                 "controls": [ { "$item_tplt@$item_tplt": {} } ]
               }
             },
-            { "checked_hover@radio_toggle_jexp.box_default": {
+            { "checked_hover@text_box_jexp.box_default": {
                 "layer": 4,
                 "controls": [ { "$item_tplt@$item_tplt": {} } ]
               }
             },
-            { "hover@radio_toggle_jexp.box_hover": {
+            { "hover@text_box_jexp.box_hover": {
                 "layer": 4,
                 "controls": [ { "$item_tplt@$item_tplt": {} } ]
               }

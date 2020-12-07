@@ -61,6 +61,9 @@
     ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
   "text_to_speech_toggle@option_toggle_jexp.option_toggle": {
     "enabled": "$platform_tts_exists",
     "$tgl_text": "options.enableAutoPlatformTextToSpeech",
@@ -116,6 +119,9 @@
     "$tgl_ctrl_nm": "how_to_play_button_toggle"
   },
 
+  /***********************************
+  * Custom Popup
+  ************************************/
   "popup_dialog_factory": {
     "type": "factory",
     "control_ids": { "modal_dialog_popup": "@accessibility_jexp.reset_accessibility_popup" }

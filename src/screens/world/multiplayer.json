@@ -15,7 +15,13 @@
       { "platform_settings@multiplayer_jexp.platform_settings_iterable": { "offset": ["50% + 5px", 124] } },
       { "xbl_settings@multiplayer_jexp.xbl_settings_iterable": { "offset": "$xbl_offset" } },
       { "open_uri@multiplayer_jexp.open_uri_button": { "offset": ["50% - 155px", 185] } },
-      { "back@multiplayer_jexp.back_button": { "offset": ["50% + 5px", 185] } },
+      { "back@world_create_jexp.back_tgl_btn": {
+          "$tgl_idx": 0,
+          "size": [150, 20],
+          "$tgl_nm": "multiplayer_settings",
+          "offset": ["50% + 5px", 185]
+        }
+      },
       /* Bottom */
       { "edu_host@world_create_jexp.edu_host_button": { "offset": ["50% - 155px", "100% - 52px"] } },
       { "edu_play@world_create_jexp.edu_play_button": { "offset": ["50% - 155px", "100% - 28px"] } },
@@ -44,6 +50,9 @@
     ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
   "multiplayer_game_toggle@option_toggle_jexp.option_toggle": {
     "$tgl_text": "options.multiplayergame",
     "$opt_enabled_bdg_nm": "#multiplayer_game_enabled",
@@ -218,11 +227,5 @@
         "binding_name_override": "#visible"
       }
     ]
-  },
-  
-  "back_button@world_create_jexp.back_tgl_btn": {
-    "$tgl_idx": 0,
-    "$tgl_nm": "multiplayer_settings",
-    "size": [150, 20]
   }
 }

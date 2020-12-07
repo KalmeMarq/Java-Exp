@@ -123,6 +123,9 @@
     "$tts_ovrd_ctrl_value": " "
   },
 
+  /***********************************
+  * Buttons
+  ************************************/
   "copy_world_button@button_jexp.button_action": {
     "size": [200, 20],
     "$btn_text": "gui.copyWorld",

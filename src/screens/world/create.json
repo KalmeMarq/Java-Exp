@@ -18,7 +18,7 @@
       { "experimental_scrn@experimental_jexp.screen_content": { "visible": false } },
       { "behavior_packs_scrn@packs_jexp.addon_screen_content": { "visible": false } },
       { "advanced_scrn@advanced_jexp.screen_content": { "visible": false } },
-      { "education_scrn@education_jexp.screen_content": { "visible": false/*, "ignored": "(not $education_edition)", */ } },
+      { "education_scrn@education_jexp.screen_content": { "visible": false, "ignored": "(not $education_edition)" } },
       { "gamerules_scrn@gamerules_jexp.screen_content": { "visible": false } },
       { "more_options_scrn@more_options_jexp.screen_content": { "visible": false } },
       { "multiplayer_scrn@multiplayer_jexp.screen_content": { "visible": false } },
@@ -75,6 +75,9 @@
     ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
   "world_name_box@option_text_box_jexp.option_text_box": {
     "$opt_bdg_nm": "#world_name",
     "$opt_enabled_bdg_nm": "#world_name_enabled",
@@ -200,6 +203,9 @@
     "$tgl_bdg_cond": "always_when_visible"
   },
 
+  /***********************************
+  * Toggle Buttons
+  ************************************/
   "open_tgl_btn@options_jexp.open_tgl_btn": { "$tgl_nm": "world_create" },
   "back_tgl_btn@options_jexp.back_tgl_btn": { "$tgl_nm": "world_create" },
   
@@ -262,6 +268,9 @@
     ]
   },
 
+  /***********************************
+  * Bottom Buttons
+  ************************************/
   "create_world_button@button_jexp.button_action": {
     "ignored": "($education_edition or not $is_world_create)",
     "size": [150, 20],

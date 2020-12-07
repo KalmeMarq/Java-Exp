@@ -104,7 +104,9 @@
     ]
   },
 
-  /* Poem and Credits */
+  /***********************************
+  * Poem and Credits
+  ************************************/
   "line": {
     "type": "label",
     "size": ["100%", "default"],
@@ -650,7 +652,9 @@
     ]
   },
 
-  /* Bg and Anims */
+  /***********************************
+  * Bg and Anims
+  ************************************/
   "dirt_background@screen_jexp.dirt_background": {
     "size": ["100%", "100%sm"],
     "offset": "@credits_jexp.anim_background_scroll"

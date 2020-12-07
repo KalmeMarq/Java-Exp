@@ -174,6 +174,35 @@
     ]
   },
 
+  "button_label": {
+    "type": "label",
+    "text": "$btn_text",
+    "shadow": "$text_shadow",
+    "font_type": "$font_type",
+    "font_scale_factor": "$text_font_scale_factor",
+    "offset": "$text_offset",
+    "anchor_from": "$text_anchor",
+    "color": "$text_color",
+    "anchor_to": "$text_anchor",
+    "size": "$text_sz",
+    "max_size": "$text_max_sz",
+    "text_alignment": "$text_alignment",
+    "bindings": "$btn_text_bdgs",
+    "$btn_text_bdgs|default": [],
+    "$text_shadow|default": true,
+    "$font_type|default": "default",
+    "$text_font_scale_factor|default": 1.0,
+    "$text_offset|default": [1, 0],
+    "$text_anchor|default": "center",
+    "$text_sz|default": ["default", "default"],
+    "$text_max_sz|default": ["default", 10],
+    "$text_alignment|default": "center",
+    "layer": 4
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
   "button_default@screen_jexp.reszg_txr": {
     "$side_sz": [201, "20px"],
     "$txr": "assets/minecraft/textures/gui/widgets",
@@ -205,31 +234,5 @@
       { "requires": "($widgets_res = 2048x)", "$uv": [0, 368], "$uv_sz": [1600, 160] },
       { "requires": "($widgets_res = 4096x)", "$uv": [0, 736], "$uv_sz": [3200, 320] }
     ]
-  },
-
-  "button_label": {
-    "type": "label",
-    "text": "$btn_text",
-    "shadow": "$text_shadow",
-    "font_type": "$font_type",
-    "font_scale_factor": "$text_font_scale_factor",
-    "offset": "$text_offset",
-    "anchor_from": "$text_anchor",
-    "color": "$text_color",
-    "anchor_to": "$text_anchor",
-    "size": "$text_sz",
-    "max_size": "$text_max_sz",
-    "text_alignment": "$text_alignment",
-    "bindings": "$btn_text_bdgs",
-    "$btn_text_bdgs|default": [],
-    "$text_shadow|default": true,
-    "$font_type|default": "default",
-    "$text_font_scale_factor|default": 1.0,
-    "$text_offset|default": [1, 0],
-    "$text_anchor|default": "center",
-    "$text_sz|default": ["default", "default"],
-    "$text_max_sz|default": ["default", 10],
-    "$text_alignment|default": "center",
-    "layer": 4
-  }  
+  }
 }

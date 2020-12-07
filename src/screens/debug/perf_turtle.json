@@ -3,7 +3,7 @@
   All rights reserved.
 ***********************************/
 {
-  "namespace": "perf_turtle_ui",
+  "namespace": "perf_turtle_jexp",
 
   "perf_turtle_content_panel": {
     "ignored": "$test_infrastructure_disabled",

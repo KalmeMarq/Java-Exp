@@ -209,6 +209,9 @@
     ]
   },
 
+  /***********************************
+  * Toggle Buttons
+  ************************************/
   "open_tgl_btn@toggle_button_jexp.toggle_button": {
     "size": [150, 20],
     "$tgl_nm": "navigation_tab",
@@ -398,6 +401,9 @@
     ]
   },
 
+  /***********************************
+  * Field of View Slider Text Content
+  ************************************/
   "fov_sldr_text_cont": {
     "type": "stack_panel",
     "orientation": "horizontal",
@@ -459,7 +465,9 @@
     "bindings": [ { "binding_name": "$fovValue", "binding_name_override": "#visible" } ]
   },
 
-  /* Ingame Bgs */
+  /***********************************
+  * Ingame Bgs
+  ************************************/
   "screen_background": {
     "type": "panel",
     "controls": [
@@ -536,7 +544,9 @@
     ]
   },
 
-  /* Reset Settings Popup */
+  /***********************************
+  * Reset Settings Popup
+  ************************************/
   "reset_settings_popup@popup_dialog.modal_input_panel": {
     "controls": [
       { "popup@popup_jexp.modal_with_buttons": {

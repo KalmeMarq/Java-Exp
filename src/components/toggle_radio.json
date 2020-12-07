@@ -6,16 +6,19 @@
   "namespace": "radio_toggle_jexp",
 
   "radio_toggle@screen_jexp.abstract_option": {
-    "size": [270, 18],
+    "size": [268, 18],
     "$ctrl_ref": "radio_toggle_jexp.radio_tgl_ctrl",
-    "$checked_tgl_bg": "radio_toggle_jexp.box_default",
+    "$checked_tgl_bg": "radio_toggle_jexp.box",
     "$unchecked_tgl_bg": "screen_jexp.empty_panel",
     "$checkedhov_tgl_bg": "radio_toggle_jexp.box_hover",
     "$uncheckedhov_tgl_bg": "radio_toggle_jexp.box_hover",
-    "$checkedlkd_tgl_bg": "radio_toggle_jexp.box_default",
+    "$checkedlkd_tgl_bg": "radio_toggle_jexp.box",
     "$uncheckedlkd_tgl_bg": "screen_jexp.empty_panel",
     "$text_offset": [0, -2]
   },
+
+  "box@text_box_jexp.box_default": { "size": ["100%", "100%"] },
+  "box_hover@text_box_jexp.box_hover": { "size": ["100%", "100%"] },
 
   "radio_tgl_ctrl@toggle_jexp.toggle": {
     "size": ["100%", "100%"],
@@ -31,15 +34,5 @@
         "$tgl_enabled_bdg_type": "none"
       }
     ]
-  },
-  
-  "box_default": {
-    "type": "image",
-    "texture": "src/assets/box"
-  },
-
-  "box_hover": {
-    "type": "image",
-    "texture": "src/assets/box_hover"
   }
 }

@@ -25,6 +25,9 @@
     ]
   },
 
+  /***********************************
+  * Effects Grid
+  ************************************/
   "mob_effect_grid_panel": {
     "type": "panel",
     "size": [310, "100%c"],
@@ -57,19 +60,6 @@
           ]
         }
       }
-    ]
-  },
-
-  "effect_gray_background@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/container/inventory",
-    "size": [120, 32],
-    "$uv": [0, 166],
-    "$uv_sz": [120, 32],
-    "variables": [
-      { "requires": "($inventory_res = 512x)", "$uv": [0, 332], "$uv_sz": [240, 64] },
-      { "requires": "($inventory_res = 1024x)", "$uv": [0, 664], "$uv_sz": [480, 128] },
-      { "requires": "($inventory_res = 2048x)", "$uv": [0, 1328], "$uv_sz": [960, 256] },
-      { "requires": "($inventory_res = 4096x)", "$uv": [0, 2652], "$uv_sz": [1920, 512] }
     ]
   },
 
@@ -113,6 +103,22 @@
         "binding_collection_name": "mob_effects_collection",
         "binding_condition": "visible"
       }
+    ]
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
+  "effect_gray_background@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/container/inventory",
+    "size": [120, 32],
+    "$uv": [0, 166],
+    "$uv_sz": [120, 32],
+    "variables": [
+      { "requires": "($inventory_res = 512x)", "$uv": [0, 332], "$uv_sz": [240, 64] },
+      { "requires": "($inventory_res = 1024x)", "$uv": [0, 664], "$uv_sz": [480, 128] },
+      { "requires": "($inventory_res = 2048x)", "$uv": [0, 1328], "$uv_sz": [960, 256] },
+      { "requires": "($inventory_res = 4096x)", "$uv": [0, 2652], "$uv_sz": [1920, 512] }
     ]
   }
 }

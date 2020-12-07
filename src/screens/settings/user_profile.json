@@ -13,14 +13,7 @@
       { "popups@popups": {} },
       { "third_party_copyright@third_party_copyright_button": {} },
       { "build_info@build_info_button": {} },
-     /*  { "scroll@scrollpane_jexp.scrollpane": {
-          "offset": [0, 32],
-          "size": ["100%", "100% - 64px"],
-          "$scroll_cont": "dirt@user_profile_jexp.scroll_cont"
-        }
-      }, */
       { "scroll_cont@scroll_cont": {} }
-      // { "back@options_jexp.back_tgl_btn": { "offset": ["50% - 100px", "100% - 29px"] } }
     ],
     "bindings": [
       { "binding_type": "view",
@@ -114,6 +107,9 @@
     ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
   "credits_button@button_jexp.button_action": {
     "size": [150, 20],
     "$prsd_btn_nm": "button.credits",
@@ -229,6 +225,9 @@
     ]
   },
 
+  /***********************************
+  * Tooltip Buttons
+  ************************************/
   "third_party_copyright_button@button_jexp.button": {
     "ignored": "(not $display_copyright_info)",
     "offset": ["100% - 54px", 14.5],

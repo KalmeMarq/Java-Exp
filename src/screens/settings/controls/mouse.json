@@ -48,18 +48,6 @@
     ]
   },
 
-  "auto_jump_tgl@option_toggle_jexp.option_toggle": {
-    "$tgl_text": "options.autoJump",
-    "$opt_enabled_bdg_nm": "#mouse_autoJump_enabled",
-    "$tgl_nm": "mouse_autojump"
-  },
-
-  "reset_btn@button_jexp.button_action": {
-    "$prsd_btn_nm": "button.reset_keyboard_bindings",
-    "$btn_text": "controls.resetAll",
-    "size": [150, 20]
-  },
-
   "scroll_cont": {
     "type": "panel",
     "size": [318, "100%c"],
@@ -76,38 +64,38 @@
           ],
           "controls": [
             { "movement@controls_jexp.keys_cat": { "$keys_cat": "key.categories.movement" } },
-            { "jump@controls_jexp.keymapg_grid_item": { "$item_label": "key.jump", "$item_idx": 15 } },
-            { "sneak@controls_jexp.keymapg_grid_item": { "$item_label": "key.sneak", "$item_idx": 16 } },
-            { "sprint@controls_jexp.keymapg_grid_item": { "$item_label": "key.sprint", "$item_idx": 17 } },
-            { "strafe_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.left", "$item_idx": 18 } },
-            { "strafe_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.right", "$item_idx": 19 } },
-            { "walk_backwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.back", "$item_idx": 20 } },
-            { "walk_forwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.forward", "$item_idx": 21 } },
+            { "jump@controls_jexp.keymapg_grid_item": { "$item_label": "key.jump", "$idx": 15 } },
+            { "sneak@controls_jexp.keymapg_grid_item": { "$item_label": "key.sneak", "$idx": 16 } },
+            { "sprint@controls_jexp.keymapg_grid_item": { "$item_label": "key.sprint", "$idx": 17 } },
+            { "strafe_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.left", "$idx": 18 } },
+            { "strafe_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.right", "$idx": 19 } },
+            { "walk_backwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.back", "$idx": 20 } },
+            { "walk_forwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.forward", "$idx": 21 } },
             { "gameplay@controls_jexp.keys_cat": { "$keys_cat": "key.categories.gameplay" } },
-            { "attack_or_destroy@controls_jexp.keymapg_grid_item": { "$item_label": "key.attack", "$item_idx": 0 } },
-            { "pick_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.pickItem", "$item_idx": 1 } },
-            { "use_item_or_place_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.use", "$item_idx": 2 } },
+            { "attack_or_destroy@controls_jexp.keymapg_grid_item": { "$item_label": "key.attack", "$idx": 0 } },
+            { "pick_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.pickItem", "$idx": 1 } },
+            { "use_item_or_place_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.use", "$idx": 2 } },
             { "inventory@controls_jexp.keys_cat": { "$keys_cat": "key.categories.inventory" } },
-            { "drop_selected_item@controls_jexp.keymapg_grid_item": { "$item_label": "key.drop", "$item_idx": 3 } },
-            { "hotbar_one@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.1", "$item_idx": 4 } },
-            { "hotbar_two@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.2", "$item_idx": 5 } },
-            { "hotbar_three@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.3", "$item_idx": 6 } },
-            { "hotbar_four@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.4", "$item_idx": 7 } },
-            { "hotbar_five@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.5", "$item_idx": 8 } },
-            { "hotbar_six@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.6", "$item_idx": 9 } },
-            { "hotbar_seven@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.7", "$item_idx": 10 } },
-            { "hotbar_eight@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.8", "$item_idx": 11 } },
-            { "hotbar_nine@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.9", "$item_idx": 12 } },
-            { "open_and_close_inventory@controls_jexp.keymapg_grid_item": { "$item_label": "key.inventory", "$item_idx": 13 } },
+            { "drop_selected_item@controls_jexp.keymapg_grid_item": { "$item_label": "key.drop", "$idx": 3 } },
+            { "hotbar_one@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.1", "$idx": 4 } },
+            { "hotbar_two@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.2", "$idx": 5 } },
+            { "hotbar_three@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.3", "$idx": 6 } },
+            { "hotbar_four@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.4", "$idx": 7 } },
+            { "hotbar_five@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.5", "$idx": 8 } },
+            { "hotbar_six@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.6", "$idx": 9 } },
+            { "hotbar_seven@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.7", "$idx": 10 } },
+            { "hotbar_eight@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.8", "$idx": 11 } },
+            { "hotbar_nine@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.9", "$idx": 12 } },
+            { "open_and_close_inventory@controls_jexp.keymapg_grid_item": { "$item_label": "key.inventory", "$idx": 13 } },
             { "multiplayer@controls_jexp.keys_cat": { "$keys_cat": "key.categories.multiplayer" } },
-            { "open_chat@controls_jexp.keymapg_grid_item": { "$item_label": "key.chat", "$item_idx": 23 } },
-            { "open_command@controls_jexp.keymapg_grid_item": { "$item_label": "key.command", "$item_idx": 24 } },
+            { "open_chat@controls_jexp.keymapg_grid_item": { "$item_label": "key.chat", "$idx": 23 } },
+            { "open_command@controls_jexp.keymapg_grid_item": { "$item_label": "key.command", "$idx": 24 } },
             { "miscellaneous@controls_jexp.keys_cat": { "$keys_cat": "Miscellaneous" } },
-            { "toggle_perspetive@controls_jexp.keymapg_grid_item": { "$item_label": "key.togglePerspective", "$item_idx": 14 } },
-            { "mob_effects@controls_jexp.keymapg_grid_item": { "$item_label": "key.mobEffects", "$item_idx": 22 } },
-            { "emote@controls_jexp.keymapg_grid_item": { "$item_label": "key.emote", "$item_idx": 25 } },
-            { "menu_tab_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabLeft", "$item_idx": 26 } },
-            { "menu_tab_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabRight", "$item_idx": 27 } },
+            { "toggle_perspetive@controls_jexp.keymapg_grid_item": { "$item_label": "key.togglePerspective", "$idx": 14 } },
+            { "mob_effects@controls_jexp.keymapg_grid_item": { "$item_label": "key.mobEffects", "$idx": 22 } },
+            { "emote@controls_jexp.keymapg_grid_item": { "$item_label": "key.emote", "$idx": 25 } },
+            { "menu_tab_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabLeft", "$idx": 26 } },
+            { "menu_tab_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabRight", "$idx": 27 } },
             { "space_bottom@screen_jexp.v2px": {} }
           ]
         }
@@ -124,57 +112,57 @@
           ],
           "controls": [
             { "movement@controls_jexp.keys_cat": { "$keys_cat": "key.categories.movement" } },
-            { "jump@controls_jexp.keymapg_grid_item": { "$item_label": "key.jump", "$item_idx": 32 } },
-            { "sneak@controls_jexp.keymapg_grid_item": { "$item_label": "key.sneak", "$item_idx": 33 } },
-            { "sprint@controls_jexp.keymapg_grid_item": { "$item_label": "key.sprint", "$item_idx": 34 } },
-            { "strafe_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.left", "$item_idx": 35 } },
-            { "strafe_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.right", "$item_idx": 36 } },
-            { "walk_backwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.back", "$item_idx": 37 } },
-            { "walk_forwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.forward", "$item_idx": 38 } },
+            { "jump@controls_jexp.keymapg_grid_item": { "$item_label": "key.jump", "$idx": 32 } },
+            { "sneak@controls_jexp.keymapg_grid_item": { "$item_label": "key.sneak", "$idx": 33 } },
+            { "sprint@controls_jexp.keymapg_grid_item": { "$item_label": "key.sprint", "$idx": 34 } },
+            { "strafe_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.left", "$idx": 35 } },
+            { "strafe_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.right", "$idx": 36 } },
+            { "walk_backwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.back", "$idx": 37 } },
+            { "walk_forwards@controls_jexp.keymapg_grid_item": { "$item_label": "key.forward", "$idx": 38 } },
             { "gameplay@controls_jexp.keys_cat": { "$keys_cat": "key.categories.gameplay" } },
-            { "attack_or_destroy@controls_jexp.keymapg_grid_item": { "$item_label": "key.attack", "$item_idx": 17 } },
-            { "pick_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.pickItem", "$item_idx": 18 } },
-            { "use_item_or_place_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.use", "$item_idx": 19 } },
+            { "attack_or_destroy@controls_jexp.keymapg_grid_item": { "$item_label": "key.attack", "$idx": 17 } },
+            { "pick_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.pickItem", "$idx": 18 } },
+            { "use_item_or_place_block@controls_jexp.keymapg_grid_item": { "$item_label": "key.use", "$idx": 19 } },
             { "inventory@controls_jexp.keys_cat": { "$keys_cat": "key.categories.inventory" } },
-            { "drop_selected_item@controls_jexp.keymapg_grid_item": { "$item_label": "key.drop", "$item_idx": 20 } },
-            { "hotbar_one@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.1", "$item_idx": 21 } },
-            { "hotbar_two@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.2", "$item_idx": 22 } },
-            { "hotbar_three@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.3", "$item_idx": 23 } },
-            { "hotbar_four@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.4", "$item_idx": 24 } },
-            { "hotbar_five@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.5", "$item_idx": 25 } },
-            { "hotbar_six@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.6", "$item_idx": 26 } },
-            { "hotbar_seven@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.7", "$item_idx": 27 } },
-            { "hotbar_eight@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.8", "$item_idx": 28 } },
-            { "hotbar_nine@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.9", "$item_idx": 29 } },
-            { "open_and_close_inventory@controls_jexp.keymapg_grid_item": { "$item_label": "key.inventory", "$item_idx": 30 } },
+            { "drop_selected_item@controls_jexp.keymapg_grid_item": { "$item_label": "key.drop", "$idx": 20 } },
+            { "hotbar_one@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.1", "$idx": 21 } },
+            { "hotbar_two@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.2", "$idx": 22 } },
+            { "hotbar_three@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.3", "$idx": 23 } },
+            { "hotbar_four@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.4", "$idx": 24 } },
+            { "hotbar_five@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.5", "$idx": 25 } },
+            { "hotbar_six@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.6", "$idx": 26 } },
+            { "hotbar_seven@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.7", "$idx": 27 } },
+            { "hotbar_eight@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.8", "$idx": 28 } },
+            { "hotbar_nine@controls_jexp.keymapg_grid_item": { "$item_label": "key.hotbar.9", "$idx": 29 } },
+            { "open_and_close_inventory@controls_jexp.keymapg_grid_item": { "$item_label": "key.inventory", "$idx": 30 } },
             { "multiplayer@controls_jexp.keys_cat": { "$keys_cat": "key.categories.multiplayer" } },
-            { "open_chat@controls_jexp.keymapg_grid_item": { "$item_label": "key.chat", "$item_idx": 40 } },
-            { "open_command@controls_jexp.keymapg_grid_item": { "$item_label": "key.command", "$item_idx": 41 } },
+            { "open_chat@controls_jexp.keymapg_grid_item": { "$item_label": "key.chat", "$idx": 40 } },
+            { "open_command@controls_jexp.keymapg_grid_item": { "$item_label": "key.command", "$idx": 41 } },
             { "miscellaneous@controls_jexp.keys_cat": { "$keys_cat": "Miscellaneous" } },
-            { "toggle_perspetive@controls_jexp.keymapg_grid_item": { "$item_label": "key.togglePerspective", "$item_idx": 31 } },
-            { "mob_effects@controls_jexp.keymapg_grid_item": { "$item_label": "key.mobEffects", "$item_idx": 39 } },
-            { "emote@controls_jexp.keymapg_grid_item": { "$item_label": "key.emote", "$item_idx": 42 } },
-            { "menu_tab_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabLeft", "$item_idx": 43 } },
-            { "menu_tab_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabRight", "$item_idx": 44 } },
+            { "toggle_perspetive@controls_jexp.keymapg_grid_item": { "$item_label": "key.togglePerspective", "$idx": 31 } },
+            { "mob_effects@controls_jexp.keymapg_grid_item": { "$item_label": "key.mobEffects", "$idx": 39 } },
+            { "emote@controls_jexp.keymapg_grid_item": { "$item_label": "key.emote", "$idx": 42 } },
+            { "menu_tab_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabLeft", "$idx": 43 } },
+            { "menu_tab_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.tabRight", "$idx": 44 } },
             { "additional@controls_jexp.keys_cat": { "$keys_cat": "key.categories.additional" } },
             // Additional
-            { "look_up_slight@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpSlight", "$item_idx": 0 } },
-            { "look_down_slight@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownSlight", "$item_idx": 1 } },
-            { "look_up_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpRight", "$item_idx": 2 } },
-            { "look_up@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUp", "$item_idx": 3 } },
-            { "look_up_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpLeft", "$item_idx": 4 } },
-            { "look_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookRight", "$item_idx": 5 } },
-            { "look_center@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookCenter", "$item_idx": 6 } },
-            { "look_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookLeft", "$item_idx": 7 } },
-            { "look_down_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownRight", "$item_idx": 8 } },
-            { "look_down@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDown", "$item_idx": 9 } },
-            { "look_down_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownLeft", "$item_idx": 10 } },
-            { "look_up_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpSmooth", "$item_idx": 11 } },
-            { "look_down_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownSmooth", "$item_idx": 12 } },
-            { "look_left_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookLeftSmooth", "$item_idx": 13 } },
-            { "look_right_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookRightSmooth", "$item_idx": 14 } },
-            { "cycle_item_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.cycleItemLeft", "$item_idx": 15 } },
-            { "cycle_item_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.cycleItemRight", "$item_idx": 16 } },
+            { "look_up_slight@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpSlight", "$idx": 0 } },
+            { "look_down_slight@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownSlight", "$idx": 1 } },
+            { "look_up_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpRight", "$idx": 2 } },
+            { "look_up@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUp", "$idx": 3 } },
+            { "look_up_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpLeft", "$idx": 4 } },
+            { "look_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookRight", "$idx": 5 } },
+            { "look_center@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookCenter", "$idx": 6 } },
+            { "look_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookLeft", "$idx": 7 } },
+            { "look_down_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownRight", "$idx": 8 } },
+            { "look_down@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDown", "$idx": 9 } },
+            { "look_down_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownLeft", "$idx": 10 } },
+            { "look_up_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookUpSmooth", "$idx": 11 } },
+            { "look_down_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookDownSmooth", "$idx": 12 } },
+            { "look_left_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookLeftSmooth", "$idx": 13 } },
+            { "look_right_smooth@controls_jexp.keymapg_grid_item": { "$item_label": "key.lookRightSmooth", "$idx": 14 } },
+            { "cycle_item_left@controls_jexp.keymapg_grid_item": { "$item_label": "key.cycleItemLeft", "$idx": 15 } },
+            { "cycle_item_right@controls_jexp.keymapg_grid_item": { "$item_label": "key.cycleItemRight", "$idx": 16 } },
             { "space_bottom@screen_jexp.v2px": {} }
           ]
         }
@@ -193,6 +181,9 @@
     ]
   },
 
+  /***********************************
+  * Keymapping Grid
+  ************************************/
   "keymapg_grid": {
     "$type|default": "standard",
     "$keymapg_coll|default": "keyboard_standard_collection",
@@ -236,7 +227,25 @@
       }
     ]
   },
+  
+  /***********************************
+  * Options
+  ************************************/
+  "auto_jump_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.autoJump",
+    "$opt_enabled_bdg_nm": "#mouse_autoJump_enabled",
+    "$tgl_nm": "mouse_autojump"
+  },
 
+  "reset_btn@button_jexp.button_action": {
+    "$prsd_btn_nm": "button.reset_keyboard_bindings",
+    "$btn_text": "controls.resetAll",
+    "size": [150, 20]
+  },
+
+  /***********************************
+  * Custom Popup
+  ************************************/
   "popup_dialog_factory": {
     "type": "factory",
     "control_ids": { "modal_dialog_popup": "@mouse_jexp.reset_mouse_popup" }

@@ -43,7 +43,8 @@
               "source_property_name": "(not #visible)",
               "target_property_name": "#visible"
             },
-            { "binding_type": "view",
+            { "ignored": "(not $education_edition)",
+              "binding_type": "view",
               "source_control_name": "education_scrn",
               "source_property_name": "(not #visible)",
               "target_property_name": "#visible"
@@ -61,6 +62,9 @@
     ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
   "server_sim_distance_slider@option_slider_jexp.option_slider": {
     "$tts_sect_hdr": "createWorldScreen.worldPreferences",
     "enabled": "(not $is_holographic)",

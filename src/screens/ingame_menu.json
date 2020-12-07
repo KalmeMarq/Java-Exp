@@ -58,6 +58,7 @@
       { "change_skin@ingame_menu_jexp.change_skin_button": { "offset": ["50% - 102px", "25% + 48px + -16px"] } },
       { "profile@ingame_menu_jexp.profile_button": { "offset": ["50% - 102px", "25% + 48px + -16px"] } },
       { "permissions@ingame_menu_jexp.permissions_button": { "offset": ["50% + 4px", "25% + 48px + -16px"] } },
+      { "feedback@ingame_menu_jexp.feedback_button": { "offset": ["50% - 102px", "25% + 72px + -16px"] } },
       { "default_menu@ingame_menu_jexp.default_menu_panel": {} },
       { "server_menu@ingame_menu_jexp.server_menu_panel": {} },
       { "realms_menu@ingame_menu_jexp.realms_menu_panel": {} }
@@ -67,7 +68,6 @@
   "default_menu_panel": {
     "type": "panel",
     "controls": [
-      { "feedback@ingame_menu_jexp.feedback_button": { "offset": ["50% - 102px", "25% + 72px + -16px"] } },
       { "take_screenshot@ingame_menu_jexp.take_screenshot_button": { "offset": ["50% + 4px", "25% + 72px + -16px"] } },
       { "settings@ingame_menu_jexp.settings_button": { "offset": ["50% - 102px", "25% + 96px + -16px"] } },
       { "player_list@ingame_menu_jexp.player_list_button1": { "offset": ["50% + 4px", "25% + 96px + -16px"] } },
@@ -86,7 +86,6 @@
   "server_menu_panel": {
     "type": "panel",
     "controls": [
-      { "feedback@ingame_menu_jexp.feedback_button": { "offset": ["50% - 102px", "25% + 72px + -16px"] } },
       { "server_store@ingame_menu_jexp.server_store_button": { "offset": ["50% + 4px", "25% + 72px + -16px"] } },
       { "take_screenshot@ingame_menu_jexp.take_screenshot_button": { "offset": ["50% - 102px", "25% + 96px + -16px"], "size": [204, 20] } },
       { "settings@ingame_menu_jexp.settings_button": { "offset": ["50% - 102px", "25% + 120px + -16px"] } },
@@ -104,7 +103,6 @@
   "realms_menu_panel": {
     "type": "panel",
     "controls": [
-      { "feedback@ingame_menu_jexp.feedback_button": { "offset": ["50% - 102px", "25% + 72px + -16px"] } },
       { "feed@ingame_menu_jexp.feed_button": { "offset": ["50% + 4px", "25% + 72px + - 16px"] } },
       { "take_screenshot@ingame_menu_jexp.take_screenshot_button": { "offset": ["50% - 102px", "25% + 96px + -16px"], "size": [204, 20] } },
       { "settings@ingame_menu_jexp.settings_button": { "offset": ["50% - 102px", "25% + 120px + -16px"] } },
@@ -119,6 +117,9 @@
     ]
   },
 
+  /***********************************
+  * Buttons
+  ************************************/
   "button_template@button_jexp.button": {
     "focus_identifier": "$prsd_btn_nm",
     "focus_change_right": "$focus_ovrd_right",

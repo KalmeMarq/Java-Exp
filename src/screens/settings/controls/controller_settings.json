@@ -48,6 +48,9 @@
     ]
   },
   
+  /***********************************
+  * Options
+  ************************************/
   "sensitivity_sldr@option_slider_jexp.option_slider": {
     "ignored": "($is_holographic and not $is_living_room_mode)",
     "$sldr_text": "#controller_sensitivity_slider_label",

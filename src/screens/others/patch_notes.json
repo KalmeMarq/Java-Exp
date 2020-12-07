@@ -10,7 +10,13 @@
     "controls": [
       { "title@screen_jexp.title": { "text": "options.patchNotes", "offset": ["50% - 50%x", 12] } },
       { "content_panel@patch_notes_jexp.content_panel": {} },
-      { "continue_button@continue_button": { "offset": ["50% - 100px", "100% - 27px"] } }
+      { "continue_buttonbutton_jexp.button": {
+          "$btn_text": "patchNotes.continue",
+          "$prsd_btn_nm": "button.menu_exit",
+          "$btn_focus_prcdc": 1,
+          "offset": ["50% - 100px", "100% - 27px"]
+        }
+      }
     ]
   },
 
@@ -34,6 +40,9 @@
     ]
   },
 
+  /***********************************
+  * Patch Image
+  ************************************/
   "right_panel": {
     "type": "panel",
     "size": [222, "100%"],
@@ -58,6 +67,9 @@
     ]
   },
 
+  /***********************************
+  * Patch Description
+  ************************************/
   "scroll_cont": {
     "type": "stack_panel",
     "size": ["100% - 8px", "100%c + 8px"],
@@ -87,11 +99,5 @@
         }
       }
     ]
-  },
-
-  "continue_button@button_jexp.button": {
-    "$btn_text": "patchNotes.continue",
-    "$prsd_btn_nm": "button.menu_exit",
-    "$btn_focus_prcdc": 1
   }
 }

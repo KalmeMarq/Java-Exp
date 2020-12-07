@@ -85,6 +85,9 @@
     ]
   },
 
+  /***********************************
+  * World Load
+  ************************************/
   "empty_world_load": {
     "type": "image",
     "texture": "src/assets/white",
@@ -108,6 +111,9 @@
     "reversible": false
   },
 
+  /***********************************
+  * Popups
+  ************************************/
   "popup_dialog_factory": {
     "type": "factory",
     "control_ids": {
@@ -120,8 +126,7 @@
       "texture_pack_required": "add_on_only@progress_jexp.texture_pack_required"
     }
   },
-
-  /* Popups */
+  
   "simple_popup_base@popup_dialog.popup_dialog": {
     "size": ["100%", "100%"],
     "layer": 100,

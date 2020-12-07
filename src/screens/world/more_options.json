@@ -64,6 +64,9 @@
     ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
   "world_seed_box@option_text_box_jexp.option_text_box": {
     "ignored": "$education_edition",
     "enabled": "$is_seeds_enabled",

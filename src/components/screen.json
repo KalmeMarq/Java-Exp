@@ -123,11 +123,11 @@
   },
 
   /***********************************
-  * Common get single item from a grid
+  * Get single item from a grid
   ***********************************/
   "single_grid_item": {
     "$item_tplt|default": "screen_jexp.empty_panel",
-    "$item_idx|default": 0,
+    "$idx|default": 0,
     "type": "stack_panel",
     "size": ["100%", "0px"],
     "anchor_from": "top_left",
@@ -136,7 +136,7 @@
       { "item@$item_tplt": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "collection_index": "$item_idx"
+          "collection_index": "$idx"
         }
       }
     ]
@@ -188,7 +188,7 @@
   },
 
   /***********************************
-  * Abstract Option
+  * Abstract Option/State
   ***********************************/
   "abstract_option": {
     "type": "panel",
@@ -217,6 +217,28 @@
             }
           ],
           "controls": [ { "$ctrl_ref@$ctrl_ref": {} } ]
+        }
+      }
+    ]
+  },
+
+  "abstract_state": {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "$widget_state|default": "",
+    "$tooltip_text|default": "",
+    "controls": [
+      { "tooltip@tooltip_jexp.tooltip": {
+          "ignored": "(not ($widget_state = hover))",
+          "visible": "(not $tooltip_text = '')"
+        }
+      },
+      { "$widget_bg@$widget_bg": {} },
+      { "inner_content": {
+          "type": "panel",
+          "size": ["100%", "100%"],
+          "layer": 2,
+          "controls": [ { "$widget_cont@$widget_cont": {} } ]
         }
       }
     ]
@@ -392,6 +414,54 @@
     "controls": [
       { "root_screen_panel@$scrn_cont": {} },
       { "popup_dialog_factory@$popup_factory": {} }
+    ]
+  },
+
+  /* Test */
+
+  "dirt_cover": {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "$top_sz": ["100%", 44],
+    "$bottom_sz": ["100%", 32],
+    "layer": 0,
+    "controls": [
+      {
+        "top": {
+          "type": "input_panel",
+          "focus_enabled": false,
+          "size": "$top_sz",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "clips_children": true,
+          "controls": [
+            {
+              "@screen_jexp.dirt_background": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "bottom": {
+          "type": "input_panel",
+          "focus_enabled": false,
+          "size": "$bottom_sz",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "clips_children": true,
+          "controls": [
+            {
+              "@screen_jexp.dirt_background": {
+                "anchor_from": "bottom_left",
+                "anchor_to": "bottom_left"
+              }
+            }
+          ]
+        }
+      }
     ]
   }
 }

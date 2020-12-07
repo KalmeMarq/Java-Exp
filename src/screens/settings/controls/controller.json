@@ -71,18 +71,6 @@
     ]
   },
 
-  "auto_jump_tgl@option_toggle_jexp.option_toggle": {
-    "$tgl_text": "options.autoJump",
-    "$opt_enabled_bdg_nm": "#controller_autojump_enabled",
-    "$tgl_nm": "controller_autojump"
-  },
-  
-  "reset_btn@button_jexp.button_action": {
-    "$prsd_btn_nm": "button.reset_gamepad_bindings",
-    "$btn_text": "controls.resetAll",
-    "size": [150, 20]
-  },
-
   "scroll_cont": {
     "type": "stack_panel",
     "size": [328, "100%c"],
@@ -90,31 +78,31 @@
     "$keymapg_coll": "gamepad_collection",
     "controls": [
       { "movement@controls_jexp.keys_cat": { "$keys_cat": "Movement" } },
-      { "zero@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_face_button_down'))", "$item_idx": 0 } },
-      { "one@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_face_button_right'))", "$item_idx": 9 } },
-      { "two@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_stick_left'))", "$item_idx": 10 } },
-      { "three@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))", "$bdgTextNm": "(not (#binding_button_text = ''))", "$item_idx": 16 } },
-      { "four@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))", "$bdgTextNm": "(not (#binding_button_text = ''))", "$item_idx": 17 } },
-      { "five@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))", "$bdgTextNm": "(not (#binding_button_text = ''))", "$item_idx": 18 } },
-      { "six@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))","$bdgTextNm": "(not (#binding_button_text = ''))", "$item_idx": 19 } },
-      { "seven@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))", "$bdgTextNm": "(not (#binding_button_text = ''))", "$item_idx": 11 } },
-      { "eight@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_stick_right'))", "$item_idx": 12 } },
+      { "zero@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_face_button_down'))", "$idx": 0 } },
+      { "one@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_face_button_right'))", "$idx": 9 } },
+      { "two@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_stick_left'))", "$idx": 10 } },
+      { "three@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))", "$bdgTextNm": "(not (#binding_button_text = ''))", "$idx": 16 } },
+      { "four@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))", "$bdgTextNm": "(not (#binding_button_text = ''))", "$idx": 17 } },
+      { "five@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))", "$bdgTextNm": "(not (#binding_button_text = ''))", "$idx": 18 } },
+      { "six@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))","$bdgTextNm": "(not (#binding_button_text = ''))", "$idx": 19 } },
+      { "seven@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))", "$bdgTextNm": "(not (#binding_button_text = ''))", "$idx": 11 } },
+      { "eight@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_stick_right'))", "$idx": 12 } },
       { "gameplay@controls_jexp.keys_cat": { "$keys_cat": "Gameplay" } },
-      { "nine@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_right_trigger'))", "$item_idx": 2 } },
-      { "ten@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))", "$bdgTextNm": "(not (#binding_icon_sprite = ''))", "$item_idx": 20 } },
-      { "eleven@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_left_trigger'))", "$item_idx": 3 } },
+      { "nine@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_right_trigger'))", "$idx": 2 } },
+      { "ten@controls_jexp.keymapg_grid_item": { "$needTxtBind": true, "$bdgNm": "(not (#binding_icon_sprite = ''))", "$bdgTextNm": "(not (#binding_icon_sprite = ''))", "$idx": 20 } },
+      { "eleven@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_left_trigger'))", "$idx": 3 } },
       { "inventory@controls_jexp.keys_cat": { "$keys_cat": "Inventory" } },
-      { "twelve@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_dpad_down'))", "$item_idx": 1 } },
-      { "thirdteen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_bumper_left'))", "$item_idx": 6 } },
-      { "fourteen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_bumper_right'))", "$item_idx": 7 } },
-      { "fifteen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_face_button_up'))", "$item_idx": 5 } },
-      { "sixteen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_face_button_left'))", "$item_idx": 4 } },
+      { "twelve@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_dpad_down'))", "$idx": 1 } },
+      { "thirdteen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_bumper_left'))", "$idx": 6 } },
+      { "fourteen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_bumper_right'))", "$idx": 7 } },
+      { "fifteen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_face_button_up'))", "$idx": 5 } },
+      { "sixteen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_face_button_left'))", "$idx": 4 } },
       { "multiplayer@controls_jexp.keys_cat": { "$keys_cat": "Multiplayer" } },
-      { "seventeen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_dpad_right'))", "$item_idx": 15 } },
+      { "seventeen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_dpad_right'))", "$idx": 15 } },
       { "miscellaneous@controls_jexp.keys_cat": { "$keys_cat": "Miscellaneous" } },
-      { "nineteen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_dpad_up'))", "$item_idx": 8 } },
-      { "twenty@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_select_button'))", "$item_idx": 14 } },
-      { "twentyone@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_dpad_left'))", "$item_idx": 13 } },
+      { "nineteen@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_dpad_up'))", "$idx": 8 } },
+      { "twenty@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_select_button'))", "$idx": 14 } },
+      { "twentyone@controls_jexp.keymapg_grid_item": { "$bdgNm": "(not (#binding_icon_sprite = 'textures/ui/xbox_dpad_left'))", "$idx": 13 } },
       { "space_bottom@screen_jexp.v2px": {} }
     ]
   },
@@ -129,6 +117,9 @@
     ]
   },
 
+  /***********************************
+  * Gamepad Mapping Grid
+  ************************************/
   "gamepad_mapg_grid": {
     "$keymapg_coll": "gamepad_collection",
     "type": "grid",
@@ -176,6 +167,24 @@
     ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
+  "auto_jump_tgl@option_toggle_jexp.option_toggle": {
+    "$tgl_text": "options.autoJump",
+    "$opt_enabled_bdg_nm": "#controller_autojump_enabled",
+    "$tgl_nm": "controller_autojump"
+  },
+  
+  "reset_btn@button_jexp.button_action": {
+    "$prsd_btn_nm": "button.reset_gamepad_bindings",
+    "$btn_text": "controls.resetAll",
+    "size": [150, 20]
+  },
+
+  /***********************************
+  * Custom Popup
+  ************************************/
   "popup_dialog_factory": {
     "type": "factory",
     "control_ids": { "modal_dialog_popup": "@controller_jexp.reset_controller_popup" }

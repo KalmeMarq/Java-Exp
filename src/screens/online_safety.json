@@ -17,7 +17,14 @@
           "offset": [0, 30],
           "$top_space": [0, 30],
           "$btm_space": ["100%", 40],
-          "$btm_ctrls": [ { "checkbox@online_safety_jexp.online_safety_checkbox": {} } ]
+          "$btm_ctrls": [
+            { "checkbox@online_safety_jexp.online_safety_checkbox": {
+                "$tgl_nm": "online_safety_do_not_show_again",
+                "$tgl_state_binding_name": "#online_safety_do_not_show_again",
+                "$donotshow_text": "onlinePlay.doNotShowAgain"
+              }
+            }
+          ]
         }
       }
     ]
@@ -36,6 +43,9 @@
     "text": "onlinePlay.message"
   },
 
+  /***********************************
+  * Do not show Checkbox
+  ************************************/
   "online_safety_checkbox": {
     "type": "panel",
     "size": ["100%", 20],
@@ -47,29 +57,81 @@
           "size": ["100%c", 20],
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "$tgl_nm": "online_safety_do_not_show_again",
-          "$tgl_state_binding_name": "#online_safety_do_not_show_again",
           "$tgl_tts_nm": "accessibility.checkbox.tts.title",
           "$tgl_tts_tgl_on_text": "accessibility.state.checked",
           "$tgl_tts_tgl_off_text": "accessibility.state.unchecked",
-          "tts_ctrl_type_order_pri": 100,
-          "tts_value_order_pri": 101,
+          "$tts_ctrl_type_order_pri": 100,
+          "$tts_value_order_pri": 101,
           "$tgl_enabled_bdg_type": "global",
           "controls": [
-            { "unchecked@online_safety_jexp.online_safety_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_unchecked" } },
-            { "checked@online_safety_jexp.online_safety_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_checked" } },
-            { "unchecked_hover@online_safety_jexp.online_safety_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_uncheckedhov" } },
-            { "checked_hover@online_safety_jexp.online_safety_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_checkedhov" } },
-            { "unchecked_locked@online_safety_jexp.online_safety_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_unchecked" } },
-            { "checked_locked@online_safety_jexp.online_safety_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_checked" } },
-            { "unchecked_locked_hover@online_safety_jexp.online_safety_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_unchecked" } },
-            { "checked_locked_hover@online_safety_jexp.online_safety_checkbox_state": { "$checkbox_bg": "online_safety_jexp.checkbox_checked" } }
+            { "unchecked@online_safety_jexp.online_safety_checkbox_state": { "$tgl_bg": "online_safety_jexp.checkbox_unchecked" } },
+            { "checked@online_safety_jexp.online_safety_checkbox_state": { "$tgl_bg": "online_safety_jexp.checkbox_checked" } },
+            { "unchecked_hover@online_safety_jexp.online_safety_checkbox_state": { "$tgl_bg": "online_safety_jexp.checkbox_uncheckedhov" } },
+            { "checked_hover@online_safety_jexp.online_safety_checkbox_state": { "$tgl_bg": "online_safety_jexp.checkbox_checkedhov" } },
+            { "unchecked_locked@online_safety_jexp.online_safety_checkbox_state": { "$tgl_bg": "online_safety_jexp.checkbox_unchecked" } },
+            { "checked_locked@online_safety_jexp.online_safety_checkbox_state": { "$tgl_bg": "online_safety_jexp.checkbox_checked" } },
+            { "unchecked_locked_hover@online_safety_jexp.online_safety_checkbox_state": { "$tgl_bg": "online_safety_jexp.checkbox_unchecked" } },
+            { "checked_locked_hover@online_safety_jexp.online_safety_checkbox_state": { "$tgl_bg": "online_safety_jexp.checkbox_checked" } }
           ]
         }
       }
     ]
   },
 
+  "online_safety_checkbox_state": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", 20],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      { "bg@$tgl_bg": { "size": [20, 20] } },
+      { "space@screen_jexp.h4px": {} },
+      { "buffer_panel": {
+          "type": "panel",
+          "layer": 3,
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            { "label": {
+                "type": "label",
+                "color": "white",
+                "text": "$donotshow_text",
+                "shadow": true
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  /***********************************
+  * Buttons
+  ************************************/
+  "online_safety_buttons_panel": {
+    "type": "panel",
+    "size": ["100%", 20],
+    "controls": [
+      { "left@online_safety_jexp.online_safety_proceed_button": { "offset": ["50% - 155px", 0] } },
+      { "right@online_safety_jexp.online_safety_back_button": { "offset": ["50% + 5px", 0] } }
+    ]
+  },
+
+  "online_safety_proceed_button@button_jexp.button": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.proceed",
+    "$btn_text": "onlinePlay.proceed"
+  },
+
+  "online_safety_back_button@button_jexp.button": {
+    "size": [150, 20],
+    "$prsd_btn_nm": "button.back",
+    "$btn_text": "onlinePlay.Back"
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
   "checkbox_unchecked@screen_jexp.res_txr": {
     "texture": "assets/minecraft/textures/gui/checkbox",
     "size": [20, 20],
@@ -110,53 +172,5 @@
       { "requires": "($checkbox_res = 2048x)", "$uv": [160, 160], "$uv_sz": [160, 160] },
       { "requires": "($checkbox_res = 4096x)", "$uv": [320, 320], "$uv_sz": [320, 320] }
     ]
-  },
-
-  "online_safety_checkbox_state": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": ["100%c", 20],
-    "anchor_from": "top_middle",
-    "anchor_to": "top_middle",
-    "controls": [
-      { "checkbox_visuals@$checkbox_bg": { "size": [20, 20] } },
-      { "@screen_jexp.h4px": {} },
-      { "buffer_panel": {
-          "type": "panel",
-          "layer": 3,
-          "size": [ "100%c", "100%" ],
-          "controls": [
-            { "label": {
-                "type": "label",
-                "color": "white",
-                "text": "onlinePlay.doNotShowAgain",
-                "shadow": true
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "online_safety_buttons_panel": {
-    "type": "panel",
-    "size": ["100%", 20],
-    "controls": [
-      { "left@online_safety_jexp.online_safety_proceed_button": { "offset": ["50% - 155px", 0] } },
-      { "right@online_safety_jexp.online_safety_back_button": { "offset": ["50% + 5px", 0] } }
-    ]
-  },
-
-  "online_safety_proceed_button@button_jexp.button": {
-    "size": [150, 20],
-    "$prsd_btn_nm": "button.proceed",
-    "$btn_text": "onlinePlay.proceed"
-  },
-
-  "online_safety_back_button@button_jexp.button": {
-    "size": [150, 20],
-    "$prsd_btn_nm": "button.back",
-    "$btn_text": "onlinePlay.Back"
   }
 }

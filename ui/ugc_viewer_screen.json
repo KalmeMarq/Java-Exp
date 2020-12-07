@@ -6,6 +6,7 @@
         "mapping_type": "global"
       }
     ],
-    "$screen_content": "seed_picker_jexp.screen_content"
+    "$scrn_cont": "seed_picker_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.dirt_background"
   }
 }

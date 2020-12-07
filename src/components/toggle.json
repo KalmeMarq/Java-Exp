@@ -7,6 +7,7 @@
 
   "toggle_base": {
     "type": "toggle",
+    "layer": 1,
     /* Focus */
     "$focus_id|default": "",
     "$focus_ovrd_down|default": "",
@@ -183,8 +184,7 @@
         "binding_name": "#tts_enabled",
         "binding_name_override": "#focus_enabled"
       }
-    ],
-    "layer": 1
+    ]
   },
 
   "toggle@toggle_jexp.toggle_base": {

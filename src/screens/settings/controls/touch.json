@@ -44,6 +44,9 @@
     ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
   "swap_jump_sneak_tgl@option_toggle_jexp.option_toggle": {
     "$tgl_text": "options.swapJumpAndSneak",
     "$opt_enabled_bdg_nm": "#swap_jump_and_sneak_enabled",
@@ -117,6 +120,9 @@
     "$btn_text": "options.resetSettings"
   },
 
+  /***********************************
+  * Custom Popup
+  ************************************/
   "popup_dialog_factory": {
     "type": "factory",
     "control_ids": { "modal_dialog_popup": "@touch_jexp.reset_touch_popup" }

@@ -9,7 +9,6 @@
     "type": "panel",
     "controls": [
       { "title@screen_jexp.title": { "text": "addServer.title", "offset": ["50% - 50%x", 17] } },
-      /* Text Widgets */
       { "name_label@label": { "text": "addServer.title", "offset": ["50% - 100px", 53] } },
       { "name@text_box": {
           "offset": ["50% - 100px", 66],
@@ -38,7 +37,6 @@
           "$text_box_tts_hdr": "addExternalServerScreen.portTextBoxLabel"
         }
       },
-      /* Buttons */
       { "play@play_button": { "ignored": "$edit_mode", "offset": ["50% - 100px", "25% + 72px + 18px + 13px"] } },
       { "delete@delete_button": { "ignored": "(not $edit_mode)", "offset": ["50% - 100px", "25% + 72px + 18px + 13px"] } },
       { "save@save_button": { "offset": ["50% - 100px", "25% + 96px + 18px + 13px"] } },
@@ -65,6 +63,9 @@
     "$text_edit_box_bdg_cond": "once"
   },
 
+  /***********************************
+  * Buttons
+  ************************************/
   "play_button@button_jexp.button": {
     "$prsd_btn_nm": "button.play_button",
     "$btn_text": "menu.play",

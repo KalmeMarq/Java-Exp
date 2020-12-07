@@ -66,65 +66,34 @@
 
   "base_label@screen_jexp.title": { "color": [0.62, 0.62, 0.62] },
 
+  "exit_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.menu_exit",
+    "size": [150, 20],
+    "$btn_text": "gui.done",
+    "offset": ["50% - 4px - 150px", "25% + 120px + 12px"]
+  },
+
+  "cancel_button@button_jexp.button": {
+    "$prsd_btn_nm": "button.menu_leave_screen",
+    "size": [150, 20],
+    "$btn_text": "gui.cancel",
+    "offset": ["50% + 4px", "25% + 120px + 12px"],
+    "bindings": [
+      { "binding_name": "#close_button_visible_binding_name",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  /***********************************
+  * Not Maximized Content
+  ************************************/
   "plus_button@button_jexp.button": {
     "size": [20, 20],
     "$btn_text": "gui.plus",
     "$focus_id": "plus_btn",
     "$focus_ovrd_left": "console_field",
     "$prsd_btn_nm": "command_block.input_maximize"
-  },
-
-  "minimze_button@button_jexp.button": {
-    "size": [20, 20],
-    "$btn_text": "gui.minus",
-    "$focus_id": "minus_btn",
-    "$focus_ovrd_left": "max_console_field",
-    "$prsd_btn_nm": "command_block.input_minimize"
-  },
-
-  "command_block_multiline_textbox@text_box_jexp.multiline_text_box": {
-    "$text_color": [0.658, 0.658, 0.658],
-    "$cancel_button_id|default": "button.menu_cancel",
-    "$text_indent_size": ["100% - 6px", "100% - 2px"],
-    "$text_indent_offset": [1, 1],
-    "button_mappings": [
-      { "from_button_id": "button.menu_select",
-        "to_button_id": "button.menu_select",
-        "handle_select": true,
-        "handle_deselect": false,
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.menu_ok",
-        "to_button_id": "button.menu_select",
-        "handle_select": true,
-        "handle_deselect": false,
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.menu_cancel",
-        "to_button_id": "$cancel_button_id",
-        "handle_select": false,
-        "handle_deselect": true,
-        "mapping_type": "global"
-      },
-      { "from_button_id": "button.menu_autocomplete",
-        "to_button_id": "button.chat_autocomplete",
-        "handle_select": true,
-        "handle_deselect": false,
-        "mapping_type": "global"
-      },
-      { "from_button_id": "button.menu_autocomplete_back",
-        "to_button_id": "button.chat_autocomplete_back",
-        "handle_select": true,
-        "handle_deselect": false,
-        "mapping_type": "global"
-      }
-    ],
-    "enabled_newline": false,
-    "bindings": [
-      { "binding_name": "#maximized_input_visible",
-        "binding_name_override": "#enabled"
-      }
-    ]
   },
 
   "command_block_textbox@text_box_jexp.text_box": {
@@ -177,17 +146,6 @@
     "max_length": 32500,
     "$text_box_name": "command_block.command_text",
     "$text_edit_box_cont_bdg_nm": "#command_text_edit"
-  },
-
-  "maximized_command_block_console@command_block_jexp.command_block_multiline_textbox": {
-    "size": [300, 78],
-    "max_length": 32500,
-    "$focus_id": "max_console_field",
-    "$focus_change_right": "minus_btn",
-    "$focus_change_down": "hover_note_text",
-    "$text_box_name": "command_block.command_text",
-    "$text_edit_box_cont_bdg_nm": "#command_text_edit",
-    "$cancel_button_id": "command_block.input_minimize"
   },
 
   "command_result@text_box_jexp.text_box": {
@@ -301,6 +259,73 @@
     ]
   },
 
+  /***********************************
+  * Maximized Content
+  ************************************/
+  "minimze_button@button_jexp.button": {
+    "size": [20, 20],
+    "$btn_text": "gui.minus",
+    "$focus_id": "minus_btn",
+    "$focus_ovrd_left": "max_console_field",
+    "$prsd_btn_nm": "command_block.input_minimize"
+  },
+
+  "command_block_multiline_textbox@text_box_jexp.multiline_text_box": {
+    "$text_color": [0.658, 0.658, 0.658],
+    "$cancel_button_id|default": "button.menu_cancel",
+    "$text_indent_size": ["100% - 6px", "100% - 2px"],
+    "$text_indent_offset": [1, 1],
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "button.menu_select",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "$cancel_button_id",
+        "handle_select": false,
+        "handle_deselect": true,
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_autocomplete",
+        "to_button_id": "button.chat_autocomplete",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.menu_autocomplete_back",
+        "to_button_id": "button.chat_autocomplete_back",
+        "handle_select": true,
+        "handle_deselect": false,
+        "mapping_type": "global"
+      }
+    ],
+    "enabled_newline": false,
+    "bindings": [
+      { "binding_name": "#maximized_input_visible",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "maximized_command_block_console@command_block_jexp.command_block_multiline_textbox": {
+    "size": [300, 78],
+    "max_length": 32500,
+    "$focus_id": "max_console_field",
+    "$focus_change_right": "minus_btn",
+    "$focus_change_down": "hover_note_text",
+    "$text_box_name": "command_block.command_text",
+    "$text_edit_box_cont_bdg_nm": "#command_text_edit",
+    "$cancel_button_id": "command_block.input_minimize"
+  },
+
   "hover_note@text_box_jexp.text_box": {
     "size": [300, 20],
     "$focus_id": "hover_note_text",
@@ -327,24 +352,5 @@
     "$opt_enabled_bdg_nm": "#execute_on_first_tick_enabled",
     "$tgl_nm": "execute_on_first_tick",
     "$tgl_bdg_cond": "visible"
-  },
-
-  "exit_button@button_jexp.button": {
-    "$prsd_btn_nm": "button.menu_exit",
-    "size": [150, 20],
-    "$btn_text": "gui.done",
-    "offset": ["50% - 4px - 150px", "25% + 120px + 12px"]
-  },
-
-  "cancel_button@button_jexp.button": {
-    "$prsd_btn_nm": "button.menu_leave_screen",
-    "size": [150, 20],
-    "$btn_text": "gui.cancel",
-    "offset": ["50% + 4px", "25% + 120px + 12px"],
-    "bindings": [
-      { "binding_name": "#close_button_visible_binding_name",
-        "binding_name_override": "#enabled"
-      }
-    ]
   }
 }

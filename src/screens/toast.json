@@ -40,22 +40,22 @@
     "offset": "@toast_jexp.popup_anim_start",
     "$alpha_anims": [],
     "controls": [
-      { "background@resources0.toast_gray": {} },
+      { "background@toast_jexp.toast_gray": {} },
       { "popup_content": {
           "type": "stack_panel",
           "orientation": "horizontal",
           "size": [ "100%", "100%" ],
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "offset": [ 6, 0 ],
+          "offset": [6, 0],
           "layer": 1,
           "controls": [
             { "icon_padding": {
-                "layer": 1,
                 "type": "stack_panel",
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "size": [ "100%c", "100%" ],
+                "size": ["100%c", "100%"],
+                "layer": 1,
                 "factory": {
                   "name": "toast_image_factory",
                   "control_ids": {
@@ -76,9 +76,7 @@
                 ]
               }
             },
-            { "text_padding": {
-                "type": "panel",
-                "size": [ 2, "100%" ],
+            { "text_padding@screen_jexp.h2px": {
                 "bindings": [
                   { "binding_name": "#text_padding_visible",
                     "binding_name_override": "#visible"
@@ -88,7 +86,7 @@
             },
             { "text_panel": {
                 "type": "panel",
-                "size": [ "fill", "100%" ],
+                "size": ["fill", "100%"],
                 "controls": [ { "text_stack_panel@toast_jexp.text_stack_panel": {} } ]
               }
             }

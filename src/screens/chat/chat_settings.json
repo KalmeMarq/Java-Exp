@@ -60,6 +60,9 @@
     ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
   "line_spacing_slider@option_slider_jexp.option_slider": {
     "$sldr_text": "#chat_line_spacing_slider_label",
     "$sldr_nm": "chat_line_spacing",

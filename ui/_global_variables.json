@@ -5,7 +5,7 @@
   "$development_version_visible": "(not $is_publish)", // Default: "(not $is_publish)"
   "$enable_safe_zone_advanced_sliders": "(not $is_publish)", // Default: "(not $is_publish)"
 
-  "$remove_beta_info_text": true, // Default: true | Removes the debug beta text on the top middle screen. 
+  "$remove_beta_info_text": false, // Default: true | Removes the debug beta text on the top middle screen. 
 
   "$show_wrongly_spelled_mc_title": true, // Default: false | Show "Mineceraft" instead of "Minecraft". 
   "$show_edition_below_title": true, // Default: true | Show edition texture below the "Minecraft" title.
@@ -135,6 +135,7 @@
   ***********************************/
   "$social_interactions_res": "256x", // "assets/minecraft/textures/gui/social_interactions.png",
   "$checkbox_res": "256x", // "assets/minecraft/textures/gui/checkbox.png",
+  "$world_selection_res": "256x", // "assets/minecraft/textures/gui/world_selection.png",
 
   "$title_res": "256x", // "assets/minecraft/textures/gui/title/minecraft.png",
   "$edition_res": "256x", // "assets/minecraft/textures/gui/title/edition.png",

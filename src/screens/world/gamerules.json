@@ -89,6 +89,9 @@
     ]
   },
 
+  /***********************************
+  * Options
+  ************************************/
   "gamerules_option": {
     "type": "panel",
     "size": [220, 20],
@@ -143,12 +146,6 @@
     "$opt_bdg_nm": "#random_tick_speed",
     "$text_edit_box_text_type": "NumberChars",
     "$text_box_name": "random_tick_speed_text_box"
-  },
-
-  "reset_icon": {
-    "type": "image",
-    "texture": "src/assets/icon/reset",
-    "layer": 5
   },
 
   "keep_inventory_toggle@gamerules_jexp.gamerules_option": {
@@ -279,5 +276,14 @@
         }
       }
     ]
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
+  "reset_icon": {
+    "type": "image",
+    "texture": "src/assets/icon/reset",
+    "layer": 5
   }
 }
