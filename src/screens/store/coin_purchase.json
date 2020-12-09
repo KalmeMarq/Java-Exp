@@ -3,5 +3,244 @@
   All rights reserved.
 ***********************************/
 {
-  "namespace": "coin_purchase_jexp"
+  "namespace": "coin_purchase_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": {
+          "font_type": "smooth",
+          "font_scale_factor": 1.2,
+          "shadow": false,
+          "property_bag": { "#tts_dialog_title": "#window_title_text" },
+          "bindings": [
+            { "binding_type": "global",
+              "binding_condition": "once",
+              "binding_name": "#window_title_text",
+              "binding_name_override": "#window_title_text"
+            },
+            { "binding_type": "global",
+              "binding_condition": "once",
+              "binding_name": "#tts_dialog_title"
+            }
+          ],
+          "text": "#window_title_text",
+          "offset": ["50% - 50%x", 14]
+        }
+      },
+      { "0@hdivider": { "offset": [0, 38] } },
+      { "@coin_purchase_panel": {} },
+      { "1@hdivider": { "offset": [0, "100% - 40px"] } },
+      { "footer@hstack": {
+        "controls": [
+          { "fill@screen_jexp.hfill": {} },
+          { "exit@exit": {} }
+        ]
+      }
+      }
+    ]
+  },
+
+  "coin_purchase_panel": {
+    "type": "stack_panel",
+    "layer": 1,
+    "size": [ "80%", "100% - 38px - 38px - 2px" ],
+    "orientation": "vertical",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [0, 39],
+    "controls": [
+      {
+        "not_enough_coins_panel": {
+          "type": "panel",
+          "ignored": "#needs_more_coins",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [ "100%", "100%c" ],
+          "visible": "$show_need_more_coins_string",
+          "controls": [
+            { "not_enough_coins@coin_purchase.not_enough_coins": {} }
+          ]
+        }
+      },
+      {
+        "coin_purchase_grid": {
+          "type": "grid",
+          "grid_item_template": "coin_purchase_jexp.offer_grid_item",
+          "grid_dimension_binding": "#coin_offer_size",
+          "collection_name": "coin_purchase_grid",
+          "size": [ "100%", "100%" ],
+          "bindings": [
+            {
+              "binding_name": "#coin_offer_size"
+            },
+            {
+              "binding_name": "#has_coin_offers",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "divider_panel@coin_purchase.divider_panel": {}
+      },
+      {
+        "faq_button@coin_purchase.faq_button": {}
+      }
+    ]
+  },
+
+  "offer_grid_item": {
+    "type": "panel",
+    "size": "$grid_item_size",
+    "$grid_item_size": [ "fill", "100%" ],
+    "controls": [
+      { "offer_item@coin_purchase_jexp.offer_item": {} }
+    ]
+  },
+
+  "offer_panel@border_button": {
+    "size": ["100%", "100%"],
+    "$btn_state_panel": "button_jexp.button_state",
+    "$btn_cont": "coin_purchase.button_content",
+    "$prsd_btn_nm": "button.purchase_coins",
+    "$ignore_border": true,
+    "bindings": [
+      {
+        "binding_type": "collection_details",
+        "binding_collection_name": "coin_purchase_grid"
+      }
+    ]
+  },
+
+
+  "button_content": {
+    "type": "panel",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "image": {
+          "type": "image",
+          "size": [ "100%", "116.67%x" ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "layer": 12,
+          "bilinear": true,
+          "bindings": [
+            {
+              "binding_type": "collection",
+              "binding_collection_name": "coin_purchase_grid",
+              "binding_name": "#coin_offer_texture_name",
+              "binding_name_override": "#texture"
+            },
+            {
+              "binding_type": "collection",
+              "binding_collection_name": "coin_purchase_grid",
+              "binding_name": "(not #coin_offer_texture_name = '0cce9ad90f4c7a6093660ab019b547786e49decd.jpg')",
+              "binding_name_override": "#visible"
+            },
+            {
+              "binding_type": "collection",
+              "binding_collection_name": "coin_purchase_grid",
+              "binding_name": "#coin_offer_texture_file_system",
+              "binding_name_override": "#texture_file_system"
+            }
+          ]
+        }
+      },
+      { "bonus_coins_stack@coin_purchase.bonus_coins_stack": {} }
+    ]
+  },
+
+  "offer_item": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [ "100% - 4px", "80% - 2px" ],
+    "controls": [
+      {
+        "offer_panel@coin_purchase_jexp.offer_panel": {
+          "layer": 3
+        }
+      }
+    ]
+  },
+
+  "bg": {
+    "type": "image",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "texture": "src/assets/white",
+    "color": [0.1882, 0.1882, 0.1882],
+    "layer": -2
+  },
+
+  "border@bg": {
+    "texture": "src/assets/border",
+    "layer": 2
+  },
+
+  "hdivider@bg": {
+    "size": ["100%", 1],
+    "color": [0.2156862, 0.2156862, 0.2156862]
+  },
+
+  "hstack": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100% - 24px", 18],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [0, "100% - 28px"]
+  },
+
+  "exit@coin_purchase_jexp.green_button": {
+    "$prsd_btn_nm": "button.menu_exit",
+    "$btn_text": "gui.cancel"
+  },
+
+  "border_button@button_jexp.button": {
+    "$font_type": "smooth",
+    "$text_shadow": false,
+    "size": ["100%c", 18],
+    "$padding_size": ["100%sm + 20px", "100%"],
+    "$dflt_btn_color": "white",
+    "$hov_btn_color": "white",
+    "$lkd_btn_color": "white",
+    "$btn_state_panel": "button_jexp.width_fitting_button_state",
+    "$dflt_btn_bg": "coin_purchase_jexp.border_button_bg",
+    "$hov_btn_bg": "coin_purchase_jexp.border_button_bg",
+    "$lkd_btn_bg": "coin_purchase_jexp.border_button_bg"
+  },
+
+  "green_button@border_button": {
+    "$dflt_btn_bg": "coin_purchase_jexp.green_btn_bg",
+    "$hov_btn_bg": "coin_purchase_jexp.green_btn_bg_hov",
+    "$lkd_btn_bg": "coin_purchase_jexp.border_btn_border"
+  },
+
+  "green_button_bg": {
+    "type": "panel",
+    "$ignore_border|default": false,
+    "controls": [
+      { "border@coin_purchase_jexp.border_btn_border": { "ignored": "$ignore_border" } },
+      { "btn_bg_hov@coin_purchase_jexp.btn_bg_hov": { "visible": "($btn_state = hov)" } }
+    ]
+  },
+
+  "border_button_bg": {
+    "type": "panel",
+    "$ignore_border|default": false,
+    "controls": [
+      { "border@coin_purchase_jexp.border_border_btn_border": { "ignored": "$ignore_border" } },
+      { "btn_bg_hov@coin_purchase_jexp.border_btn_bg_hov": { "visible": "($btn_state = hov)" } }
+    ]
+  },
+
+  "border_btn_border@border": { "color": [0.549019, 0.549019, 0.549019] },
+  "border_btn_bg_hov@bg": { "color": [0.349019, 0.349019, 0.349019] },
+  "green_btn_bg@bg": { "color": [0, 0.521568, 0.258823] },
+  "green_btn_bg_hov@bg": { "color": [0.05098, 0.819607, 0.4] }
 }

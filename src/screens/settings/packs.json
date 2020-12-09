@@ -53,7 +53,7 @@
   "packs_content": {
     "type": "panel",
     "$type_pfx|default": "",
-    "$scroll_bar_offset": [97, 0],
+    "$scrollbar_offset": ["100% - 6px", 0],
     "controls": [
       { "popup_dialog_factory@screen_jexp.popup_dialog_factory": { "ignored": "(not $type_pfx = global)" } },
       { "title@screen_jexp.title": { "text": "$title", "offset": ["50% - 50%x", 7] } },
@@ -742,21 +742,6 @@
       }
     ]
   },
-
-  // Left
-  // "$button.expand_selected": "('button.expand_selected_' + $type_pfx)",
-  // "$button.expand_available": "('button.expand_available_' + $type_pfx)",
-  // "$button.expand_realms": "('button.expand_realms_' + $type_pfx)",
-  // "$button.expand_unowned": "('button.expand_unowned_' + $type_pfx)",
-  // "$button.select_offer": "('button.select_offer_' + $type_pfx)",
-  // "$button.resource_pack_options_exit": "('button.resource_pack_options_exit_' + $type_pfx)",
-  // "$no_available_packs_visibility_binding": "('#no_available_packs_visibility_' + $type_pfx)",
-  // "$no_realms_packs_visibility_binding": "('#no_realms_packs_visibility_' + $type_pfx)",
-  // "$no_unowned_packs_visibility_binding": "('#no_unowned_packs_visibility_' + $type_pfx)",
-  // "$view_more_unowned_content_button_visibility_binding": "('#suggested_content_visible_' + $type_pfx)",
-  // "$total_size_binding": "('#total_size_binding_' + $type_pfx)",
-  // "$options_slider_name": "content_tier_slider_' + $type_pfx)",
-
  
   /***********************************
   * Textures

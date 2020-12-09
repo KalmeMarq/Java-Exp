@@ -1,0 +1,228 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "subscriptions_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "popup_dialog_factory@screen_jexp.popup_dialog_factory": {} },
+      { "title@screen_jexp.title": { "text": "options.viewSubscriptions", "offset": ["50% - 50%x", 16] } },
+      { "langs_scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "size": ["100%", "100% - 64px"],
+          "$scroll_cont": "dirt@subscriptions_jexp.scroll_cont"
+        }
+      },
+      { "back@options_jexp.back_tgl_btn": { "offset": ["50% - 100px", "100% - 27px"], "$tgl_nm": "000" } }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "view_subcts_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": ["80%", "100%c"],
+    "controls": [
+      { "sunsetting_label@play.realm_warning_tip": {
+          "$realms_warning_text": "#device_sunsetting_text"
+        }
+      },
+      { "failed_loading_subscriptions_label": {
+          "type": "label",
+          "text": "options.viewSubscriptions.loadingSubscriptionsFailed",
+          "text_alignment": "center",
+          "color": "$body_text_color",
+          "size": [ "100%", 12 ],
+          "bindings": [
+            { "binding_name": "#realms_subscriptions_loading_failed_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "loading_subscriptions_label": {
+          "type": "label",
+          "text": "options.viewSubscriptions.loadingSubscriptions",
+          "text_alignment": "center",
+          "color": "$body_text_color",
+          "size": [ "100%", 12 ],
+          "bindings": [
+            { "binding_name": "#realms_subscriptions_loading_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "realms_plus_header_no_active_subscriptions": {
+          "type": "panel",
+          "size": [ "100%", "100%c + 2px" ],
+          "$realm_collection_name": "realms_plus_subscriptions_collection",
+          "controls": [
+            { "text@common.minecraftTenLabel": {
+                "text": "options.viewSubscriptions.noActiveSubscriptions",
+                "color": "$body_text_color",
+                "anchor_to": "top_middle",
+                "anchor_from": "top_middle",
+                "size": [ "100%", 12 ]
+              }
+            },
+            { "divider1@common.section_divider": {
+                "anchor_to": "bottom_middle",
+                "anchor_from": "bottom_middle"
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_name": "#no_active_subscriptions_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "realms_plus_header_label@common.minecraftTenLabel": {
+          "text": "options.viewSubscriptions.realmsPlus.header",
+          "text_alignment": "left",
+          "color": "$body_text_color",
+          "size": [ "100%", 12 ]
+        }
+      },
+      { "pad_0": {
+          "type": "panel",
+          "size": [ "100%", 6 ]
+        }
+      },
+      { "realms_plus_subscriptions_grid": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "factory": {
+            "name": "realms_subscriptions_factory",
+            "control_name": "general_section.realms_plus_subscription_panel"
+          },
+          "collection_name": "realms_plus_subscriptions_collection",
+          "bindings": [
+            { "binding_name": "#realms_plus_subscriptions_dimensions",
+              "binding_name_override": "#collection_length"
+            }
+          ]
+        }
+      },
+      { "realms_plus_buy_offer@general_section.realms_subscription_main": {
+          "$realm_collection_name": "realms_plus_subscriptions_collection",
+          "$right_pressed_button_name": "button.realms_plus_right_button",
+          "$left_pressed_button_name": "button.realms_plus_buy_button",
+          "$left_button_label_bindings": [
+            { "binding_name": "#price_text",
+              "binding_type": "collection",
+              "binding_collection_name": "$realm_collection_name"
+            }
+          ],
+          "$left_button_visible_bindings": [],
+          "$left_button_text": "#price_text",
+          "$realms_plus_name": true,
+          "$name": "",
+          "$name_bindings": [],
+          "$description": "#upsell_text",
+          "$description_bindings": [
+            { "binding_name": "#upsell_text",
+              "binding_type": "collection",
+              "binding_collection_name": "$realm_collection_name"
+            }
+          ],
+          "bindings": [
+            { "binding_name": "#can_buy_more_subscriptions",
+              "binding_name_override": "#visible",
+              "binding_type": "collection",
+              "binding_collection_name": "$realm_collection_name"
+            }
+          ]
+        }
+      },
+      { "pad_1": {
+          "type": "panel",
+          "size": [ "100%", 6 ]
+        }
+      },
+      { "divider2@common.section_divider": {}
+      },
+      { "additional_subs_header_label@common.minecraftTenLabel": {
+          "text": "options.viewSubscriptions.realms.header",
+          "text_alignment": "left",
+          "color": "$body_text_color",
+          "size": [ "100%", 12 ]
+        }
+      },
+      { "pad_2": {
+          "type": "panel",
+          "size": [ "100%", 6 ]
+        }
+      },
+      { "additional_realms_subscriptions_grid": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "factory": {
+            "name": "realms_subscriptions_factory",
+            "control_name": "general_section.additional_subscription_panel"
+          },
+          "collection_name": "additional_realms_subscriptions_collection",
+          "bindings": [
+            { "binding_name": "#additional_realms_subscriptions_dimensions",
+              "binding_name_override": "#collection_length"
+            }
+          ]
+        }
+      },
+      { "additional_realms_buy_offer@general_section.realms_subscription_main": {
+          "$realm_collection_name": "additional_realms_subscriptions_collection",
+          "$right_pressed_button_name": "button.additional_realms_right_button",
+          "$left_pressed_button_name": "button.additional_realms_buy_button",
+          "$left_button_label_bindings": [
+            { "binding_name": "#price_text",
+              "binding_type": "collection",
+              "binding_collection_name": "$realm_collection_name"
+            }
+          ],
+          "$left_button_visible_bindings": [],
+          "$image_controls": [
+            { "image": {
+                "type": "image",
+                "size": [ "100%", "100%" ],
+                "texture": "textures/ui/realms_art_icon"
+              }
+            }
+          ],
+          "$image_size": [ "85.1315%y", 70 ],
+          "$left_button_text": "#price_text",
+          "$name": "options.viewSubscriptions.twoPlayers",
+          "$name_bindings": [],
+          "$description": "#upsell_text",
+          "$description_bindings": [
+            { "binding_name": "#upsell_text",
+              "binding_type": "collection",
+              "binding_collection_name": "$realm_collection_name"
+            }
+          ],
+          "bindings": [
+            { "binding_name": "#can_buy_more_subscriptions",
+              "binding_name_override": "#visible",
+              "binding_type": "collection",
+              "binding_collection_name": "$realm_collection_name"
+            }
+          ]
+        }
+      },
+      { "pad_3": {
+          "type": "panel",
+          "size": [ "100%", 6 ]
+        }
+      }
+    ]
+  }
+}

@@ -20,6 +20,7 @@
           "ttsSectionContainer": true,
           "controls": [
             { "debug_scrn@debug_jexp.screen_content": { "visible": false, "ignored": "$is_publish" } },
+            { "subscriptions_scrn@subscriptions_jexp.screen_content": { "visible": false } },
             { "user_profile_scrn@user_profile_jexp.screen_content": { "visible": false } },
             { "music_n_sound_scrn@music_n_sound_jexp.screen_content": { "visible": false } },
             { "video_scrn@video_jexp.screen_content": { "visible": false } },
@@ -390,12 +391,13 @@
 
   "view_subcts_btn@open_tgl_btn": {
     "$tgl_idx": 117,
-    "$tgl_text": "options.viewSubscriptions",
+    "$tgl_nm": "000",
+    "$tgl_text": "options.viewSubscriptions", // $view_subscriptions_forced_index
     "$tgl_ctrl_nm": "view_subcts_view",
     "$tts_sect_hdr": "stat.generalButton",
     "bindings": [
       { "binding_name": "#should_show_subscription_tab",
-        "binding_name_override": "#visible"
+        "binding_name_override": "#enabled"
       }
     ]
   },

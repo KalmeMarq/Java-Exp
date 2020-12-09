@@ -1,0 +1,281 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "realms_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "main@content_panel": {} },
+      { "sections": {
+          "type": "panel",
+          "focus_container": true,
+          "use_last_focus": false,
+          "focus_nagivation_mode_down": "contained",
+          "focus_nagivation_mode_up": "contained",
+          "focus_nagivation_mode_left": "contained",
+          "focus_nagivation_mode_right": "contained",
+          "ttsSectionContainer": true,
+          "controls": [
+            { "behavior_packs_scrn@packs_jexp.addon_screen_content": { "visible": false } },
+            { "resource_packs_scrn@packs_jexp.level_screen_content": { "visible": false } },
+            { "players_scrn@realms_players_jexp.screen_content": { "visible": false } },
+            { "settings_scrn@realms_settings_jexp.screen_content": { "visible": false } },
+            { "subscriptions_scrn@realms_subscriptions_jexp.screen_content": { "visible": false } },
+            { "backups_scrn@realms_world_backups_jexp.screen_content": { "visible": false } },
+            { "options_scrn@realms_world_options_jexp.screen_content": { "visible": false } }
+          ]
+        }
+      },
+      { "popup_dialog_factory": {
+          "type": "factory",
+          "control_ids": {
+            "purchase_failed": "@realms_create.popup_dialog__purchase_failed",
+            "purchase_in_progress": "@realms_create.popup_dialog__purchase_in_progress",
+            "share_by_link": "@realms_whitelist.popup_dialog__share_by_link",
+            "options_modal": "@realms_whitelist.popup_dialog__options",
+            "backups_modal": "@realms_settings.popup_dialog__backups"
+          }
+        }
+      }
+    ]
+  },  
+
+ /*{ "back@options_jexp.back_tgl_btn": {
+     "offset": ["50% + 190px - 80px + 8px", 204],
+     "size": [70, 20],
+     "$tgl_text": "gui.back",
+     "ignored": "(not $is_realms)"
+   }
+ } */
+
+  "content_panel": {
+    "type": "panel",
+    "focus_container": true,
+    "use_last_focus": true,
+    "focus_nagivation_mode_down": "contained",
+    "focus_nagivation_mode_up": "contained",
+    "focus_nagivation_mode_left": "contained",
+    "focus_nagivation_mode_right": "contained",
+    "controls": [
+      { "confrealm@screen_jexp.title": { "text": "Configure Realm:", "offset": ["50% - 50%x", 12] } },
+      { "title@screen_jexp.title": {
+          "text": "#dialog_title",
+          "offset": ["50% - 50%x", 23],
+          "color": [0.498039, 1, 0.498039],
+          "bindings": [
+            { "binding_name": "#dialog_title" },
+            { "binding_name": "(not #is_realm_expired)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "expired_title@screen_jexp.title": {
+          "text": "#dialog_title",
+          "offset": ["50% - 50%x", 23],
+          "color": [0.6274509, 0.6274509, 0.6274509],
+          "bindings": [
+            { "binding_name": "#dialog_title" },
+            { "binding_name": "#is_realm_expired",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "game_status_icon@realms_jexp.realms_world_game_status_icon": { "offset": ["50% + 70px", 5] } }, // Should be in a hstack
+      { "players@realms_jexp.players_button": { "offset": ["50% - 155px", 40] } },
+      { "settings@settings_button": { "offset": ["50% - 50%x", 40] } },
+      { "subscriptions@subscription_button": { "offset": ["50% + 55px", 40] } },
+      { "frames_title@screen_jexp.title": { "text": "Worlds", "offset": ["50% - 50%x", 92] } },
+      { "frame0@empty_slot": { "offset": ["50% - 187px + 3px", 110], "texture": "textures/ui/panorama_4", "$text": "World", "$alpha": 0.0 } },
+      { "frame1@empty_slot": { "offset": ["50% - 187px + 98px + 3px", 110] } },
+      { "frame2@empty_slot": { "offset": ["50% - 187px + 196px + 3px", 110] } },
+      { "frame3@empty_slot": { "offset": ["50% - 187px + 196px + 98px + 3px", 110] } },
+      { "options@options_button": { "offset": ["50% - 187px", 204] } },
+      { "backups@backups_button": { "offset": ["50% - 187px + 95px", 204] } },
+      { "reset@reset_button": { "offset": ["50% - 187px + 190px", 204] } },
+      { "exit_btn@button_jexp.button": {
+          "ignored": "$is_realms",
+          "offset": ["50% + 190px - 80px + 8px", 204],
+          "size": [70, 20],
+          "$btn_text": "gui.back",
+          "$prsd_btn_nm": "button.menu_exit"
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "players_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "settings_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "subscriptions_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "options_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "backups_scrn",
+        "source_property_name": "(not #visible)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "reset_button@button_jexp.button_action": {
+    "size": [90, 20],
+    "$btn_text": "realmsSettingsScreen.resetWorldButton",
+    "$prsd_btn_nm": "menu_reset_world",
+    "bindings": [
+      { "binding_name": "#reset_button_enabled",
+        "binding_name_override": "#enabled"
+      },
+      { "binding_name": "#reset_button_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "realms_world_game_status_icon": {
+    "type": "panel",
+    "size": [10, 32],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "layer": 30,
+    "controls": [
+      { "game_online_icon@realms_jexp.game_online_icon": {
+          "bindings": [
+            { "binding_name": "(not #is_realm_expired)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "game_unavailable_icon@realms_jexp.game_offline_icon": {
+          "bindings": [
+            { "binding_name": "#is_realm_expired",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "game_online_icon": {
+    "type": "image",
+    "texture": "assets/realms/textures/gui/realms/on_icon",
+    "size": [10, 28]
+  },
+  
+  "game_offline_icon": {
+    "type": "image",
+    "texture": "assets/realms/textures/gui/realms/off_icon", 
+    "size": [10, 28]
+  },
+
+  /***********************************
+  * Toggle Buttons
+  ************************************/
+  "open_tgl_btn@toggle_button_jexp.toggle_button": {
+    "size": [150, 20],
+    "$tgl_idx": 1,
+    "$tgl_tts_tgl_on_text": "accessibility.state.selected",
+    "$tgl_tts_tgl_off_text": "accessibility.state.unselected"
+  },
+
+  "back_tgl_btn@toggle_button_jexp.toggle_button": {
+    "$tgl_idx": 0,
+    "size": [200, 20],
+    "$cancel_mapg": true,
+    "$tgl_text": "gui.done",
+    "$focus_ovrd_down": "FOCUS_OVERRIDE_STOP"
+  },
+
+  "players_button@realms_jexp.open_tgl_btn": {
+    "size": [100, 20],
+    "$tgl_idx": 100,
+    "$tgl_text": "realmsSettingsScreen.playersSectionTitle",
+    "$tgl_nm": "realms_players",
+    "$tgl_ctrl_nm": "realms_players_view"
+  },
+
+  "settings_button@realms_jexp.open_tgl_btn": {
+    "size": [100, 20],
+    "$tgl_text": "menu.settings",
+    "$tgl_nm": "realms_settings",
+    "$tgl_ctrl_nm": "realms_settings_view"
+  },
+
+  "subscription_button@realms_jexp.open_tgl_btn": {
+    "size": [100, 20],
+    "$tgl_text": "options.viewSubscriptions",
+    "$tgl_nm": "realms_subscriptions",
+    "$tgl_ctrl_nm": "realms_subscriptions_view",
+    "bindings": [
+      { "binding_name": "#realms_subscription_info_visible",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+  
+  "options_button@realms_jexp.open_tgl_btn": {
+    "size": [90, 20],
+    "$tgl_text": "createWorldScreen.worldSettings",
+    "$tgl_nm": "world_options",
+    "$tgl_ctrl_nm": "world_options_view"
+  },
+
+  "backups_button@realms_jexp.open_tgl_btn": {
+    "size": [90, 20],
+    "$tgl_text": "World backups",
+    "$tgl_nm": "world_backups",
+    "$tgl_ctrl_nm": "world_backups_view"
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
+  "darken": {
+    "type": "image",
+    "texture": "assets/realms/textures/gui/realms/darken",
+    "layer": 4
+  },
+
+  "slot_frame": {
+    "type": "image",
+    "texture": "assets/realms/textures/gui/realms/slot_frame",
+    "size": [80, 80],
+    "layer": 2
+  },
+
+  "empty_slot": {
+    "type": "image",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "texture": "assets/realms/textures/gui/realms/empty_frame",
+    "size": [74, 74],
+    "fill": true,
+    "$text|default": "Empty",
+    "$alpha|default": 0.35,
+    "layer": 1,
+    "controls": [
+      { "frames_title@screen_jexp.title": { "text": "$text", "offset": ["50% - 50%x", "100% - 100%y - 2px"], "shadow": false } },
+      { "darken@darken": { "alpha": "$alpha" } },
+      { "frame@slot_frame": {} }
+    ]
+  }
+}

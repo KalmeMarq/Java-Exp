@@ -91,9 +91,11 @@
     "src/screens/others/simple_inprogress.json",
     /* Screens - Realms Sections */
     "src/screens/realms/choose_realm.json",
-    "src/screens/realms/players.json",
+    "src/screens/realms/realms_create.json",
+    "src/screens/realms/realms_players.json",
     "src/screens/realms/realms_settings.json",
-    "src/screens/realms/subscriptions.json",
+    "src/screens/realms/realms.json",
+    "src/screens/realms/realms_subscriptions.json",
     "src/screens/realms/world_backups.json",
     "src/screens/realms/world_options.json",
     /* Screens - Settings Sections */
@@ -112,19 +114,19 @@
     "src/screens/settings/pack_settings.json",
     "src/screens/settings/packs.json",
     "src/screens/settings/storage_management.json",
+    "src/screens/settings/subscriptions.json",
     "src/screens/settings/user_profile.json",
     "src/screens/settings/video.json",
+    /* Screens - Store */
+    "src/screens/store/coin_purchase.json",
     /* Screens - World Create/Edit/Templates/Play/... */
     "src/screens/world/advanced.json",
     "src/screens/world/create_world_upsell.json",
     "src/screens/world/create.json",
-    "src/screens/world/custom_templates.json",
     "src/screens/world/edit.json",
-    "src/screens/world/education.json",
-    "src/screens/world/experimental.json",
     "src/screens/world/gamerules.json",
     "src/screens/world/more_options.json",
-    "src/screens/world/multiplayer.json",
+    "src/screens/world/join_by_code.json",
     "src/screens/world/seed_picker.json",
     "src/screens/world/world_templates.json",
     /* Screens - Xbl */

@@ -418,9 +418,8 @@
     "size": [150, 20],
     "$tgl_nm": "world_toggle",
     "$tgl_text": "worldTemplates.world",
-    "$disabled": "$pre_release",
     "$tgl_focus_prcdc": 1,
-    "$tgl_index": 0,
+    "$tgl_idx": 0,
     "$tgl_dflt_sel": "$default_tab",
     "$tgl_tts_toggle_on_text": "",
     "$tgl_tts_toggle_off_text": ""
@@ -431,7 +430,7 @@
     "$tgl_nm": "world_toggle",
     "$tgl_text": "worldTemplates.realm",
     "enabled": "(not $pre_release)",
-    "$tgl_index": 1,
+    "$tgl_idx": 1,
     "$tgl_dflt_sel": "$default_tab",
     "$tgl_tts_toggle_on_text": "",
     "$tgl_tts_toggle_off_text": ""

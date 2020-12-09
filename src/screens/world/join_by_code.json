@@ -1,0 +1,57 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "join_by_code_jexp",
+
+  "screen_content@popup_dialog.modal_input_panel": {
+    "size": ["100%", "100%"],
+    "controls": [
+      { "bg@screen_jexp.dirt_background": { "layer": -1 } },
+      { "box_title@screen_jexp.title": { "text": "networkWorld.joinByCode", "offset": ["50% - 101px", 53], "color": "$info_color" } },
+      { "code_box@join_by_code_jexp.code_text_field": { "offset": ["50% - 50%x", 66] } },
+      { "help_text@join_by_code_jexp.help_text": { "offset": ["50% - 50%x", 100] } },
+      { "join_button@button_jexp.button": {
+          "offset": ["50% - 50%x", 172],
+          "$btn_text": "networkWorld.join",
+          "$prsd_btn_nm": "button.menu_network_join_by_code_popup_join"
+        }
+      },
+      { "exit@button_jexp.button": {
+          "offset": ["50% - 50%x", 196],
+          "$btn_tts_nm": "",
+          "tts_control_header": "accessibility.button.close",
+          "$btn_text": "gui.cancel",
+          "$prsd_btn_nm": "button.menu_network_join_by_code_close",
+          "bindings": [
+            { "binding_name": "#tts_enabled",
+              "binding_name_override": "#focus_enabled"
+            }
+          ]
+        }
+      },
+      { "gamepad_helpers@common.gamepad_helpers_a_and_b": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "offset": [0, "31px"],
+          "layer": 1
+        }
+      }
+    ]
+  },
+
+  "code_text_field@text_box_jexp.text_box": {
+    "$text_box_name": "#join_by_code_text_edit",
+    "max_length": 11,
+    "$phr_text": "networkWorld.realmsHashPlaceholder"
+  },
+
+  "help_text@screen_jexp.title": {
+    "type": "label",
+    "size": [220, "100%"],
+    "color": "$info_color",
+    "text": "networkWold.joinByCodeHelpText",
+    "text_alignment": "center"
+  }
+}

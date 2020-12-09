@@ -1,0 +1,29 @@
+{
+  "play_screen_content": {
+    "type": "panel",
+    "variables": [
+      {
+        "requires": "(not $education_edition)",
+        "$main_panel": "play.default_play_screen_panel"
+      },
+      {
+        "requires": "$education_edition",
+        "$main_panel": "play.edu_play_screen_panel"
+      }
+    ],
+    "controls": [
+      {
+        "main_control@$main_panel": {}
+      },
+      {
+        "popup_dialog_factory": {
+          "type": "factory",
+          "control_ids": {
+            "join_by_code": "@join_by_code_jexp.screen_content",
+            "high_ping_warning": "@play.popup_dialog_high_ping"
+          }
+        }
+      }
+    ]
+  }
+}

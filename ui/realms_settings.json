@@ -1,0 +1,6 @@
+{
+  "settings_screen@settings_common.screen_base": {
+    "$scrn_cont": "realms_settings_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.dirt_background"
+  }
+}

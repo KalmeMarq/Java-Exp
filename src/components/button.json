@@ -161,9 +161,10 @@
   "width_fitting_button_state": {
     "type": "panel",
     "$btn_state|default": "",
-    "size": ["100%cm - 2px", "100%"],
+    "size": ["100%cm", "100%"],
+    "$padding_size|default": ["100%sm + 12px", "100%"],
     "controls": [
-      { "$btn_bg@$btn_bg": { "size": ["100%sm + 12px + 2px", 20] } },
+      { "$btn_bg@$btn_bg": { "size": "$padding_size" } },
       { "inner_content": {
           "type": "panel",
           "size": ["100%c", "100%"],

@@ -1,0 +1,790 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "realms_players_jexp",
+  
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "offset": ["50% - 50%x", 17], "text": "realmsSettingsScreen.playersSectionTitle" } },
+      { "members@abstract_list_cont": {
+          "$list_title": "Members",
+          "$list_nm": "members",
+          "$type": "members"
+        }
+      },
+      { "uninvited@abstract_list_cont": {
+          "$list_title": "Uninvited",
+          "$list_nm": "uninvited",
+          "$type": "uninvited_friends"
+        }
+      },
+      { "invited@abstract_list_cont": {
+          "$list_title": "Invited",
+          "$list_nm": "invited",
+          "$type": "invited_friends"
+        }
+      },
+      { "blocked@abstract_list_cont": {
+          "$list_title": "Blocked",
+          "$list_nm": "blocked",
+          "$type": "blocked_players"
+        }
+      },
+      { "player_filter_text_box@player_filter_text_box": { "offset": ["50% - 160px", "40px + 13px"] } },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "$scrollbar_offset": ["100% - 6px", 0],
+          "offset": ["50% - 160px", "40px + 13px + 16px"],
+          "size": ["156px + 3px", "156px + 10px - 16px"],
+          "$scroll_cont": "dirt@realms_players_jexp.scroll_cont"
+        }
+      },
+      { "members_tgl@members_button": { "offset": ["50% + 24px", "196px - 48px"] } },
+      { "uninvited_tgl@uninvited_button": { "offset": ["50% + 24px + 76px", "196px - 48px"] } },
+      { "invited_tgl@invited_button": { "offset": ["50% + 24px", "196px - 24px"] } },
+      { "blocked_tgl@blocked_button": { "offset": ["50% + 24px + 76px", "196px - 24px"] } },
+      { "options@options_button": { "offset": ["50% + 12px", "53px"] } },
+      { "share_by_link@share_by_link_button": { "offset": ["50% + 12px", "53px + 24px"] } },
+      { "find_friends@find_friends_button": { "offset": ["50% + 12px", "53px + 48px"] } },
+      { "back@realms_jexp.back_tgl_btn": {
+          "offset": ["50% + 12px + 160px - 83px", 196],
+          "size": [83, 20],
+          "$tgl_nm": "realms_players",
+          "$tgl_text": "gui.back"
+        }
+      }
+    ],
+    "$member_collection_name": "members_collection",
+    "$invited_collection_name": "invited_friends_collection",
+    "$uninvited_collection_name": "uninvited_friends_collection",
+    "$blocked_players_collection_name": "blocked_players_collection",
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "realms_players_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  /* List Title and Page Panel */
+  "abstract_list_cont": {
+    "type": "panel",
+    "controls": [
+      { "list_title@screen_jexp.title": {
+          "text": "$list_title",
+          "offset": ["50% - 160px", "40px + 13px - 11px"],
+          "color": [0.62, 0.62, 0.62],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "('list_' + $list_nm + '_view')",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      { "page_panel@page_panel": {} }
+    ]
+  },
+
+  "page_panel": {
+    "type": "panel",
+    "size": ["156px + 3px", 20],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": ["50% - 160px", "40px + 13px + 16px + 156px + 10px - 16px + 2px"],
+    "controls": [
+      { "slash_text": {
+          "type": "label",
+          "text": "/",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "bindings": [
+            { "binding_name": "('#' + $type + '_buttons_visible')",
+              "binding_name_override": "#visible",
+              "binding_type": "global"
+            }
+          ]
+        }
+      },
+      { "panel": {
+          "type": "panel",
+          "size": ["100%", "100%"],
+          "$is_prev_visible": "",
+          "$is_next_visible": "('#' + $type + '_nextButton_visible')",
+          "controls": [
+            { "lkd_prev@prev_button": { "enabled": false, "bindings": [] } },
+            { "prev@prev_button": { "layer": 4 } },
+            { "page_text": {
+                "type": "label",
+                "text": "('#' + $type + '_page_index_text')",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "bindings": [ { "binding_name": "('#' + $type + '_page_index_text')" } ]
+              }
+            },
+            { "lkd_next@next_button": { "enabled": false, "bindings": [] } },
+            { "next@next_button": { "layer": 4 } }
+          ],
+          "bindings": [
+            { "binding_name": "('#' + $type + '_buttons_visible')",
+              "binding_name_override": "#visible",
+              "binding_type": "global"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "('list_' + $list_nm + '_view')",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "prev_button@button_jexp.button_action": {
+    "$btn_text": "realmsSettingsScreen.dev_prev_page_label",
+    "$prsd_btn_nm": "('prev_page_button_' + $type)",
+    "size": [50, 20],
+    "bindings": [
+      { "binding_name": "('#' + $type + '_prevButton_visible')",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "next_button@button_jexp.button_action": {
+    "$btn_text": "realmsSettingsScreen.dev_next_page_label",
+    "$prsd_btn_nm": "('next_page_button_' + $type)",
+    "size": [50, 20],
+    "offset": ["100% - 50px", 0],
+    "bindings": [
+      { "binding_name": "('#' + $type + '_nextButton_visible')",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "player_filter_text_box@text_box_jexp.text_box": {
+    "size": ["156px + 3px - 1px", 14],
+    "$text_box_name": "#player_filter_text_box",
+    "max_length": 30,
+    "$phr_text": "realmsSettingsScreen.searchBox"
+  },
+
+  /* Lists Content */
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      { "members_stack@abstract_list_stack": {
+          "$type": "members",
+          "factory": {
+            "name": "factory",
+            "control_ids": {
+              "small_button": "realms_players_jexp.member_factory_xbl_profile",
+              "large_button": "realms_players_jexp.member_factory_linked_account"
+            }
+          }
+        }
+      },
+      { "invited_stack@abstract_list_stack": {
+          "$type": "invited",
+          "collection_name": "invited_friends_collection",
+          "factory": {
+            "name": "factory",
+            "control_ids": {
+              "small_button": "realms_players_jexp.invited_factory_xbl_profile",
+              "large_button": "realms_players_jexp.invited_factory_linked_account"
+            }
+          }
+        }
+      },
+      { "invited_stack@abstract_list_stack": {
+          "$type": "uninvited",
+          "collection_name": "uninvited_friends_collection",
+          "factory": {
+            "name": "factory",
+            "control_ids": {
+              "small_button": "realms_players_jexp.uninvited_factory_xbl_profile",
+              "large_button": "realms_players_jexp.uninvited_factory_linked_account"
+            }
+          }
+        }
+      },
+      { "invited_stack@abstract_list_stack": {
+          "$type": "blocked",
+          "collection_name": "blocked_players",
+          "$collection_name": "blocked_players_collection",
+          "factory": {
+            "name": "factory",
+            "control_ids": {
+              "small_button": "realms_players_jexp.blocked_factory_xbl_profile",
+              "large_button": "realms_players_jexp.blocked_factory_linked_account"
+            }
+          }
+        }
+      }
+    ]
+  },
+
+  "abstract_list_stack@realms_allowlist.factory_stack": {
+    "collection_name": "($type + '_collection')",
+    "bindings": [
+      { "binding_name": "('#' + $type + '_section_content')",
+        "binding_name_override": "#collection_length"
+      },
+      { "binding_type": "view",
+        "source_control_name": "('list_' + $type + '_view')",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },  
+
+  "list_tgl_btn@toggle_button_jexp.toggle_button": {
+    "size": [72, 20],
+    "$tgl_nm": "players_lists"
+  },
+
+  "members_button@list_tgl_btn": {
+    "$tgl_idx": 0,
+    "$tgl_text": "Members",
+    "$tgl_ctrl_nm": "list_members_view"
+  },
+
+  "uninvited_button@list_tgl_btn": {
+    "$tgl_idx": 1,
+    "$tgl_text": "Uninvited",
+    "$tgl_ctrl_nm": "list_uninvited_view"
+  },
+
+  "invited_button@list_tgl_btn": {
+    "$tgl_idx": 2,
+    "$tgl_text": "Invited",
+    "$tgl_ctrl_nm": "list_invited_view"
+  },
+
+  "blocked_button@list_tgl_btn": {
+    "$tgl_idx": 3,
+    "$tgl_text": "Blocked",
+    "$tgl_ctrl_nm": "list_blocked_view"
+  },
+
+  "find_friends_button@button_jexp.button": {
+    "size": [160, 20],
+    "ignored": "(not $supports_add_friend)",
+    "$btn_text": "realmsInvitationScreen.findFriends",
+    "$prsd_btn_nm": "button.realms_invite_find_friends",
+    "bindings": [
+      { "binding_name": "#members_list_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "share_by_link_button@button_jexp.button_action": {
+    "size": [160, 20],
+    "$btn_text": "realmsInvitationScreen.shareByLink",
+    "$prsd_btn_nm": "button.realms_invite_share_by_link",
+    "bindings": [
+      { "binding_name": "#members_list_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "options_button@button_jexp.button": {
+    "$btn_text": "pauseScreen.options",
+    "$prsd_btn_nm": "button.member_list_options",
+    "size": [160, 20]
+  },
+
+  "factory_gap_template": {
+    "type": "panel",
+    "size": ["100%", 12],
+    "$member_collection_name": "members_collection",
+    "$invited_collection_name": "invited_friends_collection",
+    "$uninvited_collection_name": "uninvited_friends_collection",
+    "$blocked_players_collection_name": "blocked_players_collection",
+    "controls": [ { "ctrl@$tplt_ctrl": {} } ]
+  },
+  
+  "xbl_profile_panel_factory@factory_gap_template": { "$tplt_ctrl": "realms_players_jexp.xbl_profile_panel" },
+  "xbl_profile_blocked_panel_factory@factory_gap_template": { "$tplt_ctrl": "realms_players_jexp.blocked_panel" },
+  "linked_account_panel_factory@factory_gap_template": { "$tplt_ctrl": "realms_players_jexp.linked_account_panel" },
+  "linked_account_blocked_panel_factory@factory_gap_template": { "$tplt_ctrl": "realms_players_jexp.linked_account_blocked_panel" },
+
+  "member_factory_xbl_profile@realms_players_jexp.xbl_profile_panel_factory": { "$collt_bdg_nm": "members_collection" },
+  "member_factory_linked_account@realms_players_jexp.linked_account_panel_factory": { "$collt_bdg_nm": "members_collection" },
+  "invited_factory_xbl_profile@realms_players_jexp.xbl_profile_panel_factory": { "$collt_bdg_nm": "invited_friends_collection" },
+  "invited_factory_linked_account@realms_players_jexp.linked_account_panel_factory": { "$collt_bdg_nm": "invited_friends_collection" },
+  "uninvited_factory_xbl_profile@realms_players_jexp.xbl_profile_panel_factory": { "$collt_bdg_nm": "uninvited_friends_collection" },
+  "uninvited_factory_linked_account@realms_players_jexp.linked_account_panel_factory": { "$collt_bdg_nm": "uninvited_friends_collection" },
+  "blocked_factory_xbl_profile@realms_players_jexp.xbl_profile_blocked_panel_factory": { "$collt_bdg_nm": "blocked_players_collection" },
+  "blocked_factory_linked_account@realms_players_jexp.linked_account_blocked_panel_factory": { "$collt_bdg_nm": "blocked_players_collection" },
+
+  "base_text": {
+    "type": "label",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "text": "$text_bdg_nm",
+    "layer": 5,
+    "bindings": [
+      { "binding_name": "$text_bdg_nm",
+        "binding_type": "collection",
+        "binding_collection_name": "$collt_bdg_nm"
+      }
+    ]
+  },
+
+  /* Xbl profile */
+  "xbl_profile_panel": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": ["100%", 12],
+    "controls": [
+      { "xbl_user_panel@realms_players_jexp.xbl_user_panel": {} },
+      { "xbl_user_panel@realms_players_jexp.right_controls_panel": {} }
+    ]
+  },
+
+  "xbl_user_panel": {
+    "type": "stack_panel",
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "orientation": "horizontal",
+    "size": ["100%c", 10],
+    "layer": 6,
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "gamer_pic",
+        "resolve_sibling_scope": true,
+        "source_property_name": "(not (#texture = ''))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      { "space0@screen_jexp.h2px": {} },
+      { "player_status@player_status_panel": {} },
+      { "space1@screen_jexp.h4px": {} },
+      { "gamerpic_panel@gamerpic_panel": { "size": [10, 10] } },
+      { "space2@screen_jexp.h2px": {} },
+      { "gamertag_panel@gamertag_label_panel": {} }
+    ]
+  },
+
+  "player_status_panel": {
+    "type": "panel",
+    "size": [12, 12],
+    "layer": 6,
+    "controls": [
+      { "player_online_icon@user_on_icon": { "$vis_bdg_nm": "#player_online" } },
+      { "player_offline_icon@user_off_icon": { "$vis_bdg_nm": "(not #player_online)" } }
+    ]
+  },
+
+  "gamerpic_panel": {
+    "type": "panel",
+    "size": [10, 10],
+    "controls": [ { "gamer_pic@gamer_pic": {} } ]
+  },
+
+  "gamer_pic@base_pic": {
+    "size": ["100% - 2px", "100% - 2px"],
+    "layer": 1,
+    "$txr_nm": "gamerpic_texture"
+  },
+
+  "gamertag_label_panel": {
+    "type": "panel",
+    "anchor_to": "left_middle",
+    "anchor_from": "left_middle",
+    "size": [100, "100%"],
+    "clips_children": true,
+    "controls": [ { "gamertag@gamertag_label": {} }, { "real_name@real_name_label": {} } ]
+  },
+
+  "gamertag_label@base_text": {
+    "offset": [1, 1],
+    "$text_bdg_nm": "#gamertag"
+  },
+
+  "real_name_label@base_text": {
+    "offset": [1, "100%"],
+    "$text_bdg_nm": "#real_name"
+  },
+
+  "right_controls_panel": {
+    "type": "panel",
+    "size": [ "100%c", "100%" ],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "controls": [
+      { "right_settings_panel@right_settings_panel": {} },
+      { "invite_button@invite_button": {} }
+    ]
+  },
+  
+  "member_settings": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "ignored": "($collt_bdg_nm = $uninvited_collection_name)",
+    "size": [ "100%c", 21 ],
+    "controls": [
+      { "minus_button@minus_button": {} },
+      { "space0@screen_jexp.h2px": {} },
+      { "member_permissions@permission_member_panel": {} },
+      { "op_deop_button@op_deop_button": {
+          "bindings": [
+            { "binding_name": "(not #permission_collection_dropdown_visible)",
+              "binding_name_override": "#visible",
+              "binding_type": "collection",
+              "binding_collection_name": "$collt_bdg_nm"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#show_member_settings",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$collt_bdg_nm"
+      }
+    ]
+  },
+
+  "op_deop_button@toggle_collection_jexp.toggle_collection": {
+    "size": [20, 20],
+    "ignored": "($collt_bdg_nm = $uninvited_collection_name)",
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "$tgl_state_bdg_nm": "#operator",
+    "$tgl_nm": "#operator",
+    "$tgl_bdg_type": "collection",
+    "$tgl_grid_collt_nm": "$collt_bdg_nm",
+    "$tgl_enabled_bdg_nm": "#members_list_enabled",
+    "$tgl_enabled_bdg_type": "global"
+  },
+
+  "permission_member_panel@iterable_toggle_jexp.iterable_tgl_panel": {
+    "size": [20, 20],
+    "$opt_enabled_bdg_nm": "#player_permissions_dropdown_enabled",
+    "$tgl_grid_collt_nm": "$collt_bdg_nm",
+    "controls": [
+      { "peaceful@iterable_toggle_jexp.iterable_toggle": {
+          "$tgl_text": "V",
+          "$this_action": "#permission_level_radio_visfitor",
+          "$next_action": "#permission_level_radio_member"
+        }
+      },
+      { "easy@iterable_toggle_jexp.iterable_toggle": {
+          "$tgl_text": "M",
+          "$this_action": "#permission_level_radio_member",
+          "$next_action": "#permission_level_radio_operator"
+        }
+      },
+      { "normal@iterable_toggle_jexp.iterable_toggle": {
+          "$tgl_text": "O",
+          "$this_action": "#permission_level_radio_operator",
+          "$next_action": "#permission_level_radio_custom"
+        }
+      },
+      { "hard@iterable_toggle_jexp.iterable_toggle": {
+          "$tgl_text": "C",
+          "$this_action": "#permission_level_radio_custom",
+          "$next_action": "#permission_level_radio_visitor"
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#permission_collection_dropdown_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$collt_bdg_nm"
+      }
+    ]
+  },
+  
+  "right_settings_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", 12],
+    "offset": [-8, 0],
+    "controls": [
+      { "member_settings@member_settings": {} },
+      { "undo_button@undo_button": { "layer": 4 } }
+    ]
+  },
+
+  "abstract_button@button_jexp.button": {
+    "size": [12, 12],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "controls": [
+      { "default@$dflt_bg": {} },
+      { "hover": {
+          "type": "panel",
+          "controls": [ { "@$hov_bg": {} } ]
+        }
+      },
+      { "pressed": {
+          "type": "panel",
+          "controls": [ { "@$hov_bg": {} } ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "collection_details",
+        "binding_collection_name": "$collt_bdg_nm"
+      },
+      { "binding_type": "collection",
+        "binding_collection_name": "$collt_bdg_nm",
+        "binding_name": "$vis_bdg_nm",
+        "binding_name_override": "#visible"
+      },
+      { "binding_name": "#members_list_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "invite_button@abstract_button": {
+    "offset": [-8, 0],
+    "$vis_bdg_nm": "#invite_button_visible",
+    "$prsd_btn_nm": "button.realms_invite_plus",
+    "ignored": "($collt_bdg_nm = $member_collection_name or $collt_bdg_nm = $invited_collection_name)",
+   /*  "$tooltip_offset": [-9, -15],
+    "$tooltip_orientation": "top_right",
+    "$tooltip_text_offset": [0, 0],
+    "$tooltip_text": "Invite", */
+    "$dflt_bg": "realms_players_jexp.realms_invite_player_default",
+    "$hov_bg": "realms_players_jexp.realms_invite_player_hover"
+  },
+
+  "undo_button@abstract_button": {
+    "$vis_bdg_nm": "#undo_button_visible",
+    "$prsd_btn_nm": "button.realms_invite_undo",
+    "ignored": "($collt_bdg_nm = $uninvited_collection_name)",
+    "$btn_text": "realmsInvitationScreen.undo",
+   /*  "$tooltip_text": "Undo", */
+    "$dflt_bg": "realms_players_jexp.realms_undo_default",
+    "$hov_bg": "realms_players_jexp.realms_undo_hover"
+  },
+
+  "minus_button@undo_button": {
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    /* "$tooltip_text": "Minus", */
+    "$vis_bdg_nm": "",
+    "$prsd_btn_nm": "button.realms_invite_minus",
+    "$dflt_bg": "realms_players_jexp.realms_minus_default",
+    "$hov_bg": "realms_players_jexp.realms_minus_hover"
+  },
+
+  /* Linked Account */
+  "linked_account_panel@xbl_profile_panel": {
+    "controls": [
+      { "linked_account_panel@linked_user_stack_panel": {} },
+      { "xbl_user_panel@right_controls_panel": {} }
+    ]
+  },
+
+  "linked_user_stack_panel": {
+    "type": "stack_panel",
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "orientation": "horizontal",
+    "size": ["100%c", 10],
+    "layer": 6,
+    "$ignore_status_icon|default": false,
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "third_party_profile_picture",
+        "resolve_sibling_scope": true,
+        "source_property_name": "(not (#texture = ''))",
+        "target_property_name": "#visible"
+      },
+      { "binding_type": "view",
+        "source_control_name": "gamer_pic",
+        "resolve_sibling_scope": true,
+        "source_property_name": "(not (#texture = ''))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      { "space0@screen_jexp.h2px": {} },
+      { "gamerpic_panel@realms_players_jexp.player_status_panel": {} },
+      { "space1@screen_jexp.h4px": {} },
+      { "platform_icon_positioner": {
+          "type": "panel",
+          "size": [15, "100%" ],
+          "controls": [
+            { "platform_icon@invite.platform_icon_panel": {
+                "layer": 1,
+                "$is_platform_icon": "$invite_platform_icons_visible",
+                "$icon_offset": [ 0, 2 ],
+                "anchor_to": "top_left",
+                "anchor_from": "top_left"
+              }
+            }
+          ]
+        }
+      },
+      { "space2@screen_jexp.h4px": {} },
+      { "profile_picture@realms_allowlist.linked_profile_pictures_panel": {} },
+      { "space3@screen_jexp.h2px": {} },
+      { "platform_names@platform_profile_names": {} },
+      { "space4@screen_jexp.h4px": {} }
+    ]
+  },
+
+  "platform_profile_names": {
+    "type": "stack_panel",
+    "size": ["fill", "100%"],
+    "controls": [
+      { "friend_grid_third_party_tag@third_party_profile_label": { "size": ["100%", 12] } },
+      { "space0@screen_jexp.v10px": {} },
+      { "friend_grid_xbl_gamertag@gamertag_label_panel": { "size": [ "100%", 12 ] } },
+      { "spacer@screen_jexp.v10px": {} }
+    ]
+  },
+
+  "linked_profile_pictures_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [21, "100%"],
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "controls": [
+      { "pp2@third_party_profile_pic_panel": { "size": ["100%", 21] } },
+      { "account_link@account_link_icon": { "size": ["100%", "fill"] } },
+      { "pp1@gamerpic_panel": { "size": ["100%", 21] } }
+    ]
+  },
+
+  "third_party_profile_pic_panel": {
+    "type": "panel",
+    "layer": 1,
+    "controls": [ { "third_party_profile_picture@third_party_profile_picture": { "layer": 1, "size": [ "100% - 2px", "100% - 2px" ] } } ]
+  },
+
+  "base_pic": {
+    "type": "image",
+    "texture": "#texture",
+    "texture_file_system": "#texture_file_system",
+    "bindings": [
+      { "binding_name": "('#' + $txr_nm)",
+        "binding_name_override": "#texture",
+        "binding_type": "collection",
+        "binding_collection_name": "$collt_bdg_nm"
+      },
+      { "binding_name": "('#' + $txr_nm + '_file_system')",
+        "binding_name_override": "#texture_file_system",
+        "binding_type": "collection",
+        "binding_collection_name": "$collt_bdg_nm"
+      }
+    ]
+  },
+
+  "third_party_profile_picture@base_pic": { "$txr_nm": "third_party_profile_pic" },
+
+  "account_link_icon": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%", "100%"],
+    "controls": [
+      { "space0@screen_jexp.h10px": {} },
+      { "account_link_image@invite.account_link_image": { "size": [ 2, "100%" ] } },
+      { "space1@screen_jexp.h10px": {} }
+    ]
+  },
+
+  "third_party_profile_label": {
+    "type": "panel",
+    "size": [100, "100%"],
+    "layer": 1,
+    "controls": [ { "profile_name@third_party_profile_name_label": {} } ]
+  },
+
+  "third_party_profile_name_label@base_text": {
+    "offset": [1, 1],
+    "$text_bdg_nm": "#third_party_profile_name"
+  },
+
+  /* Blocked */
+  "blocked_panel@xbl_profile_panel": {
+    "controls": [
+      { "xbl_user_panel@xbl_user_panel": {} },
+      { "unblock_button@unblock_button": {} }
+    ]
+  },
+
+  "unblock_button@button_jexp.button": {
+    "size": [72, 20],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "$btn_cont": "realms_allowlist.unblock_label",
+    "$prsd_btn_nm": "button.realms_invite_unblock",
+    "bindings": [
+      { "binding_type": "collection_details",
+        "binding_collection_name": "$collt_bdg_nm"
+      },
+      { "binding_name": "#members_list_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  /* Linked account blocked */
+  "linked_account_blocked_panel@xbl_profile_panel": {
+    "controls": [
+      { "linked_account_positioning_panel@linked_user_stack_panel": { "$ignore_status_icon": true } },
+      { "unblock_button@unblock_button": {} }
+    ]
+  },
+
+  /* Textures */
+  "user_on_icon@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/widgets",
+    "$uv": [208, 0],
+    "$uv_sz": [15, 15],
+    "size": [10, 10],
+    "bindings": [
+      { "binding_name": "$vis_bdg_nm",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$collt_bdg_nm"
+      }
+    ]
+  },
+  "user_off_icon@user_on_icon": { "$uv": [192, 0] },
+
+  "realms_invite_player_default@screen_jexp.res_txr": {
+    "texture": "assets/realms/textures/gui/realms/plus_icon",
+    "$uv_sz": [15, 15],
+    "size": [12, 12]
+  },
+  "realms_invite_player_hover@realms_invite_player_default": { "$uv": [0, 15] },
+
+  "realms_minus_default@screen_jexp.res_txr": {
+    "texture": "src/assets/img/minus_icon",
+    "$uv_sz": [15, 15],
+    "size": [12, 12]
+  },
+  "realms_minus_hover@realms_minus_default": { "$uv": [0, 15] },
+
+  "realms_undo_default@screen_jexp.res_txr": {
+    "texture": "assets/realms/textures/gui/realms/restore_icon",
+    "$uv_sz": [23, 28],
+    "size": [16, 16]
+  },
+  "realms_undo_hover@realms_undo_default": { "$uv": [0, 28] }
+}

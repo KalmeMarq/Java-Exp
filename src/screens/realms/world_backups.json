@@ -1,0 +1,196 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "realms_world_backups_jexp",
+  
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title0@screen_jexp.title": { "text": "mco.configure.world.backup", "offset": ["50% - 50%x", 12] } },
+      { "title1": {
+          "type": "panel",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": ["100% - 150px", 32],
+          "controls": [ { "title@screen_jexp.title": { "text": "mco.configure.world.backup", "offset": ["50% - 90px", 20], "color": [0.627, 0.627, 0.627], "shadow": false } } ]
+        }
+      },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "$scrollbar_offset": ["100% - 6px", 0],
+          "size": ["100% - 150px", "100% - 32px - 15px"],
+          "$scroll_cont": "dirt@realms_world_backups_jexp.scroll_cont"
+        }
+      },
+      { "back@realms_jexp.back_tgl_btn": { "$tgl_nm": "world_backups", "$tgl_text": "gui.back", "offset": ["100% - 100px", "100% - 35px"], "size": [85, 20] } }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "world_backups_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      { "tspace@screen_jexp.v4px": {} },
+      { "backup@backup_grid": {} },
+      { "bspace@screen_jexp.v2px": {} }
+    ]
+  },
+
+  "backup_grid": {
+    "type": "grid",
+    "size": ["100%", "default"],
+    "grid_item_template": "realms_world_backups_jexp.backup_grid_item",
+    "grid_dimension_binding": "#realms_backup_grid_dimension",
+    "$collection_binding_name": "realms_backup_collection",
+    "collection_name": "realms_backup_collection",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "bindings": [ { "binding_name": "#realms_backup_grid_dimension" } ]
+  },
+
+  "backup_grid_item": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": ["100%", 36],
+    "controls": [
+      { "item": {
+          "type": "panel",
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+          "size": [270, "100%"],
+          "controls": [
+            { "text@realms_world_backups_jexp.backup_grid_item_text": {} },
+            { "download@download_item_button": {} },
+            { "backup@backup_item_button": {} }
+          ]
+        }
+      }
+    ]
+  },
+
+  "base_button@button_jexp.button_base": {
+    "$prsd_btn_nm": "button.backup_download",
+    "size": [15, 15],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "controls": [
+      { "default@$dflt_bg": {} },
+      { "hover": {
+          "type": "panel",
+          "controls": [
+            { "@$hov_bg": {} },
+            { "alpha_hover_text@tooltip_jexp.tooltip": {} }
+          ]
+        }
+      },
+      { "pressed": {
+          "type": "panel",
+          "controls": [
+            { "@$hov_bg": {} },
+            { "alpha_hover_text@tooltip_jexp.tooltip": {} }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "collection_details",
+        "binding_collection_name": "realms_backup_collection"
+      },
+      { "ignored": "(not $prsd_btn_nm = select_realm_backup)",
+        "binding_type": "collection",
+        "binding_collection_name": "$collection_binding_name",
+        "binding_name": "#backup_item_button_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "download_item_button@base_button": {
+    "$prsd_btn_nm": "button.backup_download",
+    "$tooltip_text": "Download",
+    "offset": [-30, 0],
+    "$dflt_bg": "realms_world_backups_jexp.realms_download_default",
+    "$hov_bg": "realms_world_backups_jexp.realms_download_hover"
+  },
+
+  "backup_item_button@base_button": {
+    "$prsd_btn_nm": "select_realm_backup",
+    "$tooltip_text": "Backup",
+    "offset": [-50, 0],
+    "$dflt_bg": "realms_world_backups_jexp.realms_backup_default",
+    "$hov_bg": "realms_world_backups_jexp.realms_backup_hover"
+  },  
+
+  "hstack": {
+    "type": "stack_panel",
+    "size": ["100%", 10],
+    "orientation": "horizontal",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+
+  "base_text": {
+    "type": "label",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "text": "$text_bdg_nm",
+    "$text_bdg_nm|default": "",
+    "layer": 2,
+    "bindings": [
+      { "ignored": "($text_bdg_nm = '')",
+        "binding_name": "$text_bdg_nm",
+        "binding_type": "collection",
+        "binding_collection_name": "$collection_binding_name"
+      }
+    ]
+  },
+
+  "backup_grid_item_text": {
+    "type": "panel",
+    "controls": [
+      { "stack0@hstack": {
+          "controls": [
+            { "backup@base_text": { "text": "Backup" } },
+            { "left_parenteses@base_text": { "text": "gui.parenteses.left" } },
+            { "time_since@base_text": { "$text_bdg_nm": "#time_since_text" } },
+            { "right_parenteses@base_text": { "text": "gui.parenteses.right" } }
+          ]
+        }
+      },
+      { "stack1@hstack": {
+          "offset": [0, 12],
+          "controls": [
+            { "version@base_text": { "$text_bdg_nm": "#version_text", "color": [0.62, 0.62, 0.62] } },
+            { "space0@base_text": { "text": " " } },
+            { "size@base_text": { "$text_bdg_nm": "#size_text", "color": [0.62, 0.62, 0.62] } },
+            { "space1@base_text": { "text": " " } },
+            { "time@base_text": { "$text_bdg_nm": "#time_text", "color": [0.62, 0.62, 0.62] } }
+          ]
+        }
+      }
+    ]
+  },
+
+  /**********************************
+    Textures
+  ***********************************/
+  "base_img@screen_jexp.res_txr": {
+    "uv_size": [15, 15],
+    "size": [15, 15]
+  },
+
+  "realms_download_default@base_img": { "texture": "src/assets/icon/download_realm" },
+  "realms_download_hover@realms_download_default": { "uv": [0, 15] },
+  "realms_backup_default@base_img": { "texture": "assets/realms/textures/gui/realms/plus_icon" },
+  "realms_backup_hover@realms_backup_default": { "uv": [0, 15] }
+}

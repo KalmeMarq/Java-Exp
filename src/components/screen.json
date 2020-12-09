@@ -19,6 +19,11 @@
       { "right@$rt": {} }
     ]
   },
+  "stack": {
+    "type": "stack_panel",
+    "size": ["100%", 20],
+    "orientation": "horizontal"
+  },
 
   "focus_border_img": {
     "type": "image",

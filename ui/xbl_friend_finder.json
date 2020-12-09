@@ -7,6 +7,10 @@
       }
     ],
     "$scrn_cont": "xbl_friend_finder_jexp.screen_content",
-    "$scrn_bg": "screen_jexp.screen_background"
+    "$scrn_bg": "screen_jexp.screen_background",
+    "variables": {
+      "requires": "($is_pregame)",
+      "$scrn_bg": "screen_jexp.dirt_background"
+    } 
   }
 }

@@ -8,12 +8,25 @@
   "screen_content": {
     "type": "panel",
     "controls": [
-      { "popup_dialog_factory@screen_jexp.popup_dialog_factory": {} },
-      { "title@screen_jexp.title": { "text": "options.profileTitle", "offset": ["50% - 50%x", 20.5] } },
-      { "popups@popups": {} },
-      { "third_party_copyright@third_party_copyright_button": {} },
-      { "build_info@build_info_button": {} },
-      { "scroll_cont@scroll_cont": {} }
+      { "content": {
+          "type": "panel",
+          "controls": [
+            { "popup_dialog_factory@screen_jexp.popup_dialog_factory": {} },
+            { "title@screen_jexp.title": { "text": "options.profileTitle", "offset": ["50% - 50%x", 20.5] } },
+            { "popups@popups": {} },
+            { "third_party_copyright@third_party_copyright_button": {} },
+            { "build_info@build_info_button": {} },
+            { "scroll_cont@scroll_cont": {} }
+          ],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "subscriptions_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
     ],
     "bindings": [
       { "binding_type": "view",

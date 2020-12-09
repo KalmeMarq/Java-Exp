@@ -1,0 +1,77 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "realms_subscriptions_jexp",
+  
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "title@screen_jexp.title": { "text": "options.viewSubscriptions", "offset": ["50% - 50%x", 17] } },
+      { "player_count@realms_subscriptions_jexp.player_count_label": { "offset": ["50% - 100px", 40] } },
+      { "realm_duration_@realms_subscriptions_jexp.realm_duration_label": { "offset": ["50% - 100px", 79] } },
+      { "manage_subscriptions@realms_subscriptions_jexp.manage_subscriptions_button": { "offset": ["50% - 100px", 118] } },
+      { "delete_realm@realms_subscriptions_jexp.delete_realm_button": { "offset": ["50% - 100px", 170] } },
+      { "back@realms_jexp.back_tgl_btn": { "$tgl_nm": "realms_subscriptions", "$tgl_text": "gui.back", "offset": ["50% - 100px", 196] } }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "realms_subscriptions_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "manage_subscriptions_button@button_jexp.button_action": {
+    "$btn_text": "realmsSettingsScreen.manageSubscriptionsButton",
+    "$prsd_btn_nm": "menu_realms_manage_subscriptions",
+    "visible": "($realms_plus_on)"
+  },
+
+  "delete_realm_button@button_jexp.button_action": {
+    "$btn_text": "realmsSettingsScreen.deleteRealmButton",
+    "$prsd_btn_nm": "menu_realms_delete_realm",
+    "bindings": [
+      { "binding_name": "#delete_realm_button_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "option_info_label": {
+    "type": "panel",
+    "size": ["100%", 24],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      { "binding": {
+          "type": "label",
+          "text": "$text",
+          "color": [0.62, 0.62, 0.62],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left"
+        }
+      },
+      { "binding": {
+          "type": "label",
+          "text": "$text_bdg_nam",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "bindings": [ { "binding_name": "$text_bdg_nam" } ]
+        }
+      }
+    ]
+  },
+
+  "player_count_label@realms_subscriptions_jexp.option_info_label": {
+    "$text": "realmsSettingsScreen.playerCountLabel",
+    "$text_bdg_nam": "#realm_player_count"
+  },
+
+  "realm_duration_label@realms_subscriptions_jexp.option_info_label": {
+    "$text": "realmsSettingsScreen.realmDurationLabel",
+    "$text_bdg_nam": "#realm_duration_label"
+  }
+}

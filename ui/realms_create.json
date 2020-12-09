@@ -1,0 +1,17 @@
+{
+  "realms_create_screen@screen_jexp.screen": {
+    "button_mappings": [
+      { "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      { "from_button_id": "button.controller_select",
+        "to_button_id": "button.coin_wallet",
+        "mapping_type": "global",
+        "ignored": "(not $allow_coin_purchase)"
+      }
+    ],
+    "$scrn_cont": "realms_create_jexp.screen_content",
+    "$scrn_bg": "screen_jexp.dirt_background"
+  }
+}
