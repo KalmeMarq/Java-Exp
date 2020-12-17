@@ -63,7 +63,7 @@
   },
 
   /***********************************
-  * Slots
+    Slots
   ***********************************/
   "loom_slot@container_jexp.slot": {
     "anchor_from": "top_left",
