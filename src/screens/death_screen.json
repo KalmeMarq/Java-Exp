@@ -46,6 +46,14 @@
     ]
   },
 
+  "menu_panel": {
+    "type": "panel",
+    "controls": [
+      { "respawn@respawn_button": { "offset": ["50% - 50%x", "25% + 72px"] } },
+      { "title_screen@title_screen_button": { "offset": ["50% - 50%x", "25% + 96px"] } }
+    ]
+  },
+
   "respawn_button@button_jexp.button": {
     "$btn_text": "deathScreen.respawn",
     "$prsd_btn_nm": "button.respawn_button",

@@ -1,0 +1,86 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "servers_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "layer": 50,
+    "controls": [
+      { "content": {
+          "type": "panel",
+          "layer": 50,
+          "controls": [
+            { "dirt_cover@screen_jexp.dirt_cover": { "$bottom_sz": ["100%", 64] } },
+            { "title@screen_jexp.title": { "offset": ["50% - 50%x", 17], "text": "multiplayer.title" } },
+            { "go_to_worlds@play_jexp.left_tgl_btn": { "$tgl_idx": 0, "$tgl_ctrl_nm": "view" } },
+            { "go_to_realms@play_jexp.right_tgl_btn": { "$tgl_idx": 1, "$tgl_ctrl_nm": "realms_view", "$tgl_nm": "0001" } },
+            { "scroll@scrollpane_jexp.scrollpane": {
+                "offset": [0, 32],
+                "layer": -54,
+                "$clips_viewport": false,
+                "size": ["100%", "100% - 32px - 64px"],
+                "$scroll_cont": "dirt@servers_jexp.scroll_cont"
+              }
+            },
+            { "exit@button_jexp.button": {
+                "$btn_text": "gui.cancel",
+                "$prsd_btn_nm": "button.menu_exit",
+                "offset": ["50% + 82px", "100% - 28px"],
+                "size": [72, 20]
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "realms_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "servers_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      { "tspace@screen_jexp.v4px": {} },
+      { "bspace@screen_jexp.v2px": {} }
+    ]
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
+  "select_btn_dflt@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/title/server_selection",
+    "$uv_sz": [32, 32],
+    "variables": [
+      { "requires": "($server_selection_res = 512x)", "$uv_sz": [64, 64] },
+      { "requires": "($server_selection_res = 1024x)", "$uv_sz": [128, 128] },
+      { "requires": "($server_selection_res = 2048x)", "$uv_sz": [256, 256] },
+      { "requires": "($server_selection_res = 4096x)", "$uv_sz": [512, 512] }
+    ]
+  },
+
+  "select_btn_hov@select_btn_dflt": {
+    "variables": [
+      { "requires": "($server_selection_res = 512x)", "$uv": [0, 64], "$uv_sz": [64, 64] },
+      { "requires": "($server_selection_res = 1024x)", "$uv": [0, 128], "$uv_sz": [128, 128] },
+      { "requires": "($server_selection_res = 2048x)", "$uv": [0, 256], "$uv_sz": [256, 256] },
+      { "requires": "($server_selection_res = 4096x)", "$uv": [0, 512], "$uv_sz": [512, 512] }
+    ]
+  }
+}

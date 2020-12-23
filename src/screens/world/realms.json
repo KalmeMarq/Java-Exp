@@ -1,0 +1,121 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "realms_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "layer": 50,
+    "controls": [
+      { "dirt_cover@screen_jexp.dirt_cover": {} },
+      { "title@realms_title": { "offset": ["50% - 50%x", "16px - 50%y"] } },
+      { "go_to_servers@play_jexp.left_tgl_btn": { "$tgl_idx": 0, "$tgl_ctrl_nm": "view", "$tgl_nm": "0001" } },
+      { "scroll@scrollpane_jexp.scrollpane": {
+          "offset": [0, 32],
+          "layer": -54,
+          "$clips_viewport": false,
+          "size": ["100%", "100% - 32px"],
+          "$scroll_cont": "dirt@realms_jexp.scroll_cont"
+        }
+      },
+      { "exit@button_jexp.button": {
+          "$btn_text": "gui.cancel",
+          "$prsd_btn_nm": "button.menu_exit",
+          "offset": ["50% + 82px", "100% - 28px"],
+          "size": [72, 20]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "realms_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      { "tspace@screen_jexp.v4px": {} },
+      { "bspace@screen_jexp.v2px": {} }
+    ]
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
+  "realms_title": {
+    "type": "image",
+    "texture": "assets/realms/textures/gui/title/realms",
+    "size": ["439.58333%y", 24],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+
+  "config_icon_dflt@screen_jexp.res_txr": {
+    "texture": "assets/realms/textures/gui/title/configure_icon",
+    "$uv_sz": [28, 28],
+    "variables": [
+      { "requires": "($config_icon_res = 512x)", "$uv_sz": [56, 56] },
+      { "requires": "($config_icon_res = 1024x)", "$uv_sz": [112, 112] },
+      { "requires": "($config_icon_res = 2048x)", "$uv_sz": [224, 224] },
+      { "requires": "($config_icon_res = 4096x)", "$uv_sz": [448, 448] }
+    ]
+  },
+
+  "config_icon_hov@config_icon_dflt": {
+    "$uv": [28, 0],
+    "variables": [
+      { "requires": "($config_icon_res = 512x)", "$uv": [56, 0], "$uv_sz": [56, 56] },
+      { "requires": "($config_icon_res = 1024x)", "$uv": [112, 0], "$uv_sz": [112, 112] },
+      { "requires": "($config_icon_res = 2048x)", "$uv": [224, 0], "$uv_sz": [224, 224] },
+      { "requires": "($config_icon_res = 4096x)", "$uv": [448, 0], "$uv_sz": [448, 448] }
+    ]
+  },
+
+  "leave_icon_dflt@screen_jexp.res_txr": {
+    "texture": "assets/realms/textures/gui/title/leave_icon",
+    "variables": [
+      { "requires": "($config_icon_res = 512x)", "$uv_sz": [56, 56] },
+      { "requires": "($config_icon_res = 1024x)", "$uv_sz": [112, 112] },
+      { "requires": "($config_icon_res = 2048x)", "$uv_sz": [224, 224] },
+      { "requires": "($config_icon_res = 4096x)", "$uv_sz": [448, 448] }
+    ]
+  },
+
+  "leave_icon_hov@leave_icon_dflt": {
+    "$uv_sz": [28, 0],
+    "variables": [
+      { "requires": "($config_icon_res = 512x)", "$uv": [56, 0], "$uv_sz": [56, 56] },
+      { "requires": "($config_icon_res = 1024x)", "$uv": [112, 0], "$uv_sz": [112, 112] },
+      { "requires": "($config_icon_res = 2048x)", "$uv": [224, 0], "$uv_sz": [224, 224] },
+      { "requires": "($config_icon_res = 4096x)", "$uv": [448, 0], "$uv_sz": [448, 448] }
+    ]
+  },
+
+  "questionmark_dflt@screen_jexp.res_txr": {
+    "texture": "assets/realms/textures/gui/title/questionmark",
+    "$uv_sz": [20, 20],
+    "variables": [
+      { "requires": "($config_icon_res = 512x)", "$uv_sz": [20, 20] },
+      { "requires": "($config_icon_res = 1024x)", "$uv_sz": [40, 40] },
+      { "requires": "($config_icon_res = 2048x)", "$uv_sz": [80, 80] },
+      { "requires": "($config_icon_res = 4096x)", "$uv_sz": [160, 160] }
+    ]
+  },
+
+  "questionmark_hov@questionmark_dflt": {
+    "$uv": [20, 0],
+    "variables": [
+      { "requires": "($config_icon_res = 512x)", "$uv": [20, 0], "$uv_sz": [20, 20] },
+      { "requires": "($config_icon_res = 1024x)", "$uv": [40, 0], "$uv_sz": [40, 40] },
+      { "requires": "($config_icon_res = 2048x)", "$uv": [80, 0], "$uv_sz": [80, 80] },
+      { "requires": "($config_icon_res = 4096x)", "$uv": [160, 0], "$uv_sz": [160, 160] }
+    ]
+  }
+}

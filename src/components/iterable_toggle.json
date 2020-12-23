@@ -26,7 +26,6 @@
     "$tgl_tts_tgl_on_text": "accessibility.state.selected",
     "$tgl_tts_tgl_off_text": "accessibility.state.unselected",
     "$tgl_tts_type_pri": 50,
-    "$enabled|default": true,
     "controls": [ { "ctrl@iterable_toggle_jexp.iterable_tgl_ctrl": {} } ],
     "bindings": [
       { "binding_name": "$this_action",

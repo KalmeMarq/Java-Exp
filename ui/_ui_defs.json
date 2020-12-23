@@ -17,24 +17,7 @@
     "src/components/toggle_radio.json",
     "src/components/tooltip.json",
     /* Screens */
-    "src/screens/add_external_server.json",
-    "src/screens/book.json",
-    "src/screens/command_block.json",
-    "src/screens/death_screen.json",
-    "src/screens/edit_sign.json",
-    "src/screens/ingame_hud.json",
-    "src/screens/ingame_menu.json",
-    "src/screens/invite.json",
-    "src/screens/jigsaw_block.json",
-    "src/screens/main_menu.json",
-    "src/screens/mob_effects.json",
-    "src/screens/online_safety.json",
-    "src/screens/options.json",
-    "src/screens/players.json",
-    "src/screens/popup.json",
-    "src/screens/progress.json",
-    "src/screens/scoreboard.json",
-    "src/screens/sleep_in_bed.json",
+
     /* Screens - Account */
     "src/screens/account/account_banned.json",
     "src/screens/account/account_transfer_error.json",
@@ -72,6 +55,24 @@
     "src/screens/debug/safe_zone.json",
     /* Screens - Education */
     "src/screens/education/chalkboard.json",
+    /* Screens - Menus */
+    "src/screens/add_external_server.json",
+    "src/screens/book.json",
+    "src/screens/command_block.json",
+    "src/screens/death_screen.json",
+    "src/screens/edit_sign.json",
+    "src/screens/ingame_hud.json",
+    "src/screens/ingame_menu.json",
+    "src/screens/invite.json",
+    "src/screens/jigsaw_block.json",
+    "src/screens/main_menu.json",
+    "src/screens/mob_effects.json",
+    "src/screens/online_safety.json",
+    "src/screens/players.json",
+    "src/screens/popup.json",
+    "src/screens/progress.json",
+    "src/screens/scoreboard.json",
+    "src/screens/sleep_in_bed.json",
     /* Screens - Others */
     "src/screens/others/adhoc_inprogress.json",
     "src/screens/others/adhoc.json",
@@ -111,6 +112,7 @@
     "src/screens/settings/language.json",
     "src/screens/settings/manifest_validation.json",
     "src/screens/settings/music_sound.json",
+    "src/screens/options.json",
     "src/screens/settings/pack_settings.json",
     "src/screens/settings/packs.json",
     "src/screens/settings/storage_management.json",
@@ -125,16 +127,20 @@
     "src/screens/world/create.json",
     "src/screens/world/edit.json",
     "src/screens/world/gamerules.json",
-    "src/screens/world/more_options.json",
     "src/screens/world/join_by_code.json",
+    "src/screens/world/more_options.json",
+    "src/screens/world/play.json",
+    "src/screens/world/realms.json",
     "src/screens/world/seed_picker.json",
+    "src/screens/world/servers.json",
     "src/screens/world/world_templates.json",
+    "src/screens/world/worlds.json",
     /* Screens - Xbl */
     "src/screens/xbl/xbl_friend_finder.json",
-    /* Test */
-    "src/test/book.json",
-    "src/test/container.json",
-    "src/test/ingame_hud.json",
-    "src/test/mob_effects.json"
+    /* Tests */
+    "src/tests/book.json",
+    "src/tests/container.json",
+    "src/tests/ingame_hud.json",
+    "src/tests/mob_effects.json"
   ]
 }

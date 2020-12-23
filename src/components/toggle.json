@@ -7,6 +7,8 @@
 
   "toggle_base": {
     "type": "toggle",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
     "layer": 1,
     /* Focus */
     "$focus_id|default": "",
@@ -203,8 +205,6 @@
     "$lkd_btn_color|default": "$btn_lkd_color",
     "$tgl_unchecked_text|default": "options.off",
     "$tgl_checked_text|default": "options.on",
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
     "controls": [
       { "checked@$tgl_state_panel": {
           "$tgl_state": "checked",
@@ -270,11 +270,7 @@
     "$tgl_state|default": "",
     "$tooltip_text|default": "",
     "controls": [
-      { "tooltip@tooltip_jexp.tooltip": {
-          "ignored": "(not ($tgl_state = checkedhov or $tgl_state = uncheckedhov))",
-          "visible": "(not $tooltip_text = '')"
-        }
-      },
+      { "tooltip@tooltip_jexp.tooltip": { "ignored": "(not ($tgl_state = checkedhov or $tgl_state = uncheckedhov) or $tooltip_text = '')" } },
       { "$tgl_bg@$tgl_bg": {} },
       { "inner_content": {
           "type": "panel",

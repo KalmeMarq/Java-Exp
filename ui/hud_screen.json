@@ -1,5 +1,5 @@
 {
-  "hud_screen@screen_jexp.screen": {
+  /* "hud_screen@screen_jexp.screen": {
     "is_showing_menu": false,
     "should_steal_mouse": true,
     "low_frequency_rendering": true,
@@ -73,5 +73,29 @@
     ],
     "render_only_when_topmost": false,
     "$scrn_cont": "ingame_hud.screen_content"
+  } */
+
+  "hud_actionbar_text": {
+    "type": "image",
+    "size": [ "100%c + 12px", "100%c + 5px" ],
+    "offset": [-1, 1],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "texture": "textures/ui/hud_tip_text_background",
+    "alpha": "@hud.anim_actionbar_text_background_alpha_out",
+    "controls": [
+      {
+        "actionbar_message": {
+          "type": "label",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "color": "$tool_tip_text",
+          "layer": 1,
+          "text": "$actionbar_text",
+          "localize": false,
+          "alpha": "@hud.anim_actionbar_text_alpha_out"
+        }
+      }
+    ]
   }
 }

@@ -48,11 +48,10 @@
   },
 
   "buttons_panel": {
-    "type": "stack_panel",
+    "type": "panel",
     "size": [310, 20],
     "anchor_to": "center",
     "anchor_from": "center",
-    "orientation": "horizontal",
     "controls": [
       { "view_more_info_button@button_jexp.button_link": {
           "size": [150, 20],
@@ -60,9 +59,9 @@
           "$link": "https://aka.ms/MCBanned"
         }
       },
-      { "space@screen_jexp.hfill": {} },
       { "right@button_jexp.button": {
           "size": [150, 20],
+          "offset": ["100% - 100%x", 0],
           "$btn_text": "gui.done",
           "$prsd_btn_nm": "button.menu_exit"
         }

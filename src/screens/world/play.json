@@ -1,0 +1,107 @@
+/**********************************
+  (c) Copyright 2020 @FMarquesPTO.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "play_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      { "worlds_scrn@worlds_jexp.screen_content": {} },
+      { "servers_scrn@servers_jexp.screen_content": { "visible": false } },
+      { "realms_scrn@realms_jexp.screen_content": { "visible": false } },
+      { "popup_dialog_factory": {
+          "type": "factory",
+          "control_ids": {
+            "join_by_code": "@join_by_code_jexp.screen_content",
+            "high_ping_warning": "@play.popup_dialog_high_ping"
+          }
+        }
+      }
+    ]
+  },
+
+  "left_tgl_btn@toggle_button_jexp.toggle_button": {
+    "size": [20, 20],
+    "$tgl_text": "<",
+    "offset": [6, 6],
+    "$tgl_nm": "navitab"
+  },
+
+  "right_tgl_btn@toggle_button_jexp.toggle_button": {
+    "size": [20, 20],
+    "$tgl_text": ">",
+    "offset": ["100% - 26px", 6],
+    "$tgl_nm": "navitab"
+  },
+
+  "grid_template": {
+    "type": "grid",
+    "size": ["100%", "default"],
+    "grid_item_template": "play_jexp.grid_item",
+    "grid_dimension_binding": "$grid_dim_bdg",
+    "collection_name": "$collection_name",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "bindings": [ { "binding_name": "$grid_dim_bdg" } ]
+  },
+
+  "grid_item": {
+    "type": "panel",
+    "size": ["100%", 36],
+    "controls": [
+      { "item": {
+          "type": "panel",
+          "size": [266, 32],
+          "$grid_item_icon_image": "($from + '_jexp.' + $grid_nm + '_icon')",
+          "$grid_item_button": "($from + '_jexp.' + $grid_nm + '_button')",
+          "$grid_item_header_content": "($from + '_jexp.' + $grid_nm + '_header_content')",
+          "$grid_item_description_content": "($from + '_jexp.' + $grid_nm + '_description_content')",
+          "controls": [
+            { "grid_item_icon_image@$grid_item_icon_image": {} },
+            { "grid_item_button_panel": {
+                "type": "panel",
+                "size": [36, 36],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "offset": [-2, -2],
+                "layer": 2,
+                "controls": [ { "button@$grid_item_button": {} } ]
+              }
+            },
+            { "content_panel": {
+                "type": "panel",
+                "size": ["100% - 34px", "100%"],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "offset": [34, 0],
+                "layer": 2,
+                "controls": [
+                  { "content@play_mcjava.grid_item_content": {} }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "grid_item_content": {
+    "type": "panel",
+    "controls": [
+      { "header_content@$grid_item_header_content": { "layer": 1 } },
+      { "description_content@$grid_item_description_content": { "layer": 1, "offset": [0, 11] } }
+    ]
+  },
+
+  "desc_base": {
+    "type": "label",
+    "color": "$info_color"
+  }
+
+  /***********************************
+  * Textures
+  ************************************/
+}

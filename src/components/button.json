@@ -7,7 +7,10 @@
   "namespace": "button_jexp",
   
   "button_base": {
-    "type": "button",
+    "type": "\u0062\u0075\u0074\u0074\u006f\u006e",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "layer": 1,
     /* Focus */
     "$focus_id|default": "",
     "$focus_ovrd_down|default": "",
@@ -35,7 +38,7 @@
     "tts_control_type_order_priority": "$btn_tts_ctrl_type_order_pri",
     "tts_index_priority": "$btn_tts_idx_pri",
     /* Click Sound */
-    "sound_name": "random.click",
+    "sound_name": "ui.button.click",
     "sound_volume": 1.0,
     "sound_pitch": 1.0,
     /* States Control */
@@ -58,13 +61,19 @@
     /* Bindings */
     "$btn_bdgs|default": [],
     "bindings": "$btn_bdgs",
-    "layer": 1   
+    /* Property Bag */
+    "property_bag": "$prop_bag",
+    "$prop_bag|default": {}
   },
 
   "button@button_jexp.button_base": {
     "$btn_state_panel|default": "button_jexp.button_state",
     "$btn_cont|default": "button_label",
     "$btn_text|default": "",
+    /* Text Bindings */
+    "$btn_text_bdg_type|default": "none",
+    "$btn_bdg_cond|default": "none",
+    "$btn_text_grid_cllctn_nm|default": "",
     /* Background */
     "$dflt_btn_bg|default": "button_jexp.button_default",
     "$hov_btn_bg|default": "button_jexp.button_hover",
@@ -74,8 +83,6 @@
     "$hov_btn_color|default": "$btn_hov_color",
     "$lkd_btn_color|default": "$btn_lkd_color",
     "size": [200, 20],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
     "locked_control": "locked",
     "controls": [
       { "default@$btn_state_panel": {
@@ -106,17 +113,6 @@
           "layer": 1
         }
       }
-    ],
-    "$btn_text_bdg_type|default": "none",
-    "$btn_bdg_cond|default": "none",
-    "$btn_text_grid_cllctn_nm|default": "",
-    "$btn_text_bdgs": [
-      { "binding_type": "$btn_text_bdg_type",
-        "binding_condition": "$btn_bdg_cond",
-        "binding_collection_name": "$btn_text_grid_cllctn_nm",
-        "binding_name": "$btn_text",
-        "binding_name_override": "$btn_text"
-      }
     ]
   },
 
@@ -142,11 +138,7 @@
     "$btn_state|default": "",
     "$tooltip_text|default": "",
     "controls": [
-      { "tooltip@tooltip_jexp.tooltip": {
-          "ignored": "(not ($btn_state = hov))",
-          "visible": "(not $tooltip_text = '')"
-        }
-      },
+      { "tooltip@tooltip_jexp.tooltip": { "ignored": "(not ($btn_state = hov) or $tooltip_text = '')" } },
       { "$btn_bg@$btn_bg": {} },
       { "inner_content": {
           "type": "panel",
@@ -164,6 +156,7 @@
     "size": ["100%cm", "100%"],
     "$padding_size|default": ["100%sm + 12px", "100%"],
     "controls": [
+      { "tooltip@tooltip_jexp.tooltip": { "ignored": "(not ($btn_state = hov) or $tooltip_text = '')" } },
       { "$btn_bg@$btn_bg": { "size": "$padding_size" } },
       { "inner_content": {
           "type": "panel",
@@ -189,7 +182,6 @@
     "max_size": "$text_max_sz",
     "text_alignment": "$text_alignment",
     "bindings": "$btn_text_bdgs",
-    "$btn_text_bdgs|default": [],
     "$text_shadow|default": true,
     "$font_type|default": "default",
     "$text_font_scale_factor|default": 1.0,
@@ -198,7 +190,15 @@
     "$text_sz|default": ["default", "default"],
     "$text_max_sz|default": ["default", 10],
     "$text_alignment|default": "center",
-    "layer": 4
+    "layer": 4,
+    "$btn_text_bdgs|default": [
+      { "binding_type": "$btn_text_bdg_type",
+        "binding_condition": "$btn_bdg_cond",
+        "binding_collection_name": "$btn_text_grid_cllctn_nm",
+        "binding_name": "$btn_text",
+        "binding_name_override": "$btn_text"
+      }
+    ]
   },
 
   /***********************************

@@ -109,41 +109,36 @@
     "anchor_from": "top_right",
     "anchor_to": "top_right",
     "offset": [-10, 68],
-    "layer": 10,
+    "layer": 4,
     "controls": [
       { "bg": {
           "type": "image",
           "texture": "src/assets/white",
-          "color": [0.537, 0.537, 0.537],
+          "color": "black",
           "size": ["100% + 4px", "100% + 2px"],
-          "layer": -5
+          "alpha": 0.3,
+          "layer": -2
         }
+      }
+    ],
+    "bindings": [
+      { "binding_name": "#cost_text",
+        "binding_name_override": "#text"
+      },
+      { "binding_name": "$bdg_nm",
+        "binding_name_override": "#visible"
       }
     ]
   },
 
   "fail_cost_label@anvil_jexp.cost_label": {
     "color": "$anvil_cost_fail_text_color",
-    "bindings": [
-      { "binding_name": "#cost_text",
-        "binding_name_override": "#text"
-      },
-      { "binding_name": "#cost_text_red",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "$bdg_nm": "#cost_text_red"
   },
 
   "success_cost_label@anvil_jexp.cost_label": {
     "color": "$anvil_cost_success_text_color",
-    "bindings": [
-      { "binding_name": "#cost_text",
-        "binding_name_override": "#text"
-      },
-      { "binding_name": "#cost_text_green",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "$bdg_nm": "#cost_text_green"
   },
 
   /***********************************

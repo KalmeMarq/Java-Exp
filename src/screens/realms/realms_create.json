@@ -23,7 +23,6 @@
                 "offset": ["50% - 100px + 3px", "25% + 120px + 17px + 20px"],
                 "text": "#confirmation_button_text",
                 "color": "$info_color",
-                "font_type": "smooth",
                 "bindings": [ { "binding_name": "#confirmation_button_text" } ],
                 "controls": [
                   { "coin@common_store.coin_icon": {

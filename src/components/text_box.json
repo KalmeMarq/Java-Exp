@@ -228,11 +228,7 @@
     "$text_box_state|default": "",
     "$tooltip_text|default": "",
     "controls": [
-      { "tooltip@tooltip_jexp.tooltip": {
-          "ignored": "(not ($text_box_state = hover))",
-          "visible": "(not $tooltip_text = '')"
-        }
-      },
+      { "tooltip@tooltip_jexp.tooltip": { "ignored": "(not ($text_box_state = hover) or $tooltip_text = '')" } },
       { "$text_box_bg@$text_box_bg": {} },
       { "inner_content": {
           "type": "panel",

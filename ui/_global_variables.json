@@ -2,6 +2,10 @@
   /**********************************
     UI Customization
   ***********************************/
+  /* New */
+  "$ignore_pickup_time": true,
+
+
   "$development_version_visible": "(not $is_publish)", // Default: "(not $is_publish)"
   "$enable_safe_zone_advanced_sliders": "(not $is_publish)", // Default: "(not $is_publish)"
 
@@ -37,13 +41,12 @@
   "$show_enchantments_below_hud_item_name": false, // Default: false
   "$show_dark_bg_below_hud_texts": false, // Default: false
 
-  "$faster_mouse_keymappings": true, // Default: true | Display the keymappings items without categories.
-  // Disable it to get the full Java experience but screen will take longer to load.
+  "$faster_mouse_keymappings": true, // Default: true | Display the keymappings items without categories. Disable it to get the full Java experience but screen will take longer to load.
 
-  "$faster_controller_keymappings": false, // Default: true | Display the keymappings items without categories.
-        // Disable it to get the full Java experience but screen will take longer to load.
+  "$faster_controller_keymappings": false, // Default: true | Display the keymappings items without categories. Disable it to get the full Java experience but screen will take longer to load.
 
-  // "$show_furnace_recipe_book": false, // Default: false | Not working on 1.16.100 betas
+  "$show_crafting_recipe_book": false, // Default: true
+  "$show_furnace_recipe_book": false, // Default: false
   
   "$force_container_close_on_player_hurt": false, // Default: false, | When the player is hurted while using a container it'll close the container in use.
 
@@ -119,10 +122,10 @@
   "$slot_lock_in_slot_color": "red", // Default: "red"
   "$slot_lock_in_inv_color": "yellow", // Default: "yellow"
 
-  "$tootlip_bg_alpha": 0.95, // Default: 0.95
-  "$custom_tooltip_bg": false, // Default: false
-    "$custom_tooltip_border_color": [0.1441, 0, 0.3559], // Default: [0.1441, 0, 0.3559]
-    "$custom_tooltip_bg_color": [0.0862, 0.0039, 0.0862], // Default: [0.0862, 0.0039, 0.0862]
+  // "$tootlip_bg_alpha": 1, // Default: 0.95
+  // "$custom_tooltip_bg": false, // Default: false
+  //   "$custom_tooltip_border_color": [0.1441, 0, 0.3559], // Default: [0.1441, 0, 0.3559]
+  //   "$custom_tooltip_bg_color": [0.0862, 0.0039, 0.0862], // Default: [0.0862, 0.0039, 0.0862]
 
   "$anvil_cost_success_text_color": [0.49, 0.99, 0.125], // Default: [0.49, 0.99, 0.125]
   "$anvil_cost_fail_text_color": [0.99, 0.35, 0.37], // Default: [0.99, 0.35, 0.37]
@@ -136,6 +139,7 @@
   "$social_interactions_res": "256x", // "assets/minecraft/textures/gui/social_interactions.png",
   "$checkbox_res": "256x", // "assets/minecraft/textures/gui/checkbox.png",
   "$world_selection_res": "256x", // "assets/minecraft/textures/gui/world_selection.png",
+  "$server_selection_res": "256x", // "assets/minecraft/textures/gui/server_selection.png",
 
   "$title_res": "256x", // "assets/minecraft/textures/gui/title/minecraft.png",
   "$edition_res": "256x", // "assets/minecraft/textures/gui/title/edition.png",
@@ -166,5 +170,9 @@
   "$shulker_box_res": "256x", // "assets/minecraft/textures/gui/container/shulker_box.png"
   "$smithing_table_res": "256x", // "assets/minecraft/textures/gui/container/smithing_table.png"
   "$stonecutter_res": "256x", // "assets/minecraft/textures/gui/container/stonecutter.png"
-  "$villager2_res": "256x" // "assets/minecraft/textures/gui/container/villager2.png"
+  "$villager2_res": "256x", // "assets/minecraft/textures/gui/container/villager2.png"
+
+  "$config_icon_res": "256x", // "assets/realms/textures/gui/realms/configure_icon.png"
+  "$leave_icon_res": "256x", // "assets/realms/textures/gui/realms/leave_icon.png"
+  "$questionmark_res": "256x" // "assets/realms/textures/gui/realms/questionmark.png"
 }

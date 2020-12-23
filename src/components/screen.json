@@ -287,8 +287,8 @@
             }
           ],
           "controls": [
-            { "scrn_bg@$scrn_bg": { "layer": 0 } },
-            { "scrn_with_safe_zone@screen_jexp.sz_outer_matrix": { "layer": 10 } }
+            { "scrn_bg@$scrn_bg": { "layer": 2 } },
+            { "scrn_with_safe_zone@screen_jexp.sz_outer_matrix": { "layer": 12 } }
           ]
         }
       }
@@ -427,12 +427,11 @@
   "dirt_cover": {
     "type": "panel",
     "size": ["100%", "100%"],
-    "$top_sz": ["100%", 44],
+    "$top_sz": ["100%", 32],
     "$bottom_sz": ["100%", 32],
     "layer": 0,
     "controls": [
-      {
-        "top": {
+      { "top": {
           "type": "input_panel",
           "focus_enabled": false,
           "size": "$top_sz",
@@ -440,8 +439,7 @@
           "anchor_to": "top_left",
           "clips_children": true,
           "controls": [
-            {
-              "@screen_jexp.dirt_background": {
+            { "@screen_jexp.dirt_background": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left"
               }
@@ -449,8 +447,7 @@
           ]
         }
       },
-      {
-        "bottom": {
+      { "bottom": {
           "type": "input_panel",
           "focus_enabled": false,
           "size": "$bottom_sz",
@@ -458,8 +455,7 @@
           "anchor_to": "bottom_left",
           "clips_children": true,
           "controls": [
-            {
-              "@screen_jexp.dirt_background": {
+            { "@screen_jexp.dirt_background": {
                 "anchor_from": "bottom_left",
                 "anchor_to": "bottom_left"
               }

@@ -30,7 +30,7 @@
     "$sldr_tts_hdr_bdg_type|default": "none",
     "$sldr_tts_hdr_bdg_cond|default": "visible",
     "$sldr_hdr_coll_nm": "",
-    "$sldr_tts_ovrd_value|default": " ", // The header will likely always displays the slider value
+    "$sldr_tts_ovrd_value|default": " ", /* The header will likely always displays the slider value */
     "$sldr_tts_nm|default": "accessibility.slider.tts.title",
     "$sldr_tts_text_value|default": "",
     "$tts_sect_hdr|default": "",
@@ -69,7 +69,7 @@
     "slider_collection_name": "$sldr_coll_nm",
     "layer": 1,
     /* Slider Steps */
-    "$slider_step_factory_control_ids": {
+    "$slider_step_factory_control_ids|default": {
       /* Not needed 
       "slider_step": "@screen_jexp.empty_panel",
       "slider_step_hover": "@screen_jexp.empty_panel",
@@ -208,18 +208,11 @@
     ]
   },
 
-  "slider_box": {
+  "slider_box@common.slider_box": {
     "$sldr_cont": "",
-    "type": "slider_box",
     "size": [8, 20],
-    "anchor_to": "center",
-    "anchor_from": "center",
     "layer": 4,
     /* States Control */
-    "default_control": "default",
-    "hover_control": "hover",
-    "locked_control": "locked",
-    "indent_control": "indent",
     "$tooltip_text": "",
     "controls": [
       { "default@sldr_state": {
@@ -275,11 +268,7 @@
     "$sldr_state|default": "",
     "$tooltip_text|default": "",
     "controls": [
-      { "tooltip@tooltip_jexp.tooltip": {
-          "ignored": "(not ($sldr_state = hover))",
-          "visible": "(not $tooltip_text = '')"
-        }
-      },
+      { "tooltip@tooltip_jexp.tooltip": { "ignored": "(not ($sldr_state = hover) or $tooltip_text = '')" } },
       { "$sldr_bg@$sldr_bg": {} },
       { "inner_content": {
           "type": "panel",

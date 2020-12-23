@@ -13,13 +13,14 @@
     "controls": [
       { "extra@$extra_cont": {} },
       { "invisible_exit_bg@container_jexp.invisible_exit_bg": {} },
-      { "selected_item_button@container_jexp.selected_item_button": {} },
       { "root_panel@$root_panel": {
           "size": "$container_size",
           "controls": "$root_ctrls",
           "$root_ctrls|default": [
             { "bg@$container_bg": {} },
-            { "cont@$container_cont": { "layer": 2, "size": ["100%sm", "100%sm"] } }
+            { "cont@$container_cont": { "layer": 2, "size": ["100%sm", "100%sm"] } },
+            { "selected_item_button@container_jexp.selected_item_button": {} },
+            { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} }
           ]
         }
       }
@@ -56,9 +57,8 @@
   ***********************************/
   "title": {
     "type": "label",
-    "anchor_from": "$tanchor",
-    "anchor_to": "$tanchor",
-    "$tanchor|default": "top_left",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
     "text": "$container_title",
     "color": "$container_text_color",
     "layer": 2
@@ -72,7 +72,6 @@
     "renderer": "inventory_item_renderer",
     "layer": 5,
     "$item_renderer_bdg_cond|default": "none",
-    "$ignore_pickup_time|default": false,
     "bindings": [
       { "binding_type": "collection_details",
         "binding_collection_name": "$item_collt_nm"
@@ -138,7 +137,7 @@
   },
 
   "stack_count_label@common.stack_count_label": {
-    "ignored": "(not $stack_count_required)",
+    "ignored": "(not $stack_count_rqrd)",
     "color": "$item_stack_text_color",
     "$stack_count_bdg_nm|default": "#inventory_stack_count",
     "$stack_count_bdg_cond|default": "none",
@@ -167,7 +166,7 @@
     "$slot_size|default": [18, 18],
     "layer": 1,
     "$btn_ref|default": "container_jexp.slot_prototype_btn",
-    "$highlight_slot_required|default": true,
+    "$hgl_slot_rqrd|default": true,
     /* Focus */
     "$focus_id|default": "",
     "$focus_ovrd_down|default": "",
@@ -197,7 +196,7 @@
     "$item_renderer_ref|default": "container_jexp.item_renderer",
     "$item_renderer_size|default": [16, 16],
     "$item_renderer_offset|default": [0, 0],
-    "$stack_count_required|default": true,
+    "$stack_count_rqrd|default": true,
     "$item_renderer_bdg_cond|default": "none",
     "controls": [
       { "slot_inner_panel": {
@@ -382,8 +381,7 @@
           "$item_tooltip_bdg_nm|default": "(not (#hover_text = ''))",
           "layer": 50,
           "bindings": [
-            {
-              "binding_name": "$item_tooltip_bdg_nm",
+            { "binding_name": "$item_tooltip_bdg_nm",
               "binding_name_override": "#visible",
               "binding_type": "collection",
               "binding_collection_name": "$item_collt_nm"
@@ -399,7 +397,7 @@
     "texture": "src/assets/white",
     "size": "$slot_highlight_size",
     "color": "$slot_highlight_color",
-    "ignored": "(not $highlight_slot_required)",
+    "ignored": "(not $hgl_slot_rqrd)",
     "alpha": "$slot_highlight_alpha"
   },
 
@@ -458,21 +456,8 @@
   /***********************************
   * Player Inventory and Hotbar
   ***********************************/
-  "selected_item_button": {
-    "type": "button",
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "locked_control": "",
-    "default_control": "default",
-    "hover_control": "hover",
-    "pressed_control": "pressed",
-    "layer": -10,
-    "size": [16, 16],
-    "follows_cursor": true,
+  "selected_item_button@common.inventory_selected_icon_button": {
     "sound_name": "random.click",
-    "sound_volume": 1.0,
-    "sound_pitch": 1.0,
-    "always_handle_pointer": true,
     "$durab_bar_required|default": true,
     "controls": [
       { "default@item_selected": {} },
@@ -498,17 +483,7 @@
           ]
         }
       },
-      { "selected_item_lock_overlay@container_jexp.selected_item_lock_overlay": { "layer": 48 } },
-      { "item_tooltip@container_jexp.item_tooltip": {
-          "$item_collt_nm": "",
-          "$item_collt_type": "",
-          "bindings": [
-            { "binding_name": "#using_touch",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      }
+      { "selected_item_lock_overlay@container_jexp.selected_item_lock_overlay": { "layer": 48 } }
     ]
   },
 
