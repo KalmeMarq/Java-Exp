@@ -7,9 +7,7 @@
   "namespace": "button_jexp",
   
   "button_base": {
-    "type": "\u0062\u0075\u0074\u0074\u006f\u006e",
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
+    "type": "button",
     "layer": 1,
     /* Focus */
     "$focus_id|default": "",
@@ -68,7 +66,7 @@
 
   "button@button_jexp.button_base": {
     "$btn_state_panel|default": "button_jexp.button_state",
-    "$btn_cont|default": "button_label",
+    "$btn_cont|default": "button_jexp.button_label",
     "$btn_text|default": "",
     /* Text Bindings */
     "$btn_text_bdg_type|default": "none",
@@ -84,6 +82,8 @@
     "$lkd_btn_color|default": "$btn_lkd_color",
     "size": [200, 20],
     "locked_control": "locked",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
     "controls": [
       { "default@$btn_state_panel": {
           "$btn_state": "dflt",
@@ -138,7 +138,7 @@
     "$btn_state|default": "",
     "$tooltip_text|default": "",
     "controls": [
-      { "tooltip@tooltip_jexp.tooltip": { "ignored": "(not ($btn_state = hov) or $tooltip_text = '')" } },
+      { "tooltip@tooltip_jexp.tooltip": { "ignored": "(not ($btn_state = hov))", "visible": "(not $tooltip_text = '')" } },
       { "$btn_bg@$btn_bg": {} },
       { "inner_content": {
           "type": "panel",
@@ -156,7 +156,7 @@
     "size": ["100%cm", "100%"],
     "$padding_size|default": ["100%sm + 12px", "100%"],
     "controls": [
-      { "tooltip@tooltip_jexp.tooltip": { "ignored": "(not ($btn_state = hov) or $tooltip_text = '')" } },
+      { "tooltip@tooltip_jexp.tooltip": { "ignored": "(not ($btn_state = hov))", "visible": "(not $tooltip_text = '')" } },
       { "$btn_bg@$btn_bg": { "size": "$padding_size" } },
       { "inner_content": {
           "type": "panel",

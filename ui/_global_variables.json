@@ -122,10 +122,10 @@
   "$slot_lock_in_slot_color": "red", // Default: "red"
   "$slot_lock_in_inv_color": "yellow", // Default: "yellow"
 
-  // "$tootlip_bg_alpha": 1, // Default: 0.95
-  // "$custom_tooltip_bg": false, // Default: false
-  //   "$custom_tooltip_border_color": [0.1441, 0, 0.3559], // Default: [0.1441, 0, 0.3559]
-  //   "$custom_tooltip_bg_color": [0.0862, 0.0039, 0.0862], // Default: [0.0862, 0.0039, 0.0862]
+  "$tootlip_bg_alpha": 1, // Default: 0.95
+  "$custom_tooltip_bg": false, // Default: false
+    "$custom_tooltip_border_color": [0.1441, 0, 0.3559], // Default: [0.1441, 0, 0.3559]
+    "$custom_tooltip_bg_color": [0.0862, 0.0039, 0.0862], // Default: [0.0862, 0.0039, 0.0862]
 
   "$anvil_cost_success_text_color": [0.49, 0.99, 0.125], // Default: [0.49, 0.99, 0.125]
   "$anvil_cost_fail_text_color": [0.99, 0.35, 0.37], // Default: [0.99, 0.35, 0.37]
