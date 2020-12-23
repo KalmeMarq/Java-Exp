@@ -16,5 +16,3 @@ Download Java-Exp.zip and unzip it. Then move it to:
 ```
 "Apps/com.mojang.minecraftpe/Documents/games/com.mojang/resource_packs/"
 ```
-
-z [x]
