@@ -2,20 +2,20 @@
   "format_version": 2,
   "header": {
     "name": "Java Exp v4.0.0",
-    "description": "Credits: @FMarquesPTO",
+    "description": "Credits: @KalmeMarq",
     "uuid": "e67aa393-a705-4ed0-9217-2c161b8035ef",
     "version": [4, 0, 0],
     "min_engine_version": [1, 14, 0]
   },
   "modules": [
     { "type": "resources",
-      "description": "Credits: @FMarquesPTO",
+      "description": "Credits: @KalmeMarq",
       "uuid": "1961a689-3f81-43f3-9892-3c3ca446638c",
       "version": [4, 0, 0]
     }
   ],
   "metadata": {
-    "authors": ["FMarquesPTO"],
-    "url": "https://www.twitter.com/FMarquesPTO"
+    "authors": ["KalmeMarq"],
+    "url": "https://www.twitter.com/KalmeMarq"
   }
 }
