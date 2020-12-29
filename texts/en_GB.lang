@@ -1,18 +1,18 @@
+##Java-Exp by @KalmeMarq
+##Lang Binding Reset
 options.fov.label=FOV	#
 options.fov=0	#
-options.fov.format=%s
 
 ##entity.wither.name.new=Wither	#
 ##entity.wither.name=0	#
-
 ##entity.ender_dragon.name.new=Ender Dragon	#
 ##entity.ender_dragon.name=1	#
-
 ##raid.name.new=Raid	#
 ##raid.progress.new=Mobs remaining:	#
 ##raid.name=2	#
 ##raid.progress=3	#
 
+options.font_license.title=Font Licence	#
 
 ##Main Menu
 menu.play=Play

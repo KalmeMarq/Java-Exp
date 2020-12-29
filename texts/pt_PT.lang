@@ -1,5 +1,4 @@
-##TTS
-
+##Java-Exp by @KalmeMarq
 ##Lang Binding Reset
 ##entity.wither.name=0
 ##entity.ender_dragon.name=1
@@ -12,6 +11,8 @@ options.fov=0
 ##raid.name.new=Invasão
 ##raid.progress.new=Criaturas Restantes:
 options.fov.label=CV
+
+options.font_license.title=Licença de Tipo de Letra	#
 
 ##Others
 record.nowPlaying=A tocar agora: %s

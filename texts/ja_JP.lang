@@ -1,17 +1,18 @@
+##Java-Exp by @KalmeMarq
+##Lang Binding Reset
 options.fov.label=視野	#
 options.fov=0	#
-options.fov.format=%s
 
 ##entity.wither.name.new=ウィザー	#
 ##entity.wither.name=0	#
-
 ##entity.ender_dragon.name.new=エンダー ドラゴン	#
 ##entity.ender_dragon.name=1	#
-
 ##raid.name.new=襲撃	#
 ##raid.progress.new=残りモブ数:	#
 ##raid.name=2	#
 ##raid.progress=3	#
+
+options.font_license.title=フォント ライセンス	#
 
 ##Others
 map.position.agent=Agent XYZ: %s / %s / %s

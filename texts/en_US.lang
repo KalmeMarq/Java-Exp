@@ -1,3 +1,4 @@
+##Java-Exp by @KalmeMarq
 ##Custom Gui
 gui.comma=:
 gui.comma.spaced=: 
@@ -6,8 +7,6 @@ gui.parenteses.right=)
 gui.percentage=%
 gui.plus=+
 gui.minus=-
-
-test.test=Test
 
 ##Lang Binding Reset
 ##entity.wither.name=0
@@ -22,9 +21,10 @@ options.fov=0
 ##raid.progress.new=Mobs remaining:
 options.fov.label=FOV
 
+options.font_license.title=Font License
+
 ##Others
 map.position.agent=Agent XYZ: %s / %s / %s
-##map.position=XYZ: %s / %s / %s
 map.position=XYZ: %s / %s / %s
 
 ##Recipe Book

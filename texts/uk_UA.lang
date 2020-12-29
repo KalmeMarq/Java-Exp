@@ -1,17 +1,18 @@
+##Java-Exp by @KalmeMarq
+##Lang Binding Reset
 options.fov.label=Кут огляду	#
 options.fov=0	#
-options.fov.format=%s
 
 ##entity.wither.name.new=Візер	#
 ##entity.wither.name=0	#
-
 ##entity.ender_dragon.name.new=Дракон Ендеру	#
 ##entity.ender_dragon.name=1	#
-
 ##raid.name.new=Наскок	#
 ##raid.progress.new=Залишилося мобів:	#
 ##raid.name=2	#
 ##raid.progress=3	#
+
+options.font_license.title=Ліцензія на шрифт	#
 
 ##Others
 map.position.agent=Agent XYZ: %s / %s / %s

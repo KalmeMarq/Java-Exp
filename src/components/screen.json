@@ -1,5 +1,5 @@
 /*******************************************
-  (c) Copyright 2020 @FMarquesPTO.
+  (c) Copyright 2020 @KalmeMarq.
   All rights reserved.
 ********************************************/
 {
@@ -422,8 +422,6 @@
     ]
   },
 
-  /* Test */
-
   "dirt_cover": {
     "type": "panel",
     "size": ["100%", "100%"],
@@ -439,7 +437,7 @@
           "anchor_to": "top_left",
           "clips_children": true,
           "controls": [
-            { "@screen_jexp.dirt_background": {
+            { "bg@screen_jexp.dirt_background": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left"
               }
@@ -455,7 +453,7 @@
           "anchor_to": "bottom_left",
           "clips_children": true,
           "controls": [
-            { "@screen_jexp.dirt_background": {
+            { "bg@screen_jexp.dirt_background": {
                 "anchor_from": "bottom_left",
                 "anchor_to": "bottom_left"
               }

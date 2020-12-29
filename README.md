@@ -1,5 +1,5 @@
 # Java Exp
-Made by @FMarquesPTO
+Made by @KalmeMarq
 
 ## Installation
 Download Java-Exp.zip and unzip it. Then move it to:

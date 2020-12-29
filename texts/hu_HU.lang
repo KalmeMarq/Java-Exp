@@ -1,17 +1,18 @@
+##Java-Exp by @KalmeMarq
+##Lang Binding Reset
 options.fov.label=Látótér	#
 options.fov=0	#
-options.fov.format=%s
 
 ##entity.wither.name.new=Sorvasztó	#
 ##entity.wither.name=0	#
-
 ##entity.ender_dragon.name.new=Végzetsárkány	#
 ##entity.ender_dragon.name=1	#
-
 ##raid.name.new=Rajtaütés	#
 ##raid.progress.new=Megmaradt mobok:	#
 ##raid.name=2	#
 ##raid.progress=3	#
+
+options.font_license.title=Betűtípus licence	#
 
 ##Others
 map.position.agent=Agent XYZ: %s / %s / %s

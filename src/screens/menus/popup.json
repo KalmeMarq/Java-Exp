@@ -1,5 +1,5 @@
 /**********************************
-  (c) Copyright 2020 @FMarquesPTO.
+  (c) Copyright 2020 @KalmeMarq.
   All rights reserved.
 ***********************************/
 {
@@ -24,7 +24,7 @@
     "controls": [
       { "modal_input@popup_dialog.modal_input_panel": {
           "controls": [
-            { "modal_bg_buttons@popup_jexp.modal_with_buttons": { "$visib_src_ctrl_nm|default": "modal_bg_buttons", "layer": 2 } },
+            { "modal_bg_buttons@popup_jexp.modals_panel": { "$visib_src_ctrl_nm|default": "modal_bg_buttons", "layer": 2 } },
             { "dirt_background@screen_jexp.dirt_background": { "layer": 1 } }
           ]
         }
@@ -62,42 +62,85 @@
   /***********************************
   * Modal Core
   ************************************/
-  "modal_with_buttons": {
-    "type": "stack_panel",
-    "size": ["80%", "100%c"],
-    "anchor_to": "top_middle",
-    "anchor_from": "center",
-    "offset": [0, "-26%"],
-    "$title|default": "popup_jexp.modal_title_text",
-    "$msg|default": "popup_jexp.modal_label_panel",
-    "$top_space|default": [0, 10],
-    "$btm_space|default": [0, 40],
-    "$top_ctrls|default": [],
-    "$btm_ctrls|default": [],
-    "$visib_src_ctrl_nm|default": "modal_bg_buttons",
-    "layer": 2,
+
+  "modals_panel": {
+    "type": "panel",
     "controls": [
-      { "title": {
+      { "modal_with_buttons": {
           "type": "stack_panel",
-          "size": ["100%", "100%c"],
-          "controls": [ { "$title@$title": {} } ]
+          "size": ["80%", "100%c"],
+          "anchor_to": "top_middle",
+          "anchor_from": "center",
+          "offset": [0, "-26%"],
+          "$title|default": "popup_jexp.modal_title_text",
+          "$msg|default": "popup_jexp.modal_label_panel",
+          "$top_space|default": [0, 10],
+          "$btm_space|default": [0, 40],
+          "$top_ctrls|default": [],
+          "$btm_ctrls|default": [],
+          "layer": 2,
+          "controls": [
+            { "title": {
+                "type": "stack_panel",
+                "size": ["100%", "100%c"],
+                "controls": [ { "$title@$title": {} } ]
+              }
+            },
+            { "space0@screen_jexp.empty_panel": { "size": "$top_space", "controls": "$top_ctrls" } },
+            { "desc": {
+                "type": "panel",
+                "size": ["100%", "100%c"],
+                "controls": [ { "$msg@$msg": {} } ]
+              }
+            },
+            { "space1@screen_jexp.empty_panel": { "size": "$btm_space", "controls": "$btm_ctrls" } },
+            { "buttons": {
+                "type": "panel",
+                "size": ["100%", "100%c"],
+                "min_size": ["100%", 0],
+                "controls": [  { "$btn_panel@$btn_panel": {} } ]
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "font_license",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            }
+          ]
         }
       },
-      { "space0@screen_jexp.empty_panel": { "size": "$top_space", "controls": "$top_ctrls" } },
-      { "desc": {
+      { "font_license": {
           "type": "panel",
-          "size": ["100%", "100%c"],
-          "controls": [ { "$msg@$msg": {} } ]
-        }
-      },
-      { "space1@screen_jexp.empty_panel": { "size": "$btm_space", "controls": "$btm_ctrls" } },
-      { "buttons": {
-          "type": "panel",
-          "size": ["100%", "100%c"],
-          "min_size": ["100%", 0],
-          "controls": [  { "$btn_panel@$btn_panel": {} } ]
+          "visible": false,
+          "controls": [
+            { "title@popup_jexp.modal_title_text": { "anchor_from": "top_middle", "anchor_to": "top_middle", "offset": [0, 12], "text": "options.font_license.title", "text_tts": "options.font_license.title" } },
+            { "scroll@scrollpane_jexp.scrollpane": {
+                "offset": [0, 32],
+                "size": ["100%", "100% - 64px"],
+                "$scroll_cont": "dirt@popup_jexp.scroll_cont"
+              }
+            },
+            { "btn@$btn_panel": { "anchor_from": "top_middle", "anchor_to": "top_middle",  "offset": [0, "100% - 100%y - 7px"] } }
+          ],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "$visib_src_ctrl_nm",
+              "source_property_name": "(#modal_title_text = 'Font License')",
+              "target_property_name": "#visible"
+            }
+          ]
         }
       }
+    ]
+  },
+
+  "scroll_cont": {
+    "type": "panel",
+    "size": ["100%", "100%c + 8px"],
+    "controls": [
+      { "label@popup_jexp.modal_label_panel": { "size": [326, "default"] } }
     ]
   },
 

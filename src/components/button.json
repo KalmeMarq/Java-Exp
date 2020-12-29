@@ -1,5 +1,5 @@
 /**************************
-* (c) Copyright 2020 @FMarquesPTO.
+* (c) Copyright 2020 @KalmeMarq.
 * All rights reserved.
 * &comp
 ***************************/
@@ -153,6 +153,7 @@
   "width_fitting_button_state": {
     "type": "panel",
     "$btn_state|default": "",
+    "$tooltip_text|default": "",
     "size": ["100%cm", "100%"],
     "$padding_size|default": ["100%sm + 12px", "100%"],
     "controls": [

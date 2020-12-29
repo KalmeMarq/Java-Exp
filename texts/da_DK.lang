@@ -1,18 +1,18 @@
+##Java-Exp by @KalmeMarq
 ##Lang Binding Reset
 options.fov.label=Synsfelt	#
 options.fov=0	#
-options.fov.format=%s
 
 ##entity.wither.name.new=Wither	#
 ##entity.wither.name=0	#
-
 ##entity.ender_dragon.name.new=Ender-drage	#
 ##entity.ender_dragon.name=1	#
-
 ##raid.name.new=Plyndringstogt	#
 ##raid.progress.new=Væsner tilbage:	#
 ##raid.name=2	#
 ##raid.progress=3	#
+
+options.font_license.title=Skrifttypelicens	#
 
 ##Others
 map.position.agent=Agent XYZ: %s / %s / %s
