@@ -193,14 +193,7 @@
           ]
         }
       },
-      { "space@screen_jexp.v4px": {
-          "bindings": [
-            { "binding_name": "#has_errors_or_warnings",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
+      { "space@screen_jexp.v4px": { "bindings": "$vis_bdg_nm_tplt", "$bdg_nm": "#has_errors_or_warnings" } },
       { "error_text_panel": {
           "type": "stack_panel",
           "orientation": "horizontal",
@@ -233,11 +226,8 @@
               }
             }
           ],
-          "bindings": [
-            { "binding_name": "#has_errors_or_warnings",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#has_errors_or_warnings"
         }
       }
     ]

@@ -19,23 +19,11 @@
     ]
   },
 
-  "title@screen_jexp.title": {
-    "text": "#title_text",
+  "title@screen_jexp.title_with_tts": {
+    "$text_nm": "#title_text",
     "color": [0.25, 0.25, 0.25],
     "shadow": false,
-    "offset": [8, 5],
-    "property_bag": { "#tts_dialog_title": "#title_text" },
-    "bindings": [
-      { "binding_type": "global",
-        "binding_condition": "none",
-        "binding_name": "#title_text",
-        "binding_name_override": "#title_text"
-      },
-      { "binding_type": "global",
-        "binding_condition": "once",
-        "binding_name": "#tts_dialog_title"
-      }
-    ]
+    "offset": [8, 5]
   },
 
   /***********************************
@@ -225,12 +213,8 @@
           "$prsd_btn_nm": "button.submit_custom_form",
           "size": ["100%", 20],
           "$button_text": "gui.submit",
-          "bindings": [
-            {
-              "binding_name": "#submit_button_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#submit_button_visible"
         }
       }
     ]    

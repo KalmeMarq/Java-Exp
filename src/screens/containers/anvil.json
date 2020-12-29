@@ -74,11 +74,8 @@
     "anchor_to": "top_left",
     "anchor_from": "top_left",
     "controls": [ { "arrow@anvil_jexp.arrow_cross_out": { "layer": 1 } } ],
-    "bindings": [
-      { "binding_name": "#cross_out_icon",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#cross_out_icon"
   },
 
   "result_slot@anvil_jexp.anvil_slot": {

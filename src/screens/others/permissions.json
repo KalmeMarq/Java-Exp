@@ -72,15 +72,12 @@
         }
       },
       { "back@button_jexp.button": {
-         "size": [80, 20],
-         "offset": ["50% + 12px + 75px + 2px", "40px + 156px"],
-         "$prsd_btn_nm": "button.menu_exit",
-         "$btn_text": "gui.back",
-         "bindings": [
-            { "binding_name": "(not #is_using_gamepad)",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "size": [80, 20],
+          "offset": ["50% + 12px + 75px + 2px", "40px + 156px"],
+          "$prsd_btn_nm": "button.menu_exit",
+          "$btn_text": "gui.back",
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "(not #is_using_gamepad)"
         }
       },
       { "gamepad_helper_b@common.gamepad_helper_b": {

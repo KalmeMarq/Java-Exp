@@ -76,26 +76,10 @@
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
     "controls": [
-      { "patch_notes_text": {
-          "type": "label",
-          "color": "$body_text_color",
+      { "patch_notes_text@screen_jexp.title_with_tts": {
           "size": ["100% - 6px", "default"],
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
           "offset": [0, 4],
-          "shadow": true,
-          "text": "#patch_description",
-          "layer": 2,
-          "bindings": [
-            { "binding_name": "#patch_description",
-              "binding_type": "global"
-            },
-            { "binding_type": "global",
-              "binding_condition": "once",
-              "binding_name": "#tts_dialog_body"
-            }
-          ],
-          "property_bag": { "#tts_dialog_body": "#patch_description" }
+          "$text_nm": "#patch_description"
         }
       }
     ]

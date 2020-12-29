@@ -10,13 +10,8 @@
     "$title": "options.resourcePacks.title",
     "$subtitle": "resourcePacks.dropInfo",
     "$back_ref": "options_jexp.back_tgl_btn",
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "global_resource_packs_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "global_resource_packs_view"
   },
 
   "level_screen_content@packs_jexp.packs_content": {

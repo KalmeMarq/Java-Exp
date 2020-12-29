@@ -174,5 +174,19 @@
 
   "$config_icon_res": "256x", // "assets/realms/textures/gui/realms/configure_icon.png"
   "$leave_icon_res": "256x", // "assets/realms/textures/gui/realms/leave_icon.png"
-  "$questionmark_res": "256x" // "assets/realms/textures/gui/realms/questionmark.png"
+  "$questionmark_res": "256x", // "assets/realms/textures/gui/realms/questionmark.png"
+
+  /* Don't you dare touch */
+  "$scrn_vis_bdg_tplt": [
+    { "binding_type": "view",
+      "source_control_name": "$vis_ctrl_nm",
+      "source_property_name": "#toggle_state",
+      "target_property_name": "#visible"
+    }
+  ],
+  "$vis_bdg_nm_tplt": [
+    { "binding_name": "$bdg_nm",
+      "binding_name_override": "#visible"
+    }
+  ]
 }

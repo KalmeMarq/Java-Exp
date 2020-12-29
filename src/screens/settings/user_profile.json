@@ -28,13 +28,8 @@
         }
       }
     ],
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "user_profile_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "user_profile_view"
   },
 
   "popups": {
@@ -45,21 +40,15 @@
     "controls": [
       { "accountError_popup@world_create_jexp.abstract_popup": {
           "$label_bdg_nm": "options.accountError",
-          "bindings": [
-            { "binding_name": "#has_account_error",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#has_account_error"
         }
       },
       { "box": {
           "type": "panel",
           "size": ["100%", 22],
-          "bindings": [
-            { "binding_name": "#has_account_error",
-              "binding_name_override": "#visible"
-            }
-          ],
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#has_account_error",
           "controls": [
             { "view_errors_button@button_jexp.button": {
                 "size": [150, 20],
@@ -184,12 +173,8 @@
     "ignored": "((not $is_pregame) or ($is_publish and (not $is_ps4)))",
     "$pressed_button_name": "button.unlink_msa",
     "$button_text": "options.unlink_msa.button",
-    "bindings": [
-      {
-        "binding_name": "#logged_in",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#logged_in"
   },
 
   "content_file_log@option_toggle_jexp.option_toggle": {
@@ -231,11 +216,8 @@
     "size": [150, 20],
     "$prsd_btn_nm": "button.clear_content_log_files",
     "$btn_text": "contentlog.clear_files",
-    "bindings": [
-      { "binding_name": "#allow_content_log_write_to_disk",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#allow_content_log_write_to_disk"
   },
 
   /***********************************
@@ -269,90 +251,27 @@
     "size": ["100%", "100%"]
   },
 
+  "tooltip_label@tooltip_jexp.tooltip_label": { "text": "$bdg_nm" },
+
   "build_info_tooltip_text": {
     "type": "stack_panel",
     "size": ["100%cm", "100%c"],
     "$tooltip_label_color|default": [1, 1, 1],
-    "controls": [
-      { "build_id_label@tooltip_jexp.tooltip_label": {
-          "bindings": [
-            { "binding_name": "#build_id" },
-            { "binding_name": "(not #build_id = '')",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      { "protocol_version_label@tooltip_jexp.tooltip_label": {
-          "text": "#protocol_version",
-          "bindings": [
-            { "binding_name": "#protocol_version" },
-            { "binding_name": "(not #protocol_version = '')",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      { "device_id_label@tooltip_jexp.tooltip_label": {
-          "text": "#device_id",
-          "bindings": [
-            { "binding_name": "#device_id" },
-            { "binding_name": "(not #device_id = '')",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      { "MinecraftAccount_id_label@tooltip_jexp.tooltip_label": {
-          "text": "#MinecraftAccount_id",
-          "bindings": [
-            { "binding_name": "#MinecraftAccount_id" },
-            { "binding_name": "(not #MinecraftAccount_id = '')",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      { "commerce_id_label@tooltip_jexp.tooltip_label": {
-          "text": "#commerce_id",
-          "bindings": [
-            { "binding_name": "#commerce_id" },
-            { "binding_name": "(not #commerce_id = '')",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      { "account_transfer_status_label@tooltip_jexp.tooltip_label": {
-          "text": "#account_transfer_status",
-          "bindings": [
-            { "binding_name": "#account_transfer_status" },
-            { "binding_name": "(not #account_transfer_status = '')",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      { "build_date_label@tooltip_jexp.tooltip_label": {
-          "text": "#build_date",
-          "bindings": [
-            { "binding_name": "#build_date" },
-            { "binding_name": "(not #build_date = '')",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      { "world_converter_label@tooltip_jexp.tooltip_label": {
-          "text": "#world_conversion_version",
-          "bindings": [
-            { "binding_name": "#world_conversion_version" },
-            { "binding_name": "(not #world_conversion_version = '')",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
+    "$tooltip_label_bdgs": [
+      { "binding_name": "$bdg_nm" },
+      { "binding_name": "(not $bdg_nm = '')",
+        "binding_name_override": "#visible"
       }
+    ],
+    "controls": [
+      { "build_id_label@user_profile_jexp.tooltip_label": { "$bdg_nm": "#build_id" } },
+      { "protocol_version_label@user_profile_jexp.tooltip_label": { "$bdg_nm": "#protocol_version" } },
+      { "device_id_label@user_profile_jexp.tooltip_label": { "$bdg_nm": "#device_id" } },
+      { "MinecraftAccount_id_label@user_profile_jexp.tooltip_label": { "$bdg_nm": "#MinecraftAccount_id" } },
+      { "commerce_id_label@user_profile_jexp.tooltip_label": { "$bdg_nm": "#commerce_id" } },
+      { "account_transfer_status_label@user_profile_jexp.tooltip_label": { "$bdg_nm": "#account_transfer_status" } },
+      { "build_date_label@user_profile_jexp.tooltip_label": { "$bdg_nm": "#build_date" } },
+      { "world_converter_label@user_profile_jexp.tooltip_label": { "$bdg_nm": "#world_conversion_version" } }
     ]
   }
 }

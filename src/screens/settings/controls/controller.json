@@ -38,13 +38,8 @@
         }
       }
     ],
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "controller_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ],
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "controller_view",
     "$bdg_btn_cont": "controller_jexp.bdg_btn_cont",
     "$needTxtBind|default": false,
     "$bdgTextNm|default": "",

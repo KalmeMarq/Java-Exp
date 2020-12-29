@@ -153,9 +153,9 @@
   "width_fitting_button_state": {
     "type": "panel",
     "$btn_state|default": "",
-    "$tooltip_text|default": "",
     "size": ["100%cm", "100%"],
     "$padding_size|default": ["100%sm + 12px", "100%"],
+    "$tooltip_text|default": "",
     "controls": [
       { "tooltip@tooltip_jexp.tooltip": { "ignored": "(not ($btn_state = hov))", "visible": "(not $tooltip_text = '')" } },
       { "$btn_bg@$btn_bg": { "size": "$padding_size" } },

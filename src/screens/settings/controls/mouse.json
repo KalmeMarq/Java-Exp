@@ -39,13 +39,8 @@
         }
       }
     ],
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "mouse_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "mouse_view"
   },
 
   "scroll_cont": {
@@ -57,11 +52,8 @@
           "size": ["100%", "100%c"],
           "$keymapg_grid_dime": "#keyboard_standard_grid_dimension",
           "$keymapg_coll": "keyboard_standard_collection",
-          "bindings": [
-            { "binding_name": "#keyboard_show_standard_keyboard_options",
-              "binding_name_override": "#visible"
-            }
-          ],
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#keyboard_show_standard_keyboard_options",
           "controls": [
             { "movement@controls_jexp.keys_cat": { "$keys_cat": "key.categories.movement" } },
             { "jump@controls_jexp.keymapg_grid_item": { "$item_label": "key.jump", "$idx": 15 } },
@@ -105,11 +97,8 @@
           "size": ["100%", "100%c"],
           "$keymapg_grid_dime": "#keyboard_full_grid_dimension",
           "$keymapg_coll": "keyboard_full_collection",
-          "bindings": [
-            { "binding_name": "#keyboard_show_full_keyboard_options",
-              "binding_name_override": "#visible"
-            }
-          ],
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#keyboard_show_full_keyboard_options",
           "controls": [
             { "movement@controls_jexp.keys_cat": { "$keys_cat": "key.categories.movement" } },
             { "jump@controls_jexp.keymapg_grid_item": { "$item_label": "key.jump", "$idx": 32 } },

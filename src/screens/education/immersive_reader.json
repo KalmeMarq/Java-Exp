@@ -2,6 +2,4 @@
   (c) Copyright 2020 @KalmeMarq.
   All rights reserved.
 ***********************************/
-{
-  "namespace": "immersive_reader_jexp"
-}
+{ "namespace": "immersive_reader_jexp" }

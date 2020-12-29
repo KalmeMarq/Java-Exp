@@ -1,0 +1,86 @@
+/**********************************
+  (c) Copyright 2020 @KalmeMarq.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "touch_play_jexp",
+
+  "grid_template@play_jexp.grid_template": {
+    "grid_item_template": "touch_play_jexp.grid_item"
+  },
+  
+  "grid_item": {
+    "type": "panel",
+    "size": ["100%", 36],
+    "controls": [
+      { "item": {
+          "type": "panel",
+          "size": [270, 36],
+          "controls": [
+            { "grid_item_icon_image@$grid_item_icon": {} },
+            { "button@$grid_item_btn": { "layer": 2 } },
+            { "content_panel": {
+                "type": "panel",
+                "size": ["100% - 36px", "100% - 4px"],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "offset": [36, 0],
+                "layer": 2,
+                "controls": [ { "content@touch_play_jexp.grid_item_content": {} } ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "grid_item_content": {
+    "type": "panel",
+    "controls": [
+      { "header_content@$grid_item_hdr": { "layer": 1 } },
+      { "description_content@$grid_item_desc": { "layer": 1, "offset": [0, 11] } }
+    ]
+  },
+
+  "desc_base": {
+    "type": "label",
+    "color": "$info_color"
+  },
+
+  "grid_button@button_jexp.button": {
+    "size": [270, 36],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "default_control": "",
+    "$overlay_alpha": 0.4,
+    "$max_text_size": [200, "default"],
+    "$tooltip_label_color": "$6_color_format",
+    "$ignore_tooltip|default": true,
+    "layer": 2,
+    "controls": [
+      { "hover@touch_play_jexp.grid_btn_state": {} },
+      { "pressed@touch_play_jexp.grid_btn_state": {} }
+    ]
+  },
+
+  "grid_btn_state": {
+    "type": "panel",
+    "size": [32, 32],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      { "focus@radio_toggle_jexp.box": {
+          "size": [270, 36],
+          "offset": [-2, -2],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 0
+        }
+      },
+      { "tooltip@tooltip_jexp.tooltip": { "ignored": "$ignore_tooltip" } },
+      { "overlay@packs_jexp.overlay": { "layer": 5 } },
+      { "icon@$btn_icon": { "layer": 8 } }
+    ]
+  }
+}

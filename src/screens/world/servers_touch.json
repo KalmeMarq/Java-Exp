@@ -1,0 +1,307 @@
+/**********************************
+  (c) Copyright 2020 @KalmeMarq.
+  All rights reserved.
+***********************************/
+{
+  "namespace": "touch_servers_jexp",
+
+  "screen_content": {
+    "type": "panel",
+    "layer": 50,
+    "controls": [
+      { "content": {
+          "type": "panel",
+          "layer": 50,
+          "controls": [
+            { "dirt_cover@screen_jexp_test.dirt_cover": { "$bottom_sz": ["100%", 64] } },
+            { "title@screen_jexp.title": { "offset": ["50% - 50%x", 17], "text": "multiplayer.title" } },
+            { "go_to_worlds@play_jexp.left_tgl_btn": { "$tgl_idx": 0, "$tgl_ctrl_nm": "view" } },
+            { "go_to_realms@play_jexp.right_tgl_btn": { "$tgl_idx": 1, "$tgl_ctrl_nm": "realms_view", "$tgl_nm": "0001" } },
+            { "scroll@scrollpane_jexp.scrollpane": {
+                "offset": [0, 32],
+                "layer": -54,
+                "$clips_viewport": false,
+                "size": ["100%", "100% - 32px - 64px"],
+                "$scroll_cont": "dirt@touch_servers_jexp.scroll_cont"
+              }
+            },
+            { "bottom_specs": {
+                "type": "panel",
+                "$focus_id": "right_side",
+                "bindings": [
+                  { "binding_name": "#is_network_available_and_multiplayer_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ],
+                "controls": [
+                  { "join_server_button@button_jexp.button": {
+                      "offset": ["50% - 154px", "100% - 52px"],
+                      "$prsd_btn_nm": "button.connect_to_third_party_server",
+                      "$btn_text": "networkWorld.join_server",
+                      "$focus_ovrd_up": "scroll_panel",
+                      "size": [100, 20],
+                      "bindings": [
+                        { "binding_name": "#is_third_party_server_selected",
+                          "binding_name_override": "#visible"
+                        }
+                      ]
+                    }
+                  },
+                  { "join_server_button@button_jexp.button": {
+                      "offset": ["50% - 154px", "100% - 52px"],
+                      "$prsd_btn_nm": "button.menu_network_server_item",
+                      "$btn_text": "networkWorld.join_server",
+                      "$focus_ovrd_up": "scroll_panel",
+                      "size": [100, 20],
+                      "bindings": [
+                        { "binding_name": "#is_additional_server_selected",
+                          "binding_name_override": "#visible"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            // { "join@join_tgl_btn": { "offset": ["50% - 154px", "100% - 52px"] } },
+            { "edit@edit_tgl_btn": { "offset": ["50% - 154px", "100% - 28px"] } },
+            { "add_server@add_server_tgl_btn": { "offset": ["50% + 4px + 50px", "100% - 52px"] } },
+            // { "add_friend@add_friend_button": {} },
+            { "exit@button_jexp.button": {
+                "$btn_text": "gui.cancel",
+                "$prsd_btn_nm": "button.menu_exit",
+                "offset": ["50% + 82px", "100% - 28px"],
+                "size": [72, 20]
+              }
+            }
+          ],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "realms_scrn",
+              "source_property_name": "(not #visible)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "servers_view",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  
+  "scroll_cont": {
+    "type": "stack_panel",
+    "size": ["100%", "100%c"],
+    "controls": [
+      { "tspace@screen_jexp.v4px": {} },
+      { "@play.server_scroll_panel": {}},
+      { "featured_servers@touch_servers_jexp.featured_servers_grid": {} },
+      { "lan_servers@touch_servers_jexp.lan_servers_grid": {} },
+      { "cross_platform_servers@touch_servers_jexp.cross_platform_servers_grid": {} },
+      { "play_selected": {
+          "type": "stack_panel",
+          "size": ["100%", "100%c"],
+          "$is_play": true,
+          "$is_edit": false,
+          "controls": [ { "more_servers@more_servers_grid": {} } ],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "join_view",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      { "edit_selected": {
+          "type": "stack_panel",
+          "size": ["100%", "100%c"],
+          "$is_play": false,
+          "$is_edit": true,
+          "visible": false,
+          "controls": [ { "more_servers@more_servers_grid": {} } ],
+          "bindings": [
+            { "binding_type": "view",
+              "source_control_name": "edit_view",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      { "bspace@screen_jexp.v2px": {} }
+    ]
+  },
+
+  /***********************************
+  * Grid
+  ************************************/
+  "featured_servers_grid@play_mcjava.grid_template": {
+    "$grid_dim_bdg": "#third_party_featured_item_grid_dimension",
+    "$collt_nm": "third_party_server_network_worlds",
+    "$grid_item_icon": "touch_servers_jexp.featured_servers_icon",
+    "$grid_item_btn": "touch_worlds_jexp.legacy_worlds_button",
+    "$grid_item_hdr": "touch_worlds_jexp.legact_world_header_content",
+    "$grid_item_desc": "touch_worlds_jexp.legacy_world_description_content"
+  },
+
+  "more_servers_grid@play_mcjava.grid_template": {
+    "$grid_dim_bdg": "#servers_network_world_item_grid_dimension",
+    "$collt_nm": "servers_network_worlds",
+    "$grid_item_icon": "touch_servers_jexp.more_servers_icon"
+  },
+
+  "lan_servers_grid@play_mcjava.grid_template": {
+    "$grid_dim_bdg": "#lan_network_world_item_grid_dimension",
+    "$collt_nm": "lan_network_worlds",
+    "$grid_item_icon": "touch_servers_jexp.more_servers_icon"
+  },
+
+  "friends_servers_grid@play_mcjava.grid_template": {
+    "$grid_dim_bdg": "#friends_network_world_item_grid_dimension",
+    "$collt_nm": "friends_network_worlds",
+    "$grid_item_icon": "touch_servers_jexp.friends_servers_icon"
+  },
+
+  "cross_platform_servers_grid@play_mcjava.grid_template": {
+    "$grid_dim_bdg": "#cross_platform_friends_network_world_item_grid_dimension",
+    "$collt_nm": "cross_platform_friends_network_worlds",
+    "$grid_item_icon": "touch_servers_jexp.cross_platform_servers_icon"
+  },
+
+  /* Icons */
+  "featured_servers_icon": {
+    "type": "panel",
+    "$img_bdg_nm": "#third_party_server_logo_texture_path",
+    "$txr_src_bdg_nm": "#third_party_server_logo_resource_location",
+    "controls": [ { "scsx@touch_worlds_jexp.scsx_picture": {} } ],
+    "bindings": [
+      { "binding_name": "#third_party_screenshot_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$collt_nm"
+      }
+    ]
+  },
+
+  "more_servers_icon": {
+    "type": "image",
+    "texture": "assets/minecraft/textures/misc/unknown_server",
+    "size": [32, 32],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "layer": 2
+  },
+
+  "friends_servers_icon@more_servers_icon": {
+    "fill": true,
+    "$bdg_nm|default": "#friends_server_icon_texture_name",
+    "bindings": [
+      { "binding_name": "$bdg_nm",
+        "binding_name_override": "#texture",
+        "binding_type": "collection",
+        "binding_collection_name": "$collt_nm"
+      }
+    ]
+  },
+
+  "cross_platform_servers_icon@friends_servers_icon": { "$bdg_nm": "cross_platform_friends_server_icon_texture_name" },
+
+  /***********************************
+  * Widgets
+  ************************************/
+  "join_tgl_btn@toggle_button_jexp.toggle_button": {
+    "size": [100, 20],
+    "$tgl_text": "selectServer.select",
+    "$tgl_nm": "servers",
+    "$tgl_idx": 0,
+    "$tgl_ctrl_nm": "join_view",
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "join_view",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#enabled"
+      }
+    ]
+  },
+
+  "edit_tgl_btn@toggle_button_jexp.toggle_button": {
+    "size": [70, 20],
+    "$tgl_text": "gui.edit",
+    "$tgl_nm": "servers",
+    "$tgl_idx": 1,
+    "$tgl_ctrl_nm": "edit_view",
+    "bindings": [
+      { "binding_type": "view",
+        "source_control_name": "edit_view",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#enabled"
+      }
+    ]
+  },
+
+  "add_server_tgl_btn@toggle_button_jexp.toggle_button": {
+    "enabled": "(not $is_console)",
+    "size": [100, 20],
+    "$tgl_text": "networkWorld.add_server",
+    "$tgl_group": true,
+    "$tgl_nm": "server_navigation_toggle",
+    "$tgl_ctrl_nm": "add_server_toggle_button",
+    "$tgl_state_bdg_nm": "#toggle_state",
+    "$tgl_on_hover_bdg_nm": "none",
+    "$tgl_tab_focus_bdg_type": "global",
+    "$tgl_tab_focus_bdg_nm": "#navigation_tab_focus_precedence",
+    "$tgl_idx": 100,
+    "bindings": [
+      { "binding_name": "#add_server_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "add_friend_button@button_mcjava.button": {
+    "$prsd_btn_nm": "button.menu_network_add_friend",
+    "$btn_text": "networkWorld.add_friend",
+    "$button_focus_prcdnc": 10,
+    "size": [100, 20],
+    "bindings": [
+      { "binding_name": "#add_friend_button_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      },
+      { "binding_name": "#cross_platform_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
+  "selection_btn_default@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/server_selection",
+    "size": [32, 32],
+    "$uv_sz": [32, 32],
+    "variables": [
+      { "requires": "($server_selection_res = 512x)", "$uv_sz": [64, 64] },
+      { "requires": "($server_selection_res = 1024x)", "$uv_sz": [128, 128] },
+      { "requires": "($server_selection_res = 2048x)", "$uv_sz": [256, 256] },
+      { "requires": "($server_selection_res = 4096x)", "$uv_sz": [512, 512] }
+    ]
+  },
+
+  "selection_btn_hover@touch_worlds_jexp.selection_btn_default": {
+    "$uv": [0, 32],
+    "variables": [
+      { "requires": "($server_selection_res = 512x)", "$uv": [0, 64], "$uv_sz": [64, 64] },
+      { "requires": "($server_selection_res = 1024x)", "$uv": [0, 128], "$uv_sz": [128, 128] },
+      { "requires": "($server_selection_res = 2048x)", "$uv": [0, 256], "$uv_sz": [256, 256] },
+      { "requires": "($server_selection_res = 4096x)", "$uv": [0, 512], "$uv_sz": [512, 512] }
+    ]
+  }
+}

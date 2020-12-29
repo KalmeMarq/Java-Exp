@@ -8,23 +8,11 @@
   "screen_content": {
     "type": "panel",
     "controls": [
-      { "title@screen_jexp.title": {
+      { "title@screen_jexp.title_with_tts": {
           "font_type": "smooth",
           "font_scale_factor": 1.2,
           "shadow": false,
-          "property_bag": { "#tts_dialog_title": "#window_title_text" },
-          "bindings": [
-            { "binding_type": "global",
-              "binding_condition": "once",
-              "binding_name": "#window_title_text",
-              "binding_name_override": "#window_title_text"
-            },
-            { "binding_type": "global",
-              "binding_condition": "once",
-              "binding_name": "#tts_dialog_title"
-            }
-          ],
-          "text": "#window_title_text",
+          "$text_nm": "#window_title_text",
           "offset": ["50% - 50%x", 14]
         }
       },

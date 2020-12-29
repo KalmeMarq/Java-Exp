@@ -21,13 +21,8 @@
       { "reset@touch_jexp.reset_btn": { "offset": ["50% - 155px", "100% - 29px"] } },
       { "back@options_jexp.back_tgl_btn": { "size": [150, 20], "offset": ["50% - 155px + 160px", "100% - 29px"] } }
     ],
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "touch_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "touch_view"
   },
 
   "scroll_cont": {

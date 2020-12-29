@@ -41,30 +41,21 @@
           "$btn_text": "realmsConfigurationScreen.close",
           "$prsd_btn_nm": "menu_close_realm",
           "size": [100, 20],
-          "bindings": [
-            { "binding_name": "#close_realm_button_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#close_realm_button_visible"
         }
       },
       { "open_realm_button@button_jexp.button_action": {
           "$btn_text": "realmsSettingsScreen.openRealmButton",
           "$prsd_btn_nm": "menu_open_realm",
           "size": [100, 20],
-          "bindings": [
-            { "binding_name": "#open_realm_button_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#open_realm_button_visible"
         }
       }
     ],
-    "bindings": [
-      { "binding_name": "#realms_subscription_info_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#realms_subscription_info_visible"
   },
 
   "realm_name_text_field@option_text_box_jexp.option_text_box": {

@@ -218,11 +218,8 @@
       { "host_main@host_commands_jexp.host_main_button": { "ignored": "$is_pregame" } },
       { "space_1@screen_jexp.h2px": {
           "ignored": "($is_pregame or $show_chat_auto_complete_buttons)",
-          "bindings": [
-            { "binding_name": "#cheats_on",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#cheats_on"
         }
       },
       { "space_2@screen_jexp.h2px": { "ignored": "(not $show_chat_auto_complete_buttons)" } },
@@ -237,20 +234,14 @@
       { "space_7@screen_jexp.h2px": { "ignored": "(not $show_chat_prev_next_msg_sent_buttons)" } },
       { "input@chat_jexp.text_edit_box": {} },
       { "space_8@screen_jexp.h2px": {
-          "bindings": [
-            { "binding_name": "(#using_touch or #using_gamepad)",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "(#using_touch or #using_gamepad)"
         }
       },
       { "keyboard_button@chat_jexp.keyboard_button": {} },
       { "space_9@screen_jexp.h2px": {
-          "bindings": [
-            { "binding_name": "(#using_touch or #using_gamepad)",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "(#using_touch or #using_gamepad)"
         }
       },
       { "send_button@chat_jexp.send_button": {} },
@@ -343,22 +334,16 @@
           "type": "panel",
           "size": ["100%", "100%c"],
           "controls": [ { "send_image@send_image": {} } ],
-          "bindings": [
-            { "binding_name": "(not #gamepad_helper_visible)",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "(not #gamepad_helper_visible)"
         }
       },
       { "gamepad_x_button": {
           "type": "panel",
           "size": ["100%", "100%" ],
           "controls": [ { "icon@common.gamepad_helper_x": { "$icon_description_bind_type": "none" } } ],
-          "bindings": [
-            { "binding_name": "#gamepad_helper_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "binding_name": "#gamepad_helper_visible"
         }
       }
     ]

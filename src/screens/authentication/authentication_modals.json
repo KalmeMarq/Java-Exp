@@ -7,9 +7,6 @@
   
   "screen_content": {
     "type": "panel",
-    "$title_text": "#title_text",
-    "$title_bdg_cond": "once",
-    "$title_bdg_type": "global",
     "controls": [ { "cont@content_panel": {} } ]
   },
 
@@ -19,18 +16,10 @@
     "$btn_panel": "authentication_modals_jexp.buttons_panel"
   },
 
-  "title@account_banned_jexp.title": {
-    "property_bag": {},
-    "$title_text|default": "#none",
-    "$title_bdg_cond|default": "none",
-    "$title_bdg_type|default": "none",
-    "text": "$title",
-    "bindings": [
-      { "binding_name": "$title_text",
-        "binding_condition": "$title_bdg_cond",
-        "binding_type": "$title_bdg_type"
-      }
-    ]
+  "title@screen_jexp.title_with_tts": {
+    "$title_text": "#title_text",
+    "$title_bdg_cond": "once",
+    "$title_bdg_type": "global"
   },
 
   "description@account_banned_jexp.description": {

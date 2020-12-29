@@ -32,13 +32,8 @@
       "$back_btn_offset": [0, 0],
       "$back_btn_size": ["100%", "100%"]
     },
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "controls_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "controls_view"
   },
 
   "keys_cat": {
@@ -46,8 +41,7 @@
     "size": ["100%", 20],
     "layer": 2,
     "controls": [
-      {
-        "label": {
+      { "label": {
           "type": "label",
           "shadow": true,
           "text_alignment": "center",

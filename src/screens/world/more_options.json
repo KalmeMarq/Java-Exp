@@ -124,11 +124,8 @@
               }
             }
           ],
-          "bindings": [
-            { "binding_name": "#world_game_mode_radio_creative",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#world_game_mode_radio_creative"
         }
       },
       { "survival": {
@@ -147,11 +144,8 @@
               }
             }
           ],
-          "bindings": [
-            { "binding_name": "#world_game_mode_radio_survival",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#world_game_mode_radio_survival"
         }
       }
     ]

@@ -49,11 +49,8 @@
             { "poem@poem_cont": {} },
             { "bg@credits_jexp.dirt_background": { "layer": -5 } }
           ],
-          "bindings": [
-            { "binding_name": "#show_end_poem",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#show_end_poem"
         }
       },
       { "credits": {
@@ -62,11 +59,8 @@
             { "credits@credits_cont": {} },
             { "bg@credits_jexp.dirt_background": { "layer": -5 } }
           ],
-          "bindings": [
-            { "binding_name": "(not #show_end_poem)",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "(not #show_end_poem)"
         }
       }
     ]
@@ -657,7 +651,13 @@
   ************************************/
   "dirt_background@screen_jexp.dirt_background": {
     "size": ["100%", "100%sm"],
-    "offset": "@credits_jexp.anim_background_scroll"
+    "offset": "@credits_jexp.anim_background_scroll",
+    "variables": [
+      { "requires": "($options_bg_res = 512x)", "$tiled": [2, 2] },
+      { "requires": "($options_bg_res = 1024x)", "$tiled": [1, 1] },
+      { "requires": "($options_bg_res = 2048x)", "$tiled": [0.5, 0.5] },
+      { "requires": "($options_bg_res = 4096x)", "$tiled": [0.25, 0.25] }
+    ]
   },
 
   "anim_background_scroll": {

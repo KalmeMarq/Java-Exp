@@ -2,6 +2,4 @@
   (c) Copyright 2020 @KalmeMarq.
   All rights reserved.
 ***********************************/
-{
-  "namespace": "hdr_calibration_jexp"
-}
+{ "namespace": "hdr_calibration_jexp" }

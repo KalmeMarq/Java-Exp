@@ -13,25 +13,9 @@
     ]
   },
 
-  "title@screen_jexp.title": {
-    "text": "#pack_settings_title",
-    "size": ["default", "default"],
-    "offset": [0, 12],
-    "text_alignment": "center",
-    "anchor_to": "top_middle",
-    "anchor_from": "top_middle",
-    "property_bag": { "#tts_dialog_title": "#pack_settings_title"  },
-    "bindings": [
-      { "binding_type": "global",
-        "binding_condition": "none",
-        "binding_name": "#pack_settings_title",
-        "binding_name_override": "#pack_settings_title"
-      },
-      { "binding_type": "global",
-        "binding_condition": "once",
-        "binding_name": "#tts_dialog_title"
-      }
-    ]
+  "title@screen_jexp.title_with_tts": {
+    "$text_nm": "#pack_settings_title",
+    "offset": ["50% - 50%x", 12]
   },
 
   "tier_content_panel": {
@@ -44,11 +28,8 @@
       { "slider_panel": {
           "type": "panel",
           "size": [ "100%", 20 ],
-          "bindings": [
-            { "binding_name": "#has_content_tiering",
-              "binding_name_override": "#visible"
-            }
-          ],
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#has_content_tiering",
           "controls": [
             { "content_tier_slider@slider_jexp.slider": {
                 "anchor_from": "center",
@@ -75,11 +56,8 @@
       { "incompatible_label_panel": {
           "type": "panel",
           "size": [ "100%", "100%c + 2px" ],
-          "bindings": [
-            { "binding_name": "#has_content_tiering",
-              "binding_name_override": "#visible"
-            }
-          ],
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#has_content_tiering",
           "controls": [
             { "label": {
                 "type": "label",

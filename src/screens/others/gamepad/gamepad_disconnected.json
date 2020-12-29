@@ -2,6 +2,4 @@
   (c) Copyright 2020 @KalmeMarq.
   All rights reserved.
 ***********************************/
-{
-  "namespace": "gamepad_disconnected_jexp"
-}
+{ "namespace": "gamepad_disconnected_jexp" }

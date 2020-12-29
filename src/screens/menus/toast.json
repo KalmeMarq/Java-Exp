@@ -77,11 +77,8 @@
               }
             },
             { "text_padding@screen_jexp.h2px": {
-                "bindings": [
-                  { "binding_name": "#text_padding_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "#text_padding_visible"
               }
             },
             { "text_panel": {
@@ -118,11 +115,8 @@
             { "icon_padding": {
                 "type": "panel",
                 "size": [9, 7],
-                "bindings": [
-                  { "binding_name": "#is_achievement",
-                    "binding_name_override": "#visible"
-                  }
-                ],
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "#is_achievement",
                 "controls": [
                   { "gamer_score_icon@toast_screen.gamer_score_icon": {
                       "layer": 1,
@@ -143,8 +137,7 @@
                       "$toast_font_type": "normal",
                       "bindings": [
                         { "binding_name": "#toast_subtitle" },
-                        {
-                          "binding_name": "#toast_subtitle_visible",
+                        { "binding_name": "#toast_subtitle_visible",
                           "binding_name_override": "#visible"
                         }
                       ]

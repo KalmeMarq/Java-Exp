@@ -25,13 +25,8 @@
       "$back_offset": ["50% - 100px", "100% - 27px"],
       "$back_size": [200, 20]
     },
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "video_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "video_view"
   },
 
   "settings_scroll@scrollpane_jexp.scrollpane": {
@@ -62,11 +57,8 @@
             "requires": "$is_holographic",
             "$lt": "video_jexp.vr_msaa_sldr"
           },
-          "bindings": [
-            { "binding_name": "#show_msaa",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#show_msaa"
         }
       },
       { "stack2@debug_jexp.stack_item": {
@@ -221,12 +213,7 @@
     "$sldr_value_bdg_nm": "#msaa",
     "$sldr_tts_text_value": "#msaa_text_value",
     "$opt_enabled_bdg_nm": "#msaa_enabled",
-    "$sldr_steps_bdg_nm": "#msaa_steps",
-    "bindings": [
-      { "binding_name": "#show_msaa",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "$sldr_steps_bdg_nm": "#msaa_steps"
   },
 
   "vr_msaa_sldr@option_slider_jexp.option_slider": {
@@ -237,12 +224,7 @@
     "$sldr_value_bdg_nm": "#vr_msaa",
     "$sldr_tts_text_value": "#vr_msaa_text_value",
     "$opt_enabled_bdg_nm": "#vr_msaa_enabled",
-    "$sldr_steps_bdg_nm": "#vr_msaa_steps",
-    "bindings": [
-      { "binding_name": "#show_vr_msaa",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "$sldr_steps_bdg_nm": "#vr_msaa_steps"
   },
 
   "graphics_tgl@option_toggle_jexp.option_toggle": {
@@ -635,11 +617,8 @@
           "hover_control": "hover",
           "pressed_control": "pressed",
           "layer": 2,
-          "bindings": [
-            { "binding_name": "#rtx_render_distance_warning_tooltip_visible",
-              "binding_name_override": "#visible"
-            }
-          ],
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#rtx_render_distance_warning_tooltip_visible",
           "controls": [
             { "bg@button_jexp.button_locked": {} },
             { "hover@tooltip_jexp.tooltip": {} }

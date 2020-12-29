@@ -8,21 +8,9 @@
   "screen_content": {
     "type": "panel",
     "controls": [
-      { "title@screen_jexp.title": {
-          "text": "#window_title_text",
-          "offset": ["50% - 50%x", 16],
-          "bindings": [
-            { "binding_type": "global",
-              "binding_condition": "none",
-              "binding_name": "#window_title_text",
-              "binding_name_override": "#window_title_text"
-            },
-            { "binding_type": "global",
-              "binding_condition": "once",
-              "binding_name": "#tts_dialog_title"
-            }
-          ],
-          "property_bag": { "#tts_dialog_title": "#window_title_text" }
+      { "title@screen_jexp.title_with_tts": {
+          "$text_nm": "#window_title_text",
+          "offset": ["50% - 50%x", 16]
         }
       },
       { "scroll@scrollpane_jexp.scrollpane": {
@@ -154,11 +142,8 @@
     "$prsd_btn_nm": "button.two_player",
     "$btn_text": "chooseRealmScreen.realmsbuttontext",
     "size": [150, 20],
-    "bindings": [
-      { "binding_name": "#two_player_button_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#two_player_button_visible"
   },
 
   "item_text_panel": {
@@ -218,8 +203,7 @@
                             "type": "label",
                             "color": [0.5, 0.5, 0.5],
                             "bindings": [
-                              {
-                                "binding_name": "#realms_world_player_count",
+                              { "binding_name": "#realms_world_player_count",
                                 "binding_type": "collection",
                                 "binding_collection_name": "realms_collection"
                               }
@@ -242,8 +226,7 @@
                       "anchor_from": "top_right",
                       "anchor_to": "top_right",
                       "bindings": [
-                        {
-                          "binding_name": "#realms_game_online",
+                        { "binding_name": "#realms_game_online",
                           "binding_name_override": "#visible",
                           "binding_type": "collection",
                           "binding_collection_name": "realms_collection"

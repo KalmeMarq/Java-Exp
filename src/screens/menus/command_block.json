@@ -18,11 +18,8 @@
             { "result_title@command_block_jexp.base_label": {
                 "text": "advMode.previousOutput",
                 "offset": ["50% - 150px", 124],
-                "bindings": [
-                  { "binding_name": "#track_output_binding",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "bdg_nm": "#track_output_binding"
               }
             },
             { "result@command_block_jexp.command_result": { "offset": ["50% - 150px", 135] } },
@@ -31,11 +28,8 @@
             { "condition@command_block_jexp.condition_iterable": { "offset": ["50% - 50px", 165] } },
             { "redstone_signal@command_block_jexp.redstone_iterable": { "offset": ["50% + 50px + 4px", 165] } }
           ],
-          "bindings": [
-            { "binding_name": "(not #maximized_input_visible)",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "(not #maximized_input_visible)"
         }
       },
       { "advanced_menu": {
@@ -47,11 +41,8 @@
             { "tick_delay@command_block_jexp.tick_delay_text": { "offset": ["50% - 150px", 165] } },
             { "execute_on_first_tick@command_block_jexp.execute_on_first_tick_toggle": { "offset": ["50% + 4px", 165] } }
           ],
-          "bindings": [
-            { "binding_name": "#maximized_input_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#maximized_input_visible"
         }
       },
       { "done@command_block_jexp.exit_button": {} },
@@ -176,11 +167,8 @@
         "mapping_type": "global"
       }
     ],
-    "bindings": [
-      { "binding_name": "#track_output_binding",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#track_output_binding"
   },
 
   "track_output_toggle@option_toggle_jexp.option_toggle": {

@@ -24,19 +24,9 @@
     ]
   },
 
-  "title@screen_jexp.title": {
-    "size": ["100%", "default"],
-    "text_alignment": "center",
-    "anchor_to": "center",
-    "anchor_from": "center",
-    "text": "playfab.account.banned.title",
-    "property_bag": { "#tts_dialog_title": "playfab.account.banned.title" },
-    "bindings": [
-      { "binding_type": "global",
-        "binding_condition": "once",
-        "binding_name": "#tts_dialog_title"
-      }
-    ]
+  "title@screen_jexp.title_with_tts": {
+    "offset": ["50% - 50%x", 0],
+    "$text_nm": "playfab.account.banned.title"
   },
   
   "description": {
@@ -50,8 +40,6 @@
   "buttons_panel": {
     "type": "panel",
     "size": [310, 20],
-    "anchor_to": "center",
-    "anchor_from": "center",
     "controls": [
       { "view_more_info_button@button_jexp.button_link": {
           "size": [150, 20],

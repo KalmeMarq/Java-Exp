@@ -128,11 +128,8 @@
             { "0@world_create_jexp.info_label": { "text": "selectWorld.gameMode.survival.line1" } },
             { "1@world_create_jexp.info_label": { "text": "selectWorld.gameMode.survival.line2", "offset": [0, 11] } }
           ],
-          "bindings": [
-            { "binding_name": "#world_game_mode_radio_survival",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#world_game_mode_radio_survival"
         }
       },
       { "creative": {
@@ -141,11 +138,8 @@
             { "0@world_create_jexp.info_label": { "text": "selectWorld.gameMode.creative.line1" } },
             { "1@world_create_jexp.info_label": { "text": "selectWorld.gameMode.creative.line2", "offset": [0, 11] } }
           ],
-          "bindings": [
-            { "binding_name": "#world_game_mode_radio_creative",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#world_game_mode_radio_creative"
         }
       }
     ]
@@ -286,8 +280,7 @@
     "anchor_to": "top_left",
     "controls": [
       { "result@info_label": { "text": "selectWorld.resultFolder" } },
-      {
-        "world_name@option_text_box_jexp.text_box_view": {
+      { "world_name@option_text_box_jexp.text_box_view": {
           "$phr_text": "selectWorld.newWorld",
           "$opt_bdg_nm": "#world_name",
           "$text_box_name": "world_name_text_box",
@@ -308,38 +301,28 @@
     "controls": [
       { "achievements_warning_popup@world_create_jexp.abstract_popup": {
           "$label_bdg_nm": "#achievement_warning_text",
-          "bindings": [
-            { "binding_name": "#achievment_warning_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#achievment_warning_visible"
         }
       },
       { "unlock_template_options_popup@world_create_jexp.abstract_popup": {
           "$label_bdg_nm": "#world_template_options_lock_warning_text",
-          "bindings": [
-            { "binding_name": "#is_world_template_locked",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#is_world_template_locked"
         }
       },
       { "box": {
           "type": "panel",
           "size": ["100%", 22],
-          "bindings": [
-            { "binding_name": "#is_world_template_locked",
-              "binding_name_override": "#visible"
-            }
-          ],
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#is_world_template_locked",
           "controls": [
             { "unlock_template_options_button@button_jexp.button_action": {
                 "size": [150, 20],
                 "$btn_text": "options.unlockTemplateWorldOptions.initiate",
                 "$prsd_btn_nm": "unlock_templated_world_options",
                 "bindings": [
-                  {
-                    "binding_name": "#player_has_world_template_option_unlock_permissions",
+                  { "binding_name": "#player_has_world_template_option_unlock_permissions",
                     "binding_name_override": "#enabled"
                   }
                 ]

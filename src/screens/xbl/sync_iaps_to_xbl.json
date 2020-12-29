@@ -2,6 +2,4 @@
   (c) Copyright 2020 @KalmeMarq.
   All rights reserved.
 ***********************************/
-{
-  "namespace": "sync_iaps_to_xbl_jexp"
-}
+{ "namespace": "sync_iaps_to_xbl_jexp" }

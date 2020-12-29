@@ -8,27 +8,16 @@
   "screen_content": {
     "type": "panel",
     "controls": [
-      { "title@screen_jexp.title": {
-          "text": "contentlog.history.title",
-          "offset": ["50% - 50%x", 16],
-          "bindings": [
-            { "binding_type": "none",
-              "binding_condition": "none",
-              "binding_name": "contentlog.history.title",
-              "binding_name_override": "contentlog.history.title"
-            },
-            { "binding_type": "global",
-              "binding_condition": "once",
-              "binding_name": "#tts_dialog_title"
-            }
-          ],
-          "property_bag": { "#tts_dialog_title": "contentlog.history.title" }
+      { "title@screen_jexp.title_with_tts": {
+          "$text_nm": "contentlog.history.title",
+          "offset": ["50% - 50%x", 16]
         }
       },
       { "scroll@scrollpane_jexp.scrollpane": {
           "offset": [0, 32],
           "size": ["100%", "100% - 64px"],
-          "$scrollbar_offset": ["90% + 4px", 0],
+          // "$scrollbar_offset": ["30% + 4px", 0],
+          "$scrollbar_contained": false,
           "$jump_to_bottom_on_update": true,
           "$always_handle_scrolling": true,
           "$scroll_cont": "dirt@content_log_history_jexp.scroll_cont"
@@ -65,51 +54,16 @@
   /***********************************
   * Log Messages
   ************************************/
-  "messages_stack_panel": {
-    "type": "stack_panel",
-    "orientation": "vertical",
-    "collection_name": "content_log_message",
-    "size": ["100%", "default"],
+  "messages_stack_panel@content_log_history.messages_stack_panel": {
     "factory": {
       "name": "messages_factory",
       "control_name": "content_log_message@content_log_history_jexp.content_log_message_panel"
-    },
-    "bindings": [
-      { "binding_name": "#messages_size",
-        "binding_type": "global",
-        "binding_name_override": "#collection_length"
-      }
-    ]
+    }
   },
 
   "content_log_message_panel": {
     "type": "panel",
     "size": ["100%", "100%c"],
-    "controls": [
-      { "content_log_message_panel": {
-          "type": "panel",
-          "size": ["100%", "100%c"],
-          "controls": [
-            { "content_log_message": {
-                "type": "label",
-                "color": "$chat_text_color",
-                "localize": false,
-                "size": ["100%", "default"],
-                "text": "#text",
-                "layer": 10,
-                "line_padding": 1,
-                "bindings": [
-                  { "binding_type": "collection",
-                    "binding_name": "#content_log_text",
-                    "binding_name_override": "#text",
-                    "binding_collection_name": "content_log_message"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
+    "controls": [ { "content_log_message@content_log_history.content_log_message": { "font_type": "normal", "layer": 10 } } ]
   }
 }

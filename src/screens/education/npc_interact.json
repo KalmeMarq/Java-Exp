@@ -2,6 +2,4 @@
   (c) Copyright 2020 @KalmeMarq.
   All rights reserved.
 ***********************************/
-{
-  "namespace": "npc_interact_jexp"
-}
+{ "namespace": "npc_interact_jexp" }

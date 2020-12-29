@@ -2,6 +2,4 @@
   (c) Copyright 2020 @KalmeMarq.
   All rights reserved.
 ***********************************/
-{
-  "namespace": "non_xbl_user_management_jexp"
-}
+{ "namespace": "non_xbl_user_management_jexp" }

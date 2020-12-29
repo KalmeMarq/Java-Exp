@@ -2,6 +2,4 @@
   (c) Copyright 2020 @KalmeMarq.
   All rights reserved.
 ***********************************/
-{
-  "namespace": "file_upload_jexp"
-}
+{ "namespace": "file_upload_jexp" }

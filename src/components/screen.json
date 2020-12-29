@@ -19,6 +19,7 @@
       { "right@$rt": {} }
     ]
   },
+  
   "stack": {
     "type": "stack_panel",
     "size": ["100%", 20],
@@ -54,7 +55,7 @@
   "hfill@screen_jexp.empty_panel": { "size": ["fill", 0] },
 
   /***********************************
-  * Common title
+  * Common titles
   ***********************************/
   "title": {
     "type": "label",
@@ -63,6 +64,25 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "layer": 12
+  },
+
+  "title_with_tts@screen_jexp.title": {
+    "text": "$text_nm",
+    "property_bag": { "#tts_dialog_title": "$text_nm" },
+    "$text_name|default": "",
+    "$title_bdg_cond|default": "none",
+    "$title_text_bdg_type|default": "none",
+    "bindings": [
+      { "binding_type": "$title_text_bdg_type",
+        "binding_condition": "$title_bdg_cond",
+        "binding_name": "$text_nm",
+        "binding_name_override": "$text_nm"
+      },
+      { "binding_type": "global",
+        "binding_condition": "once",
+        "binding_name": "#tts_dialog_title"
+      }
+    ]
   },
 
   /***********************************
@@ -419,48 +439,6 @@
     "controls": [
       { "root_screen_panel@$scrn_cont": {} },
       { "popup_dialog_factory@$popup_factory": {} }
-    ]
-  },
-
-  "dirt_cover": {
-    "type": "panel",
-    "size": ["100%", "100%"],
-    "$top_sz": ["100%", 32],
-    "$bottom_sz": ["100%", 32],
-    "layer": 0,
-    "controls": [
-      { "top": {
-          "type": "input_panel",
-          "focus_enabled": false,
-          "size": "$top_sz",
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
-          "clips_children": true,
-          "controls": [
-            { "bg@screen_jexp.dirt_background": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left"
-              }
-            }
-          ]
-        }
-      },
-      { "bottom": {
-          "type": "input_panel",
-          "focus_enabled": false,
-          "size": "$bottom_sz",
-          "anchor_from": "bottom_left",
-          "anchor_to": "bottom_left",
-          "clips_children": true,
-          "controls": [
-            { "bg@screen_jexp.dirt_background": {
-                "anchor_from": "bottom_left",
-                "anchor_to": "bottom_left"
-              }
-            }
-          ]
-        }
-      }
     ]
   }
 }

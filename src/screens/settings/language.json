@@ -19,13 +19,8 @@
       { "warning@warning_text": { "offset": ["50% - 50%x", "100% - 56px"] } },
       { "back@options_jexp.back_tgl_btn": { "offset": ["50% - 100px", "100% - 38px"] } }
     ],
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "language_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "language_view"
   },
 
   "scroll_cont": {

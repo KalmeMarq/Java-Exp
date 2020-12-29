@@ -247,20 +247,14 @@
             },
             { "profile@stack_item": {
                 "controls": [{ "@profile_btn": {} } ],
-                "bindings": [
-                  { "binding_name": "#persona_enabled",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "#persona_enabled"
               }
             },
             { "change_skin@stack_item": {
                 "controls": [ { "@chg_skin_btn": {} } ],
-                "bindings": [
-                  { "binding_name": "(not #persona_enabled)",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "(not #persona_enabled)"
               }
             },
             { "store@stack_item": {
@@ -285,11 +279,8 @@
             },
             { "buy_game@stack_item": {
                 "controls": [ { "@buy_game_btn": {} } ],
-                "bindings": [
-                  { "binding_name": "#buy_game_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "#buy_game_visible"
               }
             },
             { "space1@screen_jexp.v2px": { "ignored": "($switch_accounts_ignored or ($switch_accounts_ignored and ($trial or not $supports_launching_legacy_version))" } },
@@ -297,11 +288,8 @@
             { "launch_edts@stack_item": {
                 "ignored": "($trial or not $supports_launching_legacy_version)",
                 "controls": [ { "@lnch_edts_btn": {} } ],
-                "bindings": [
-                  { "binding_name": "#editions_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "#editions_visible"
               }
             },
             { "space2@screen_jexp.empty_panel": { "size": [0, 0], "controls": [ { "gamepad_helpers@start.gamepad_helpers": { "offset": [0, 36] } } ] } }
@@ -328,8 +316,7 @@
             { "binding_name": "#signingin_visible",
               "binding_name_override": "#visible"
             },
-            { "binding_name": "#signingin_text"
-            }
+            { "binding_name": "#signingin_text" }
           ]
         }
       },
@@ -392,11 +379,8 @@
       { "xbl_signin@xbl_signin_btn": { "offset": ["50% + 100px - 50%c + 26px", "25% + 48px + 72px + 12px"] } },
       { "platform_signin@platform_signin_btn": { "offset": ["50% + 100px - 50%c + 26px", "25% + 48px + 72px + 12px"] } }
     ],
-    "bindings": [
-      { "binding_name": "#online_buttons_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#online_buttons_visible"
   },
 
   "play_btn@button_jexp.button": {
@@ -417,11 +401,8 @@
     "$hov_btn_bg": "main_menu_jexp.invs_notifs_btn_hov",
     "$lkd_btn_bg": "main_menu_jexp.invs_notifs_btn_dflt",
     "layer": 10,
-    "bindings": [
-      { "binding_name": "#realms_notification_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#realms_notification_visible"
   },
 
   "invs_notifs_btn_dflt@screen_jexp.res_txr": {
@@ -496,14 +477,9 @@
     "hover_control": "hover",
     "pressed_control": "pressed",
     "layer": 2,
-    "bindings": [
-      { "binding_name": "#has_marketplace_errors",
-        "binding_name_override": "#visible"
-      }
-    ],
-    "controls": [
-      { "hover@tooltip_jexp.tooltip": {} }
-    ],
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#has_marketplace_errors",
+    "controls": [ { "hover@tooltip_jexp.tooltip": {} } ],
     "$tooltip_text": "#marketplace_error_text",
     "$tooltip_label_bdgs": [
       { "binding_type": "global",
@@ -522,11 +498,8 @@
     "ignored": "($trial or not $supports_launching_legacy_version)",
     "$prsd_btn_nm": "button.launch_editions",
     "$btn_text": "menu.editions",
-    "bindings": [
-      { "binding_name": "#editions_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#editions_visible"
   },
 
   "fdbk_panel": {
@@ -559,11 +532,8 @@
         }
       }
     ],
-    "bindings": [
-      { "binding_name": "#feedback_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#feedback_visible"
   },
 
   "fdbk_btn_dflt@screen_jexp.res_txr": {
@@ -598,11 +568,8 @@
     "$btn_text": "xbox.signin",
     "$focus_id": "menu_xbox_signin_button",
     "tts_index_order": 10,
-    "bindings": [
-      { "binding_name": "#sign_in_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#sign_in_visible"
   },
 
   "platform_signin_btn@button_jexp.button": {

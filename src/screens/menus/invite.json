@@ -67,11 +67,8 @@
             { "frame_title@frame_title": { "$frame_text": "$err_message_text", "ignored": "$hide_err_message" } },
             { "online_platform_friends@frame_title": {
                 "$frame_text": "thirdPartyConsole.invite.OnlineFriends",
-                "bindings": [
-                  { "binding_name": "#online_platform_friends_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "#online_platform_friends_visible"
               }
             },
             { "online_platform_friend_list_category@invite_jexp.friends_category": {
@@ -84,29 +81,20 @@
             },
             { "platform_friends@frame_title": {
                 "$frame_text": "crossPlatformToggle.crossPlatformDisabled.invite",
-                "bindings": [
-                  { "binding_name": "(not #cross_platform_enabled)",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "(not #cross_platform_enabled)"
               }
             },
             { "space1@screen_jexp.v2px": {
                 "size": [0, 5],
-                "bindings": [
-                  { "binding_name": "(not #cross_platform_enabled)",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "(not #cross_platform_enabled)"
               }
             },
             { "cross_platform_friends@frame_title": {
                 "$frame_text": "invite.OnlineFriends",
-                "bindings": [
-                  { "binding_name": "#online_xbox_live_friends_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "#online_xbox_live_friends_visible"
               }
             },
             { "online_linked_account_friend_list_category@invite_jexp.friends_category": {
@@ -127,11 +115,8 @@
             },
             { "offline_platform_friends@frame_title": {
                 "$frame_text": "thirdPartyConsole.invite.OfflineFriends",
-                "bindings": [
-                  { "binding_name": "#offline_platform_friends_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "#offline_platform_friends_visible"
               }
             },
             { "offline_platform_friend_list_category@invite_jexp.friends_category": {
@@ -144,11 +129,8 @@
             },
             { "offline_platform_friends@frame_title": {
                 "$frame_text": "invite.OfflineFriends",
-                "bindings": [
-                  { "binding_name": "#offline_xbox_live_friends_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ] 
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "#offline_xbox_live_friends_visible"
               }
             },
             { "offline_linked_account_friend_list_category@invite_jexp.friends_category": {

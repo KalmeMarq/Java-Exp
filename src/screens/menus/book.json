@@ -1,5 +1,5 @@
 /**********************************
-  (c) Copyright 2020 @KalmeMarq.
+  (c) Copyright 2020 @FMarquesPTO.
   All rights reserved.
 ***********************************/
 {
@@ -11,16 +11,14 @@
       { "signing_cont@book_jexp.signing_content": {} },
       { "book_and_buttons_panel@book_jexp.book_and_buttons_panel": {} },
       { "pick_panel@book.pick_panel": {
-          "bindings": [
-            { "binding_name": "#picking",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#picking"
         }
       },
       { "export_progress@progress.modal_progress_panel_no_cancel": {
           "$modal_screen_size": [204, 140],
-          "bindings": [ { "binding_name": "#exporting", "binding_name_override": "#visible" } ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#exporting"
         }
       },
       { "gamepad_helper_a@common.gamepad_helper_a": { "anchor_from": "bottom_left", "anchor_to": "bottom_left" } },
@@ -60,22 +58,16 @@
         }
       }
     ],
-    "bindings": [
-      { "binding_name": "#signing",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#signing"
   },
   
   "title_label@screen_jexp.title": {
     "shadow": false,
     "text": "book.editTitle",
     "color": "$book_title_color",
-    "bindings": [
-      { "binding_name": "#editable",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#editable"
   },
 
   "base_text_box@text_box_jexp.text_box": {
@@ -119,11 +111,8 @@
     "size": [100, "100%"],
     "text": "book.finalizeWarning",
     "color": "$book_warning_color",
-    "bindings": [
-      { "binding_name": "#editable",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#editable"
   },
 
   /***********************************
@@ -164,11 +153,8 @@
       { "not_editable_exit@book_jexp.exit_button": {
           "ignored": "$education_edition",
           "offset": ["50% - 50%x", 196],
-          "bindings": [
-            { "binding_name": "(not #editable)",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "(not #editable)"
         }
       },
       { "not_editable_edu@book_jexp.panel": {
@@ -193,11 +179,8 @@
         }
       }
     ],
-    "bindings": [
-      { "binding_name": "#viewing",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#viewing"
   },
 
   "book_grid": {

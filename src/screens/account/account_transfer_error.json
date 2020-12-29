@@ -17,18 +17,11 @@
     ]
   }, 
 
-  "title@common_dialogs.standard_title_label": {
-    "$text_name": "#headline_text",
-    "color": "white",
-    "shadow": true,
-    "size": ["100%", "default"],
-    "anchor_to": "center",
-    "anchor_from": "center",
-    "text_alignment": "center",
-    "$use_custom_title_control|default": false,
-    "$custom_title_label|default": "common.empty_panel",
-    "$title_binding_condition|default": "always",
-    "$title_text_binding_type|default": "global"
+  "title@screen_jexp.title_with_tts": {
+    "offset": ["50% - 50%x", 0],
+    "$text_nm": "#headline_text",
+    "$title_bdg_cond": "always",
+    "$title_text_bdg_type": "global"
   },
 
   "description": {
@@ -57,11 +50,8 @@
   },
 
   "buttons_panel": {
-    "type": "stack_panel",
+    "type": "panel",
     "size": [310, 20],
-    "anchor_to": "center",
-    "anchor_from": "center",
-    "orientation": "horizontal",
     "controls": [
       { "button@button_jexp.button": {
           "$prsd_btn_nm": "button.button",
@@ -75,8 +65,8 @@
           ]
         }
       },
-      { "space@screen_jexp.hfill": {} },
       { "right@button_jexp.button": {
+          "offset": ["50% + 5px", 0],
           "size": [150, 20],
           "$btn_text": "gui.done",
           "$prsd_btn_nm": "button.menu_exit"
@@ -88,8 +78,8 @@
   "base_text": {
     "type": "label",
     "text": "$text",
-    "layer": 2,
     "shadow": true,
+    "layer": 2,
     "bindings": [ { "binding_name": "$text" } ]
   }
 }

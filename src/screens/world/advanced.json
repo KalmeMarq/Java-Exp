@@ -230,11 +230,8 @@
               }
             }
           ],
-          "bindings": [
-            { "binding_name": "(not #platform_toggle_visible_invite_only)",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "(not #platform_toggle_visible_invite_only)"
         }
       },
       { "friends_of_friends_not_visible": {
@@ -253,11 +250,8 @@
               }
             }
           ],
-          "bindings": [
-            { "binding_name": "(not #platform_toggle_visible_friends_of_friends)",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "(not #platform_toggle_visible_friends_of_friends)"
         }
       },
       { "invite_only_n_fof_not_visible": {
@@ -280,11 +274,8 @@
         }
       }
     ],
-    "bindings": [ 
-      { "binding_name": "#can_be_platform_network_enabled",
-        "binding_name_override": "#enabled"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#can_be_platform_network_enabled"
   },
 
   "xbl_settings_iterable@iterable_toggle_jexp.iterable_tgl_panel": {
@@ -343,11 +334,8 @@
     "$btn_text": "hudScreen.tooltip.open",
     "$link": "https://aka.ms/MCMultiplayerHelp",
     "$ctrl_size": [72, 20],
-    "bindings": [
-      { "binding_name": "#open_uri_button_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#open_uri_button_visible"
   },
   
   "experimental_toggles": {
@@ -363,8 +351,7 @@
     },
     "collection_name": "experimental_toggles",
     "bindings": [
-      {
-        "binding_name": "#experimental_toggle_count",
+      { "binding_name": "#experimental_toggle_count",
         "binding_name_override": "#collection_length"
       }
     ]
@@ -505,11 +492,8 @@
               }
             }
           ],
-          "bindings": [
-            { "binding_name": "#achievment_warning_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#achievment_warning_visible"
         }
       },
       { "cheats_off": {

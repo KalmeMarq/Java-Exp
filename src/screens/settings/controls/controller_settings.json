@@ -22,13 +22,8 @@
         }
       }
     ],
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "controller_settings_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "controller_settings_view"
   },
 
   "scroll_cont": {
@@ -126,11 +121,8 @@
     "$sldr_tts_text_value": "#vr_roll_turn_sensitivity_text_value",
     "$sldr_enabled_bdg_nm": "#vr_roll_turn_sensitivity_enabled",
     "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ],
-    "bindings": [
-      { "binding_name": "#vr_roll_turn_sensitivity_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#vr_roll_turn_sensitivity_visible"
   },
 
   "toggle_crouch_tgl@option_toggle_jexp.option_toggle": {

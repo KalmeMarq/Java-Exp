@@ -2,6 +2,4 @@
   (c) Copyright 2020 @KalmeMarq.
   All rights reserved.
 ***********************************/
-{
-  "namespace": "edu_discovery_dialog_jexp"
-}
+{ "namespace": "edu_discovery_dialog_jexp" }

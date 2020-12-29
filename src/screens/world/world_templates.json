@@ -10,22 +10,10 @@
     "$is_custom_tplts|default": false,
     "controls": [
       { "title@screen_jexp.title": { "text": "worldTemplates.title", "offset": ["50% - 50%x", 12], "ignored": "$is_custom_tplts" } },
-      { "title1@screen_jexp.title": {
+      { "title1@screen_jexp.title_with_tts": {
           "offset": ["50% - 50%x", 12],
           "ignored": "(not $is_custom_tplts)",
-          "text": "#window_title_text",
-          "property_bag": { "#tts_dialog_title": "#window_title_text" },
-          "bindings": [
-            { "binding_type": "global",
-              "binding_condition": "none",
-              "binding_name": "#window_title_text",
-              "binding_name_override": "#window_title_text"
-            },
-            { "binding_type": "global",
-              "binding_condition": "once",
-              "binding_name": "#tts_dialog_title"
-            }
-          ]
+          "$text_nm": "#window_title_text"
         }
       },
       { "more@world_templates_jexp.see_more_custom_templates_button": { "offset": ["100% - 100%x - 10px", 6] } },
@@ -68,11 +56,8 @@
     "$prsd_btn_nm": "button.more_custom_templates",
     "$btn_text": "selectTemplate.seeMore",
     "focus_change_right": "FOCUS_OVERRIDE_STOP",
-    "bindings": [
-      { "binding_name": "#custom_template_list_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#custom_template_list_visible"
   },
 
   "scroll_cont": {
@@ -85,11 +70,8 @@
           "orientation": "vertical",
           "size": ["100%", "100%c"],
           "controls": [ { "grid@world_templates_jexp.realms_plus_template_grid": {} } ],
-          "bindings": [
-            { "binding_name": "#realms_plus_list_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#realms_plus_list_visible"
         }
       },
       { "template@world_templates_jexp.world_template_grid": {} },
@@ -98,11 +80,8 @@
           "type": "stack_panel",
           "orientation": "vertical",
           "size": ["100%", "100%c"],
-          "bindings": [
-            { "binding_name": "#suggested_content_visible",
-              "binding_name_override": "#visible"
-            }
-          ],
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#suggested_content_visible",
           "controls": [ { "grid@world_templates_jexp.suggested_template_grid": {} } ]
         }
       },

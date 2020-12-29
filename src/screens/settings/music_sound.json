@@ -30,13 +30,8 @@
     ],
     "$sldr_per": true,
     "$sldr_text_bdgs": [ { "binding_name": "$sldr_text" } ],
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "music_n_sound_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "music_n_sound_view"
   },
 
   /***********************************

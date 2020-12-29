@@ -50,13 +50,8 @@
         }
       }
     ],
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "ingame_world_options_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "ingame_world_options_view"
   },
 
   "player_gamemode_iterable_tgl@iterable_toggle_jexp.iterable_tgl_panel": {

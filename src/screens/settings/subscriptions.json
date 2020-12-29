@@ -18,13 +18,8 @@
       },
       { "back@options_jexp.back_tgl_btn": { "offset": ["50% - 100px", "100% - 27px"], "$tgl_nm": "000" } }
     ],
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "view_subcts_view",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_vis_bdg_tplt",
+    "$vis_ctrl_nm": "view_subcts_view"
   },
 
   "scroll_cont": {
@@ -41,11 +36,8 @@
           "text_alignment": "center",
           "color": "$body_text_color",
           "size": [ "100%", 12 ],
-          "bindings": [
-            { "binding_name": "#realms_subscriptions_loading_failed_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#realms_subscriptions_loading_failed_visible"
         }
       },
       { "loading_subscriptions_label": {
@@ -54,11 +46,8 @@
           "text_alignment": "center",
           "color": "$body_text_color",
           "size": [ "100%", 12 ],
-          "bindings": [
-            { "binding_name": "#realms_subscriptions_loading_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#realms_subscriptions_loading_visible"
         }
       },
       { "realms_plus_header_no_active_subscriptions": {
@@ -80,11 +69,8 @@
               }
             }
           ],
-          "bindings": [
-            { "binding_name": "#no_active_subscriptions_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#no_active_subscriptions_visible"
         }
       },
       { "realms_plus_header_label@common.minecraftTenLabel": {
@@ -107,11 +93,8 @@
             "control_name": "general_section.realms_plus_subscription_panel"
           },
           "collection_name": "realms_plus_subscriptions_collection",
-          "bindings": [
-            { "binding_name": "#realms_plus_subscriptions_dimensions",
-              "binding_name_override": "#collection_length"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#realms_plus_subscriptions_dimensions"
         }
       },
       { "realms_plus_buy_offer@general_section.realms_subscription_main": {
@@ -150,8 +133,7 @@
           "size": [ "100%", 6 ]
         }
       },
-      { "divider2@common.section_divider": {}
-      },
+      { "divider2@common.section_divider": {} },
       { "additional_subs_header_label@common.minecraftTenLabel": {
           "text": "options.viewSubscriptions.realms.header",
           "text_alignment": "left",

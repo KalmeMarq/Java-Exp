@@ -156,22 +156,8 @@
     "anchor_to": "top_left",
     "layer": 30,
     "controls": [
-      { "game_online_icon@realms_jexp.game_online_icon": {
-          "bindings": [
-            { "binding_name": "(not #is_realm_expired)",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      { "game_unavailable_icon@realms_jexp.game_offline_icon": {
-          "bindings": [
-            { "binding_name": "#is_realm_expired",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      }
+      { "game_online_icon@realms_jexp.game_online_icon": { "bindings": "$vis_bdg_nm_tplt", "$bdg_nm": "not #is_realm_expired)" } },
+      { "game_unavailable_icon@realms_jexp.game_offline_icon": { "bindings": "$vis_bdg_nm_tplt", "$bdg_nm": "#is_realm_expired" } }
     ]
   },
 

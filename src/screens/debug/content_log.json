@@ -41,7 +41,7 @@
     "controls": [
       { "content_log_background": {
           "type": "image",
-          "texture": "textures/ui/Black",
+          "texture": "src/assets/black",
           "alpha": 0.5,
           "size": ["100%", "100%c"],
           "anims": ["@content_log.anim_content_log_bg_wait"],

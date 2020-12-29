@@ -195,11 +195,8 @@
                 "size": [28, "100%"],
                 "layer": 5,
                 "controls": [ { "player_permission_button@players_jexp.player_permission_button": { "offset": [4, 6] } } ],
-                "bindings": [
-                  { "binding_name": "#permissions_button_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ]
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "#permissions_button_visible"
               }
             }
           ]

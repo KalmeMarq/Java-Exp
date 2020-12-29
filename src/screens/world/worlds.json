@@ -9,7 +9,7 @@
     "type": "panel",
     "layer": 50,
     "controls": [
-      { "dirt_cover@screen_jexp.dirt_cover": { "$bottom_sz": ["100%", 64] } },
+      { "dirt_cover@screen_jexp_test.dirt_cover": { "$bottom_sz": ["100%", 64] } },
       { "title@screen_jexp.title": { "offset": ["50% - 50%x", 17], "text": "selectWorld.title" } },
       { "quick_play@quick_play_button": { "offset": [6, 6] } },
       { "go_to_servers@play_jexp.right_tgl_btn": { "$tgl_idx": 1, "$tgl_ctrl_nm": "servers_view" } },
@@ -152,7 +152,7 @@
   "local_worlds_description_content": {
     "type": "panel",
     "size": ["100%", 21],
-    "layer": 4,
+    "layer": 8,
     "controls": [
       { "stack0@hstack": {
           "controls": [
@@ -255,9 +255,36 @@
   /***********************************
   * Widgets
   ************************************/
+  "legacy_worlds_button@play_jexp.grid_button": {
+    "$prsd_btn_nm": "button.convert_legacy_world",
+    "button_mappings": [
+      { "from_button_id": "button.menu_select",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "pressed"
+      },
+      { "from_button_id": "button.menu_ok",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "focused"
+      },
+      { "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.upload_legacy_world",
+        "mapping_type": "focused"
+      },
+      { "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.upload_legacy_world",
+        "mapping_type": "focused"
+      }
+    ],
+    "bindings": [
+      { "binding_type": "collection_details",
+        "binding_collection_name": "legacy_worlds"
+      }
+    ]
+  },
+
   "quick_play_button@button_jexp.button": {
     "$prsd_btn_nm": "button.menu_quick_play",
-    // "ignored": "(not $education_edition or $local_world_upload)",
+    "ignored": "(not $education_edition or $local_world_upload)",
     "$btn_text": "menu.quickplay",
     "focus_identifier": "quick_play_button",
     "size": [100, 20]
@@ -284,30 +311,5 @@
     },
     "$btn_tts_hdr": "accessibility.play.importWorld",
     "size": [72, 20]
-  },
-
-  /***********************************
-  * Textures
-  ************************************/
-  "selection_btn_default@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/world_selection",
-    "size": [32, 32],
-    "$uv_sz": [32, 32],
-    "variables": [
-      { "requires": "($world_selection_res = 512x)", "$uv_sz": [64, 64] },
-      { "requires": "($world_selection_res = 1024x)", "$uv_sz": [128, 128] },
-      { "requires": "($world_selection_res = 2048x)", "$uv_sz": [256, 256] },
-      { "requires": "($world_selection_res = 4096x)", "$uv_sz": [512, 512] }
-    ]
-  },
-
-  "selection_btn_hover@seed_picker_jexp.selection_btn_default": {
-    "$uv": [0, 32],
-    "variables": [
-      { "requires": "($world_selection_res = 512x)", "$uv": [0, 64], "$uv_sz": [64, 64] },
-      { "requires": "($world_selection_res = 1024x)", "$uv": [0, 128], "$uv_sz": [128, 128] },
-      { "requires": "($world_selection_res = 2048x)", "$uv": [0, 256], "$uv_sz": [256, 256] },
-      { "requires": "($world_selection_res = 4096x)", "$uv": [0, 512], "$uv_sz": [512, 512] }
-    ]
   }
 }

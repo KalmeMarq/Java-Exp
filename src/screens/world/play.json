@@ -7,10 +7,19 @@
 
   "screen_content": {
     "type": "panel",
+    "$_worlds|default": "worlds_jexp.screen_content",
+    "$_servers|default": "servers_jexp.screen_content",
+    "$_realms|default": "realms_jexp.screen_content",
+    "variables": {
+      "requires": "($use_touch_play_screen)",
+      "$_worlds": "touch_worlds_jexp.screen_content",
+      "$_servers": "touch_servers_jexp.screen_content",
+      "$_realms": "touch_realms_jexp.screen_content"
+    },
     "controls": [
-      { "worlds_scrn@worlds_jexp.screen_content": {} },
-      { "servers_scrn@servers_jexp.screen_content": { "visible": false } },
-      { "realms_scrn@realms_jexp.screen_content": { "visible": false } },
+      { "worlds_scrn@$_worlds": {} },
+      { "servers_scrn@$_servers": { "visible": false } },
+      { "realms_scrn@$_realms": { "visible": false } },
       { "popup_dialog_factory": {
           "type": "factory",
           "control_ids": {
@@ -41,7 +50,7 @@
     "size": ["100%", "default"],
     "grid_item_template": "play_jexp.grid_item",
     "grid_dimension_binding": "$grid_dim_bdg",
-    "collection_name": "$collection_name",
+    "collection_name": "$collt_nm",
     "anchor_to": "top_left",
     "anchor_from": "top_left",
     "bindings": [ { "binding_name": "$grid_dim_bdg" } ]
@@ -99,6 +108,139 @@
   "desc_base": {
     "type": "label",
     "color": "$info_color"
+  },
+
+  "grid_button@button_jexp.button": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$overlay_alpha": 0.4,
+    "layer": 2,
+    "$text_size": [
+      200,
+      "default"
+    ],
+    "$tooltip_label_color": "$6_color_format",
+    "$hover_state": true,
+    "$pressed_state": true,
+    "$is_singleplayer": "($grid_nm = 'local_worlds' or $grid_nm = 'legacy_worlds')",
+    "controls": [
+      {
+        "hover": {
+          "type": "panel",
+          "size": [
+            32,
+            32
+          ],
+          "controls": [
+            {
+              "is_singelplayer": {
+                "type": "panel",
+                "visible": "$is_singleplayer",
+                "controls": [
+                  {
+                    "@tooltip_jexp.tooltip": {
+                      "ignored": "(not $pre_release)",
+                      "$tooltip_text": "selectWorld.versionWarning"
+                    }
+                  },
+                  {
+                    "overlay@packs_jexp.overlay": {
+                      "layer": 5
+                    }
+                  },
+                  {
+                    "apply@worlds_jexp.selection_btn_hover": {
+                      "ignored": "$pre_release"
+                    }
+                  },
+                  {
+                    "warning@play_jexp.warning_hover": {
+                      "ignored": "(not $pre_release)"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "is_not_singelplayer": {
+                "type": "panel",
+                "visible": "(not $is_singleplayer)",
+                "controls": [
+                  {
+                    "overlay@packs_jexp.overlay": {
+                      "layer": 5
+                    }
+                  },
+                  {
+                    "apply@worlds_jexp.selection_btn_hover": {}
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "pressed": {
+          "type": "panel",
+          "size": [
+            32,
+            32
+          ],
+          "controls": [
+            {
+              "is_singleplayer": {
+                "type": "panel",
+                "visible": "$is_singleplayer",
+                "controls": [
+                  {
+                    "@tooltip_jexp.tooltip": {
+                      "ignored": "(not $pre_release)",
+                      "$tooltip_text": "selectWorld.versionWarning"
+                    }
+                  },
+                  {
+                    "overlay@packs_jexp.overlay": {
+                      "layer": 5
+                    }
+                  },
+                  {
+                    "apply@worlds_jexp.selection_btn_hover": {
+                      "ignored": "$pre_release"
+                    }
+                  },
+                  {
+                    "warning@play_mcjava.warning_hover": {
+                      "ignored": "(not $pre_release)"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "is_not_singelplayer": {
+                "type": "panel",
+                "visible": "(not $is_singleplayer)",
+                "controls": [
+                  {
+                    "overlay@packs_jexp.overlay": {
+                      "layer": 5
+                    }
+                  },
+                  {
+                    "apply@worlds_jexp.selection_btn_hover": {}
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "size": [
+      36,
+      36
+    ]
   }
 
   /***********************************

@@ -54,11 +54,8 @@
           "controls": [
             { "convert_to_infinite@main_menu_jexp.stack_item": {
                 "ignored": "(not $is_pregame or not $is_world_edit)",
-                "bindings": [
-                  { "binding_name": "#show_convert_to_infinite_button",
-                    "binding_name_override": "#visible"
-                  }
-                ],
+                "bindings": "$vis_bdg_nm_tplt",
+                "$bdg_nm": "#show_convert_to_infinite_button",
                 "controls": [ { "@world_edit_jexp.convert_to_infinite_button": {} } ]
               }
             },
