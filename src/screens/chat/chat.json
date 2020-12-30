@@ -90,11 +90,8 @@
         }
       }
     ],
-    "bindings": [
-      { "binding_name": "#chat_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#chat_visible"
   },
 
   "commands_panel": {
@@ -340,10 +337,10 @@
       },
       { "gamepad_x_button": {
           "type": "panel",
-          "size": ["100%", "100%" ],
+          "size": ["100%", "100%"],
           "controls": [ { "icon@common.gamepad_helper_x": { "$icon_description_bind_type": "none" } } ],
           "bindings": "$vis_bdg_nm_tplt",
-          "binding_name": "#gamepad_helper_visible"
+          "$bdg_nm": "#gamepad_helper_visible"
         }
       }
     ]

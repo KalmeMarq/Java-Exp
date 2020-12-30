@@ -55,11 +55,8 @@
           "texture": "src/assets/white",
           "color": "red",
           "alpha": 0.35,
-          "bindings": [
-            { "binding_name": "(not #input_enabled)",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "vis_bdg_nm_tplt",
+          "$bdg_nm": "(not #input_enabled)"
         }
       }
     ]
@@ -156,15 +153,12 @@
   /***********************************
   * Textures
   ***********************************/
-  "material_reducer_bg@screen_jexp.res_txr": {
+  "material_reducer_bg@screen_jexp.new_res_txr": {
     "texture": "src/assets/container/material_reducer",
     "size": [176, 195],
+    "$res_nm": "$material_reducer_res",
     "$uv_sz": [176, 195],
-    "variables": [
-      { "requires": "($material_reducer_res = 512x)", "$uv_sz": [352, 390] },
-      { "requires": "($material_reducer_res = 1024x)", "$uv_sz": [704, 780] },
-      { "requires": "($material_reducer_res = 2048x)", "$uv_sz": [1408, 1560] },
-      { "requires": "($material_reducer_res = 4096x)", "$uv_sz": [2816, 3120] }
-    ]
+    "$uv_sz512": [352, 390], "$uv_sz1024": [704, 780],
+    "$uv_sz2048": [1408, 1560], "$uv_sz4096": [2816, 3120]
   }
 }

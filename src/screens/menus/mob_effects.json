@@ -34,10 +34,7 @@
     "controls": [ { "mob_effect_grid@mob_effects_jexp.mob_effect_grid": {} } ]
   },
 
-  "mob_effect_grid": {
-    "type": "grid",
-    "anchor_from": "top_right",
-    "anchor_to": "top_right",
+  "mob_effect_grid@grid_jexp": {
     "size": [310, "default"],
     "grid_item_template": "mob_effects_jexp.mob_effect_grid_item",
     "grid_dimension_binding": "#mob_effect_grid_size",
@@ -107,21 +104,80 @@
     ]
   }, */
 
-  "effect_icons@mob_effects_jexp_test.effect_icons": {},
+  "effect_icons": {
+    "type": "panel",
+    "size": [18, 18],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [6, 7],
+    "controls": [
+      { "speed@mob_effects_jexp.effect_icon": { "$txr": "speed" } },
+      { "absorption@mob_effects_jexp.effect_icon": { "$txr": "absorption" } },
+      { "bad_omen@mob_effects_jexp.effect_icon": { "$txr": "bad_omen" } },
+      { "blindness@mob_effects_jexp.effect_icon": { "$txr": "blindness" } },
+      { "conduit_power@mob_effects_jexp.effect_icon": { "$txr": "conduit_power" } },
+      { "dolphins_grace@mob_effects_jexp.effect_icon": { "$txr": "dolphins_grace" } },
+      { "fire_resistance@mob_effects_jexp.effect_icon": { "$txr": "fire_resistance" } },
+      { "haste@mob_effects_jexp.effect_icon": { "$txr": "haste" } },
+      { "health_boost@mob_effects_jexp.effect_icon": { "$txr": "health_boost" } },
+      { "hero_of_the_village@mob_effects_jexp.effect_icon": {
+          "$txr": "hero_of_the_village",
+          "bindings": [
+            { "binding_type": "collection",
+              "binding_name": "(#texture = 'textures/ui/village_hero_effect_effect')",
+              "binding_collection_name": "mob_effects_collection",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      { "hunger@mob_effects_jexp.effect_icon": { "$txr": "hunger" } },
+      { "instant_damage@mob_effects_jexp.effect_icon": { "$txr": "instant_damage" } },
+      { "instant_health@mob_effects_jexp.effect_icon": { "$txr": "instant_health" } },
+      { "invisibility@mob_effects_jexp.effect_icon": { "$txr": "invisibility" } },
+      { "jump_boost@mob_effects_jexp.effect_icon": { "$txr": "jump_boost" } },
+      { "levitation@mob_effects_jexp.effect_icon": { "$txr": "levitation" } },
+      { "water_breathing@mob_effects_jexp.effect_icon": { "$txr": "water_breathing" } },
+      { "mining_fatigue@mob_effects_jexp.effect_icon": { "$txr": "mining_fatigue" } },
+      { "nausea@mob_effects_jexp.effect_icon": { "$txr": "nausea" } },
+      { "night_vision@mob_effects_jexp.effect_icon": { "$txr": "night_vision" } },
+      { "poison@mob_effects_jexp.effect_icon": { "$txr": "poison" } },
+      { "regeneration@mob_effects_jexp.effect_icon": { "$txr": "regeneration" } },
+      { "resistance@mob_effects_jexp.effect_icon": { "$txr": "resistance" } },
+      { "saturation@mob_effects_jexp.effect_icon": { "$txr": "saturation" } },
+      { "slow_falling@mob_effects_jexp.effect_icon": { "$txr": "slow_falling" } },
+      { "strength@mob_effects_jexp.effect_icon": { "$txr": "strength" } },
+      { "slowness@mob_effects_jexp.effect_icon": { "$txr": "slowness" } },
+      { "weakness@mob_effects_jexp.effect_icon": { "$txr": "weakness" } },
+      { "wither@mob_effects_jexp.effect_icon": { "$txr": "wither" } }
+    ]
+  },
+
+  "effect_icon": {
+    "type": "image",
+    "size": [18, 18],
+    "texture": "('assets/minecraft/textures/mob_effect/' + $txr)",
+    "visible": false,
+    "bindings": [
+      { "binding_type": "collection",
+        "binding_name": "(#texture = 'textures/ui/' + $txr + '_effect')",
+        "binding_collection_name": "mob_effects_collection",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
 
   /***********************************
   * Textures
   ************************************/
-  "effect_gray_background@screen_jexp.res_txr": {
+  "effect_gray_background@screen_jexp.new_res_txr": {
     "texture": "assets/minecraft/textures/gui/container/inventory",
     "size": [120, 32],
-    "$uv": [0, 166],
-    "$uv_sz": [120, 32],
-    "variables": [
-      { "requires": "($inventory_res = 512x)", "$uv": [0, 332], "$uv_sz": [240, 64] },
-      { "requires": "($inventory_res = 1024x)", "$uv": [0, 664], "$uv_sz": [480, 128] },
-      { "requires": "($inventory_res = 2048x)", "$uv": [0, 1328], "$uv_sz": [960, 256] },
-      { "requires": "($inventory_res = 4096x)", "$uv": [0, 2652], "$uv_sz": [1920, 512] }
-    ]
+    "$res_nm": "$inventory_res",
+    "$uv": [0, 166], "$uv_sz": [120, 32],
+    "$uv512": [0, 332], "$uv_sz512": [240, 64],
+    "$uv1024": [0, 664], "$uv_sz1024": [480, 128],
+    "$uv2048": [0, 1328], "$uv_sz2048": [960, 256],
+    "$uv4096": [0, 2652], "$uv_sz4096": [1920, 512]
   }
 }

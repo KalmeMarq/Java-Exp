@@ -205,36 +205,37 @@
   /***********************************
   * Textures
   ************************************/
-  "button_default@screen_jexp.reszg_txr": {
+
+  "a@screen_jexp.reszg_txr": {
+    "variables": [
+      { "requires": "($res_nm = 512x)", "$uv": "$uv512", "$uv_sz": "$uv_sz512" },
+      { "requires": "($res_nm = 1024x)", "$uv": "$uv1024", "$uv_sz": "$uv_sz1024" },
+      { "requires": "($res_nm = 2048x)", "$uv": "$uv2048", "$uv_sz": "$uv_sz2048" },
+      { "requires": "($res_nm = 4096x)", "$uv": "$uv4096", "$uv_sz": "$uv_sz4096" }
+    ]
+  },
+
+  "button_default@button_jexp.a": {
     "$side_sz": [201, "20px"],
     "$txr": "assets/minecraft/textures/gui/widgets",
+    "$res_nm": "$widgets_res",
     "$uv": [0, 66],
     "$uv_sz": [200, 20],
-    "variables": [
-      { "requires": "($widgets_res = 512x)", "$uv": [0, 132], "$uv_sz": [400, 40] },
-      { "requires": "($widgets_res = 1024x)", "$uv": [0, 264], "$uv_sz": [800, 80] },
-      { "requires": "($widgets_res = 2048x)", "$uv": [0, 528], "$uv_sz": [1600, 160] },
-      { "requires": "($widgets_res = 4096x)", "$uv": [0, 1056], "$uv_sz": [3200, 320] }
-    ]
+    "$uv512": [0, 132], "$uv1024": [0, 264], 
+    "$uv2048": [0, 528], "$uv4096": [0, 1056], 
+    "$uv_sz512": [400, 40], "$uv_sz1024": [800, 80],
+    "$uv_sz2048": [1600, 160], "$uv_sz4096": [3200, 320]
   },
 
   "button_hover@button_jexp.button_default": {
     "$uv": [0, 86],
-    "variables": [
-      { "requires": "($widgets_res = 512x)", "$uv": [0, 172], "$uv_sz": [400, 40] },
-      { "requires": "($widgets_res = 1024x)", "$uv": [0, 344], "$uv_sz": [800, 80] },
-      { "requires": "($widgets_res = 2048x)", "$uv": [0, 688], "$uv_sz": [1600, 160] },
-      { "requires": "($widgets_res = 4096x)", "$uv": [0, 1376], "$uv_sz": [3200, 320] }
-    ]
+    "$uv512": [0, 172], "$uv1024": [0, 344],
+    "$uv2048": [0, 688], "$uv4096": [0, 1376]
   },
 
   "button_locked@button_jexp.button_default": {
     "$uv": [0, 46],
-    "variables": [
-      { "requires": "($widgets_res = 512x)", "$uv": [0, 92], "$uv_sz": [400, 40] },
-      { "requires": "($widgets_res = 1024x)", "$uv": [0, 184], "$uv_sz": [800, 80] },
-      { "requires": "($widgets_res = 2048x)", "$uv": [0, 368], "$uv_sz": [1600, 160] },
-      { "requires": "($widgets_res = 4096x)", "$uv": [0, 736], "$uv_sz": [3200, 320] }
-    ]
+    "$uv512": [0, 92], "$uv1024": [0, 184],
+    "$uv2048": [0, 368], "$uv4096": [0, 736]
   }
 }

@@ -78,36 +78,27 @@
           ]
         }
       },
-      { "saddle@horse_jexp.saddle_slot_bg": { "$slot_bg_cond": "#has_saddle_slot" } },
-      { "armor0@horse_jexp.armor_slot_bg": { "$slot_bg_cond": "#has_only_armor_slot" } },
+      { "saddle@horse_jexp.saddle_slot_bg": { "$bdg_nm": "#has_saddle_slot" } },
+      { "armor0@horse_jexp.armor_slot_bg": { "$bdg_nm": "#has_only_armor_slot" } },
       { "carpet0@horse_jexp.carpet_slot_bg": {
           "offset": [0, 18],
-          "$slot_bg_cond": "#has_only_carpet_slot"
+          "$bdg_nm": "#has_only_carpet_slot"
         }
       },
       { "armor1@horse_jexp.armor_slot_bg": {
           "offset": [0, 18],
-          "$slot_bg_cond": "#has_armor_and_saddle_slot"
+          "$bdg_nm": "#has_armor_and_saddle_slot"
         }
       },
       { "carpet1@horse_jexp.carpet_slot_bg": {
           "offset": [0, 18],
-          "$slot_bg_cond": "#has_carpet_and_saddle_slot"
+          "$bdg_nm": "#has_carpet_and_saddle_slot"
         }
       }
-    ],
-    "variables": [
-      { "requires": "($horse_res = 512x)" },
-      { "requires": "($horse_res = 1024x)" },
-      { "requires": "($horse_res = 2048x)" },
-      { "requires": "($horse_res = 4096x)" }
     ]
   },
 
-  "equipment_grid": {
-    "type": "grid",
-    "anchor_to": "top_left",
-    "anchor_from": "top_left",
+  "equipment_grid@screen_jexp.grid": {
     "collection_name": "horse_equip_items",
     "grid_item_template": "@container_jexp.slot",
     "grid_dimension_binding": "#equip_grid_dimensions",
@@ -139,10 +130,7 @@
     "controls": [ { "bg@horse_jexp.horse_inv_bg": {} } ]
   },
 
-  "chest_grid": {
-    "type": "grid",
-    "anchor_to": "top_left",
-    "anchor_from": "top_left",
+  "chest_grid@screen_jexp.grid": {
     "size": ["default", "default"],
     "collection_name": "container_items",
     "grid_item_template": "@container_jexp.slot",
@@ -155,68 +143,44 @@
   /***********************************
   * Textures
   ***********************************/
-  "base_txr@screen_jexp.res_txr": { "texture": "assets/minecraft/textures/gui/container/horse" },
+  "base_txr@screen_jexp.new_res_txr": { "$res_nm": "$horse_res", "texture": "assets/minecraft/textures/gui/container/horse" },
 
   "horse_bg@base_txr": {
     "size": [176, 166],
     "$uv_sz": [176, 166],
-    "variables": [
-      { "requires": "($horse_res = 512x)", "$uv_sz": [352, 332] },
-      { "requires": "($horse_res = 1024x)", "$uv_sz": [704, 664] },
-      { "requires": "($horse_res = 2048x)", "$uv_sz": [1408, 1328] },
-      { "requires": "($horse_res = 4096x)", "$uv_sz": [2816, 2656] }
-    ]
+    "$uv_sz512": [352, 332], "$uv_sz1024": [704, 664],
+    "$uv_sz2048": [1408, 1328], "$uv_sz4096": [2816, 2656]
   },
 
   "horse_inv_bg@base_txr": {
     "size": [90, 54],
-    "$uv": [0, 166],
-    "$uv_sz": [90, 54],
-    "variables": [
-      { "requires": "($horse_res = 512x)", "$uv": [0, 332], "$uv_sz": [36, 108] },
-      { "requires": "($horse_res = 1024x)", "$uv": [0, 664], "$uv_sz": [72, 216] },
-      { "requires": "($horse_res = 2048x)", "$uv": [0, 1328], "$uv_sz": [144, 432] },
-      { "requires": "($horse_res = 4096x)", "$uv": [0, 2656], "$uv_sz": [288, 864] }
-    ]
+    "$uv": [0, 166], "$uv_sz": [90, 54],
+    "$uv512": [0, 332], "$uv_sz512": [36, 108],
+    "$uv1024": [0, 664], "$uv_sz1024": [72, 216],
+    "$uv2048": [0, 1328], "$uv_sz2048": [144, 432],
+    "$uv4096": [0, 2656], "$uv_sz4096": [288, 864]
   },
 
   "saddle_slot_bg@base_txr": {
     "size": [18, 18],
-    "$uv": [18, 220],
-    "$uv_sz|default": [18, 18],
-    "variables": [
-      { "requires": "($horse_res = 512x)", "$uv": [36, 440] },
-      { "requires": "($horse_res = 1024x)", "$uv": [72, 880] },
-      { "requires": "($horse_res = 2048x)", "$uv": [144, 1760] },
-      { "requires": "($horse_res = 4096x)", "$uv": [288, 3520] }
-    ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
+    "$uv": [18, 220], "$uv_sz": [18, 18],
+    "$uv512": [36, 440], "$uv_sz512": [36, 36],
+    "$uv1024": [72, 880], "$uv_sz1024": [64, 64],
+    "$uv2048": [144, 1760], "$uv_sz2048": [128, 128],
+    "$uv4096": [288, 3520], "$uv_sz4096": [256, 256],
     "layer": 4,
-    "bindings": [
-      { "binding_name": "$slot_bg_cond",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt"
   },
 
   "armor_slot_bg@horse_jexp.saddle_slot_bg": {
     "$uv": [0, 220],
-    "variables": [ 
-      { "requires": "($horse_res = 512x)", "$uv": [0, 440] },
-      { "requires": "($horse_res = 1024x)", "$uv": [0, 880] },
-      { "requires": "($horse_res = 2048x)", "$uv": [0, 1760] },
-      { "requires": "($horse_res = 4096x)", "$uv": [0, 3520] }
-    ]
+    "$uv512": [0, 440], "$uv1024": [0, 880],
+    "$uv2048": [0, 1760], "$uv4096": [0, 3520]
   },
 
   "carpet_slot_bg@horse_jexp.saddle_slot_bg": {
     "$uv": [36, 220],
-    "variables": [
-      { "requires": "($horse_res = 512x)", "$uv": [72, 440] },
-      { "requires": "($horse_res = 1024x)", "$uv": [144, 880] },
-      { "requires": "($horse_res = 2048x)", "$uv": [288, 1760] },
-      { "requires": "($horse_res = 4096x)", "$uv": [576, 3520] }
-    ]
+    "$uv512": [72, 440], "$uv1024": [144, 880],
+    "$uv2048": [288, 1760], "$uv4096": [576, 3520]
   }
 }

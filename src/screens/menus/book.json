@@ -43,11 +43,8 @@
           "$prsd_btn_nm": "button.finalize",
           "$btn_text": "book.finalizeButton",
           "size": [98, 20],
-          "bindings": [
-            { "binding_name": "#finalize_button_enabled",
-              "binding_name_override": "#enabled"
-            }
-          ]
+          "bindings": "$ena_bdg_nm_tplt",
+          "$bdg_nm": "#finalize_button_enabled"
         }
       },
       { "cancel_sign_button@button_jexp.button": {
@@ -124,11 +121,7 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "offset": ["50% - 50%x", 196],
-    "bindings": [
-      { "binding_name": "$vis_bdg_nm",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt"
   },
 
   "book_and_buttons_panel": {
@@ -138,7 +131,7 @@
       { "prev_button@book_jexp.prev_button": { "offset": ["50% - 146px + 26px", 159] } },
       { "next_button@book_jexp.next_button": { "offset": ["50% + 146px - 100%x - 29px", 159] } },
       { "editable@book_jexp.panel": {
-          "$vis_bdg_nm": "#editable",
+          "$bdg_nm": "#editable",
           "controls": [
             { "sign_button@button_jexp.button": {
                 "$prsd_btn_nm": "button.sign_book",
@@ -158,7 +151,7 @@
         }
       },
       { "not_editable_edu@book_jexp.panel": {
-          "$vis_bdg_nm": "(not #editable)",
+          "$bdg_nm": "(not #editable)",
           "ignored": "(not $education_edition)",
           "controls": [
             { "export_button@button_jexp.button": {
@@ -313,59 +306,41 @@
   /***********************************
   * Textures
   ************************************/
-  "book_bg@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/book",
+  "base_txr@screen_jexp.new_res_txr": { "$res_nm": "$book_res", "texture": "assets/minecraft/textures/gui/book" },
+
+  "book_bg@book_jexp.base_txr": {
     "size": [146, 180],
-    "$uv": [20, 1],
-    "$uv_sz": [146, 180],
-    "variables": [
-      { "requires": "($book_res = 512x)", "$uv": [40, 2], "$uv_sz": [292, 360] },
-      { "requires": "($book_res = 1024x)", "$uv": [80, 4], "$uv_sz": [584, 720] },
-      { "requires": "($book_res = 2048x)", "$uv": [160, 8], "$uv_sz": [1168, 1440] },
-      { "requires": "($book_res = 4096x)", "$uv": [320, 16], "$uv_sz": [2336, 2880] }
-    ]
+    "$uv": [20, 1], "$uv_sz": [146, 180],
+    "$uv512": [40, 2], "$uv_sz512": [292, 360],
+    "$uv1024": [80, 4], "$uv_sz1024": [584, 720],
+    "$uv2048": [160, 8], "$uv_sz2048": [1168, 1440],
+    "$uv4096": [320, 16], "$uv_sz4096": [2336, 2880]
   },
 
-  "prev_button_default@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/book",
+  "prev_button_default@book_jexp.base_txr": {
     "size": [18, 10],
-    "$uv": [3, 207],
-    "$uv_sz": [18, 10],
-    "variables": [
-      { "requires": "($book_res = 512x)", "$uv": [6, 414], "$uv_sz": [36, 20] },
-      { "requires": "($book_res = 1024x)", "$uv": [12, 828], "$uv_sz": [72, 40] },
-      { "requires": "($book_res = 2048x)", "$uv": [24, 1656], "$uv_sz": [144, 80] },
-      { "requires": "($book_res = 4096x)", "$uv": [48, 3312], "$uv_sz": [288, 160] }
-    ]
+    "$uv": [3, 207], "$uv_sz": [18, 10],
+    "$uv512": [6, 414], "$uv_sz512": [36, 20],
+    "$uv1024": [12, 828], "$uv_sz1024": [72, 40],
+    "$uv2048": [24, 1656], "$uv_sz2048": [144, 80],
+    "$uv4096": [48, 3312], "$uv_sz4096": [288, 160]
   },
 
   "prev_button_hover@book_jexp.prev_button_default": {
     "$uv": [26, 207],
-    "variables": [
-      { "requires": "($book_res = 512x)", "$uv": [52, 414], "$uv_sz": [36, 20] },
-      { "requires": "($book_res = 1024x)", "$uv": [104, 828], "$uv_sz": [72, 40] },
-      { "requires": "($book_res = 2048x)", "$uv": [208, 1656], "$uv_sz": [144, 80] },
-      { "requires": "($book_res = 4096x)", "$uv": [416, 3312], "$uv_sz": [288, 160] }
-    ]
+    "$uv512": [52, 414], "$uv1024": [104, 828],
+    "$uv2048": [208, 1656], "$uv4096": [416, 3312]
   },
 
   "next_button_default@book_jexp.prev_button_default": {
     "$uv": [3, 194],
-    "variables": [
-      { "requires": "($book_res = 512x)", "$uv": [6, 388], "$uv_sz": [36, 20] },
-      { "requires": "($book_res = 1024x)", "$uv": [12, 776], "$uv_sz": [72, 40] },
-      { "requires": "($book_res = 2048x)", "$uv": [24, 1552], "$uv_sz": [144, 80] },
-      { "requires": "($book_res = 4096x)", "$uv": [48, 3104], "$uv_sz": [288, 160] }
-    ]
+    "$uv512": [6, 388], "$uv1024": [12, 776],
+    "$uv2048": [24, 1552], "$uv4096": [48, 3104]
   },
 
   "next_button_hover@book_jexp.prev_button_default": {
     "$uv": [26, 194],
-    "variables": [
-      { "requires": "($book_res = 512x)", "$uv": [52, 388], "$uv_sz": [36, 20] },
-      { "requires": "($book_res = 1024x)", "$uv": [104, 776], "$uv_sz": [72, 40] },
-      { "requires": "($book_res = 2048x)", "$uv": [208, 1552], "$uv_sz": [144, 80] },
-      { "requires": "($book_res = 4096x)", "$uv": [416, 3104], "$uv_sz": [288, 160] }
-    ]
+    "$uv512": [52, 388], "$uv1024": [104, 776],
+    "$uv2048": [208, 1552], "$uv4096": [416, 3104]
   }
 }

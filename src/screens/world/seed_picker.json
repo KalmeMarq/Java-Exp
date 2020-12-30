@@ -9,7 +9,7 @@
     "type": "panel",
     "layer": 50,
     "controls": [
-      { "dirt_cover@screen_jexp_test.dirt_cover": { "$top_sz": ["100%", 44] } },
+      { "dirt_cover@screen_jexp.dirt_cover": { "$top_sz": ["100%", 44] } },
       { "title@screen_jexp.title": { "offset": ["50% - 50%x", 5], "text": "seedPicker.title" } },
       { "search_box@seed_picker_jexp.search_box": {} },
       { "scroll@scrollpane_jexp.scrollpane": {

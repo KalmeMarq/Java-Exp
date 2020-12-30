@@ -13,7 +13,7 @@
           "type": "panel",
           "layer": 50,
           "controls": [
-            { "dirt_cover@screen_jexp_test.dirt_cover": { "$bottom_sz": ["100%", 64] } },
+            { "dirt_cover@screen_jexp.dirt_cover": { "$bottom_sz": ["100%", 64] } },
             { "title@screen_jexp.title": { "offset": ["50% - 50%x", 17], "text": "multiplayer.title" } },
             { "go_to_worlds@play_jexp.left_tgl_btn": { "$tgl_idx": 0, "$tgl_ctrl_nm": "view" } },
             { "go_to_realms@play_jexp.right_tgl_btn": { "$tgl_idx": 1, "$tgl_ctrl_nm": "realms_view", "$tgl_nm": "0001" } },

@@ -31,11 +31,8 @@
     "texture": "src/assets/border",
     "size": ["100%", "100%"],
     "layer": 20,
-    "bindings": [
-      { "binding_name": "#is_using_gamepad",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#is_using_gamepad"
   },
 
   /***********************************
@@ -86,6 +83,16 @@
   },
 
   /***********************************
+  * Common Grid
+  ***********************************/
+
+  "grid": {
+    "type": "grid",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left"
+  },
+
+  /***********************************
   * Common Texture using resolution vars
   ***********************************/
   "res_txr": {
@@ -96,6 +103,19 @@
     "$uv_sz|default": [0, 0],
     "anchor_from": "top_left",
     "anchor_to": "top_left"
+  },
+
+  "new_res_txr@screen_jexp.res_txr": {
+    "$uv512|default": [0, 0], "$uv1024|default": [0, 0],
+    "$uv2048|default": [0, 0], "$uv4096|default": [0, 0],
+    "$uv_sz512|default": [0, 0], "$uv_sz1024|default": [0, 0],
+    "$uv_sz2048|default": [0, 0], "$uv_sz4096|default": [0, 0],
+    "variables": [
+      { "requires": "($res_nm = 512x)", "$uv": "$uv512", "$uv_sz": "$uv_sz512" },
+      { "requires": "($res_nm = 1024x)", "$uv": "$uv1024", "$uv_sz": "$uv_sz1024" },
+      { "requires": "($res_nm = 2048x)", "$uv": "$uv2048", "$uv_sz": "$uv_sz2048" },
+      { "requires": "($res_nm = 4096x)", "$uv": "$uv4096", "$uv_sz": "$uv_sz4096" }
+    ]
   },
 
   /***********************************
@@ -439,6 +459,49 @@
     "controls": [
       { "root_screen_panel@$scrn_cont": {} },
       { "popup_dialog_factory@$popup_factory": {} }
+    ]
+  },
+
+  
+  "dirt_cover": {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "$top_sz": ["100%", 32],
+    "$bottom_sz": ["100%", 32],
+    "layer": 0,
+    "controls": [
+      { "top": {
+          "type": "input_panel",
+          "focus_enabled": false,
+          "size": "$top_sz",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "clips_children": true,
+          "controls": [
+            { "@screen_jexp.dirt_background": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left"
+              }
+            }
+          ]
+        }
+      },
+      { "bottom": {
+          "type": "input_panel",
+          "focus_enabled": false,
+          "size": "$bottom_sz",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "clips_children": true,
+          "controls": [
+            { "@screen_jexp.dirt_background": {
+                "anchor_from": "bottom_left",
+                "anchor_to": "bottom_left"
+              }
+            }
+          ]
+        }
+      }
     ]
   }
 }

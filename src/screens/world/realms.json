@@ -9,7 +9,7 @@
     "type": "panel",
     "layer": 50,
     "controls": [
-      { "dirt_cover@screen_jexp_test.dirt_cover": {} },
+      { "dirt_cover@screen_jexp.dirt_cover": {} },
       { "title@realms_title": { "offset": ["50% - 50%x", "16px - 50%y"] } },
       { "go_to_servers@play_jexp.left_tgl_btn": { "$tgl_idx": 0, "$tgl_ctrl_nm": "view", "$tgl_nm": "0001" } },
       { "scroll@scrollpane_jexp.scrollpane": {

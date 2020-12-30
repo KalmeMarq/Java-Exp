@@ -51,7 +51,7 @@
                 "font_scale_factor": 0.5,
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "offset": [ 2, 0 ]
+                "offset": [2, 0]
               }
             }
           ]

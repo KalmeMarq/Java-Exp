@@ -226,84 +226,58 @@
   /***********************************
   * Textures
   ***********************************/
-  "base_txr@screen_jexp.res_txr": { "texture": "src/assets/container/element_constructor" },
+  "base_txr@screen_jexp.new_res_txr": { "$res_nm": "$element_constructor_res", "texture": "src/assets/container/element_constructor" },
 
   "element_constructor_bg@base_txr": {
     "size": [256, 220],
     "$uv_sz": [256, 220],
-    "variables": [
-      { "requires": "($element_constructor_res = 512x)", "$uv_sz": [460, 392] },
-      { "requires": "($element_constructor_res = 1024x)", "$uv_sz": [920, 784] },
-      { "requires": "($element_constructor_res = 2048x)", "$uv_sz": [1840, 1568] },
-      { "requires": "($element_constructor_res = 4096x)", "$uv_sz": [2816, 3036] }
-    ]
+    "$uv_sz512": [460, 392], "$uv_sz1024": [920, 784],
+    "$uv_sz2048": [1840, 1568], "$uv_sz4096": [2816, 3036]
   },
 
   "button_default@base_txr": {
     "size": [18, 18],
-    "$uv": [257, 0],
-    "$uv_sz": [18, 18],
-    "variables": [
-      { "requires": "($element_constructor_res = 512x)", "$uv": [514, 0], "$uv_sz": [36, 36] },
-      { "requires": "($element_constructor_res = 1024x)", "$uv": [1028, 0], "$uv_sz": [72, 72] },
-      { "requires": "($element_constructor_res = 2048x)", "$uv": [2056, 0], "$uv_sz": [144, 144] },
-      { "requires": "($element_constructor_res = 4096x)", "$uv": [4112, 0], "$uv_sz": [288, 288] }
-    ]
+    "$uv": [257, 0], "$uv_sz": [18, 18],
+    "$uv512": [514, 0], "$uv_sz512": [36, 36],
+    "$uv1024": [1028, 0], "$uv_sz1024": [72, 72],
+    "$uv2048": [2056, 0], "$uv_sz2048": [144, 144],
+    "$uv4096": [4112, 0], "$uv_sz4096": [288, 288]
   },
 
   "button_hover@button_default": {
     "$uv": [257, 18],
-    "variables": [
-      { "requires": "($element_constructor_res = 512x)", "$uv": [514, 36], "$uv_sz": [36, 36] },
-      { "requires": "($element_constructor_res = 1024x)", "$uv": [1028, 72], "$uv_sz": [72, 72] },
-      { "requires": "($element_constructor_res = 2048x)", "$uv": [2056, 144], "$uv_sz": [144, 144] },
-      { "requires": "($element_constructor_res = 4096x)", "$uv": [4112, 288], "$uv_sz": [288, 288] }
-    ]
+    "$uv512": [514, 36], "$uv1024": [1028, 72],
+    "$uv2048": [2056, 144], "$uv4096": [4112, 288]
   },
 
   "button_locked@button_default": {
     "$uv": [257, 36],
-    "variables": [
-      { "requires": "($element_constructor_res = 512x)", "$uv": [514, 72], "$uv_sz": [36, 36] },
-      { "requires": "($element_constructor_res = 1024x)", "$uv": [1028, 144], "$uv_sz": [72, 72] },
-      { "requires": "($element_constructor_res = 2048x)", "$uv": [2056, 288], "$uv_sz": [144, 144] },
-      { "requires": "($element_constructor_res = 4096x)", "$uv": [4112, 576], "$uv_sz": [288, 288] }
-    ]
+    "$uv512": [514, 72], "$uv1024": [1028, 144],
+    "$uv2048": [2056, 288], "$uv4096": [4112, 576]
   },
 
   "sliderbtn_default@base_txr": {
     "size": [16, 8],
-    "$uv": [257, 54],
-    "$uv_sz": [16, 8],
-    "variables": [
-      { "requires": "($element_constructor_res = 512x)", "$uv": [514, 108], "$uv_sz": [36, 36] },
-      { "requires": "($element_constructor_res = 1024x)", "$uv": [1028, 216], "$uv_sz": [72, 72] },
-      { "requires": "($element_constructor_res = 2048x)", "$uv": [2056, 432], "$uv_sz": [144, 144] },
-      { "requires": "($element_constructor_res = 4096x)", "$uv": [4112, 864], "$uv_sz": [288, 288] }
-    ]
+    "$uv": [257, 54], "$uv_sz": [16, 8],
+    "$uv512": [514, 108], "$uv_sz512": [36, 36],
+    "$uv1024": [1028, 216], "$uv_sz1024": [72, 72],
+    "$uv2048": [2056, 432], "$uv_sz2048": [144, 144],
+    "$uv4096": [4112, 864], "$uv_sz4096": [288, 288]
   },
 
   "sliderbtn_hover@base_txr": {
     "size": [16, 8],
-    "$uv": [257, 62],
-    "$uv_sz": [16, 8],
-    "variables": [
-      { "requires": "($element_constructor_res = 512x)", "$uv": [514, 0], "$uv_sz": [36, 36] },
-      { "requires": "($element_constructor_res = 1024x)", "$uv": [1028, 0], "$uv_sz": [72, 72] },
-      { "requires": "($element_constructor_res = 2048x)", "$uv": [2056, 0], "$uv_sz": [144, 144] },
-      { "requires": "($element_constructor_res = 4096x)", "$uv": [4112, 0], "$uv_sz": [288, 288] }
-    ]
+    "$uv": [257, 62], "$uv_sz": [16, 8],
+    "$uv512": [514, 0], "$uv1024": [1028, 0],
+    "$uv2048": [2056, 0], "$uv4096": [4112, 0]
   },
 
   "slider_bg@base_txr": {
     "size": [16, 125],
-    "$uv": [276, 0],
-    "$uv_sz": [16, 125],
-    "variables": [
-      { "requires": "($element_constructor_res = 512x)", "$uv": [0, 0], "$uv_sz": [36, 36] },
-      { "requires": "($element_constructor_res = 1024x)", "$uv": [0, 0], "$uv_sz": [72, 72] },
-      { "requires": "($element_constructor_res = 2048x)", "$uv": [0, 0], "$uv_sz": [144, 144] },
-      { "requires": "($element_constructor_res = 4096x)", "$uv": [0, 0], "$uv_sz": [288, 288] }
-    ]
+    "$uv": [276, 0], "$uv_sz": [16, 125],
+    "$uv512": [552, 0], "$uv_sz512": [36, 36],
+    "$uv1024": [1104, 0], "$uv_sz1024": [72, 72],
+    "$uv2048": [2208, 0], "$uv_sz2048": [144, 144],
+    "$uv4096": [4416, 0], "$uv_sz4096": [288, 288]
   }
 }

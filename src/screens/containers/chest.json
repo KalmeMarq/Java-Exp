@@ -55,10 +55,7 @@
   /***********************************
   * Chest Inventory
   ***********************************/
-  "chest_grid": {
-    "type": "grid",
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
+  "chest_grid@screen_jexp.grid": {
     "collection_name": "container_items",
     "size": "$grid_size",
     "grid_dimensions": "$grid_dimensions",
@@ -72,43 +69,33 @@
   "generic_bg": {
     "type": "stack_panel",
     "size": [176, "100%c"],
-    "$top_generic_bg|default": "",
+    "$res_nm": "$generic_54_res",
     "variables": [
-      { "requires": "($container_bg_type = generic_9x1)", "$top_generic_bg": "chest_jexp.top_generic_9x1_bg" },
-      { "requires": "($container_bg_type = generic_9x2)", "$top_generic_bg": "chest_jexp.top_generic_9x2_bg" },
-      { "requires": "($container_bg_type = generic_9x3)", "$top_generic_bg": "chest_jexp.top_generic_9x3_bg" },
-      { "requires": "($container_bg_type = generic_9x4)", "$top_generic_bg": "chest_jexp.top_generic_9x4_bg" },
-      { "requires": "($container_bg_type = generic_9x5)", "$top_generic_bg": "chest_jexp.top_generic_9x5_bg" },
-      { "requires": "($container_bg_type = generic_9x6)", "$top_generic_bg": "chest_jexp.top_generic_9x6_bg" }
+      { "requires": "($container_bg_type = generic_9x1)", "$top_size": [176, 45] },
+      { "requires": "($container_bg_type = generic_9x2)", "$top_size": [176, 53] },
+      { "requires": "($container_bg_type = generic_9x3)", "$top_size": [176, 71] },
+      { "requires": "($container_bg_type = generic_9x4)", "$top_size": [176, 89] },
+      { "requires": "($container_bg_type = generic_9x5)", "$top_size": [176, 107] },
+      { "requires": "($container_bg_type = generic_9x6)", "$top_size": [176, 125] }
     ],
     "controls": [
-      { "top@$top_generic_bg": {} },
+      { "top@chest_jexp.top_generic_bg": {} },
       { "bottom@chest_jexp.bottom_generic_bg": {} }
     ]
   },
 
-  "top_generic_9x1_bg@chest_jexp.top_generic_bg": { "size": [176, 45] },
-  "top_generic_9x2_bg@chest_jexp.top_generic_bg": { "size": [176, 53] },
-  "top_generic_9x3_bg@chest_jexp.top_generic_bg": { "size": [176, 71] },
-  "top_generic_9x4_bg@chest_jexp.top_generic_bg": { "size": [176, 89] },
-  "top_generic_9x5_bg@chest_jexp.top_generic_bg": { "size": [176, 107] },
-  "top_generic_9x6_bg@chest_jexp.top_generic_bg": { "size": [176, 125] },
-
   "top_generic_bg": {
     "type": "panel",
     "clips_children": true,
+    "size": "$top_size",
     "controls": [
       { "top_bg@screen_jexp.res_txr": {
           "texture": "assets/minecraft/textures/gui/container/generic_54",
           "size": [176, 125],
           "$uv_sz": [176, 125],
-          "layer": -1,
-          "variables": [
-            { "requires": "($generic_54_res = 512x)", "$uv_sz": [352, 250] },
-            { "requires": "($generic_54_res = 1024x)", "$uv_sz": [704, 300] },
-            { "requires": "($generic_54_res = 2048x)", "$uv_sz": [1408, 600] },
-            { "requires": "($generic_54_res = 4096x)", "$uv_sz": [2816, 1200] }
-          ]
+          "$uv_sz512": [352, 250], "$uv_sz1024": [704, 300],
+          "$uv_sz2048": [1408, 600], "$uv_sz4096": [2816, 1200],
+          "layer": -1
         }
       }
     ]
@@ -117,14 +104,11 @@
   "bottom_generic_bg@screen_jexp.res_txr": {
     "texture": "assets/minecraft/textures/gui/container/generic_54",
     "size": [176, 96],
-    "$uv": [0, 126],
-    "$uv_sz": [176, 96],
-    "layer": 1,
-    "variables": [
-      { "requires": "($generic_54_res = 512x)", "$uv": [0, 252], "$uv_sz": [352, 192] },
-      { "requires": "($generic_54_res = 1024x)", "$uv": [0, 304], "$uv_sz": [704, 384] },
-      { "requires": "($generic_54_res = 2048x)", "$uv": [0, 608], "$uv_sz": [1408, 768] },
-      { "requires": "($generic_54_res = 4096x)", "$uv": [0, 1216], "$uv_sz": [2816, 1536] }
-    ]
+    "$uv": [0, 126], "$uv_sz": [176, 96],
+    "$uv512": [0, 252], "$uv_sz512": [352, 192],
+    "$uv1024": [0, 304], "$uv_sz1024": [704, 384],
+    "$uv2048": [0, 608], "$uv_sz2048": [1408, 768],
+    "$uv4096": [0, 1216], "$uv_sz4096": [2816, 1536],
+    "layer": 1
   }
 }

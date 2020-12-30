@@ -45,11 +45,8 @@
         "mapping_type": "focused"
       }
     ],
-    "bindings": [
-      { "binding_name": "#using_touch",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "#using_touch"
   },
 
   /***********************************
@@ -592,13 +589,16 @@
           "size": "$top_sz",
           "$top_sz|default": [12, 2],
           "layer": 4,
-          "$top_vars|default": [],
           "controls": [
             { "scroll_box@$scrollbox_base": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "size": "$top_sz",
-                "variables": "$top_vars"
+                "$uv": "$top_uv", "$uv_sz": "$top_uv_sz",
+                "$uv512": "$top_uv512", "$uv1024": "$top_uv1024",
+                "$uv2048": "$top_uv2048", "$uv4096": "$top_uv4096",
+                "$uv_sz512": "$top_uv_sz512", "$uv_sz1024": "$top_uv_sz1024",
+                "$uv_sz2048": "$top_uv_sz2048", "$uv_sz4096": "$top_uv_sz4096"
               }
             }
           ]
@@ -612,8 +612,11 @@
           "$middle_sz|default": [12, "100% - 4px"],
           "tiled": true,
           "layer": 1,
-          "$middle_vars|default": [],
-          "variables": "$middle_vars"
+          "$uv": "$mid_uv", "$uv_sz": "$mid_uv_sz",
+          "$uv512": "$mid_uv512", "$uv1024": "$mid_uv1024",
+          "$uv2048": "$mid_uv2048", "$uv4096": "$mid_uv4096",
+          "$uv_sz512": "$mid_uv_sz512", "$uv_sz1024": "$mid_uv_sz1024",
+          "$uv_sz2048": "$mid_uv_sz2048", "$uv_sz4096": "$mid_uv_sz4096"
         }
       },
       { "bottom": {
@@ -623,13 +626,16 @@
           "size": "$bottom_sz",
           "$bottom_sz|default": [12, 2],
           "layer": 4,
-          "$bottom_vars|default": [],
           "controls": [
             { "scroll_box@$scrollbox_base": {
                 "anchor_from": "bottom_left",
                 "anchor_to": "bottom_left",
                 "size": "$bottom_sz",
-                "variables": "$bottom_vars"
+                "$uv": "$btm_uv", "$uv_sz": "$btm_uv_sz",
+                "$uv512": "$btm_uv512", "$uv1024": "$btm_uv1024",
+                "$uv2048": "$btm_uv2048", "$uv4096": "$btm_uv4096",
+                "$uv_sz512": "$btm_uv_sz512", "$uv_sz1024": "$btm_uv_sz1024",
+                "$uv_sz2048": "$btm_uv_sz2048", "$uv_sz4096": "$btm_uv_sz4096"
               }
             }
           ]

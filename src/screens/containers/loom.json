@@ -93,46 +93,15 @@
   "result_slot@loom_jexp.loom_slot": {
     "offset": [142, 56],
     "$item_collt_nm": "loom_result_items",
+    "$item_collection_name": "loom_result_items",
     "$btn_ref": "loom_jexp.result_slot_btn"
   },
 
-  "result_slot_btn@container_jexp.no_coalesce_slot_btn": {
-    "button_mappings": [
-      { "from_button_id": "button.menu_select",
-        "to_button_id": "button.loom_result_take_all_place_all",
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.menu_ok",
-        "to_button_id": "button.loom_result_take_all_place_all",
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.menu_secondary_select",
-        "to_button_id": "button.loom_result_take_all_place_all",
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.controller_select",
-        "to_button_id": "button.loom_result_take_all_place_all",
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.menu_auto_place",
-        "to_button_id": "button.container_auto_place",
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.controller_secondary_select",
-        "to_button_id": "button.container_auto_place",
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.menu_inventory_drop",
-        "to_button_id": "button.drop_one",
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.menu_inventory_drop_all",
-        "to_button_id": "button.drop_all",
-        "mapping_type": "pressed"
-      },
-      { "to_button_id": "button.container_slot_hovered",
-        "mapping_type": "pressed"
-      }
+  "result_slot_btn@loom.result_slot_button": {
+    "pressed_control": "pressed",
+    "controls": [
+      { "hover@container_jexp.slot_highlight": {} },
+      { "pressed@container_jexp.slot_highlight": {} }
     ]
   },
 
@@ -153,11 +122,8 @@
     "anchor_to": "top_left",
     "anchor_from": "top_left",
     "controls": [
-      { "grid": {
-          "type": "grid",
+      { "grid@screen_jexp.grid": {
           "size": ["100% - 15px", "default"],
-          "anchor_to": "top_left",
-          "anchor_from": "top_left",
           "collection_name": "$collt_nm",
           "$bdg_cond|default": "visible",
           "grid_rescaling_type": "horizontal",
@@ -249,30 +215,23 @@
   /***********************************
   * Textures
   ***********************************/
-  "base_txr@screen_jexp.res_txr": { "texture": "assets/minecraft/textures/gui/container/loom" },
+  "base_txr@screen_jexp.new_res_txr": { "$res_nm": "$loom_res", "texture": "assets/minecraft/textures/gui/container/loom" },
 
   "loom_bg@base_txr": {
     "size": [176, 166],
     "$uv_sz": [176, 166],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv_sz": [352, 332] },
-      { "requires": "($loom_res = 1024x)", "$uv_sz": [704, 664] },
-      { "requires": "($loom_res = 2048x)", "$uv_sz": [1408, 1328] },
-      { "requires": "($loom_res = 4096x)", "$uv_sz": [2816, 2656] }
-    ]
+    "$uv_sz512": [352, 332], "$uv_sz1024": [704, 664],
+    "$uv_sz2048": [1408, 1328], "$uv_sz4096": [2816, 2656]
   },
 
   "lkd_scrollbox@base_txr": {
     "size": [12, 15],
     "offset": [119, 13],
-    "$uv": [244, 0],
-    "$uv_sz": [12,15],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [488, 0], "$uv_sz": [24, 30] },
-      { "requires": "($loom_res = 1024x)", "$uv": [976, 0], "$uv_sz": [48, 60] },
-      { "requires": "($loom_res = 2048x)", "$uv": [1952, 0], "$uv_sz": [96, 20] },
-      { "requires": "($loom_res = 4096x)", "$uv": [3904, 0], "$uv_sz": [192, 240] }
-    ]
+    "$uv": [244, 0], "$uv_sz": [12,15],
+    "$uv512": [488, 0], "$uv_sz512": [24, 30],
+    "$uv1024": [976, 0], "$uv_sz1024": [48, 60],
+    "$uv2048": [1952, 0], "$uv_sz2048": [96, 20],
+    "$uv4096": [3904, 0], "$uv_sz4096": [192, 240]
   },
 
   "empty_slot@base_txr": {
@@ -280,6 +239,8 @@
     "anchor_to": "center",
     "anchor_from": "center",
     "$uv_sz": [16, 16],
+    "$uv_sz512": [32, 32], "$uv_sz1024": [64, 64],
+    "$uv_sz2048": [128, 128], "$uv_sz4096": [256, 256],
     "bindings": [
       { "binding_name": "#empty_image_visible",
         "binding_name_override": "#visible",
@@ -291,102 +252,70 @@
 
   "banner_empty_slot@loom_jexp.empty_slot": {
     "$uv": [176, 0],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [352, 0], "$uv_sz": [32, 32] },
-      { "requires": "($loom_res = 1024x)", "$uv": [704, 0], "$uv_sz": [64, 64] },
-      { "requires": "($loom_res = 2048x)", "$uv": [1408, 0], "$uv_sz": [128, 128] },
-      { "requires": "($loom_res = 4096x)", "$uv": [2816, 0], "$uv_sz": [256, 256] }
-    ]
+    "$uv512": [352, 0], "$uv1024": [704, 0],
+    "$uv2048": [1408, 0], "$uv4096": [2816, 0]
   },
 
   "dye_empty_slot@loom_jexp.empty_slot": {
     "$uv": [192, 0],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [384, 0], "$uv_sz": [32, 32] },
-      { "requires": "($loom_res = 1024x)", "$uv": [768, 0], "$uv_sz": [64, 64] },
-      { "requires": "($loom_res = 2048x)", "$uv": [1536, 0], "$uv_sz": [128, 128] },
-      { "requires": "($loom_res = 4096x)", "$uv": [3072, 0], "$uv_sz": [256, 356] }
-    ]
+    "$uv512": [384, 0], "$uv1024": [768, 0],
+    "$uv2048": [1536, 0], "$uv4096": [3072, 0]
   },
     
   "pattern_item_empty_slot@loom_jexp.empty_slot": {
     "$uv": [208, 0],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [416, 0], "$uv_sz": [32, 32] },
-      { "requires": "($loom_res = 1024x)", "$uv": [832, 0], "$uv_sz": [64, 64] },
-      { "requires": "($loom_res = 2048x)", "$uv": [1664, 0], "$uv_sz": [128, 128] },
-      { "requires": "($loom_res = 4096x)", "$uv": [3328, 0], "$uv_sz": [256, 256] }
-    ]
+    "$uv512": [416, 0], "$uv1024": [832, 0],
+    "$uv2048": [1664, 0], "$uv4096": [3328, 0]
   },
 
   "scroll_box@container_jexp.scroll_box": {
     "$scrollbox_base": "loom_jexp.base_txr",
-    "$top_vars": [
-      { "requires": "($loom_res = 256x)", "$uv": [232, 0], "$uv_sz": [12, 2] },
-      { "requires": "($loom_res = 512x)", "$uv": [464, 0], "$uv_sz": [24, 4] },
-      { "requires": "($loom_res = 1024x)", "$uv": [928, 0], "$uv_sz": [48, 8] },
-      { "requires": "($loom_res = 2048x)", "$uv": [1856, 0], "$uv_sz": [96, 16] },
-      { "requires": "($loom_res = 4096x)", "$uv": [3712, 0], "$uv_sz": [192, 32] }
-    ],
-    "$middle_vars": [
-      { "requires": "($loom_res = 256x)", "$uv": [232, 2], "$uv_sz": [12, 2] },
-      { "requires": "($loom_res = 512x)", "$uv": [464, 6], "$uv_sz": [24, 4] },
-      { "requires": "($loom_res = 1024x)", "$uv": [928, 12], "$uv_sz": [48, 8] },
-      { "requires": "($loom_res = 2048x)", "$uv": [1856, 24], "$uv_sz": [96, 16] },
-      { "requires": "($loom_res = 4096x)", "$uv": [3712, 48], "$uv_sz": [192, 32] }
-    ],
-    "$bottom_vars": [
-      { "requires": "($loom_res = 256x)", "$uv": [232, 13], "$uv_sz": [12, 2] },
-      { "requires": "($loom_res = 512x)", "$uv": [464, 26], "$uv_sz": [24, 4] },
-      { "requires": "($loom_res = 1024x)", "$uv": [928, 52], "$uv_sz": [48, 8] },
-      { "requires": "($loom_res = 2048x)", "$uv": [1856, 144], "$uv_sz": [96, 16] },
-      { "requires": "($loom_res = 4096x)", "$uv": [3712, 288], "$uv_sz": [192, 32] }
-    ]
+    "$top_uv": [232, 0], "$top_uv_sz": [12, 2],
+    "$top_uv512": [464, 0], "$top_uv_sz512": [24, 4],
+    "$top_uv1024": [928, 0], "$top_uv_sz1024": [48, 8],
+    "$top_uv2048": [1856, 0], "$top_uv_sz2048": [96, 16],
+    "$top_uv4096": [3712, 0], "$top_uv_sz4096": [192, 32],
+    "$mid_uv": [232, 2], "$mid_uv_sz": [12, 2],
+    "$mid_uv512": [464, 6], "$mid_uv_sz512": [24, 4],
+    "$mid_uv1024": [928, 12], "$mid_uv_sz1024": [48, 8],
+    "$mid_uv2048": [1856, 24], "$mid_uv_sz2048": [96, 16],
+    "$mid_uv4096": [3712, 48], "$mid_uv_sz4096": [192, 32],
+    "$btm_uv": [232, 13], "$btm_uv_sz": [12, 2],
+    "$btm_uv512": [464, 26], "$btm_uv_sz512": [24, 4],
+    "$btm_uv1024": [928, 52], "$btm_uv_sz1024": [48, 8],
+    "$btm_uv2048": [1856, 144], "$btm_uv_sz2048": [96, 16],
+    "$btm_uv4096": [3712, 288], "$btm_uv_sz4096": [192, 32]
   },
 
   "scroll_track@base_txr": {
     "size": [12, 56],
-    "$uv": [119, 13],
-    "$uv_sz": [12, 56],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [238, 26], "$uv_sz": [24, 112] },
-      { "requires": "($loom_res = 1024x)", "$uv": [476, 52], "$uv_sz": [48, 224] },
-      { "requires": "($loom_res = 2048x)", "$uv": [952, 104], "$uv_sz": [96, 448] },
-      { "requires": "($loom_res = 4096x)", "$uv": [1104, 208], "$uv_sz": [192, 896] }
-    ]
+    "$uv": [119, 13], "$uv_sz": [12, 56],
+    "$uv512": [238, 26], "$uv_sz512": [24, 112],
+    "$uv1024": [476, 52], "$uv_sz1024": [48, 224],
+    "$uv2048": [952, 104], "$uv_sz2048": [96, 448],
+    "$uv4096": [1104, 208], "$uv_sz4096": [192, 896]
   },
 
   "slot_bg@base_txr": {
     "size": [14, 14],
     "layer": 1,
-    "$uv": [0, 166],
-    "$uv_sz": [14, 14],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [0, 332], "$uv_sz": [28, 28] },
-      { "requires": "($loom_res = 1024x)", "$uv": [0, 664], "$uv_sz": [56, 56] },
-      { "requires": "($loom_res = 2048x)", "$uv": [0, 1328], "$uv_sz": [112, 112] },
-      { "requires": "($loom_res = 4096x)", "$uv": [0, 2656], "$uv_sz": [224, 224] }
-    ]
+    "$uv": [0, 166], "$uv_sz": [14, 14],
+    "$uv512": [0, 332], "$uv_sz512": [28, 28],
+    "$uv1024": [0, 664], "$uv_sz1024": [56, 56],
+    "$uv2048": [0, 1328], "$uv_sz2048": [112, 112],
+    "$uv4096": [0, 2656], "$uv_sz4096": [224, 224]
   },
   
   "hover_slot_bg@loom_jexp.slot_bg": {
     "layer": 2,
     "$uv": [0, 194],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [0, 388], "$uv_sz": [28, 28] },
-      { "requires": "($loom_res = 1024x)", "$uv": [0, 776], "$uv_sz": [56, 56] },
-      { "requires": "($loom_res = 2048x)", "$uv": [0, 1552], "$uv_sz": [112, 112] },
-      { "requires": "($loom_res = 4096x)", "$uv": [0, 3104], "$uv_sz": [224, 224] }
-    ]
+    "$uv512": [0, 388], "$uv1024": [0, 776],
+    "$uv2048": [0, 1552], "$uv4096": [0, 3104]
   },
   
   "selected_slot_bg@loom_jexp.slot_bg": {
     "$uv": [0, 180],
-    "variables": [
-      { "requires": "($loom_res = 512x)", "$uv": [0, 360], "$uv_sz": [28, 28] },
-      { "requires": "($loom_res = 1024x)", "$uv": [0, 720], "$uv_sz": [56, 56] },
-      { "requires": "($loom_res = 2048x)", "$uv": [0, 1440], "$uv_sz": [112, 112] },
-      { "requires": "($loom_res = 4096x)", "$uv": [0, 2880], "$uv_sz": [224, 224] }
-    ]
+    "$uv512": [0, 360], "$uv1024": [0, 720],
+    "$uv2048": [0, 1440], "$uv4096": [0, 2880]
   }
 }

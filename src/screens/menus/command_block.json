@@ -69,11 +69,8 @@
     "size": [150, 20],
     "$btn_text": "gui.cancel",
     "offset": ["50% + 4px", "25% + 120px + 12px"],
-    "bindings": [
-      { "binding_name": "#close_button_visible_binding_name",
-        "binding_name_override": "#enabled"
-      }
-    ]
+    "bindings": "$ena_bdg_nm_tplt",
+    "$bdg_nm": "#close_button_visible_binding_name"
   },
 
   /***********************************
@@ -123,11 +120,8 @@
         "mapping_type": "global"
       }
     ],
-    "bindings": [
-      { "binding_name": "(not #maximized_input_visible)",
-        "binding_name_override": "#enabled"
-      }
-    ]
+    "bindings": "$ena_bdg_nm_tplt",
+    "$bdg_nm": "(not #maximized_input_visible)"
   },
 
   "command_block_console@command_block_jexp.command_block_textbox": {
@@ -296,11 +290,8 @@
       }
     ],
     "enabled_newline": false,
-    "bindings": [
-      { "binding_name": "#maximized_input_visible",
-        "binding_name_override": "#enabled"
-      }
-    ]
+    "bindings": "$ena_bdg_nm_tplt",
+    "$bdg_nm": "#maximized_input_visible"
   },
 
   "maximized_command_block_console@command_block_jexp.command_block_multiline_textbox": {

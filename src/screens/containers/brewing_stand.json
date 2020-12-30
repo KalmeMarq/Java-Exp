@@ -102,52 +102,39 @@
   /***********************************
   * Textures
   ***********************************/
-  "base_txr@screen_jexp.res_txr": { "texture": "assets/minecraft/textures/gui/container/brewing_stand" },
+  "base_txr@screen_jexp.new_res_txr": { "$res_nm": "$brewing_stand_res", "texture": "assets/minecraft/textures/gui/container/brewing_stand" },
 
   "brewing_stand_bg@base_txr": {
     "size": [176, 166],
     "$uv_sz": [176, 166],
-    "variables": [
-      { "requires": "($brewing_stand_res = 512x)", "$uv_sz": [352, 332] },
-      { "requires": "($brewing_stand_res = 1024x)", "$uv_sz": [704, 664] },
-      { "requires": "($brewing_stand_res = 2048x)", "$uv_sz": [1408, 1328] },
-      { "requires": "($brewing_stand_res = 4096x)", "$uv_sz": [2816, 2656] }
-    ]
+    "$uv_sz512": [352, 332], "$uv_sz1024": [704, 664],
+    "$uv_sz2048": [1408, 1328], "$uv_sz4096": [2816, 2656]
   },
   
   "full_arrow@base_txr": {
     "size": [9, 28],
-    "$uv": [176, 0],
-    "$uv_sz": [9, 28],
-    "variables": [
-      { "requires": "($brewing_stand_res = 512x)", "$uv": [352, 0], "$uv_sz": [18, 56] },
-      { "requires": "($brewing_stand_res = 1024x)", "$uv": [704, 0], "$uv_sz": [36, 112] },
-      { "requires": "($brewing_stand_res = 2048x)", "$uv": [1408, 0], "$uv_sz": [72, 224] },
-      { "requires": "($brewing_stand_res = 4096x)", "$uv": [2816, 0], "$uv_sz": [144, 448] }
-    ]
+    "$uv": [176, 0], "$uv_sz": [9, 28],
+    "$uv512": [352, 0], "$uv_sz512": [18, 56],
+    "$uv1024": [704, 0], "$uv_sz1024": [36, 112],
+    "$uv2048": [1408, 0], "$uv_sz2048": [72, 224],
+    "$uv4096": [2816, 0], "$uv_sz4096": [144, 448]
   },
 
   "full_bubbles@base_txr": {
     "size": [12, 29],
-    "$uv": [185, 0],
-    "$uv_sz": [12, 29],
-    "variables": [
-      { "requires": "($brewing_stand_res = 512x)", "$uv": [370, 0], "$uv_sz": [24, 58] },
-      { "requires": "($brewing_stand_res = 1024x)", "$uv": [740, 0], "$uv_sz": [48, 116] },
-      { "requires": "($brewing_stand_res = 2048x)", "$uv": [1480, 0], "$uv_sz": [72, 224] },
-      { "requires": "($brewing_stand_res = 4096x)", "$uv": [2960, 0], "$uv_sz": [192, 464] }
-    ]
+    "$uv": [185, 0], "$uv_sz": [12, 29],
+    "$uv512": [370, 0], "$uv_sz512": [24, 58],
+    "$uv1024": [740, 0], "$uv_sz1024": [48, 116],
+    "$uv2048": [1480, 0], "$uv_sz2048": [72, 224],
+    "$uv4096": [2960, 0], "$uv_sz4096": [192, 464]
   },
 
   "full_fuel@base_txr": {
     "size": [18, 4],
-    "$uv": [176,29],
-    "$uv_sz": [18, 4],
-    "variables": [
-      { "requires":"($brewing_stand_res = 512x)", "$uv": [352,58], "$uv_sz": [36, 8] },
-      { "requires":"($brewing_stand_res = 1024x)", "$uv": [704,116], "$uv_sz": [72, 16] },
-      { "requires":"($brewing_stand_res = 2048x)", "$uv": [1408,232], "$uv_sz": [144, 32] },
-      { "requires":"($brewing_stand_res = 4096x)", "$uv": [2816,464], "$uv_sz": [288, 64] }
-    ]
+    "$uv": [176,29], "$uv_sz": [18, 4],
+    "$uv512": [352, 58], "$uv_sz512": [36, 8],
+    "$uv1024": [704, 116], "$uv_sz1024": [72, 16],
+    "$uv2048": [1408, 232], "$uv_sz2048": [144, 32],
+    "$uv4096": [2816, 464], "$uv_sz4096": [288, 64]
   }
 }

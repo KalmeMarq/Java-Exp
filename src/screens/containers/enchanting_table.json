@@ -48,12 +48,7 @@
     "anchor_to": "top_left",
     "size": [18, 18],
     "collection_name": "$item_collt_nm",
-    "controls": [
-      { "item_slot@container_jexp.slot": {
-          "grid_position": [0, 0]
-        }
-      }
-    ]
+    "controls": [ { "item@container_jexp.slot": { "grid_position": [0, 0] } } ]
   },
 
   "item_slot@enchanting_table_jexp.slot": {
@@ -133,7 +128,8 @@
     ]
   },
 
-  "base_button@enchanting.base_button": {
+  "base_button@button_jexp.button_base": {
+    "size": ["100%", "100%"],
     "bindings": [
       { "binding_name": "$vis_bdg_nm",
         "binding_name_override": "#visible",
@@ -182,16 +178,7 @@
     "$focus_ovrd_left": "enchanting_lapis",
     "$focus_ovrd_right": "FOCUS_OVERRIDE_STOP",
     "sound_name": "block.enchantment_table.use",
-    "button_mappings": [
-      { "from_button_id": "button.menu_select",
-        "to_button_id": "button.menu_ok",
-        "mapping_type": "pressed"
-      },
-      { "from_button_id": "button.menu_ok",
-        "to_button_id": "button.menu_ok",
-        "mapping_type": "focused"
-      }
-    ],
+    "$prsd_btn_nm": "button.menu_ok",
     "$dlft_bg": "btn_selectable_bg",
     "$hov_bg": "btn_selectable_hov_bg",
     "$cost_ctrl": "success_cost"
@@ -245,58 +232,43 @@
   /***********************************
   * Textures
   ***********************************/
-  "base_txr@screen_jexp.res_txr": { "texture": "assets/minecraft/textures/gui/container/enchanting_table" },
+  "base_txr@screen_jexp.new_res_txr": { "$res_nm": "$enchanting_table_res", "texture": "assets/minecraft/textures/gui/container/enchanting_table" },
 
   "enchanting_table_bg@base_txr": {
-    "texture": "assets/minecraft/textures/gui/container/enchanting_table",
     "size": [176, 166],
     "$uv_sz": [176, 166],
-    "variables": [
-      { "requires": "($enchanting_table_res = 512x)", "$uv_sz": [352, 332] },
-      { "requires": "($enchanting_table_res = 1024x)", "$uv_sz": [704, 664] },
-      { "requires": "($enchanting_table_res = 2048x)", "$uv_sz": [1408, 1328] },
-      { "requires": "($enchanting_table_res = 4096x)", "$uv_sz": [2816, 2656] }
-    ]
+    "$uv_sz512": [352, 332], "$uv_sz1024": [704, 664],
+    "$uv_sz2048": [1408, 1328], "$uv_sz4096": [2816, 2656]
   },
 
   "btn_selectable_bg@base_txr": {
-    "$uv": [0, 166],
-    "$uv_sz": [108, 19],
     "size": [108, 19],
-    "variables": [
-      { "requires": "($enchanting_table_res = 512x)", "$uv": [0, 332], "$uv_sz": [216, 38] },
-      { "requires": "($enchanting_table_res = 1024x)", "$uv": [0, 664], "$uv_sz": [432, 76] },
-      { "requires": "($enchanting_table_res = 2048x)", "$uv": [0, 1328], "$uv_sz": [864, 152] },
-      { "requires": "($enchanting_table_res = 4096x)", "$uv": [0, 2656], "$uv_sz": [1728, 304] }
-    ]
+    "$uv": [0, 166], "$uv_sz": [108, 19],
+    "$uv512": [0, 332], "$uv_sz512": [216, 38],
+    "$uv1024": [0, 664], "$uv_sz1024": [432, 76],
+    "$uv2048": [0, 1328], "$uv_sz2048": [864, 152],
+    "$uv4096": [0, 2656], "$uv_sz4096": [1728, 304]
   },
 
   "btn_selectable_hov_bg@enchanting_table_jexp.btn_selectable_bg": {
     "$uv": [0, 204],
-    "$uv_sz": [108, 19],
-    "variables": [
-      { "requires": "($enchanting_table_res = 512x)", "$uv": [0, 408], "$uv_sz": [216, 38] },
-      { "requires": "($enchanting_table_res = 1024x)", "$uv": [0, 816], "$uv_sz": [432, 76] },
-      { "requires": "($enchanting_table_res = 2048x)", "$uv": [0, 1632], "$uv_sz": [864, 152] },
-      { "requires": "($enchanting_table_res = 4096x)", "$uv": [0, 3264], "$uv_sz": [1728, 304] }
-    ]
+    "$uv512": [0, 408], "$uv1024": [0, 816],
+    "$uv2048": [0, 1632], "$uv4096": [0, 3264]
   },
 
   "btn_unselectable_bg@enchanting_table_jexp.btn_selectable_bg": {
     "$uv": [0, 185],
-    "$uv_sz": [108, 19],
-    "variables": [
-      { "requires": "($enchanting_table_res = 512x)", "$uv": [0, 370], "$uv_sz": [216, 38] },
-      { "requires": "($enchanting_table_res = 1024x)", "$uv": [0, 740], "$uv_sz": [432, 76] },
-      { "requires": "($enchanting_table_res = 2048x)", "$uv": [0, 1480], "$uv_sz": [864, 152] },
-      { "requires": "($enchanting_table_res = 4096x)", "$uv": [0, 2960], "$uv_sz": [1728, 304] }
-    ]
+    "$uv512": [0, 370], "$uv1024": [0, 740],
+    "$uv2048": [0, 1480], "$uv4096": [0, 2960]
   },
 
   "dust_image@base_txr": {
     "size": [16, 16],
     "offset": [0, 1],
     "layer": 3,
+    "$uv_sz": [16, 16],
+    "$uv_sz512": [32, 32], "$uv_sz1024": [64, 64],
+    "$uv_sz2048": [128, 128], "$uv_sz4096": [256, 256],
     "bindings": [
       { "binding_name": "$vis_bdg_nm",
         "binding_name_override": "#visible",
@@ -311,67 +283,37 @@
 
   "dust_level_1@enchanting_table_jexp.dust_image_selectable": {
     "$uv": [0, 223],
-    "$uv_sz": [16, 16],
-    "variables": [
-      { "requires": "($enchanting_table_res = 512x)", "$uv": [0, 446], "$uv_sz": [32, 32] },
-      { "requires": "($enchanting_table_res = 1024x)", "$uv": [0, 892], "$uv_sz": [64, 64] },
-      { "requires": "($enchanting_table_res = 2048x)", "$uv": [0, 1784], "$uv_sz": [128, 128] },
-      { "requires": "($enchanting_table_res = 4096x)", "$uv": [0, 3568], "$uv_sz": [256, 256] }
-    ]
+    "$uv512": [0, 446], "$uv1024": [0, 892],
+    "$uv2048": [0, 1784], "$uv4096": [0, 3568]
   },
 
   "dust_level_1_locked@enchanting_table_jexp.dust_image_unselectable": {
     "$uv": [0, 239],
-    "$uv_sz": [16, 16],
-    "variables": [
-      { "requires": "($enchanting_table_res = 512x)", "$uv": [0, 478], "$uv_sz": [32, 32] },
-      { "requires": "($enchanting_table_res = 1024x)", "$uv": [0, 956], "$uv_sz": [64, 64] },
-      { "requires": "($enchanting_table_res = 2048x)", "$uv": [0, 1912], "$uv_sz": [128, 128] },
-      { "requires": "($enchanting_table_res = 4096x)", "$uv": [0, 3824], "$uv_sz": [256, 256] }
-    ]
+    "$uv512": [0, 478], "$uv1024": [0, 956],
+    "$uv2048": [0, 1912], "$uv4096": [0, 3824]
   },
 
-  "dust_level_2@enchanting_table_jexp.dust_image_selectable": {
+  "dust_level_2@enchanting_table_jexp.dust_level_1": {
     "$uv": [16, 223],
-    "$uv_sz": [16, 16],
-    "variables": [
-      { "requires": "($enchanting_table_res = 512x)", "$uv": [32, 446], "$uv_sz": [32, 32] },
-      { "requires": "($enchanting_table_res = 1024x)", "$uv": [64, 892], "$uv_sz": [64, 64] },
-      { "requires": "($enchanting_table_res = 2048x)", "$uv": [128, 1784], "$uv_sz": [128, 128] },
-      { "requires": "($enchanting_table_res = 4096x)", "$uv": [256, 3568], "$uv_sz": [256, 256] }
-    ]
+    "$uv512": [32, 446], "$uv1024": [64, 892],
+    "$uv2048": [128, 1784], "$uv4096": [256, 3568]
   },
 
-  "dust_level_2_locked@enchanting_table_jexp.dust_image_unselectable": {
+  "dust_level_2_locked@enchanting_table_jexp.dust_level_1_locked": {
     "$uv": [16, 239],
-    "$uv_sz": [16, 16],
-    "variables": [
-      { "requires": "($enchanting_table_res = 512x)", "$uv": [32, 478], "$uv_sz": [32, 32] },
-      { "requires": "($enchanting_table_res = 1024x)", "$uv": [64, 956], "$uv_sz": [64, 64] },
-      { "requires": "($enchanting_table_res = 2048x)", "$uv": [128, 1912], "$uv_sz": [128, 128] },
-      { "requires": "($enchanting_table_res = 4096x)", "$uv": [256, 3824], "$uv_sz": [256, 256] }
-    ]
+    "$uv512": [32, 478], "$uv1024": [64, 956],
+    "$uv2048": [128, 1912], "$uv4096": [256, 3824]
   },
 
-  "dust_level_3@enchanting_table_jexp.dust_image_selectable": {
+  "dust_level_3@enchanting_table_jexp.dust_level_1": {
     "$uv": [33, 223],
-    "$uv_sz": [16, 16],
-    "variables": [
-      { "requires": "($enchanting_table_res = 512x)", "$uv": [64, 446], "$uv_sz": [32, 32] },
-      { "requires": "($enchanting_table_res = 1024x)", "$uv": [128, 892], "$uv_sz": [64, 64] },
-      { "requires": "($enchanting_table_res = 2048x)", "$uv": [256, 1784], "$uv_sz": [128, 128] },
-      { "requires": "($enchanting_table_res = 4096x)", "$uv": [512, 3568], "$uv_sz": [256, 256] }
-    ]
+    "$uv512": [64, 446], "$uv1024": [128, 892],
+    "$uv2048": [256, 1784], "$uv4096": [512, 3568]
   },
 
-  "dust_level_3_locked@enchanting_table_jexp.dust_image_unselectable": {
+  "dust_level_3_locked@enchanting_table_jexp.dust_level_1_locked": {
     "$uv": [32, 239],
-    "$uv_sz": [16, 16],
-    "variables": [
-      { "requires": "($enchanting_table_res = 512x)", "$uv": [64, 478], "$uv_sz": [32, 32] },
-      { "requires": "($enchanting_table_res = 1024x)", "$uv": [128, 956], "$uv_sz": [64, 64] },
-      { "requires": "($enchanting_table_res = 2048x)", "$uv": [256, 1912], "$uv_sz": [128, 128] },
-      { "requires": "($enchanting_table_res = 4096x)", "$uv": [512, 3824], "$uv_sz": [256, 256] }
-    ]
+    "$uv512": [64, 478], "$uv1024": [128, 956],
+    "$uv2048": [256, 1912], "$uv4096": [512, 3824]
   }
 }

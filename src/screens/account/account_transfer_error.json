@@ -58,11 +58,8 @@
           "$btn_text": "#button_text",
           "size": [150, 20],
           "$btn_text_bdg_type": "global",
-          "bindings": [
-            { "binding_name": "#button_enabled",
-              "binding_name_override": "#enabled"
-            }
-          ]
+          "bindings": "$ena_bdg_nm_tplt",
+          "$bdg_nm": "#button_enabled"
         }
       },
       { "right@button_jexp.button": {

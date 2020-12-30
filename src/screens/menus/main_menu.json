@@ -119,102 +119,6 @@
     "layer": 20
   },
 
-  "mc_title_left@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/title/minecraft",
-    "size": [155, 44],
-    "$uv_sz": [155, 44],
-    "variables": [
-      { "requires": "($title_res = 512x)", "$uv_sz": [310, 88] },
-      { "requires": "($title_res = 1024x)", "$uv_sz": [620, 176] },
-      { "requires": "($title_res = 2048x)", "$uv_sz": [1240, 352] },
-      { "requires": "($title_res = 4096x)", "$uv_sz": [2480, 704] }
-    ]
-  },
-
-  "mc_title_right@mc_title_left": {
-    "size": [119, 44],
-    "$uv": [0, 45],
-    "$uv_sz": [119, 44],
-    "variables": [
-      { "requires": "($title_res = 512x)", "$uv": [0, 90], "$uv_sz": [238, 88] },
-      { "requires": "($title_res = 1024x)", "$uv": [0, 180], "$uv_sz": [476, 176] },
-      { "requires": "($title_res = 2048x)", "$uv": [0, 360], "$uv_sz": [952, 352] },
-      { "requires": "($title_res = 4096x)", "$uv": [0, 720], "$uv_sz": [1904, 704] }
-    ]
-  },
-
-  "mc_wrongly_spelled_title0@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/title/minecraft",
-    "size": [99, 44],
-    "$uv_sz": [99, 44],
-    "variables": [
-      { "requires": "($title_res = 512x)", "$uv_sz": [198, 88] },
-      { "requires": "($title_res = 1024x)", "$uv_sz": [396, 176] },
-      { "requires": "($title_res = 2048x)", "$uv_sz": [792, 352] },
-      { "requires": "($title_res = 4096x)", "$uv_sz": [1504, 704] }
-    ]
-  },
-
-  "mc_wrongly_spelled_title1@mc_wrongly_spelled_title0": {
-    "size": [27, 44],
-    "$uv": [129, 0],
-    "$uv_sz": [27, 44],
-    "variables": [
-      { "requires": "($title_res = 512x)", "$uv": [258, 0], "$uv_sz": [54, 88] },
-      { "requires": "($title_res = 1024x)", "$uv": [516, 0], "$uv_sz": [108, 176] },
-      { "requires": "($title_res = 2048x)", "$uv": [1032, 0], "$uv_sz": [216, 352] },
-      { "requires": "($title_res = 4096x)", "$uv": [2064, 0], "$uv_sz": [432, 704] }
-    ]
-  },
-
-  "mc_wrongly_spelled_title2@mc_wrongly_spelled_title0": {
-    "size": [3, 44],
-    "$uv": [126, 0],
-    "$uv_sz": [3, 44],
-    "variables": [
-      { "requires": "($title_res = 512x)", "$uv": [252, 0], "$uv_sz": [6, 88] },
-      { "requires": "($title_res = 1024x)", "$uv": [504, 0], "$uv_sz": [9, 176] },
-      { "requires": "($title_res = 2048x)", "$uv": [1008, 0], "$uv_sz": [18, 352] },
-      { "requires": "($title_res = 4096x)", "$uv": [2016, 0], "$uv_sz": [36, 704] }
-    ]
-  },
-
-  "mc_wrongly_spelled_title3@mc_wrongly_spelled_title0": {
-    "size": [26, 44],
-    "$uv": [99, 0],
-    "$uv_sz": [26, 44],
-    "variables": [
-      { "requires": "($title_res = 512x)", "$uv": [198, 0], "$uv_sz": [52, 88] },
-      { "requires": "($title_res = 1024x)", "$uv": [396, 0], "$uv_sz": [104, 176] },
-      { "requires": "($title_res = 2048x)", "$uv": [712, 0], "$uv_sz": [208, 352] },
-      { "requires": "($title_res = 4096x)", "$uv": [1424, 0], "$uv_sz": [416, 704] }
-    ]
-  },
-  
-  "edition_java@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/title/edition",
-    "size": [98, 14],
-    "$uv_sz": [98, 14],
-    "variables": [
-      { "requires": "($edition_res = 512x)", "$uv_sz": [196, 28] },
-      { "requires": "($edition_res = 1024x)", "$uv_sz": [392, 56] },
-      { "requires": "($edition_res = 2048x)", "$uv_sz": [784, 112] },
-      { "requires": "($edition_res = 4096x)", "$uv_sz": [1568, 224] }
-    ]
-  },
-
-  "edition_cpp": {
-    "type": "image",
-    "texture": "src/assets/title/cpp_edition",
-    "size": [88, 14]
-  },
-
-  "edition_bedrock": {
-    "type": "image",
-    "texture": "src/assets/title/bedrock_edition",
-    "size": [124, 14]
-  },
-
   /***********************************
   * Menu Content
   ************************************/
@@ -368,11 +272,8 @@
               }
             }
           ],
-          "bindings": [
-            { "binding_name": "#gamertag_pic_and_label_visible",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#gamertag_pic_and_label_visible"
         }
       },
       { "feedback@fdbk_panel": { "offset": ["50% - 100px - 23px", "25% + 48px + 72px + 12px"] } },
@@ -403,30 +304,6 @@
     "layer": 10,
     "bindings": "$vis_bdg_nm_tplt",
     "$bdg_nm": "#realms_notification_visible"
-  },
-
-  "invs_notifs_btn_dflt@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/widgets",
-    "size": [15, 12],
-    "$uv": [182, 24],
-    "$uv_sz": [15, 12],
-    "variables": [
-      { "requires": "($widgets_res = 512x)", "$uv": [364, 48], "$uv_sz": [30, 24] },
-      { "requires": "($widgets_res = 1024x)", "$uv": [728, 96], "$uv_sz": [60, 48] },
-      { "requires": "($widgets_res = 2048x)", "$uv": [1456, 192], "$uv_sz": [120, 96] },
-      { "requires": "($widgets_res = 4096x)", "$uv": [2912, 384], "$uv_sz": [240, 192] }
-    ]
-  },
-
-  "invs_notifs_btn_hov@invs_notifs_btn_dflt": {
-    "$uv": [166, 24],
-    "$uv_sz": [15, 12],
-    "variables": [
-      { "requires": "($widgets_res = 512x)", "$uv": [332, 48], "$uv_sz": [30, 24] },
-      { "requires": "($widgets_res = 1024x)", "$uv": [664, 96], "$uv_sz": [60, 48] },
-      { "requires": "($widgets_res = 2048x)", "$uv": [1328, 192], "$uv_sz": [120, 96] },
-      { "requires": "($widgets_res = 4096x)", "$uv": [2656, 384], "$uv_sz": [240, 192] }
-    ]
   },
 
   "course_btn@button_jexp.button": {
@@ -463,11 +340,8 @@
     "$btn_bdg_cond": "none",
     "$btn_text_grid_collt_nm": "",
     "enabled": "(not $store_disabled)",
-    "bindings": [
-      { "binding_name": "(not #has_marketplace_errors)",
-        "binding_name_override": "#enabled"
-      }
-    ]
+    "bindings": "$ena_bdg_nm_tplt",
+    "$bdg_nm": "(not #has_marketplace_errors)"
   },
 
   "store_btn_lkd": {
@@ -534,30 +408,6 @@
     ],
     "bindings": "$vis_bdg_nm_tplt",
     "$bdg_nm": "#feedback_visible"
-  },
-
-  "fdbk_btn_dflt@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/widgets",
-    "size": [20, 20],
-    "$uv": [0, 106],
-    "$uv_sz": [20, 20],
-    "variables": [
-      { "requires": "($widgets_res = 512x)", "$uv": [0, 212], "$uv_sz": [40, 40] },
-      { "requires": "($widgets_res = 1024x)", "$uv": [0, 424], "$uv_sz": [80, 80] },
-      { "requires": "($widgets_res = 2048x)", "$uv": [0, 848], "$uv_sz": [160, 160] },
-      { "requires": "($widgets_res = 4096x)", "$uv": [0, 1696], "$uv_sz": [320, 320] }
-    ]
-  },
-
-  "fdbk_btn_hov@fdbk_btn_dflt": {
-    "$uv": [0, 126],
-    "$uv_sz": [20, 20],
-    "variables": [
-      { "requires": "($widgets_res = 512x)", "$uv": [0, 252], "$uv_sz": [40, 40] },
-      { "requires": "($widgets_res = 1024x)", "$uv": [0, 304], "$uv_sz": [80, 80] },
-      { "requires": "($widgets_res = 2048x)", "$uv": [0, 608], "$uv_sz": [160, 160] },
-      { "requires": "($widgets_res = 4096x)", "$uv": [0, 1216], "$uv_sz": [320, 320] }
-    ]
   },
 
   "xbl_signin_btn@button_jexp.button": {
@@ -799,6 +649,153 @@
           ]
         }
       }
+    ]
+  },
+
+  /***********************************
+  * Textures
+  ************************************/
+  "mc_title_left@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/title/minecraft",
+    "size": [155, 44],
+    "$uv_sz": [155, 44],
+    "variables": [
+      { "requires": "($title_res = 512x)", "$uv_sz": [310, 88] },
+      { "requires": "($title_res = 1024x)", "$uv_sz": [620, 176] },
+      { "requires": "($title_res = 2048x)", "$uv_sz": [1240, 352] },
+      { "requires": "($title_res = 4096x)", "$uv_sz": [2480, 704] }
+    ]
+  },
+
+  "mc_title_right@mc_title_left": {
+    "size": [119, 44],
+    "$uv": [0, 45],
+    "$uv_sz": [119, 44],
+    "variables": [
+      { "requires": "($title_res = 512x)", "$uv": [0, 90], "$uv_sz": [238, 88] },
+      { "requires": "($title_res = 1024x)", "$uv": [0, 180], "$uv_sz": [476, 176] },
+      { "requires": "($title_res = 2048x)", "$uv": [0, 360], "$uv_sz": [952, 352] },
+      { "requires": "($title_res = 4096x)", "$uv": [0, 720], "$uv_sz": [1904, 704] }
+    ]
+  },
+
+  "mc_wrongly_spelled_title0@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/title/minecraft",
+    "size": [99, 44],
+    "$uv_sz": [99, 44],
+    "variables": [
+      { "requires": "($title_res = 512x)", "$uv_sz": [198, 88] },
+      { "requires": "($title_res = 1024x)", "$uv_sz": [396, 176] },
+      { "requires": "($title_res = 2048x)", "$uv_sz": [792, 352] },
+      { "requires": "($title_res = 4096x)", "$uv_sz": [1504, 704] }
+    ]
+  },
+
+  "mc_wrongly_spelled_title1@mc_wrongly_spelled_title0": {
+    "size": [27, 44],
+    "$uv": [129, 0],
+    "$uv_sz": [27, 44],
+    "variables": [
+      { "requires": "($title_res = 512x)", "$uv": [258, 0], "$uv_sz": [54, 88] },
+      { "requires": "($title_res = 1024x)", "$uv": [516, 0], "$uv_sz": [108, 176] },
+      { "requires": "($title_res = 2048x)", "$uv": [1032, 0], "$uv_sz": [216, 352] },
+      { "requires": "($title_res = 4096x)", "$uv": [2064, 0], "$uv_sz": [432, 704] }
+    ]
+  },
+
+  "mc_wrongly_spelled_title2@mc_wrongly_spelled_title0": {
+    "size": [3, 44],
+    "$uv": [126, 0],
+    "$uv_sz": [3, 44],
+    "variables": [
+      { "requires": "($title_res = 512x)", "$uv": [252, 0], "$uv_sz": [6, 88] },
+      { "requires": "($title_res = 1024x)", "$uv": [504, 0], "$uv_sz": [9, 176] },
+      { "requires": "($title_res = 2048x)", "$uv": [1008, 0], "$uv_sz": [18, 352] },
+      { "requires": "($title_res = 4096x)", "$uv": [2016, 0], "$uv_sz": [36, 704] }
+    ]
+  },
+
+  "mc_wrongly_spelled_title3@mc_wrongly_spelled_title0": {
+    "size": [26, 44],
+    "$uv": [99, 0],
+    "$uv_sz": [26, 44],
+    "variables": [
+      { "requires": "($title_res = 512x)", "$uv": [198, 0], "$uv_sz": [52, 88] },
+      { "requires": "($title_res = 1024x)", "$uv": [396, 0], "$uv_sz": [104, 176] },
+      { "requires": "($title_res = 2048x)", "$uv": [712, 0], "$uv_sz": [208, 352] },
+      { "requires": "($title_res = 4096x)", "$uv": [1424, 0], "$uv_sz": [416, 704] }
+    ]
+  },
+  
+  "edition_java@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/title/edition",
+    "size": [98, 14],
+    "$uv_sz": [98, 14],
+    "variables": [
+      { "requires": "($edition_res = 512x)", "$uv_sz": [196, 28] },
+      { "requires": "($edition_res = 1024x)", "$uv_sz": [392, 56] },
+      { "requires": "($edition_res = 2048x)", "$uv_sz": [784, 112] },
+      { "requires": "($edition_res = 4096x)", "$uv_sz": [1568, 224] }
+    ]
+  },
+
+  "edition_cpp": {
+    "type": "image",
+    "texture": "src/assets/title/cpp_edition",
+    "size": [88, 14]
+  },
+
+  "edition_bedrock": {
+    "type": "image",
+    "texture": "src/assets/title/bedrock_edition",
+    "size": [124, 14]
+  },
+
+  "invs_notifs_btn_dflt@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/widgets",
+    "size": [15, 12],
+    "$uv": [182, 24],
+    "$uv_sz": [15, 12],
+    "variables": [
+      { "requires": "($widgets_res = 512x)", "$uv": [364, 48], "$uv_sz": [30, 24] },
+      { "requires": "($widgets_res = 1024x)", "$uv": [728, 96], "$uv_sz": [60, 48] },
+      { "requires": "($widgets_res = 2048x)", "$uv": [1456, 192], "$uv_sz": [120, 96] },
+      { "requires": "($widgets_res = 4096x)", "$uv": [2912, 384], "$uv_sz": [240, 192] }
+    ]
+  },
+
+  "invs_notifs_btn_hov@invs_notifs_btn_dflt": {
+    "$uv": [166, 24],
+    "$uv_sz": [15, 12],
+    "variables": [
+      { "requires": "($widgets_res = 512x)", "$uv": [332, 48], "$uv_sz": [30, 24] },
+      { "requires": "($widgets_res = 1024x)", "$uv": [664, 96], "$uv_sz": [60, 48] },
+      { "requires": "($widgets_res = 2048x)", "$uv": [1328, 192], "$uv_sz": [120, 96] },
+      { "requires": "($widgets_res = 4096x)", "$uv": [2656, 384], "$uv_sz": [240, 192] }
+    ]
+  },
+
+  "fdbk_btn_dflt@screen_jexp.res_txr": {
+    "texture": "assets/minecraft/textures/gui/widgets",
+    "size": [20, 20],
+    "$uv": [0, 106],
+    "$uv_sz": [20, 20],
+    "variables": [
+      { "requires": "($widgets_res = 512x)", "$uv": [0, 212], "$uv_sz": [40, 40] },
+      { "requires": "($widgets_res = 1024x)", "$uv": [0, 424], "$uv_sz": [80, 80] },
+      { "requires": "($widgets_res = 2048x)", "$uv": [0, 848], "$uv_sz": [160, 160] },
+      { "requires": "($widgets_res = 4096x)", "$uv": [0, 1696], "$uv_sz": [320, 320] }
+    ]
+  },
+
+  "fdbk_btn_hov@fdbk_btn_dflt": {
+    "$uv": [0, 126],
+    "$uv_sz": [20, 20],
+    "variables": [
+      { "requires": "($widgets_res = 512x)", "$uv": [0, 252], "$uv_sz": [40, 40] },
+      { "requires": "($widgets_res = 1024x)", "$uv": [0, 304], "$uv_sz": [80, 80] },
+      { "requires": "($widgets_res = 2048x)", "$uv": [0, 608], "$uv_sz": [160, 160] },
+      { "requires": "($widgets_res = 4096x)", "$uv": [0, 1216], "$uv_sz": [320, 320] }
     ]
   }
 }

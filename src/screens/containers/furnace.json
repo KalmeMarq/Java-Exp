@@ -72,8 +72,6 @@
       // { "recipe_book_button@furnace_recipe_book_ui.furnace_recipe_book_button": {} },
       { "ingredient@furnace_jexp.ingredient_slot": {} },
       { "arrow@furnace_jexp.full_arrow": {
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
           "offset": [79, 34],
           "clip_direction": "left",
           "bindings": [
@@ -86,8 +84,6 @@
       },
       { "fuel@furnace_jexp.fuel_slot": {} },
       { "flame@furnace_jexp.full_flame": {
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
           "offset": [56, 36],
           "clip_direction": "down",
           "bindings": [

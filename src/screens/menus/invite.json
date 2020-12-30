@@ -76,7 +76,7 @@
                 "$frds_cat_grid_type": "invite_jexp.online_platform_friend_list_grid",
                 "$button_focus_identifier": "online_platform_friends_pagination_controls",
                 "$tts_section_header": "thirdPartyConsole.invite.OnlineFriends",
-                "$vis_bdg": "#online_platform_friends_visible"
+                "$bdg_nm": "#online_platform_friends_visible"
               }
             },
             { "platform_friends@frame_title": {
@@ -102,7 +102,7 @@
                 "$frds_cat_grid_type": "invite_jexp.online_linked_account_friend_list_grid",
                 "$button_focus_identifier": "online_linked_account_friends_pagination_controls",
                 "$tts_section_header": "invite.OnlineFriends",
-                "$vis_bdg": "#online_linked_account_friends_visible"
+                "$bdg_nm": "#online_linked_account_friends_visible"
               }
             },
             { "online_xbox_live_friend_list_category@invite_jexp.friends_category": {
@@ -110,7 +110,7 @@
                 "$frds_cat_grid_type": "invite_jexp.online_xbox_live_friend_list_grid",
                 "$button_focus_identifier": "online_xbox_live_friends_pagination_controls",
                 "$tts_section_header": "invite.OnlineFriends",
-                "$vis_bdg": "#online_xbox_live_friends_visible"
+                "$bdg_nm": "#online_xbox_live_friends_visible"
               }
             },
             { "offline_platform_friends@frame_title": {
@@ -124,7 +124,7 @@
                 "$frds_cat_grid_type": "invite_jexp.offline_platform_friend_list_grid",
                 "$button_focus_identifier": "offline_platform_friends_pagination_controls",
                 "$tts_section_header": "thirdPartyConsole.invite.OfflineFriends",
-                "$vis_bdg": "#offline_platform_friends_visible"
+                "$bdg_nm": "#offline_platform_friends_visible"
               }
             },
             { "offline_platform_friends@frame_title": {
@@ -138,7 +138,7 @@
                 "$frds_cat_grid_type": "invite_jexp.offline_linked_account_friend_list_grid",
                 "$button_focus_identifier": "offline_linked_account_friends_pagination_controls",
                 "$tts_section_header": "invite.OfflineFriends",
-                "$vis_bdg": "#offline_linked_account_friends_visible"
+                "$bdg_nm": "#offline_linked_account_friends_visible"
               }
             },
             { "offline_xbox_live_friend_list_category@invite_jexp.friends_category": {
@@ -146,7 +146,7 @@
                 "$frds_cat_grid_type": "invite_jexp.offline_xbox_live_friend_list_grid",
                 "$button_focus_identifier": "offline_xbox_live_friends_pagination_controls",
                 "$tts_section_header": "invite.OfflineFriends",
-                "$vis_bdg": "#offline_xbox_live_friends_visible"
+                "$bdg_nm": "#offline_xbox_live_friends_visible"
               }
             }
           ],
@@ -185,11 +185,7 @@
     "orientation": "vertical",
     "size": [ "100%", "100%c" ],
     "controls": [ { "grid@$frds_cat_grid_type": {} } ],
-    "bindings": [
-      { "binding_name": "$vis_bdg",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt"
   },
 
   "abstract_grid": {
@@ -249,22 +245,18 @@
   "friend_linked_account_grid_item_tplt@msa_frd_grid_item_tplt": { "controls": [ { "btn@invite.linked_friend_button": {} } ] },
 
   "online_xbox_live_friend_grid_item@msa_frd_grid_item_tplt": {
-    "bindings": [
-      { "binding_name": "#cross_platform_enabled",
-        "binding_name_override": "#enabled"
-      }
-    ]
+    "bindings": "$ena_bdg_nm_tplt",
+    "$bdg_nm": "#cross_platform_enabled"
   },
+
   "offline_xbox_live_friend_grid_item@invite_jexp.online_xbox_live_friend_grid_item": {},
   
   "online_linked_account_friend_grid_item@invite_jexp.friend_linked_account_grid_item_tplt": {
     "$is_platform_icon": "$invite_platform_icons_visible",
-    "bindings": [
-      { "binding_name": "#cross_platform_enabled",
-        "binding_name_override": "#enabled"
-      }
-    ]
+    "bindings": "$ena_bdg_nm_tplt",
+    "$bdg_nm": "#cross_platform_enabled"
   },
+
   "offline_linked_account_friend_grid_item@invite_jexp.online_linked_account_friend_grid_item": {},
 
   "online_platform_friend_grid_item@invite_jexp.platform_friend_grid_item_tplt": { "$is_platform_icon": "$invite_platform_icons_visible" },
@@ -472,12 +464,8 @@
     "size": [100, 20],
     "layer": 2,
     "button_mappings": "$add_btn_mapgs",
-    "bindings": [
-      {
-        "binding_name": "#cross_platform_enabled",
-        "binding_name_override": "#enabled"
-      }
-    ]
+    "bindings": "$ena_bdg_nm_tplt",
+    "$bdg_nm": "#cross_platform_enabled"
   },
 
   "add_member_button@button_jexp.button": {

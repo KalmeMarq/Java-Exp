@@ -81,8 +81,7 @@
       { "progress_rend@hud.progress_indicator_renderer": { "offset": [ "50%", "50%" ] } },
       { "player_position@ingame_hud.player_position": {} },
       { "chat_panel@ingame_hud.chat_panel": {} },
-      {
-        "boss_health_panel": {
+      { "boss_health_panel": {
           "type": "stack_panel",
           "orientation": "vertical",
           "size": ["100%", "100%"],
@@ -270,8 +269,7 @@
       { "progress_bar@ingame_hud.boss_bars_panel": {} }
     ],
     "bindings": [
-      {
-        "binding_name": "#bar_visible",
+      { "binding_name": "#bar_visible",
         "binding_type": "collection",
         "binding_collection_name": "boss_bars",
         "binding_name_override": "#visible"
@@ -289,8 +287,7 @@
     "anchor_to": "top_middle",
     "shadow": true,
     "bindings": [
-      {
-        "binding_name": "#bossName",
+      { "binding_name": "#bossName",
         "binding_type": "collection",
         "binding_collection_name": "boss_bars"
       }
@@ -339,12 +336,6 @@
       { "empty_boss_bar@$empty_bar_color": {} },
       { "filled_boss_bar@$filled_bar_color": {} }
     ],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv_sz": [364, 10] },
-      { "requires": "($bars_res = 1024x)", "$uv_sz": [728, 20] },
-      { "requires": "($bars_res = 2048x)", "$uv_sz": [1456, 40] },
-      { "requires": "($bars_res = 4096x)", "$uv_sz": [2912, 80] }
-    ],
     "bindings": [
       { "binding_type": "collection",
         "binding_name": "$langBossName",
@@ -370,247 +361,6 @@
           "layer": -2
         }
       }
-    ]
-  },
-
-  "empty_boss_bar@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/bars",
-    "size": [182, 5],
-    "$uv_sz|default": [182, 5]
-  },
-  "empty_style_bar@ingame_hud.empty_boss_bar": { "layer": 4 },
-
-  "filled_boss_bar@ingame_hud.empty_boss_bar": {
-    "clip_direction": "left",
-    "clip_pixelperfect": true,
-    "layer": 2,
-    "bindings": [
-      { "binding_name": "#progress_percentage",
-        "binding_name_override": "#clip_ratio",
-        "binding_type": "collection",
-        "binding_collection_name": "$progress_bar_collection"
-      }
-    ]
-  },
-  "filled_style_bar@ingame_hud.filled_boss_bar": { "layer": 6 },
-
-  "empty_pink_bar@ingame_hud.empty_boss_bar": {},
-
-  "empty_aqua_bar@ingame_hud.empty_boss_bar": {
-    "$uv": [0, 10],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 20] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 40] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 80] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 160] }
-    ]
-  },
-
-  "empty_red_bar@ingame_hud.empty_boss_bar": {
-    "$uv": [0, 20],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 40] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 80] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 160] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 320] }
-    ]
-  },
-
-  "empty_green_bar@ingame_hud.empty_boss_bar": {
-    "$uv": [0, 30],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 60] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 120] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 240] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 480] }
-    ]
-  },
-
-  "empty_yellow_bar@ingame_hud.empty_boss_bar": {
-    "$uv": [0, 40],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 80] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 160] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 320] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 640] }
-    ]
-  },
-
-  "empty_purple_bar@ingame_hud.empty_boss_bar": {
-    "$uv": [0, 50],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 100] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 200] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 400] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 800] }
-    ]
-  },
-
-  "empty_gray_bar@ingame_hud.empty_boss_bar": {
-    "$uv": [0, 60],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 120] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 240] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 480] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 960] }
-    ]
-  },
-
-  "filled_pink_bar@ingame_hud.filled_boss_bar": {
-    "$uv": [0, 5],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 10] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 20] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 40] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 80] }
-    ]
-  },
-
-  "filled_aqua_bar@ingame_hud.filled_boss_bar": {
-    "$uv": [0, 15],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 30] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 60] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 120] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 240] }
-    ]
-  },
-
-  "filled_red_bar@ingame_hud.filled_boss_bar": {
-    "$uv": [0, 25],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 50] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 100] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 200] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 400] }
-    ]
-  },
-
-  "filled_green_bar@ingame_hud.filled_boss_bar": {
-    "$uv": [0, 35],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 70] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 140] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 280] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 360] }
-    ]
-  },
-
-  "filled_yellow_bar@ingame_hud.filled_boss_bar": {
-    "$uv": [0, 45],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 90] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 180] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 360] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 720] }
-    ]
-  },
-
-  "filled_purple_bar@ingame_hud.filled_boss_bar": {
-    "$uv": [0, 55],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 110] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 220] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 440] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 880] }
-    ]
-  },
-
-  "filled_gray_bar@ingame_hud.filled_boss_bar": {
-    "$uv": [0, 65],
-    "$uv_sz": [182, 5],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 130], "$uv_sz": [364, 10] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 260], "$uv_sz": [728, 20] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 520], "$uv_sz": [1456, 40] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 1040], "$uv_sz": [2912, 80] }
-    ]
-  },
-
-  "empty_progress_bar": {
-    "type": "panel",
-    "size": [182, 5]
-  },
-
-  "filled_progress_bar@ingame_hud.empty_progress_bar": {},
-
-  "empty_notched_6_bar@ingame_hud.empty_notched_bar": {
-    "$uv": [0, 80],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 160] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 320] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 640] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 1280] }
-    ]
-  },
-
-  "filled_notched_6_bar@ingame_hud.filled_notched_bar": {
-    "$uv": [0, 85],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 170] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 340] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 680] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 1360] }
-    ]
-  },
-
-  "empty_notched_10_bar@ingame_hud.empty_notched_bar": {
-    "$uv": [0, 90],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 180] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 360] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 720] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 1440] }
-    ]
-  },
-
-  "filled_notched_10_bar@ingame_hud.filled_notched_bar": {
-    "$uv": [0, 95],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 190] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 380] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 760] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 1520] }
-    ]
-  },
-
-  "empty_notched_12_bar@ingame_hud.empty_notched_bar": {
-    "$uv": [0, 100],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 200] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 400] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 800] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 1600] }
-    ]
-  },
-
-  "filled_notched_12_bar@ingame_hud.filled_notched_bar": {
-    "$uv": [0, 105],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 210] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 420] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 840] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 1680] }
-    ]
-  },
-
-  "empty_notched_20_bar@ingame_hud.empty_notched_bar": {
-    "$uv": [0, 110],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 220] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 440] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 880] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 1760] }
-    ]
-  },
-
-  "filled_notched_20_bar@ingame_hud.filled_notched_bar": {
-    "$uv": [0, 115],
-    "variables": [
-      { "requires": "($bars_res = 512x)", "$uv": [0, 230] },
-      { "requires": "($bars_res = 1024x)", "$uv": [0, 460] },
-      { "requires": "($bars_res = 2048x)", "$uv": [0, 920] },
-      { "requires": "($bars_res = 4096x)", "$uv": [0, 1840] }
     ]
   },
 
@@ -793,22 +543,16 @@
           "offset": [180, -54],
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left",
-          "bindings": [
-            { "binding_name": "#is_creative_mode",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#is_creative_mode"
         }
       },
       { "horse_heart1@hud.horse_heart_renderer": {
           "offset": [180, -48],
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left",
-          "bindings": [
-            { "binding_name": "#is_not_creative_mode",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#is_not_creative_mode"
         }
       },
       { "armor@hud.armor_renderer": {
@@ -827,22 +571,16 @@
           "offset": [180, -48],
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left",
-          "bindings": [
-            { "binding_name": "#is_not_riding",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#is_not_riding"
         }
       },
       { "bubbles1@hud.bubbles_renderer": {
           "offset": [180, -68],
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left",
-          "bindings": [
-            { "binding_name": "#is_riding",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#is_riding"
         }
       },
       { "horse_jump@hud.horse_jump_renderer": {
@@ -850,11 +588,8 @@
           "anchor_to": "bottom_middle",
           "offset": [0, -28],
           "layer": 7,
-          "bindings": [
-            { "binding_name": "#is_riding",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#is_riding"
         }
       },
       { "texts@ingame_hud.texts_panel": {} },
@@ -1005,8 +740,7 @@
     "size": ["100%", "100%c"],
     "offset": "$offset",
     "controls": [
-      {
-        "inner_panel": {
+      { "inner_panel": {
           "type": "panel",
           "size": "$inner_size",
           "clips_children": true,
@@ -1138,8 +872,7 @@
     "anchor_to": "bottom_middle",
     "controls": [
       { "empty_xp_bar@ingame_hud.empty_xp_bar": {} },
-      {
-        "full_xp_bar@ingame_hud.full_xp_bar": {
+      { "full_xp_bar@ingame_hud.full_xp_bar": {
           "clip_direction": "left",
           "clip_pixelperfect": true,
           "bindings": [
@@ -1152,29 +885,6 @@
           "layer": 3
         }
       }
-    ]
-  },
-
-  "empty_xp_bar@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/icons",
-    "size": [182, 5],
-    "$uv": [0, 64],
-    "$uv_sz": [182, 5],
-    "variables": [
-      { "requires": "($icons_res = 512x)", "$uv": [0, 128], "$uv_sz": [364, 10] },
-      { "requires": "($icons_res = 1024x)", "$uv": [0, 248], "$uv_sz": [728, 20] },
-      { "requires": "($icons_res = 2048x)", "$uv": [0, 496], "$uv_sz": [1456, 40] },
-      { "requires": "($icons_res = 4096x)", "$uv": [0, 992], "$uv_sz": [2912, 80] }
-    ]
-  },
-
-  "full_xp_bar@ingame_hud.empty_xp_bar": {
-    "$uv": [0, 69],
-    "variables": [
-      { "requires": "($icons_res = 512x)", "$uv": [0, 138], "$uv_sz": [364, 10] },
-      { "requires": "($icons_res = 1024x)", "$uv": [0, 276], "$uv_sz": [728, 20] },
-      { "requires": "($icons_res = 2048x)", "$uv": [0, 552], "$uv_sz": [1456, 40] },
-      { "requires": "($icons_res = 4096x)", "$uv": [0, 1104], "$uv_sz": [2912, 80] }
     ]
   },
 
@@ -1220,8 +930,7 @@
     "offset": [-22, 0],
     "controls": [ { "btn@ingame_hud.hotbar_inv_btn": {} } ],
     "bindings": [
-      {
-        "binding_name": "#hotbar_elipses_left_visible",
+      { "binding_name": "#hotbar_elipses_left_visible",
         "binding_name_override": "#visible",
         "binding_type": "global"
       }
@@ -1236,23 +945,10 @@
     "offset": [22, 0],
     "controls": [ { "btn@ingame_hud.hotbar_inv_btn": {} } ],
     "bindings": [
-      {
-        "binding_name": "#hotbar_elipses_right_visible",
+      { "binding_name": "#hotbar_elipses_right_visible",
         "binding_name_override": "#visible",
         "binding_type": "global"
       }
-    ]
-  },
-
-  "hotbar_bg@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/widgets",
-    "size": [182, 22],
-    "$uv_sz": [182, 22],
-    "variables": [
-      { "requires": "($widgets_res = 512x)", "$uv_sz": [364, 44] },
-      { "requires": "($widgets_res = 1024x)", "$uv_sz": [728, 88] },
-      { "requires": "($widgets_res = 2048x)", "$uv_sz": [1456, 176] },
-      { "requires": "($widgets_res = 4096x)", "$uv_sz": [2912, 352] }
     ]
   },
 
@@ -1276,19 +972,6 @@
   "item_durability@common.durability_bar": {
     "$durability_bar_required|default": true,
     "$item_collection_name": "$hotbar_collt_nm"
-  },
-
-  "hotbar_slot_selector@screen_jexp.res_txr": {
-    "texture": "assets/minecraft/textures/gui/widgets",
-    "size": [24, 23],
-    "$uv": [0, 22],
-    "$uv_sz": [24, 23],
-    "variables": [
-      { "requires": "($widgets_res = 512x)", "$uv": [0, 44], "$uv_sz": [48, 46] },
-      { "requires": "($widgets_res = 1024x)", "$uv": [0, 88], "$uv_sz": [96, 92] },
-      { "requires": "($widgets_res = 2048x)", "$uv": [0, 176], "$uv_sz": [192, 184] },
-      { "requires": "($widgets_res = 4096x)", "$uv": [0, 352], "$uv_sz": [384, 368] }
-    ]
   },
 
   "hotbar_grid_item": {
@@ -1321,8 +1004,7 @@
           "size": [18, 18],
           "controls": [
             { "item_icon@hud.hotbar_hud_item_icon": { "size": [16, 16], "$item_collection_name": "$hotbar_collt_nm" } },
-            {
-              "item_count@common.stack_count_label": {
+            { "item_count@common.stack_count_label": {
                 "$item_collection_name": "$hotbar_collt_nm",
                 "$stack_count_collt_nm": "$hotbar_collt_nm",
                 "bindings": [
@@ -1348,5 +1030,234 @@
     ]
   },
 
-  "slot_item_lock_overlay@container_jexp.slot_item_lock_overlay": { "$item_collt_nm": "$hotbar_collt_nm" }
+  "slot_item_lock_overlay@container_jexp.slot_item_lock_overlay": { "$item_collt_nm": "$hotbar_collt_nm" },
+
+  /**********************************
+    Textures
+  ***********************************/
+  "empty_xp_bar@screen_jexp.new_res_txr": {
+    "texture": "assets/minecraft/textures/gui/icons",
+    "size": [182, 5],
+    "$res_nm": "$icons_res",
+    "$uv": [0, 64], "$uv_sz": [182, 5],
+    "$uv512": [0, 128], "$uv_sz512": [364, 10],
+    "$uv1024": [0, 248], "$uv_sz1024": [728, 20],
+    "$uv2048": [0, 496], "$uv_sz2048": [1456, 40],
+    "$uv4096": [0, 992], "$uv_sz4096": [2912, 80]
+  },
+
+  "full_xp_bar@ingame_hud.empty_xp_bar": {
+    "$uv": [0, 69],
+    "$uv512": [0, 138], "$uv1024": [0, 276],
+    "$uv2048": [0, 552], "$uv4096": [0, 1104]
+  },
+
+  "hotbar_bg@screen_jexp.new_res_txr": {
+    "texture": "assets/minecraft/textures/gui/widgets",
+    "size": [182, 22],
+    "$res_nm": "$widgets_res",
+    "$uv_sz": [182, 22],
+    "$uv_sz512": [364, 44], "$uv_sz1024": [728, 88],
+    "$uv_sz2048": [1456, 176], "$uv_sz4096": [2912, 352]
+  },
+
+  "hotbar_slot_selector@ingame_hud.hotbar_bg": {
+    "size": [24, 23],
+    "$uv": [0, 22], "$uv_sz": [24, 23],
+    "$uv512": [0, 44], "$uv_sz512": [48, 46],
+    "$uv1024": [0, 88], "$uv_sz1024": [96, 92],
+    "$uv2048": [0, 176], "$uv_sz2048": [192, 184],
+    "$uv4096": [0, 352], "$uv_sz4096": [384, 368]
+  },
+
+  "empty_boss_bar@screen_jexp.new_res_txr": {
+    "texture": "assets/minecraft/textures/gui/bars",
+    "size": [182, 5],
+    "$res_nm": "$bars_res",
+    "$uv_sz": [182, 5],
+    "$uv_sz512": [364, 10], "$uv_sz1024": [728, 20],
+    "$uv_sz2048": [1456, 40], "$uv_sz4096": [2912, 80]
+  },
+  "empty_style_bar@ingame_hud.empty_boss_bar": { "layer": 4 },
+
+  "filled_boss_bar@ingame_hud.empty_boss_bar": {
+    "clip_direction": "left",
+    "clip_pixelperfect": true,
+    "layer": 2,
+    "bindings": [
+      { "binding_name": "#progress_percentage",
+        "binding_name_override": "#clip_ratio",
+        "binding_type": "collection",
+        "binding_collection_name": "$progress_bar_collection"
+      }
+    ]
+  },
+  "filled_style_bar@ingame_hud.filled_boss_bar": { "layer": 6 },
+
+  "empty_pink_bar@ingame_hud.empty_boss_bar": {},
+
+  "empty_aqua_bar@ingame_hud.empty_boss_bar": {
+    "$uv": [0, 10],
+    "$uv512": [0, 20], "$uv1024": [0, 40],
+    "$uv2048": [0, 80], "$uv4096": [0, 160]
+  },
+
+  "empty_red_bar@ingame_hud.empty_boss_bar": {
+    "$uv": [0, 20],
+    "$uv512": [0, 40], "$uv1024": [0, 80],
+    "$uv2048": [0, 160], "$uv4096": [0, 320]
+  },
+
+  "empty_green_bar@ingame_hud.empty_boss_bar": {
+    "$uv": [0, 30],
+    "$uv512": [0, 60], "$uv1024": [0, 120],
+    "$uv2048": [0, 240], "$uv4096": [0, 480]
+  },
+
+  "empty_yellow_bar@ingame_hud.empty_boss_bar": {
+    "$uv": [0, 40],
+    "$uv512": [0, 80], "$uv1024": [0, 160],
+    "$uv2048": [0, 320], "$uv4096": [0, 640]
+  },
+
+  "empty_purple_bar@ingame_hud.empty_boss_bar": {
+    "$uv": [0, 50],
+    "$uv512": [0, 100], "$uv1024": [0, 200],
+    "$uv2048": [0, 400], "$uv4096": [0, 800]
+  },
+
+  "empty_gray_bar@ingame_hud.empty_boss_bar": {
+    "$uv": [0, 60],
+    "$uv512": [0, 120], "$uv1024": [0, 240],
+    "$uv2048": [0, 480], "$uv4096": [0, 960]
+  },
+
+  "filled_pink_bar@ingame_hud.filled_boss_bar": {
+    "$uv": [0, 5],
+    "$uv512": [0, 10], "$uv1024": [0, 20],
+    "$uv2048": [0, 40], "$uv4096": [0, 80]
+  },
+
+  "filled_aqua_bar@ingame_hud.filled_boss_bar": {
+    "$uv": [0, 15],
+    "$uv512": [0, 30], "$uv1024": [0, 60],
+    "$uv2048": [0, 120], "$uv4096": [0, 240]
+  },
+
+  "filled_red_bar@ingame_hud.filled_boss_bar": {
+    "$uv": [0, 25],
+    "$uv512": [0, 50], "$uv1024": [0, 100],
+    "$uv2048": [0, 200], "$uv4096": [0, 400]
+  },
+
+  "filled_green_bar@ingame_hud.filled_boss_bar": {
+    "$uv": [0, 35],
+    "$uv512": [0, 70], "$uv1024": [0, 140],
+    "$uv2048": [0, 280], "$uv4096": [0, 360]
+  },
+
+  "filled_yellow_bar@ingame_hud.filled_boss_bar": {
+    "$uv": [0, 45],
+    "$uv512": [0, 90], "$uv1024": [0, 180],
+    "$uv2048": [0, 360], "$uv4096": [0, 720]
+  },
+
+  "filled_purple_bar@ingame_hud.filled_boss_bar": {
+    "$uv": [0, 55],
+    "$uv512": [0, 110], "$uv1024": [0, 220],
+    "$uv2048": [0, 440], "$uv4096": [0, 880]
+  },
+
+  "filled_gray_bar@ingame_hud.filled_boss_bar": {
+    "$uv": [0, 65],
+    "$uv512": [0, 130], "$uv1024": [0, 260],
+    "$uv2048": [0, 520], "$uv4096": [0, 1040]
+  },
+
+  "empty_progress_bar": {
+    "type": "panel",
+    "size": [182, 5]
+  },
+
+  "filled_progress_bar@ingame_hud.empty_progress_bar": {},
+
+  "empty_notched_6_bar@ingame_hud.empty_notched_bar": {
+    "$uv": [0, 80],
+    "variables": [
+      { "requires": "($bars_res = 512x)", "$uv": [0, 160] },
+      { "requires": "($bars_res = 1024x)", "$uv": [0, 320] },
+      { "requires": "($bars_res = 2048x)", "$uv": [0, 640] },
+      { "requires": "($bars_res = 4096x)", "$uv": [0, 1280] }
+    ]
+  },
+
+  "filled_notched_6_bar@ingame_hud.filled_notched_bar": {
+    "$uv": [0, 85],
+    "variables": [
+      { "requires": "($bars_res = 512x)", "$uv": [0, 170] },
+      { "requires": "($bars_res = 1024x)", "$uv": [0, 340] },
+      { "requires": "($bars_res = 2048x)", "$uv": [0, 680] },
+      { "requires": "($bars_res = 4096x)", "$uv": [0, 1360] }
+    ]
+  },
+
+  "empty_notched_10_bar@ingame_hud.empty_notched_bar": {
+    "$uv": [0, 90],
+    "variables": [
+      { "requires": "($bars_res = 512x)", "$uv": [0, 180] },
+      { "requires": "($bars_res = 1024x)", "$uv": [0, 360] },
+      { "requires": "($bars_res = 2048x)", "$uv": [0, 720] },
+      { "requires": "($bars_res = 4096x)", "$uv": [0, 1440] }
+    ]
+  },
+
+  "filled_notched_10_bar@ingame_hud.filled_notched_bar": {
+    "$uv": [0, 95],
+    "variables": [
+      { "requires": "($bars_res = 512x)", "$uv": [0, 190] },
+      { "requires": "($bars_res = 1024x)", "$uv": [0, 380] },
+      { "requires": "($bars_res = 2048x)", "$uv": [0, 760] },
+      { "requires": "($bars_res = 4096x)", "$uv": [0, 1520] }
+    ]
+  },
+
+  "empty_notched_12_bar@ingame_hud.empty_notched_bar": {
+    "$uv": [0, 100],
+    "variables": [
+      { "requires": "($bars_res = 512x)", "$uv": [0, 200] },
+      { "requires": "($bars_res = 1024x)", "$uv": [0, 400] },
+      { "requires": "($bars_res = 2048x)", "$uv": [0, 800] },
+      { "requires": "($bars_res = 4096x)", "$uv": [0, 1600] }
+    ]
+  },
+
+  "filled_notched_12_bar@ingame_hud.filled_notched_bar": {
+    "$uv": [0, 105],
+    "variables": [
+      { "requires": "($bars_res = 512x)", "$uv": [0, 210] },
+      { "requires": "($bars_res = 1024x)", "$uv": [0, 420] },
+      { "requires": "($bars_res = 2048x)", "$uv": [0, 840] },
+      { "requires": "($bars_res = 4096x)", "$uv": [0, 1680] }
+    ]
+  },
+
+  "empty_notched_20_bar@ingame_hud.empty_notched_bar": {
+    "$uv": [0, 110],
+    "variables": [
+      { "requires": "($bars_res = 512x)", "$uv": [0, 220] },
+      { "requires": "($bars_res = 1024x)", "$uv": [0, 440] },
+      { "requires": "($bars_res = 2048x)", "$uv": [0, 880] },
+      { "requires": "($bars_res = 4096x)", "$uv": [0, 1760] }
+    ]
+  },
+
+  "filled_notched_20_bar@ingame_hud.filled_notched_bar": {
+    "$uv": [0, 115],
+    "variables": [
+      { "requires": "($bars_res = 512x)", "$uv": [0, 230] },
+      { "requires": "($bars_res = 1024x)", "$uv": [0, 460] },
+      { "requires": "($bars_res = 2048x)", "$uv": [0, 920] },
+      { "requires": "($bars_res = 4096x)", "$uv": [0, 1840] }
+    ]
+  }
 }

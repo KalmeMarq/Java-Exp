@@ -44,24 +44,10 @@
     ]
   },
 
-  "title@screen_jexp.title": {
+  "title@screen_jexp.title_with_tts": {
     "size": ["100%", "default"],
-    "text_alignment": "center",
-    "anchor_to": "center",
-    "anchor_from": "center",
-    "text": "$chalkboard_name",
-    "property_bag": { "#tts_dialog_title": "$chalkboard_name" },
-    "bindings": [
-      { "binding_type": "none",
-        "binding_condition": "none",
-        "binding_name": "$chalkboard_name",
-        "binding_name_override": "$chalkboard_name"
-      },
-      { "binding_type": "global",
-        "binding_condition": "once",
-        "binding_name": "#tts_dialog_title"
-      }
-    ]
+    "offset": ["50% - 50%x", 0],
+    "$text_nm": "$chalkboard_name"
   },
 
   "middle_content": {

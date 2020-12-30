@@ -69,11 +69,8 @@
   "play_button@button_jexp.button": {
     "$prsd_btn_nm": "button.play_button",
     "$btn_text": "menu.play",
-    "bindings": [
-      { "binding_name": "#play_button_enabled",
-        "binding_name_override": "#enabled"
-      }
-    ]
+    "bindings": "$ena_bdg_nm_tplt",
+    "$bdg_nm": "#play_button_enabled"
   },
 
   "delete_button@button_jexp.button": {
@@ -84,10 +81,7 @@
   "save_button@button_jexp.button": {
     "$prsd_btn_nm": "button.save_button",
     "$btn_text": "addServer.add",
-    "bindings": [
-      { "binding_name": "#save_button_enabled",
-        "binding_name_override": "#enabled"
-      }
-    ]
+    "bindings": "$ena_bdg_nm_tplt",
+    "$bdg_nm": "#save_button_enabled"
   }
 }

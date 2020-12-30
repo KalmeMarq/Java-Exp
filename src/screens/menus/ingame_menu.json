@@ -40,13 +40,8 @@
       { "title@screen_jexp.title": { "text": "menu.game", "offset": ["50% - 50%x", 40] } },
       { "menu@ingame_menu_jexp.menu_panel": {} }
     ],
-    "bindings": [
-      { "binding_type": "view",
-        "source_control_name": "players_scrn",
-        "source_property_name": "(not #visible)",
-        "target_property_name": "#visible"
-      }
-    ]
+    "bindings": "$scrn_nvis_bdg_tplt",
+    "$nvis_ctrl_nm": "players_scrn"
   },
 
   "menu_panel": {
@@ -149,11 +144,8 @@
       },
       { "gamepad_skins@ingame_menu_jexp.gamepad_skins": {} }
     ],
-    "bindings": [
-      { "binding_name": "(not #persona_enabled)",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "bindings": "$vis_bdg_nm_tplt",
+    "$bdg_nm": "(not #persona_enabled)"
   },
 
   "profile_button": {
@@ -197,11 +189,8 @@
               }
             }
           ],
-          "bindings": [
-            { "binding_name": "#can_change_skin",
-              "binding_name_override": "#visible"
-            }
-          ]
+          "bindings": "$vis_bdg_nm_tplt",
+          "$bdg_nm": "#can_change_skin"
         }
       }
     ],

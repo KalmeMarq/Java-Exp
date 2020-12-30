@@ -229,7 +229,7 @@
     ]
   },
 
-  "focus_border_button@button_jexp.base_button": {
+  "focus_border_button@button_jexp.button_base": {
     "size": [220, "100%"],
     "sound_volume": 0.0,
     "$prsd_btn_nm": "button.pause_focus_filler",

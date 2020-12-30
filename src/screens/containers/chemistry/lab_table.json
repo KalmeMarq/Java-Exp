@@ -67,48 +67,33 @@
   /***********************************
   * Textures
   ***********************************/
-  "base_txr@screen_jexp.res_txr": { "texture": "src/assets/container/lab_table" },
+  "base_txr@screen_jexp.new_res_txr": { "$res_nm": "$lab_table_res", "texture": "src/assets/container/lab_table" },
 
   "lab_table_bg@base_txr": {
     "size": [176, 194],
     "$uv_sz": [176, 194],
-    "variables": [
-      { "requires": "($lab_table_res = 512x)", "$uv_sz": [352, 388] },
-      { "requires": "($lab_table_res = 1024x)", "$uv_sz": [704, 776] },
-      { "requires": "($lab_table_res = 2048x)", "$uv_sz": [1408, 1552] },
-      { "requires": "($lab_table_res = 4096x)", "$uv_sz": [2816, 3104] }
-    ]
+    "$uv_sz512": [352, 388], "$uv_sz1024": [704, 776],
+    "$uv_sz2048": [1408, 1552], "$uv_sz4096": [2816, 3104]
   },
 
   "lab_btn_dflt@base_txr": {
     "size": [86, 16],
-    "$uv": [0, 196],
-    "$uv_sz": [86, 16],
-    "variables": [
-      { "requires": "($lab_table_res = 512x)", "$uv": [0, 392], "$uv_sz": [172, 32] },
-      { "requires": "($lab_table_res = 1024x)", "$uv": [0, 784], "$uv_sz": [344, 64] },
-      { "requires": "($lab_table_res = 2048x)", "$uv": [0, 1568], "$uv_sz": [688, 128] },
-      { "requires": "($lab_table_res = 4096x)", "$uv": [0, 3136], "$uv_sz": [1376, 256] }
-    ]
+    "$uv": [0, 196], "$uv_sz": [86, 16],
+    "$uv512": [0, 392], "$uv_sz512": [172, 32],
+    "$uv1024": [0, 784], "$uv_sz1024": [344, 64],
+    "$uv2048": [0, 1568], "$uv_sz2048": [688, 128],
+    "$uv4096": [0, 3136], "$uv_sz4096": [1376, 256]
   },
 
   "lab_btn_hov@lab_table_jexp.lab_btn_dflt": {
     "$uv": [0, 215],
-    "variables": [
-      { "requires": "($lab_table_res = 512x)", "$uv": [0, 430], "$uv_sz": [172, 32] },
-      { "requires": "($lab_table_res = 1024x)", "$uv": [0, 860], "$uv_sz": [344, 64] },
-      { "requires": "($lab_table_res = 2048x)", "$uv": [0, 1720], "$uv_sz": [688, 128] },
-      { "requires": "($lab_table_res = 4096x)", "$uv": [0, 3440], "$uv_sz": [1376, 256] }
-    ]
+    "$uv512": [0, 430], "$uv1024": [0, 860],
+    "$uv2048": [0, 1720], "$uv4096": [0, 3440]
   },
 
   "lab_btn_lkd@lab_table_jexp.lab_btn_dflt": {
     "$uv": [0, 234],
-    "variables": [
-      { "requires": "($lab_table_res = 512x)", "$uv": [0, 468], "$uv_sz": [172, 32] },
-      { "requires": "($lab_table_res = 1024x)", "$uv": [0, 936], "$uv_sz": [344, 64] },
-      { "requires": "($lab_table_res = 2048x)", "$uv": [0, 1872], "$uv_sz": [688, 128] },
-      { "requires": "($lab_table_res = 4096x)", "$uv": [0, 3744], "$uv_sz": [1376, 256] }
-    ]
+    "$uv512": [0, 468], "$uv1024": [0, 936],
+    "$uv2048": [0, 1872], "$uv4096": [0, 3744]
   }
 }

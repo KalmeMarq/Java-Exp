@@ -184,9 +184,21 @@
       "target_property_name": "#visible"
     }
   ],
+  "$scrn_nvis_bdg_tplt": [
+    { "binding_type": "view",
+      "source_control_name": "$nvis_ctrl_nm",
+      "source_property_name": "(not #visible)",
+      "target_property_name": "#visible"
+    }
+  ],
   "$vis_bdg_nm_tplt": [
     { "binding_name": "$bdg_nm",
       "binding_name_override": "#visible"
+    }
+  ],
+  "$ena_bdg_nm_tplt": [
+    { "binding_name": "$bdg_nm",
+      "binding_name_override": "#enabled"
     }
   ]
 }
